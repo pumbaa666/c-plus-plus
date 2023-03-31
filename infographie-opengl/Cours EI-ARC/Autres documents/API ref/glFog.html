@@ -1,0 +1,160 @@
+<HEAD>
+<TITLE>glFog.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glFog.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogf</A>, <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogi</A>, <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogfv</A>, <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogiv</A> - specify fog parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogf</A>( GLenum <I>pname</I>,
+	       GLfloat <I>param</I> )
+  void <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogi</A>( GLenum <I>pname</I>,
+	       GLint <I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>	  Specifies a single-valued fog	parameter.  GL_FOG_MODE,
+	  GL_FOG_DENSITY, GL_FOG_START,	GL_FOG_END, and	GL_FOG_INDEX are
+	  accepted.
+
+  <I>param</I>	  Specifies the	value that <I>pname</I> will be set to.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogfv</A>(	GLenum <I>pname</I>,
+		const GLfloat *<I>params</I> )
+  void <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFogiv</A>(	GLenum <I>pname</I>,
+		const GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>
+       Specifies a fog parameter.  GL_FOG_MODE,	GL_FOG_DENSITY,	GL_FOG_START,
+       GL_FOG_END, GL_FOG_INDEX, and GL_FOG_COLOR are accepted.
+
+  <I>params</I>
+       Specifies the value or values to	be assigned to <I>pname</I>.  GL_FOG_COLOR
+       requires	an array of four values.  All other parameters accept an
+       array containing	only a single value.
+
+</PRE><H2>Description</H2><PRE>
+  Fog is enabled and disabled with <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and	<A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> using	the argument
+  GL_FOG.  While enabled, fog affects rasterized geometry, bitmaps, and	pixel
+  blocks, but not buffer clear operations.
+
+  <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>	assigns	the value or values in <I>params</I> to the fog parameter specified
+  by <I>pname</I>.  The accepted values for <I>pname</I> are as follows:
+
+  GL_FOG_MODE	      <I>params</I> is	a single integer or floating-point value that
+		      specifies	the equation to	be used	to compute the fog
+		      blend factor, f.	Three symbolic constants are
+		      accepted:	GL_LINEAR, GL_EXP, and GL_EXP2.	 The
+		      equations	corresponding to these symbolic	constants are
+		      defined below.  The default fog mode is GL_EXP.
+
+  GL_FOG_DENSITY      <I>params</I> is	a single integer or floating-point value that
+		      specifies	density, the fog density used in both
+		      exponential fog equations.  Only nonnegative densities
+		      are accepted.  The default fog density is	1.0.
+
+  GL_FOG_START	      <I>params</I> is	a single integer or floating-point value that
+		      specifies	start, the near	distance used in the linear
+		      fog equation.  The default near distance is 0.0.
+
+  GL_FOG_END	      <I>params</I> is	a single integer or floating-point value that
+		      specifies	end, the far distance used in the linear fog
+		      equation.	 The default far distance is 1.0.
+
+  GL_FOG_INDEX	      <I>params</I> is	a single integer or floating-point value that
+		      specifies	i , the	fog color index.  The default fog
+                                 f
+		      index is 0.0.
+
+  GL_FOG_COLOR	      <I>params</I> contains four integer or floating-point values
+		      that specify C , the fog color.  Integer values are
+                                    f
+		      mapped linearly such that	the most positive
+		      representable value maps to 1.0, and the most negative
+		      representable value maps to -1.0.	 Floating-point
+		      values are mapped	directly.  After conversion, all
+		      color components are clamped to the range	[0,1].	The
+		      default fog color	is (0,0,0,0).
+
+  Fog blends a fog color with each rasterized pixel fragment's posttexturing
+  color	using a	blending factor	f.  Factor f is	computed in one	of three
+  ways,	depending on the fog mode.  Let	z be the distance in eye coordinates
+  from the origin to the fragment being	fogged.	 The equation for GL_LINEAR
+  fog is
+
+			      end - z
+			f = -----------
+			    end	- start
+
+  The equation for GL_EXP fog is
+					     
+		             -(density · z)
+                        f = e
+
+
+  The equation for GL_EXP2 fog is
+
+                                           2
+			     -(density · z)
+		        f = e
+
+
+  Regardless of	the fog	mode, f	is clamped to the range	[0,1] after it is
+  computed.  Then, if the GL is	in RGBA	color mode, the	fragment's color Cr
+  is replaced by
+
+			       C' = fC +(1-f)C 
+                                r     r       f
+
+  In color index mode, the fragment's color index i  is	replaced by
+                                                   r
+
+			       i' = i +(1-f)i
+                                r    r       f
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>pname</I>	is not an accepted value, or if	<I>pname</I>
+  is GL_FOG_MODE and <I>params</I> is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if <I>pname</I> is GL_FOG_DENSITY and <I>params</I> is
+  negative.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A> is	called between a call to
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_FOG
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FOG_COLOR
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FOG_INDEX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FOG_DENSITY
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FOG_START
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FOG_END
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FOG_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1160575828 u:\3ème\infographie\exercices\série - 5\donneesserie-05\geometrie.cpp
+	<GL\glut.h>
+	<string.h>
+	"geometrie.h"
+	"global.h"
+
+1016999664 u:\3ème\infographie\exercices\série - 5\donneesserie-05\geometrie.h
+
+1160576051 u:\3ème\infographie\exercices\série - 5\donneesserie-05\global.h
+
+1160574313 u:\3ème\infographie\exercices\série - 5\donneesserie-05\geomglut.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"GeomGlut.h"
+
+1033021688 u:\3ème\infographie\exercices\série - 5\donneesserie-05\evenements.h
+
+1016904980 u:\3ème\infographie\exercices\série - 5\donneesserie-05\geomglut.h
+
+1160576039 u:\3ème\infographie\exercices\série - 5\donneesserie-05\global.cpp
+	<GL\glut.h>
+
+1160575516 u:\3ème\infographie\exercices\série - 5\donneesserie-05\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+	<iostream.h>
+
+1160644932 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\geometrie.cpp
+	<GL\glut.h>
+	<string.h>
+	"geometrie.h"
+	"global.h"
+
+1016999664 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\geometrie.h
+
+1160645080 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\global.h
+
+1160574313 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\geomglut.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"GeomGlut.h"
+
+1033021688 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\evenements.h
+
+1016904980 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\geomglut.h
+
+1160645075 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\global.cpp
+	<GL\glut.h>
+
+1160644451 u:\3ème\infographie\exercices\série 5 - changement de view\donneesserie-05\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+	<iostream.h>
+

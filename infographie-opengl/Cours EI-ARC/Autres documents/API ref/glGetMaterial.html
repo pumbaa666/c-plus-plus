@@ -1,0 +1,119 @@
+<HEAD>
+<TITLE>glGetMaterial.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetMaterial.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterialfv</A>, <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterialiv</A> - return material parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterialfv</A>(	GLenum <I>face</I>,
+			GLenum <I>pname</I>,
+			GLfloat	*<I>params</I>	)
+  void <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterialiv</A>(	GLenum <I>face</I>,
+			GLenum <I>pname</I>,
+			GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>face</I>	  Specifies which of the two materials is being	queried.  GL_FRONT or
+	  GL_BACK are accepted,	representing the front and back	materials,
+	  respectively.
+
+  <I>pname</I>	  Specifies the	material parameter to return.  GL_AMBIENT,
+	  GL_DIFFUSE, GL_SPECULAR, GL_EMISSION,	GL_SHININESS, and
+	  GL_COLOR_INDEXES are accepted.
+
+  <I>params</I>  Returns the requested	data.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterial</A>	returns	in <I>params</I> the value or values of parameter <I>pname</I> of
+  material <I>face</I>.  Six parameters are defined:
+
+  GL_AMBIENT	      <I>params</I> returns four integer or floating-point values
+		      representing the ambient reflectance of the material.
+		      Integer values, when requested, are linearly mapped
+		      from the internal	floating-point representation such
+		      that 1.0 maps to the most	positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_DIFFUSE	      <I>params</I> returns four integer or floating-point values
+		      representing the diffuse reflectance of the material.
+		      Integer values, when requested, are linearly mapped
+		      from the internal	floating-point representation such
+		      that 1.0 maps to the most	positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_SPECULAR	      <I>params</I> returns four integer or floating-point values
+		      representing the specular	reflectance of the material.
+		      Integer values, when requested, are linearly mapped
+		      from the internal	floating-point representation such
+		      that 1.0 maps to the most	positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_EMISSION	      <I>params</I> returns four integer or floating-point values
+		      representing the emitted light intensity of the
+		      material.	 Integer values, when requested, are linearly
+		      mapped from the internal floating-point representation
+		      such that	1.0 maps to the	most positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_SHININESS	      <I>params</I> returns one integer or floating-point value
+		      representing the specular	exponent of the	material.
+		      Integer values, when requested, are computed by
+		      rounding the internal floating-point value to the
+		      nearest integer value.
+
+  GL_COLOR_INDEXES    <I>params</I> returns three integer or floating-point values
+		      representing the ambient,	diffuse, and specular indices
+		      of the material.	These indices are used only for	color
+		      index lighting.  (The other parameters are all used
+		      only for RGBA lighting.) Integer values, when
+		      requested, are computed by rounding the internal
+		      floating-point values to the nearest integer values.
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, no change is made to the contents of <I>params</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>face</I> or <I>pname</I>	is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterial</A> is	called between a call
+  to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call	to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

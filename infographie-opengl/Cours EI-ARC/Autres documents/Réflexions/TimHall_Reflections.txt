@@ -1,0 +1,602 @@
+Newsgroups: comp.graphics.api.opengl
+From: tjh@world.std.com (Tim Hall)
+Subject: A how to for using OpenGL to render mirrors
+Message-ID: <DvFtGD.Evv@world.std.com>
+Date: Thu, 1 Aug 1996 02:26:36 GMT
+
+
+Contents
+--------
+
+Introduction
+Section 1: Transformations in OpenGL
+Section 2: Matrix Construction for Reflections
+	Backface Culling
+	Clipping
+	Z-Buffer State
+Section 3: Creating an Image Mask
+Section 4: Compositing the mirror into the scene
+
+
+Introduction
+------------
+
+	There has not been much discussion on how to use hardware graphics, 
+and OpenGL in particular, to render a scene that contains a mirror.  There
+are certainly demos that use this effect.  One was featured at the SGI booth
+at SIGGRAPH '95 and 3DFX (PC game board company) has a demo that uses a
+mirror effect.  The soon to be released game "SuperMario64" with the soon
+to be released "Nintendo64" uses a room with a mirror in it to help
+solve a puzzle.  Nate Robins has put up some pictures on his web page
+(www.cs.utah.edu/~narobins/opengl.html) in which he used OpenGL to 
+create images with reflections in them.
+
+	To address the problem of little to no information on how to
+implement mirrors, this posting discusses an implementation of mirrors.
+This is just one solution, it is by no means the most optimal.  The algorithm 
+covers creating mirrors that are restricted to being 2-D but can have any 
+2-D shape and can exist anywhere with any orientation within a 3-D scene.  
+The algorithm tries to be fairly general and should be tuned for a specific 
+applicaions.  Some obvious areas for tuning are pointed out.  Comments,
+criticisms and enhancements are encouraged.  (tjh@world.std.com)  A
+demo of the application discussed here should be made available via
+anon ftp in ~3 weeks.
+
+	The first section covers basic computer graphics concepts.  It's
+main use is to define the terminology that is used later on.  If you want
+to get to the 'meat' skip this section.  Most basic computer graphics texts
+go over matrix transformation.  The most popular text is "Computer Graphics:
+Prinicples and Practice" by Foley, vanDam etal.  For a more in depth
+discussion of transformations and coordinate spaces I'd suggest "Robot 
+Manipulations: Mathematics, Programming, and Control" by Richard P. Paul 
+(MIT Press).
+
+Section 1: Transformations in OpenGL
+------------------------------------
+
+        In order to create mirrors in a scene it is necessary to understand
+the transformations and different spaces a model goes through before it is
+rendered to the screen.  The following gives a brief description of these
+transformations and introduces common computer graphics terminology that will
+be used throughout the remainder of this discussion.
+
+        OpenGL uses two matrices, 'projection' and 'modelview', to 
+transform a point before it is rendered to the screen.  The projection matrix
+describes how a point is taken from a 3-D world and placed on a 2-D screen.
+The 'modelview' matrix is actually two matrices in one.  The first matrix
+is the viewing matrix and is determined from where in the 3-D world the viewer
+is and where the viewer is looking.  The second matrix is the model matrix and
+takes a model's original points and places them into the 3-D world.  The
+model and viewing matrices can be combined without any visual artifacts showing
+in the final image.  In fact all three matrices can be combined without any
+visual problems if 'lighting' is not used.  Once the use of lights is 
+introduced, the projection matrix must be kept separate from the modelview
+matrix.
+
+        Conceptually, the sequence of transformations a model goes through are:
+
+        1. Model Space.  No transformation has been applied and the all of 
+           models' points are in their original state.
+
+        2. World Space.  The model transformation is applied to the model 
+           which places it into the 3-D world.
+
+        3. Eye Space.  The viewing transformation is applied to the points in 
+           world space positioning them relative to the viewer.
+
+        4. Screen Space.  The projection is applied and takes the points from 
+           eye space and puts them into the 2-D screen.
+
+	Modeling transformations, in OpenGL, are specified in order from the
+most global to the most local.  For example, most scenes are comprised of a 
+hierarchy of objects.  The first transformation specified would be from
+the root node of the hierarchy followed by the transfomations in the order 
+they are encountered as the hierarchy is traversed.
+
+	An OpenGL application might do the following:
+
+        // A models' points on this side of the projection are in 2-D screen 
+        // space.
+
+        // Define the projection.  First it is necessary to tell OpenGL that
+        // the projection matrix is going to be modified.  The projection can 
+        // then be defined. This is usually done with either glOrtho or 
+        // glFrustum.  Remember that the points on the other side of this 
+        // transformation are in eye space.  This should be kept in mind
+	// when determining values passed to these functions.
+
+        // Tell OpenGL to modify the projection matrix
+        glMatrixMode( GL_PROJECTION );  
+
+        // Specify the projection
+        glOrtho( left, right, bottom, top, near, far );
+                        or
+        glFrustum( left, right, bottom, top, near, far );
+
+
+        // A models' points at this point are in eye space.
+
+        // Inform OpenGL that the modelview matrix is going to be modified
+	// ans load the viewing transformation.  From this point on only 
+	// the model view matrix will be modified.
+
+        // The modelview matrix is now being used.
+        glMatrixMode( GL_MODELVIEW );
+
+        // Load the viewing transformation.
+        glLoadMatrixf( viewingMatrix );
+
+
+        // A models' points at this point are in world space.
+
+        // Combine the transformation that takes the models' original points
+        // and puts them into the 3-D world.  To 'combine' two transformations
+        // they are multiplied together.
+
+        glMultMatrixf( modelMatrix );
+
+        // At this point the model's points are in their original state.
+	// (model space)
+
+        It should be noted that once the model and viewing transformations 
+have been combined it is difficult to undo that combination.  Typically there
+are many models within a scene.  However it should not be necessary to define
+the viewing transformation for every model.  For that reason OpenGL provides a 
+mechanism for saving and restoring matrices.  A simple application might look 
+like:
+
+        // Tell OpenGL to modify the projection matrix.
+        glMatrixMode( GL_PROJECTION );  
+
+        // Define the projection matrix.
+        glOrtho( left, right, top, bottom, near, far );
+
+        // Tell OpenGL to modify the modelview matrix.
+        glMatrixMode( GL_MODELVIEW );
+
+        // Load the viewing transformation.     
+        glLoadMatrixf( viewingMatrix );
+
+        // Loop over all of the models.  For each model save the viewing 
+        // matrix and then apply the model matrix.  Draw the model and then
+        // restore the original viewing matrix.
+
+        for( model = firstModel; model != NULL; model = nextModel ) {
+
+                // Save the viewing transformation
+                glPushMatrix( );
+
+                // Combine the models' model transformation with the viewing
+                // transformation.
+                glMultMatrixf( model->modelMatrix );
+
+                // Now draw the model.
+                DrawModel( model );
+
+                // Restore the original viewing transformation.
+                glPopMatrix( );
+
+        }
+
+
+        It is possible to save many matrices on a stack.  This makes it
+possible for applications to define models relative to each other in a
+hierarchical manner and then render them in an efficient way.
+
+        The concept of the different spaces, model, world, eye and space, are
+critical to most computer graphics applications.  Creating mirrors in a
+scene is no different.
+        
+
+Section 2: Matrix Construction for Reflections
+----------------------------------------------
+
+        A simple example of using reflections is to reflect the scene in the
+floor of a 'walk through' (i.e. Doom) application.  In this type of application
+it is reasonable to assume that the floor lies in the Z = 0 plane and that the
+remainder of the scene lies above (+Z direction) the floor.  To get a 
+the reflection in the floor it is necessary to render the scene as if it
+was below (-Z direction) the floor.  To do this the models' Z coordinates
+in world space need to be negated.  Note that this is in world space and
+is independent of the projection and where the viewer is located.
+
+The matrix to negate the models' Z coordinates is:
+
+
+                                | 1  0  0  0 |
+                                | 0  1  0  0 |
+        reflectionMatrix   =    | 0  0 -1  0 |
+                                | 0  0  0  1 |
+
+
+        From the previous example the reflection matrix would be used as:
+
+
+        glMatrixMode( GL_PROJECTION );  // Change projection matrix
+        glOrtho( left, right, top, bottom, near, far );  // Define projection
+
+        glMatrixMode( GL_MODELVIEW );   // Change modelview matrix
+        glLoadMatrixf( viewingMatrix ); // Load viewing matrix
+
+        // At this point combine in the reflection matrix.
+        glMultMatrixf( reflectionMatrix );
+
+        // Render all of the models
+
+        for( model = firstModel; model != NULL; model = model->nextModel ) {
+
+                glPushMatrix( ); // Save the viewing/reflection transformation
+                glMultMatrixf( model->modelMatrix );  // Model transform
+                DrawModel( model ); // Now draw the model.
+                glPopMatrix( ); // Restore the original transformation.
+
+        }
+
+        This would draw the scene reflected about the floor.  In order to 
+complete the scene it would then have to be completely redrawn without use
+of the reflection matrix.  Note that when rendering a shaded image the floor
+cannot be rendered because it would cover up the previously rendered 
+reflection.  How to overcome this problem will be discussed later.
+
+        It is relatively straight forward to render a scene with reflections
+in the floor.  What if the mirror is placed and oriented arbitrarily in
+the world?  This complicates the construction of the reflection matrix.
+Conceptually the steps to construct this reflection matrix are:
+
+1. The mirror and object in world coordinates
+
+                | <- Mirror     
+                |
+                |
+                |
+                |
+                |
+                |       @
+                |       ^Object
+                |
+
+
+
+2. Transform into mirror space, so the mirror lies in the X-Y plane and passes
+   through the origin.  This is the inverse of the mirror's transformation 
+   matrix.
+
+
+
+
+
+        __________________________
+
+
+
+
+            @
+
+
+
+3. Now reflect about the Z-axis.  ie scale by x = 1.0, y = 1.0, z = -1.0
+
+
+            @
+
+
+        __________________________
+
+
+
+
+
+4. Finally transform back to the mirrors original position.  This is the 
+   mirror's original transformation matrix.
+
+                |
+                |
+                |
+                |
+                |
+                |
+        @       |
+                |
+                |
+
+The position of the object is now reflected about the plane of the mirror.
+
+        In a more direct form three matrices are needed.
+
+        MirrorT   -   The transformation that maps the mirror into world
+                      space.
+
+        MirrorT'  -  The inverse of MirrorT.  This maps from world space to
+                     mirror space.
+
+        ScaleZ    -  A scale matrix with a scale of -1.0 in z.
+
+        reflectionMatrix = MirrorT * ScaleZ * MirrorT'
+
+        (Note: This assumes vertices are represented as column vectors.  If
+        the application uses row vectors the order of the matrix multiplies
+        will have to be reversed.)
+
+        The reflection matrix can be used in the same manner as the previous
+example.
+
+Backface Culling
+----------------
+
+        There is a problem with the reflection matrix regarding the
+rendering of shaded images.  Most applications use culling to remove 
+backfacing polygons.  This is done by checking to see if the winding of the 
+polygon is clockwise or counterclockwise in screen space.  Most applications
+define clockwise polygons to be backfacing and have OpenGL cull these
+polygons out.  The reflection matrix is a 'left handed' matrix.  This has
+the effect of reversing the winding of the polygons in screen space.  In
+order to counteract this it is necessary to call:
+
+        glFrontFace( GL_CW );
+
+        This informs OpenGL that front facing polygons will be clockwise.
+After the reflected scene has finished rendering and before rendering the
+scene normally this should be reset with:
+
+        glFrontFace( GL_CCW );
+
+Clipping
+--------
+
+        In the first example in which the mirror is the floor of the room
+all objects are to one side of the mirror.  If the mirror is allowed to
+have any position and orientation within the room then some objects will be
+behind the mirror.  This is a problem when rendering the reflected scene
+because the objects behind the mirror will appear in front of the mirror.
+It is possible to eliminate this problem by using the OpenGL arbitrary
+clipping planes.  An arbitrary clipping plane in OpenGL is defined as
+follows:
+
+        glEnable( GL_CLIP_PLANE0 );  // Turn on the clipping plane
+        glClipPlane( GL_CLIP_PLANE0, planeEqn );  // Define the clipping plane
+
+        When defining the clipping plane it is transformed by the modelview
+matrix so the plane exists in eye space.  Given that the mirror lies in the
+Z=0 plane its plane equation is:
+
+        GLdouble planeEqn[4] = { 0.0, 0.0, 1.0, 0.0 };
+
+        In order to apply this clipping plane correctly the modelview matrix
+must be seup as if the mirror were being rendered.  This process can be done
+as follows:
+
+        glMatrixMode( GL_MODELVIEW );  // Modify the modelview matrix
+        glLoadMatrix( viewingMatrix ); // Load the viewing transformation
+        glMultMatrixf( modelMatrix );  // The mirror's transform
+        glEnable( GL_CLIP_PLANE0 );    // Enable clipping
+        glClipPlane( GL_CLIP_PLANE0, planeEqn );  // Define the plane equation
+
+        This definition works if the mirror is reflective only on one side
+such as the first example of the floor or a mirror hanging on a wall.  If
+the mirror is to be two sided then the plane equation must be defined so that 
+objects on the side of the mirror containing the viewpoint are clipped out.
+
+        Conceptually the first three values of the plane equation is a vector
+that is perpendicular to the plane that it is defining.  To get the plane
+equation in world space it is relatively easy to determine these values.  
+
+If the mirrors' transformation to world space is defined as:
+
+                                | r11 r12 r13  tx |
+                                | r21 r22 r23  ty |
+        mirrorTransform   =     | r31 r32 r33  tz |
+                                |   0   0   0   1 |
+
+
+Then the first 3 values of the plane equation are: r13, r23, r33.
+
+The fourth value is defined as -( tx * r13 + ty * r23 + tz * r33 ).
+
+        The viewpoint should be on the negative side of the plane equation.
+That is if the viewpoint is plugged into the plane equation the result
+should be negative.  If the result is not negative then the plane equation
+needs to be negated.
+
+        float vx, vy, vz;  // View position in world coordinates
+
+        val = vx * planeEqn[0] + vy * planeEqn[1] + vz * planeEqn[2] +
+                                                                 planeEqn[3] 
+        if ( val > 0.0 )
+                for ( int i = 0; i < 4; i++ )
+                        planeEqn[ i ] *= -1.0;
+
+Z-Buffer State
+--------------
+
+        Another problem of having objects on either side of the mirror is
+the state of the Z-Buffer.  After rendering the reflected scene it is still
+necessary to render the scene as it would appear normally.  However, objects 
+that are normally behind the mirror should not appear.  To remove these objects
+after the reflected scene is rendered render the mirror into the Z-buffer.
+In this manner other objects behind the mirror will be removed.  The steps
+are:
+
+        1. Render the reflected scene.
+        2. Setup the modelview matrix normally so that the reflection 
+           transformation is removed.
+        3. Add the mirrors' transformation.
+        4. Mask out rendering to the color planes so the mirror doesn't 
+           obscure what's being reflected in it.
+                glColorMask( 0, 0, 0, 0 );
+        5. Render the mirror.
+        6. Enable rendering to the color planes.
+                glColorMask( 1, 1, 1, 1 );
+        7. Render the scene normally.
+
+
+Section 3: Creating an Image Mask
+---------------------------------
+
+        In the first example of the reflecting floor, the scene was 
+rendered using the entire floor as a reflecting surface.  What if only part of 
+the floor should be reflecting?  By using an image mask it is possible to have 
+a mirror of any 2-D shape so long as it can be properly rendered by OpenGL.  
+An image mask is a way to mask the image that OpenGL is rendering to so that 
+only a specified part of the image can change.  Most commonly this is done 
+using the OpenGL stencil planes.  The area the mirror covers the screen is
+rendered to the stencil plane.  Then while drawing, the reflected scene 
+should only show up in the area where the mirror appears on the screen.
+The following steps are used to do this:
+
+        1. Enable stenciling
+                glEnable( GL_STENCIL_TEST );
+
+        2. Clear the stencil plane so that it is filled with 0's.
+
+                // Use 0's to fill the stencil buffer when cleared
+                glClearStencil( 0 );  
+
+                // Clear the stencil buffer
+                glClear( GL_STENCIL_BUFFER_BIT );
+
+        3. When drawing fill the stencil buffer with 1's and never fill the
+           color buffer or Z-buffer.
+
+                glStencilFunc( GL_NEVER, 1, 1 );
+                glStencilOp( GL_REPLACE, GL_REPLACE, GL_REPLACE );
+
+        4. Render the mirror normally.
+
+                a. Setup the projection
+                b. Setup the viewing transform
+                c. Combine the mirror's transform
+                d. Draw the mirror
+
+        5. Setup the stencil buffer so that only those areas of the stencil
+           buffer that have a 1 in them are drawn to.  Also setup the stencil
+           buffer so that is will not be modified by the new drawing.
+
+                glStencilFunc( GL_EQUAL, 1, 1 );
+                glStencilOp( GL_KEEP, GL_KEEP, GL_KEEP );
+
+        6. Render the reflected scene.
+
+        7. Turn off use of the stencil buffer.
+                glDisable( GL_STENCIL_TEST );
+
+        8. Render the mirror normally so it fills the Z-buffer.
+
+        9. Render the scene normally.
+
+        Some applications choose not to use the stencil planes for various
+reasons.  One being that some machines have hardware support for z-buffering 
+but fall back to software rendering when using stenciling.  If this is the 
+case the Z-buffer can be used as an image mask.  To do this first clear the 
+Z-buffer so that it is filled with the 'closest' values.  The mirror is then 
+rendered into the Z-buffer such that the area it covers sets the Z-buffer 
+depth to be the furthest value.  The old SGI GL had a function 'zdraw' that 
+made doing this very easy.  However there is no analagous function in OpenGL,
+but things are only slightly more complicated.  In OpenGL, after applying the
+modelview and projection transformations, z values between the near and far 
+clipping planes are mapped into the range -1.0 to 1.0 where 1.0 corresponds
+to the far clipping plane.  What is needed is a transformation that forces 
+all of the resulting z values to be 1.0.  The matrix to do this is:
+
+
+                                |  1.0  0.0  0.0  0.0  |
+                                |  0.0  1.0  0.0  0.0  |
+        float *matrixMaxZ   =   |  0.0  0.0  0.0  1.0  |
+                                |  0.0  0.0  0.0  1.0  |
+
+        The steps to render the mirror to the Z-buffer are:
+
+        1. Clear the Z-buffer to the closest value
+
+                // Set the clear value to be the 'closest'
+                glClearDepth( 0.0 );  
+
+                // Actually clear the Z-buffer with 0's
+                glClear( GL_DEPTH_BUFFER_BIT ); 
+        
+                //Reset the clear depth
+                glClearDepth( 1.0 );
+
+        2. Modify the projection matrix
+                glMatrixMode( GL_PROJECTION );
+
+        3. Load the matrix to map z values to 1.0
+                glLoadMatrixf( matrixMaxZ );
+
+        4. Now multipy onto the projection matrix whatever projection is
+           normally used.
+                glOrtho( left, right, bottom, top, near, far );
+
+        5. Modify the modelview matrix.
+                glMatrixMode( GL_MODELVIEW );
+
+        6. Setup the modelview matrix as you normally would to render the 
+           mirror.
+
+        7. The Z-buffer has been cleared to the nearest value, normally 
+           anything that is drawn will be clipped out.  Therefore it is 
+           necessary to set the depth function to allow drawing.
+
+                // Render objects that are farther away than the Z-buffer
+                // values.
+                glDepthFunc( GL_GREATER ).
+
+        8. It is only necessary to render to the Z-buffer.  The color planes
+           can remain unchanged.
+
+                // Turn of drawing to the color planes.
+                glColorMask( 0, 0, 0, 0 ).
+
+        9. Render the mirror.  The modelview matrix is set up normally.
+
+        10. Undo steps 7 and 8 with: 
+                glDepthFunc( GL_LESS );
+                glColorMask( 1, 1, 1, 1 );
+
+        11. Reset the projection matrix so that it contains a normal 
+            projection.  (i.e. remove the matrixMaxZ transformation.)
+
+        12. Render the reflected scene.
+
+        13. Render the mirror to fill the Z-buffer.
+
+        14. Render the scene normally.
+
+
+Section 4: Compositing the mirror into the scene
+------------------------------------------------
+
+        Up to this point mirror reflections can be rendered into the mirror
+but the mirror itself cannot have any surface properties.  This does not have
+to be the case.  As previously described between rendering the reflected
+scene and rendering the scene normally the mirror is rendered into the 
+Z-buffer and rendering of the mirror into the color buffer is inhibited.
+Instead of inhibiting rendering of the mirror to the color buffer it 
+can be composited into the reflected image using alpha blending.  The
+simplest way to do this is to setup OpenGL to simply add in the mirror.  
+
+        // Turn on blending
+        glEnable( GL_BLEND );
+
+        // Simply combine what is to be rendered with what's already in
+        // the color buffers.
+        glBlendFunc( GL_ONE, GL_ONE );
+
+        Applications should experiment with how the mirror is blended into the 
+scene and what material properties the mirror should have to get the best
+visual effects.  A simple guide when simply adding in the mirror, as above,
+is to have little to no emission, ambient and diffuse color.  The 
+shininess component should be relatively large.
+
+        A little creativity can produce some nice visual effects.  Applying
+a marble texture to the mirror can enhance it's polished appearance.  Using
+the alpha channel and texturing it is possible to vary the amount of reflection
+across the surface of the mirror.  When using an environment map on a mirror
+it reflect's the geometry in the scene and the background provided by the
+environment map with the entire effect changing along with the view.
+-- 
+
+-Tim Hall (tjh@world.std.com)
+As an intellectual vibration, smack dab in the middle of the spectrum,
+Green can be a problem.  -Ken Nordine
+
+

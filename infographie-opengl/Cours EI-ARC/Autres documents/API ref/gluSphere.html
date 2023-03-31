@@ -1,0 +1,68 @@
+<HEAD>
+<TITLE>gluSphere.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluSphere.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluSphere.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluSphere.html">gluSphere</A> - draw a sphere
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluSphere.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluSphere.html">gluSphere</A>( GLUquadricObj	*<I>qobj</I>,
+		  GLdouble <I>radius</I>,
+		  GLint	<I>slices</I>,
+		  GLint	<I>stacks</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>	  Specifies the	quadrics object	(created with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>radius</I>  Specifies the	radius of the sphere.
+
+  <I>slices</I>  Specifies the	number of subdivisions around the <I>z</I> axis (similar to
+	  lines	of longitude).
+
+  <I>stacks</I>  Specifies the	number of subdivisions along the <I>z</I> axis	(similar to
+	  lines	of latitude).
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluSphere.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluSphere.html">gluSphere</A> draws a sphere of the given	radius centered	around the origin.
+  The sphere is	subdivided around the <I>z</I>	axis into slices and along the <I>z</I> axis
+  into stacks (similar to lines	of longitude and latitude).
+
+  If the orientation is	set to GLU_OUTSIDE (with <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>), then
+  any normals generated	point away from	the center of the sphere. Otherwise,
+  they point toward the	center of the sphere.
+
+  If texturing is turned on (with <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>), then texture
+  coordinates are generated so that <I>t</I> ranges from 0.0 at z=-radius to 1.0 at
+  z=radius (<I>t</I> increases	linearly along longitudinal lines), and	<I>s</I> ranges from
+  0.0 at the +<I>y</I>	axis, to 0.25 at the +<I>x</I>	axis, to 0.5 at	the -<I>y</I> axis, to	0.75
+  at the -<I>x</I> axis, and back to 1.0 at the +<I>y</I> axis.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluCylinder.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluCylinder.html">gluCylinder</A>, <A HREF="gluDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDisk.html">gluDisk</A>,	<A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>, <A HREF="gluPartialDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPartialDisk.html">gluPartialDisk</A>, <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>
+  <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

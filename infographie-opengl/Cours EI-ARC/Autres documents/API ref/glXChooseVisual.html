@@ -1,0 +1,202 @@
+<HEAD>
+<TITLE>glXChooseVisual.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXChooseVisual.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A> - return a visual that matches specified attributes
+
+
+</PRE><H2>C Specification</H2><PRE>
+  XVisualInfo* <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A>(	Display	*<I>dpy</I>,
+				int <I>screen</I>,
+				int *<I>attribList</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	      Specifies	the connection to the X	server.
+
+
+  <I>screen</I>      Specifies	the screen number.
+
+
+  <I>attribList</I>  Specifies	a list of Boolean attributes and integer
+	      attribute/value pairs.  The last attribute must be None.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A> returns a pointer to an XVisualInfo structure	describing
+  the visual that best meets a minimum specification.  The Boolean GLX
+  attributes of	the visual that	is returned will match the specified values,
+  and the integer GLX attributes will meet or exceed the specified minimum
+  values.  If all other	attributes are equivalent, then	TrueColor and
+  PseudoColor visuals have priority over DirectColor and StaticColor visuals,
+  respectively.	 If no conforming visual exists, NULL is returned.  To free
+  the data returned by this function, use XFree.
+
+  All Boolean GLX attributes default to	False except GLX_USE_GL, which
+  defaults to True.  All integer GLX attributes	default	to zero.  Default
+  specifications are superseded	by attributes included in <I>attribList</I>.
+  Boolean attributes included in <I>attribList</I> are	understood to be True.
+  Integer attributes are followed immediately by the corresponding desired or
+  minimum value.  The list must	be terminated with None.
+
+  The interpretations of the various GLX visual	attributes are as follows:
+
+  GLX_USE_GL		Ignored.  Only visuals that can	be rendered with GLX
+			are considered.
+
+  GLX_BUFFER_SIZE	Must be	followed by a nonnegative integer that
+			indicates the desired color index buffer size.	The
+			smallest index buffer of at least the specified	size
+			is preferred.  Ignored if GLX_RGBA is asserted.
+
+  GLX_LEVEL		Must be	followed by an integer buffer-level
+			specification.	This specification is honored
+			exactly.  Buffer level zero corresponds	to the
+			default	frame buffer of	the display.  Buffer level
+			one is the first overlay frame buffer, level two the
+			second overlay frame buffer, and so on.	 Negative
+			buffer levels correspond to underlay frame buffers.
+
+  GLX_RGBA		If present, only TrueColor and DirectColor visuals
+			are considered.	 Otherwise, only PseudoColor and
+			StaticColor visuals are	considered.
+
+  GLX_DOUBLEBUFFER	If present, only double-buffered visuals are
+			considered.   Otherwise, only single-buffered visuals
+			are considered.
+
+  GLX_STEREO		If present, only stereo	visuals	are considered.
+			Otherwise, only	monoscopic visuals are considered.
+
+  GLX_AUX_BUFFERS	Must be	followed by a nonnegative integer that
+			indicates the desired number of	auxiliary buffers.
+			Visuals	with the  smallest number of auxiliary
+			buffers	that meets or exceeds the specified number
+			are preferred.
+
+  GLX_RED_SIZE		Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, the smallest
+			available red buffer is	preferred.  Otherwise, the
+			largest	available red buffer of	at least the minimum
+			size is	preferred.
+
+  GLX_GREEN_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, the smallest
+			available green	buffer is preferred.  Otherwise, the
+			largest	available green	buffer of at least the
+			minimum	size is	preferred.
+
+  GLX_BLUE_SIZE		Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, the smallest
+			available blue buffer is preferred.  Otherwise,	the
+			largest	available blue buffer of at least the minimum
+			size is	preferred.
+
+  GLX_ALPHA_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, the smallest
+			available alpha	buffer is preferred.  Otherwise, the
+			largest	available alpha	buffer of at least the
+			minimum	size is	preferred.
+
+  GLX_DEPTH_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, visuals with
+			no depth buffer	are preferred.	Otherwise, the
+			largest	available depth	buffer of at least the
+			minimum	size is	preferred.
+
+  GLX_STENCIL_SIZE	Must be	followed by a nonnegative integer that
+			indicates the desired number of	stencil	bitplanes.
+			The smallest stencil buffer of at least	the specified
+			size is	preferred.  If the desired value is zero,
+			visuals	with no	stencil	buffer are preferred.
+
+  GLX_ACCUM_RED_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, visuals with
+			no red accumulation buffer are preferred.  Otherwise,
+			the largest possible red accumulation buffer of	at
+			least the minimum size is preferred.
+
+  GLX_ACCUM_GREEN_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, visuals with
+			no green accumulation buffer are preferred.
+			Otherwise, the largest possible	green accumulation
+			buffer of at least the minimum size is preferred.
+
+  GLX_ACCUM_BLUE_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, visuals with
+			no blue	accumulation buffer are	preferred.
+			Otherwise, the largest possible	blue accumulation
+			buffer of at least the minimum size is preferred.
+
+  GLX_ACCUM_ALPHA_SIZE	Must be	followed by a nonnegative minimum size
+			specification.	If this	value is zero, visuals with
+			no alpha accumulation buffer are preferred.
+			Otherwise, the largest possible	alpha accumulation
+			buffer of at least the minimum size is preferred.
+
+
+</PRE><H2>Examples</H2><PRE>
+
+
+  <I>attribList</I> =
+	      {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE,
+	      4, None};
+
+  Specifies a single-buffered RGB visual in the	normal frame buffer, not an
+  overlay or underlay buffer.  The returned visual supports at least four
+  bits each of red, green, and blue, and possibly no bits of alpha.  It	does
+  not support color index mode,	double-buffering, or stereo display.  It may
+  or may not have one or more auxiliary	color buffers, a depth buffer, a
+  stencil buffer, or an	accumulation buffer.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  XVisualInfo is defined in <I>Xutil</I>.<I>h</I>.  It is a structure	that includes <I>visual</I>,
+  <I>visualID</I>, <I>screen</I>, and	<I>depth</I> elements.
+
+  <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A> is implemented as a client-side utility using	only
+  XGetVisualInfo and <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A>.  Calls to these two routines	can be used
+  to implement selection algorithms other than the generic one implemented by
+  <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A>.
+
+  GLX implementers are strongly	discouraged, but not proscribed, from
+  changing the selection algorithm used	by <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A>.  Therefore,
+  selections may change	from release to	release	of the client-side library.
+
+  There	is no direct filter for	picking	only visuals that support GLXPixmaps.
+  GLXPixmaps are supported for visuals whose GLX_BUFFER_SIZE.  is one of the
+  Pixmap depths	supported by the X server.
+
+
+</PRE><H2>Errors</H2><PRE>
+
+  NULL is returned if an undefined GLX attribute is encountered	in
+  <I>attribList</I>.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>, <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

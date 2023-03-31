@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://www.esil.univ-mrs.fr/~elingsys/projets/poo2002/cat3d/ -->
+<HTML><HEAD><TITLE>Cat 3D</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><!-- Titre du projet --><!-- Fin du titre --><LINK 
+href="Cat 3D_fichiers/styles.css" type=text/css rel=stylesheet><LINK 
+href="Cat 3D_fichiers/poo.css" rel=stylesheet>
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<TABLE cellSpacing=0 cellPadding=0 width=750 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=left width=100><A 
+      href="http://www.esil.univ-mrs.fr/"><IMG height=47 
+      src="Cat 3D_fichiers/esil.jpg" width=100 border=0></A></TD>
+    <TD vAlign=top align=middle width=550>
+      <H1>Projets de POO</H1></TD>
+    <TD vAlign=center align=right width=100><A 
+      href="http://www.esil.univ-mrs.fr/"><IMG height=49 
+      src="Cat 3D_fichiers/es2i.jpg" width=100 border=0></A></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=750 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3>
+      <H4>Courbes et Surfaces 3D</H4>
+      <H5>&nbsp;</H5>
+      <H2>Auteurs (promotion 2002)</H2>
+      <BLOCKQUOTE>
+        <TABLE border=0><!-- Ici les adresses et noms des membres du groupe de travail --><!-- Ne RIEN modifier sauf zouf@esil.univ-mrs.fr et Zouf -->
+          <TBODY>
+          <TR nowrap>
+            <TD vAlign=top align=left width=29>Avril&nbsp;Blaise</TD>
+            <TD vAlign=top align=left width=170>:&lt;<A 
+              href="mailto:ablaise@esil.univmrs.fr">ablaise@esil.univmrs.fr</A>&gt;</TD></TR><!-- Fin de la première personne -->
+          <TR nowrap>
+            <TD vAlign=top align=left>Cyrille Heit</TD>
+            <TD vAlign=top align=left>: &lt;<A 
+              href="mailto:cheit@esil.univ-mrs.fr">cheit@esil.univ-mrs.fr</A>&gt;</TD></TR>
+          <TR nowrap>
+            <TD vAlign=top align=left>Thomas Rouch</TD>
+            <TD vAlign=top align=left>: &lt;<A 
+              href="mailto:thomas.rouch@esil.univ-mrs.fr">thomas.rouch@esil.univ-mrs.fr</A>&gt;</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+      <H2>Description</H2>
+      <P>&nbsp;&nbsp;<!-- Début de la description. Un seul paragraphe --> Ce 
+      projet a pour but de fournir les outils nécessaires à la modélisation 
+      géométrique de surfaces et de courbes. De plus, les produits créés seront 
+      ouverts pour laisser aux étudiants et aux chercheurs un espace 
+      d'expérimentation. 
+      <P>Le projet s'intéresse aux courbes mais surtout aux surfaces et à leur 
+      environnement. Etant donné queles outils de modélisation existent déjà, 
+      ils ne sont pas redévelopper mais sont intégrés dans le projet, nous 
+      permettant ainsi de réaliser une interface homme-machine pour visualiser 
+      les objets créés. 
+      <P>En fait, ce projet fournit les classes permettant la manipulation de 
+      tous les objets dont on a besoin sur un outil 3D comme des points, des 
+      listes de points, des lignes polygonales, des courbes, etc. D'autre part, 
+      avec son interface, il permet de manipuler facilement les objets et les 
+      scènes 3D. 
+      <P>Notre logiciel 3D permet à l'utilisateur, grâce à une interface 
+      garphique, de créer une scène 3D (en créant une courbe, une surface etc.) 
+      puis de l'afficher et ensuite d'effectuer diverses manipulation sur les 
+      objets de la scène comme des transalations, des rotations, des changements 
+      de couleurs etc. 
+      <P>Les fonctionnalités du programme sont les suivantes :</P>
+      <UL>
+        <LI>
+        <DIV>Création d'une courbe (NURBS, B-spline, BézierRationnelle, Bézier) 
+        en entrant les informations nécessaires dans la boîte de dialogue 
+        correspondante.</DIV>
+        <LI>
+        <DIV>Création d'une surface (NURBS, B-Spline, BézierRationnelle, Bézier) 
+        </DIV>
+        <LI>
+        <DIV>Affichage des objets. (courbe ou surface)</DIV>
+        <LI>
+        <DIV>Choix de l'affichage en fil de fer ou non.</DIV>
+        <LI>
+        <DIV>Choix des couleurs d'affichage.</DIV>
+        <LI>
+        <DIV>Modification des objets et raffraichissement automatique de 
+        l'affichage.</DIV>
+        <LI>
+        <DIV>Suppression d'objets de la scène.</DIV>
+        <LI>
+        <DIV>chargement d'une scène 3D à partir d'un fichier.</DIV>
+        <LI>
+        <DIV>Sauvegarde d'une scène 3D dans un fichier.</DIV></LI></UL>
+      <P>L'interface a été développée grâce à une surcouche d'OpenGL. L'API 
+      choisie pour le projet est FOX en raison de sa portabilité sous différents 
+      systèmes d'exploitation tels que Linux, IRIX, Microsoft Windows. Nous nous 
+      sommes servi de la librairie FOX pour la partie interface homme-machine et 
+      de la librairie graphique GLU pour la partie affichage des courbes et des 
+      surfaces. </P><!-- Fin de la description -->
+      <P></P>
+      <H2>Installation</H2>
+      <P>&nbsp;&nbsp;<!-- Début de la procédure d'installation. Un seul paragraphe --> 
+      Dézipper l'archive du projet</P>
+      <UL>
+        <LI>
+        <DIV>sous Linux, taper unizip CAT3D.zip</DIV>
+        <LI>
+        <DIV>sous Windows, utiliser Winzip. </DIV></LI></UL><!-- ne modifier que nom -->
+      <UL>
+        <LI><A 
+        href="http://www.esil.univ-mrs.fr/~elingsys/projets/poo2002/cat3d/divers/CAT3D.src.tar.gz">Archives 
+        compressées des sources</A> 
+        <LI><A 
+        href="http://www.esil.univ-mrs.fr/~elingsys/projets/poo2002/cat3d/divers/CAT3D.tar.gz">Binaires 
+        compressés du projet</A></LI></UL>
+      <H2>Guide d'utilisation</H2>
+      <P>&nbsp;&nbsp;Voici l'application telle qu'elle aparaît sous Windows : 
+      <P>
+      <CENTER><IMG height=407 src="Cat 3D_fichiers/capt1.jpg" 
+width=560></CENTER>
+      <P></P>
+      <P>&nbsp;</P>
+      <P>Pour créer un objet 3D, il suffit d'ouvrir le menu déroulant :</P>
+      <P>&nbsp;</P>
+      <CENTER>&nbsp;</CENTER>
+      <CENTER><IMG height=407 src="Cat 3D_fichiers/capt3.jpg" 
+width=560></CENTER>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>On créé une surface NURBS par défaut :</P>
+      <CENTER>&nbsp;</CENTER>
+      <CENTER><IMG height=407 src="Cat 3D_fichiers/capt2.jpg" 
+width=560></CENTER>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>On sélectionne l'objet en cliquant dessus sur le bouton Propriétés 
+      <CENTER>&nbsp;</CENTER>
+      <CENTER><IMG height=407 src="Cat 3D_fichiers/capt5.jpg" 
+width=560></CENTER>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>La boîte de dialogue permet de modifier les propriétés de l'objet 
+      séléctionné. On clique sur "modifier" et on admire le résultat ...</P>
+      <CENTER>&nbsp;</CENTER>
+      <CENTER><IMG height=407 src="Cat 3D_fichiers/capt4.jpg" 
+width=560></CENTER>
+      <P>&nbsp;</P>
+      <P>&nbsp;</P>
+      <P>Il est possible également de charger des exemples de scènes 3D que nous 
+      avons réalisées et sauvegardées préalablement :</P>
+      <CENTER>&nbsp;</CENTER>
+      <CENTER><IMG height=407 src="Cat 3D_fichiers/capt6.jpg" 
+width=560></CENTER>
+      <P>&nbsp;</P>
+      <P>On peut s'amuser à créer d'autres objets, les faire tourner ou 
+      translater et changer les propriétés d'affichage.</P>
+      <HR>
+
+      <DIV class=copyright>Copyright ©2000-2001 ES2I / ESIL 
+</DIV></TD></TR></TBODY></TABLE></BODY></HTML>

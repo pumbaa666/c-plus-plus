@@ -1,0 +1,210 @@
+<HEAD>
+<TITLE>glBlendFunc.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glBlendFunc.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A> -	specify	pixel arithmetic
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>( GLenum <I>sfactor</I>,
+		    GLenum <I>dfactor</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>sfactor</I>  Specifies how the red, green, blue, and alpha source blending
+	   factors are computed.  Nine symbolic	constants are accepted:
+	   GL_ZERO, GL_ONE, GL_DST_COLOR, GL_ONE_MINUS_DST_COLOR,
+	   GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_DST_ALPHA,
+	   GL_ONE_MINUS_DST_ALPHA, and GL_SRC_ALPHA_SATURATE.
+
+  <I>dfactor</I>  Specifies how the red, green, blue, and alpha destination blending
+	   factors are computed.  Eight	symbolic constants are accepted:
+	   GL_ZERO, GL_ONE, GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR,
+	   GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_DST_ALPHA, and
+	   GL_ONE_MINUS_DST_ALPHA.
+
+
+</PRE><H2>Description</H2><PRE>
+  In RGB mode, pixels can be drawn using a function that blends	the incoming
+  (source) RGBA	values with the	RGBA values that are already in	the frame
+  buffer (the destination values).  By default,	blending is disabled.  Use
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with argument GL_BLEND	to enable and disable
+  blending.
+
+  <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A> defines the operation of blending	when it	is enabled.  <I>sfactor</I>
+  specifies which of nine methods is used to scale the source color
+  components.  <I>dfactor</I> specifies which of eight	methods	is used	to scale the
+  destination color components.	 The eleven possible methods are described in
+  the table below.  Each method	defines	four scale factors, one	each for red,
+  green, blue, and alpha.
+
+  In the table and in subsequent equations, source and destination color
+  components are referred to as	(R ,G ,B ,A ) and (R ,G	,B ,A ).  They are
+                                  s  s  s  s        d  d  d  d
+  understood to	have integer values between zero and (k ,k ,k ,k ), where
+						       R  G  B	A
+					  mc
+				    k  = 2   - 1
+                                     c
+
+  and (mR,mG,mB,mA) is the number of red, green, blue, and alpha bitplanes.
+
+  Source and destination scale factors are referred to as (s ,s ,s ,s )	and
+                                                            R  G  B  A
+  (d ,d ,d ,d ).  The scale factors described in the table, denoted
+    R  G  B  A
+  (f ,f ,f ,f ), represent either source or destination	factors.  All scale
+    R  G  B  A
+  factors have range [0,1].
+
+
+
+    -----------------------------------------------------------------------
+    |     parameter         |            (f ,  f ,  f ,  f )              |
+    |                       |              R    G    B    A               |
+    -----------------------------------------------------------------------
+    |	           	    |		                 		  |
+    |	    GL_ZERO	    |		     (0, 0, 0, 0)		  |
+    |	           	    |		                 		  |
+    |	     GL_ONE	    |		     (1, 1, 1, 1)		  |
+    |	           	    |		                 		  |
+    |	  GL_SRC_COLOR	    |	     (R	/k , G /k , B /k , A /k	)	  |
+    |	           	    |	       s  R   s  G   s  B   s  A	  |
+    |	           	    |		                 		  |
+    |GL_ONE_MINUS_SRC_COLOR | (1, 1, 1, 1) - (R	/k , G /k , B /k , A /k	) |
+    |	           	    |	               s  R   s	 G   s  B   s  A  |
+    |	           	    |		                 		  |
+    |	  GL_DST_COLOR	    |	     (R	/k , G /k , B /k , A /k	)	  |
+    |	           	    |	       d  R   d  G   d  B   d  A	  |
+    |	           	    |		                 		  |
+    |GL_ONE_MINUS_DST_COLOR | (1, 1, 1, 1) - (R	/k , G /k , B /k , A /k	) | 
+    |	           	    |	               d  R   d	 G   d  B   d  A  |
+    |	           	    |		                 		  |
+    |	  GL_SRC_ALPHA	    |	     (A	/k , A /k , A /k , A /k	)	  |
+    |	           	    |	       s  R   s  G   s  B   s  A	  |
+    |	           	    |		                 		  |
+    |	           	    |		                 		  |
+    |GL_ONE_MINUS_SRC_ALPHA | (1, 1, 1, 1) - (A	/k , A /k , A /k , A /k	) |
+    |	           	    |	               s  R   s  G   s  B   s  A  |
+    |	           	    |		                 		  |
+    |	           	    |		                 		  |
+    |	  GL_DST_ALPHA	    |	     (A	/k , A /k , A /k , A /k	)	  |
+    |	           	    |	       d  R   d  G   d  B   d  A	  |
+    |	           	    |		                 		  |
+    |GL_ONE_MINUS_DST_ALPHA | (1, 1, 1, 1) - (A	/k , A /k , A /k , A /k	) |
+    |	           	    |	               d  R   d  G   d  B   d  A  |
+    |	           	    |		                 		  |
+    |	           	    |		                 		  |
+    |GL_SRC_ALPHA_SATURATE  |		     (i,  i,  i,  1)              |
+    |	           	    |		                 		  |
+    -----------------------------------------------------------------------
+
+  In the table,
+
+			    i =	min(A ,	k -A ) / k 
+                                     s   A  d     A
+
+  To determine the blended RGBA	values of a pixel when drawing in RGB mode,
+  the system uses the following	equations:
+
+			      R  = min(k ,  R s +R d )
+                               d        R    s R  d R
+
+			      G  = min(k ,  G s +G d )
+                               d        G    s G  d G
+
+			      B  = min(k ,  B s +B d )
+                               d        B    s B  d B
+
+			      A  = min(k ,  A s +A d )
+                               d        A    s A  d A
+
+  Despite the apparent precision of the	above equations, blending arithmetic
+  is not exactly specified, because blending operates with imprecise integer
+  color	values.	 However, a blend factor that should be	equal to one is
+  guaranteed not to modify its multiplicand, and a blend factor	equal to zero
+  reduces its multiplicand to zero.  Thus, for example,	when <I>sfactor</I> is
+  GL_SRC_ALPHA,	<I>dfactor</I>	is GL_ONE_MINUS_SRC_ALPHA, and A  is equal to k  the
+                                                         s              A
+  equations reduce to simple replacement:
+
+				      R  = R 
+                                       d    s
+
+				      G  = G 
+                                       d    s
+
+				      B  = B 
+                                       d    s
+
+				      A  = A 
+                                       d    s
+
+</PRE><H2>Examples</H2><PRE>
+
+  Transparency is best implemented using blend function	(GL_SRC_ALPHA,
+  GL_ONE_MINUS_SRC_ALPHA) with primitives sorted from farthest to nearest.
+  Note that this transparency calculation does not require the presence	of
+  alpha	bitplanes in the frame buffer.
+
+  Blend	function (GL_SRC_ALPHA,	GL_ONE_MINUS_SRC_ALPHA)	is also	useful for
+  rendering antialiased	points and lines in arbitrary order.
+
+  Polygon antialiasing is optimized using blend	function
+  (GL_SRC_ALPHA_SATURATE, GL_ONE) with polygons	sorted from nearest to
+  farthest.  (See the <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>,	<A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> reference page and the
+  GL_POLYGON_SMOOTH argument for information on	polygon	antialiasing.)
+  Destination alpha bitplanes, which must be present for this blend function
+  to operate correctly,	store the accumulated coverage.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  Incoming (source) alpha is correctly thought of as a material	opacity,
+  ranging from 1.0 (K ), representing complete opacity,	to 0.0 (0),
+                     A
+  representing complete transparency.
+
+
+  When more than one color buffer is enabled for drawing, blending is done
+  separately for each enabled buffer, using for	destination color the
+  contents of that buffer.  (See <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>.)
+
+  Blending affects only	RGB rendering.	It is ignored by color index
+  renderers.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if either <I>sfactor</I> or <I>dfactor</I> is not an
+  accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A> is executed between the 
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_BLEND_SRC
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_BLEND_DST
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_BLEND
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A>, <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A>,	<A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>, <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>,	<A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A>, <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A>
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri, May 26, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

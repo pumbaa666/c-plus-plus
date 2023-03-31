@@ -1,0 +1,141 @@
+<HEAD>
+<TITLE>glLightModel.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glLightModel.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModelf</A>, <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModeli</A>,	<A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModelfv</A>,	<A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModeliv</A> - set the
+  lighting model parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModelf</A>( GLenum <I>pname</I>,
+		      GLfloat <I>param</I> )
+  void <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModeli</A>( GLenum <I>pname</I>,
+		      GLint <I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>	  Specifies a single-valued lighting model parameter.
+	  GL_LIGHT_MODEL_LOCAL_VIEWER and GL_LIGHT_MODEL_TWO_SIDE are
+	  accepted.
+
+  <I>param</I>	  Specifies the	value that <I>param</I> will be set to.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModelfv</A>( GLenum <I>pname</I>,
+		       const GLfloat *<I>params</I> )
+  void <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModeliv</A>( GLenum <I>pname</I>,
+		       const GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>
+       Specifies a lighting model parameter.  GL_LIGHT_MODEL_AMBIENT,
+       GL_LIGHT_MODEL_LOCAL_VIEWER, and	GL_LIGHT_MODEL_TWO_SIDE	are accepted.
+
+  <I>params</I>
+       Specifies a pointer to the value	or values that <I>params</I> will be set to.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A> sets the	lighting model parameter.  <I>pname</I> names a parameter
+  and <I>params</I> gives the new value.  There are three lighting model parameters:
+
+  GL_LIGHT_MODEL_AMBIENT
+	    <I>params</I> contains four integer or floating-point values that
+	    specify the	ambient	RGBA intensity of the entire scene.  Integer
+	    values are mapped linearly such that the most positive
+	    representable value	maps to	1.0, and the most negative
+	    representable value	maps to	-1.0.  Floating-point values are
+	    mapped directly.  Neither integer nor floating-point values	are
+	    clamped.  The default ambient scene	intensity is (0.2, 0.2,	0.2,
+	    1.0).
+
+  GL_LIGHT_MODEL_LOCAL_VIEWER
+	    <I>params</I> is a	single integer or floating-point value that specifies
+	    how	specular reflection angles are computed.  If <I>params</I> is 0 (or
+	    0.0), specular reflection angles take the view direction to	be
+	    parallel to	and in the direction of	the -z axis, regardless	of
+	    the	location of the	vertex in eye coordinates.  Otherwise
+	    specular reflections are computed from the origin of the eye
+	    coordinate system.	The default is 0.
+
+  GL_LIGHT_MODEL_TWO_SIDE
+	    <I>params</I> is a	single integer or floating-point value that specifies
+	    whether one- or two-sided lighting calculations are	done for
+	    polygons.  It has no effect	on the lighting	calculations for
+	    points, lines, or bitmaps.	If <I>params</I> is 0 (or 0.0), one-sided
+	    lighting is	specified, and only the	<I>front</I> material parameters are
+	    used in the	lighting equation.  Otherwise, two-sided lighting is
+	    specified.	In this	case, vertices of back-facing polygons are
+	    lighted using the <I>back</I> material parameters,	and have their
+	    normals reversed before the	lighting equation is evaluated.
+	    Vertices of	front-facing polygons are always lighted using the
+	    <I>front</I> material parameters, with no change to their normals.	 The
+	    default is 0.
+
+  In RGBA mode,	the lighted color of a vertex is the sum of the	material
+  emission intensity, the product of the material ambient reflectance and the
+  lighting model full-scene ambient intensity, and the contribution of each
+  enabled light	source.	 Each light source contributes the sum of three
+  terms: ambient, diffuse, and specular.  The ambient light source
+  contribution is the product of the material ambient reflectance and the
+  light's ambient intensity.  The diffuse light	source contribution is the
+  product of the material diffuse reflectance, the light's diffuse intensity,
+  and the dot product of the vertex's normal with the normalized vector	from
+  the vertex to	the light source.  The specular	light source contribution is
+  the product of the material specular reflectance, the	light's	specular
+  intensity, and the dot product of the	normalized vertex-to-eye and vertex-
+  to-light vectors, raised to the power	of the shininess of the	material.
+  All three light source contributions are attenuated equally based on the
+  distance from	the vertex to the light	source and on light source direction,
+  spread exponent, and spread cutoff angle.  All dot products are replaced
+  with zero if they evaluate to	a negative value.
+
+  The alpha component of the resulting lighted color is	set to the alpha
+  value	of the material	diffuse	reflectance.
+
+  In color index mode, the value of the	lighted	index of a vertex ranges from
+  the ambient to the specular values passed to <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A> using
+  GL_COLOR_INDEXES.  Diffuse and specular coefficients,	computed with a	(.30,
+  .59, .11) weighting of the lights' colors, the shininess of the material,
+  and the same reflection and attenuation equations as in the RGBA case,
+  determine how	much above ambient the resulting index is.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>pname</I>	is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A> is called between a	call
+  to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call	to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LIGHT_MODEL_AMBIENT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LIGHT_MODEL_LOCAL_VIEWER
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LIGHT_MODEL_TWO_SIDE
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_LIGHTING
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>, <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,106 @@
+<HEAD>
+<TITLE>glSelectBuffer.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glSelectBuffer.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> - establish a buffer for selection mode values
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A>( GLsizei <I>size</I>,
+		       GLuint *<I>buffer</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>size</I>	  Specifies the	size of	<I>buffer</I>.
+
+  <I>buffer</I>  Returns the selection	data.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> has two arguments: <I>buffer</I> is a	pointer	to an array of
+  unsigned integers, and <I>size</I> indicates	the size of the	array.	<I>buffer</I>
+  returns values from the name stack (see <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A>, <A HREF="glLoadName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadName.html">glLoadName</A>,
+  <A HREF="glPushName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushName.html">glPushName</A>) when the rendering mode is GL_SELECT (see	<A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>).
+  <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> must be issued	before selection mode is enabled, and it must
+  not be issued	while the rendering mode is GL_SELECT.
+
+  Selection is used by a programmer to determine which primitives are drawn
+  into some region of a	window.	 The region is defined by the current
+  modelview and	perspective matrices.
+
+  In selection mode, no	pixel fragments	are produced from rasterization.
+  Instead, if a	primitive intersects the clipping volume defined by the
+  viewing frustum and the user-defined clipping	planes,	this primitive causes
+  a selection hit.  (With polygons, no hit occurs if the polygon is culled.)
+  When a change	is made	to the name stack, or when <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>	is called, a
+  hit record is	copied to <I>buffer</I> if any	hits have occurred since the last
+  such event (name stack change	or <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>	call).	The hit	record
+  consists of the number of names in the name stack at the time	of the event,
+  followed by the minimum and maximum depth values of all vertices that	hit
+  since	the previous event, followed by	the name stack contents, bottom	name
+  first.
+
+  Returned depth values	are mapped such	that the largest unsigned integer
+  value	corresponds to window coordinate depth 1.0, and	zero corresponds to
+  window coordinate depth 0.0.
+
+  An internal index into <I>buffer</I>	is reset to zero whenever selection mode is
+  entered.  Each time a	hit record is copied into <I>buffer</I>, the index is
+  incremented to point to the cell just	past the end of	the block of names -
+  that is, to the next available cell.	If the hit record is larger than the
+  number of remaining locations	in <I>buffer</I>, as much data	as can fit is copied,
+  and the overflow flag	is set.	 If the	name stack is empty when a hit record
+  is copied, that record consists of zero followed by the minimum and maximum
+  depth	values.
+
+  Selection mode is exited by calling <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> with	an argument other
+  than GL_SELECT.  Whenever <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called while the render mode is
+  GL_SELECT, it	returns	the number of hit records copied to <I>buffer</I>, resets
+  the overflow flag and	the selection buffer pointer, and initializes the
+  name stack to	be empty.  If the overflow bit was set when <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> was
+  called, a negative hit record	count is returned.
+
+</PRE><H2>Notes</H2><PRE>
+  The contents of <I>buffer</I> are undefined until <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called with an
+  argument other than GL_SELECT.
+
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>/<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>	primitives and calls to	<A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A> can	result in hits.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>size</I>	is negative.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> is called	while the
+  render mode is GL_SELECT, or if <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called with argument
+  GL_SELECT before <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> is called at least once.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_NAME_STACK_DEPTH
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>, <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A>, <A HREF="glLoadName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadName.html">glLoadName</A>, <A HREF="glPushName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushName.html">glPushName</A>, <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

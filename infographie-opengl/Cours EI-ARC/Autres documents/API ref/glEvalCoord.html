@@ -1,0 +1,144 @@
+<HEAD>
+<TITLE>glEvalCoord.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glEvalCoord.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1d</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1f</A>,	<A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2d</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2f</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1dv</A>,
+  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1fv</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2dv</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2fv</A> - evaluate enabled one- and
+  two-dimensional maps
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1d</A>( GLdouble <I>u</I> )
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1f</A>( GLfloat <I>u</I>	)
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2d</A>( GLdouble <I>u</I>,
+		      GLdouble <I>v</I> )
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2f</A>( GLfloat <I>u</I>,
+		      GLfloat <I>v</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>u</I>  Specifies a value that is the domain coordinate u to the basis function
+     defined in	a previous <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A> or <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A> command.
+
+  <I>v</I>  Specifies a value that is the domain coordinate v to the basis function
+     defined in	a previous <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A> command.  This argument is not present in
+     an	<A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1</A> command.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1dv</A>( const GLdouble *<I>u</I> )
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1fv</A>( const GLfloat *<I>u</I>	)
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2dv</A>( const GLdouble *<I>u</I> )
+  void <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2fv</A>( const GLfloat *<I>u</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>u</I>    Specifies a pointer to an array containing either one or	two domain
+       coordinates.  The first coordinate is u.	 The second coordinate is v,
+       which is	present	only in	<A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A> versions.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1</A> evaluates enabled one-dimensional maps at argument <I>u</I>.
+  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A> does the	same for two-dimensional maps using two	domain
+  values, <I>u</I> and	<I>v</I>.  Maps are defined with <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A> and <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A> and	enabled	and
+  disabled with	 <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A>.
+
+  When one of the <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A> commands is issued, all currently	enabled	maps
+  of the indicated dimension are evaluated.  Then, for each enabled map, it
+  is as	if the corresponding GL	command	was issued with	the computed value.
+  That is, if GL_MAP1_INDEX or GL_MAP2_INDEX is	enabled, a <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A> command is
+  simulated.  If GL_MAP1_COLOR_4 or GL_MAP2_COLOR_4 is enabled,	a <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>
+  command is simulated.	 If GL_MAP1_NORMAL or GL_MAP2_NORMAL is	enabled, a
+  normal vector	is produced, and if any	of GL_MAP1_TEXTURE_COORD_1,
+  GL_MAP1_TEXTURE_COORD_2, GL_MAP1_TEXTURE_COORD_3, GL_MAP1_TEXTURE_COORD_4,
+  GL_MAP2_TEXTURE_COORD_1, GL_MAP2_TEXTURE_COORD_2, GL_MAP2_TEXTURE_COORD_3,
+  or GL_MAP2_TEXTURE_COORD_4 is	enabled, then an appropriate <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>
+  command is simulated.
+
+  The GL uses evaluated	values instead of current values for those
+  evaluations that are enabled,	and current values otherwise, for color,
+  color	index, normal, and texture coordinates.	 However, the evaluated
+  values do not	update the current values.  Thus, if <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A> commands are
+  interspersed with <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A>	commands, the color, normal, and texture
+  coordinates associated with the <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A> commands are	not affected by	the
+  values generated by the <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A> commands,	but rather only	by the most
+  recent <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>, and <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A> commands.
+
+  No commands are issued for maps that are not enabled.	 If more than one
+  texture evaluation is	enabled	for a particular dimension (for	example,
+  GL_MAP2_TEXTURE_COORD_1 and GL_MAP2_TEXTURE_COORD_2),	then only the
+  evaluation of	the map	that produces the larger number	of coordinates (in
+  this case, GL_MAP2_TEXTURE_COORD_2) is carried out.  GL_MAP1_VERTEX_4
+  overrides GL_MAP1_VERTEX_3, and GL_MAP2_VERTEX_4 overrides
+  GL_MAP2_VERTEX_3, in the same	manner.	 If neither a three- nor four-
+  component vertex map is enabled for the specified dimension, the
+  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A> command is ignored.
+
+  If automatic normal generation is enabled, by	calling	<A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> with
+  argument GL_AUTO_NORMAL, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A>	generates surface normals
+  analytically,	regardless of the contents or enabling of the GL_MAP2_NORMAL
+  map.	Let
+
+                                        <I>D</I><B>p</B>   <I>D</I><B>p</B>
+				    <B>m</B> = -- · --
+                                        <I>D</I><B>u</B>   <I>D</I><B>v</B>
+
+  where <I>D</I> represents the partial differential operator.
+
+  Then the generated normal n is
+
+				           <B>m</B>
+                                    <B>n</B> =  -----
+				         ||<B>m</B>||
+
+  If automatic normal generation is disabled, the corresponding	normal map
+  GL_MAP2_NORMAL, if enabled, is used to produce a normal.  If neither
+  automatic normal generation nor a normal map is enabled, no normal is
+  generated for	<A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A> commands.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_VERTEX_3
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_VERTEX_4
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_INDEX
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_COLOR_4
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_NORMAL
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_TEXTURE_COORD_1
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_TEXTURE_COORD_2
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_TEXTURE_COORD_3
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP1_TEXTURE_COORD_4
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_VERTEX_3
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_VERTEX_4
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_INDEX
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_COLOR_4
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_NORMAL
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_TEXTURE_COORD_1
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_TEXTURE_COORD_2
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_TEXTURE_COORD_3
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_MAP2_TEXTURE_COORD_4
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_AUTO_NORMAL
+  <A HREF="glGetMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMap.html">glGetMap</A>
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh</A>, <A HREF="glEvalPoint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalPoint.html">glEvalPoint</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>,	<A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>,
+  <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>, <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>, <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1097824374 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 08 triangle\global.cpp
+	<gl\glut.h>
+
+1127929744 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 08 triangle\triangle.cpp
+	<gl\glut.h>
+	"define.h"
+	"evenements.h"
+
+1028722516 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 08 triangle\define.h
+
+1028722668 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 08 triangle\evenements.h
+
+1097824364 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 08 triangle\evenements.cpp
+	<gl\glut.h>
+	"define.h"
+	"global.h"
+	"evenements.h"
+
+1028722418 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 08 triangle\global.h
+

@@ -1,0 +1,94 @@
+<HEAD>
+<TITLE>glGetTexGen.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetTexGen.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGendv</A>, <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGenfv</A>,	<A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGeniv</A> -	return texture coordinate
+  generation parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGendv</A>( GLenum <I>coord</I>,
+		      GLenum <I>pname</I>,
+		      GLdouble *<I>params</I> )
+  void <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGenfv</A>( GLenum <I>coord</I>,
+		      GLenum <I>pname</I>,
+		      GLfloat *<I>params</I> )
+  void <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGeniv</A>( GLenum <I>coord</I>,
+		      GLenum <I>pname</I>,
+		      GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>coord</I>	  Specifies a texture coordinate.  Must	be GL_S, GL_T, GL_R, or	GL_Q.
+
+  <I>pname</I>	  Specifies the	symbolic name of the value(s) to be returned.  Must
+	  be either GL_TEXTURE_GEN_MODE	or the name of one of the texture
+	  generation plane equations: GL_OBJECT_PLANE or GL_EYE_PLANE.
+
+  <I>params</I>  Returns the requested	data.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGen</A> returns in <I>params</I>	selected parameters of a texture coordinate
+  generation function that was specified using <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.  <I>coord</I>	names one of
+  the (<I>s</I>,<I>t</I>,<I>r</I>,<I>q</I>)	texture	coordinates, using the symbolic	constant GL_S, GL_T,
+  GL_R,	or GL_Q.
+
+  <I>pname</I>	specifies one of three symbolic	names:
+
+  GL_TEXTURE_GEN_MODE		<I>params</I> returns the single-valued texture
+				generation function, a symbolic	constant.
+
+  GL_OBJECT_PLANE		<I>params</I> returns the four	plane equation
+				coefficients that specify object linear-
+				coordinate generation.	Integer	values,	when
+				requested, are mapped directly from the
+				internal floating-point	representation.
+
+  GL_EYE_PLANE			<I>params</I> returns the four	plane equation
+				coefficients that specify eye linear-
+				coordinate generation.	Integer	values,	when
+				requested, are mapped directly from the
+				internal floating-point	representation.	 The
+				returned values	are those maintained in	eye
+				coordinates.  They are not equal to the
+				values specified using <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>, unless	the
+				modelview matrix was identity at the time
+				<A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A> was called.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, no change is made to the contents of <I>params</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>coord</I>	or <I>pname</I> is not	an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGen</A> is called between a call
+  to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call	to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

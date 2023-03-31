@@ -1,0 +1,4 @@
+cd .\NRobinsTutors
+lightposition.exe
+
+

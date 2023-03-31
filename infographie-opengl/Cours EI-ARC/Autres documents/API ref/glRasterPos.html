@@ -1,0 +1,167 @@
+<HEAD>
+<TITLE>glRasterPos.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glRasterPos.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2d</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2f</A>,	<A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2i</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2s</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3d</A>,
+  <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3f</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3i</A>,	<A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3s</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4d</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4f</A>,
+  <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4i</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4s</A>,	<A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2dv</A>,	<A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2fv</A>,
+  <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2iv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2sv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3dv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3fv</A>,
+  <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3iv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3sv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4dv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4fv</A>,
+  <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4iv</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4sv</A> - specify the raster position for pixel
+  operations
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2d</A>( GLdouble <I>x</I>,
+		      GLdouble <I>y</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2f</A>( GLfloat <I>x</I>,
+		      GLfloat <I>y</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2i</A>( GLint <I>x</I>,
+		      GLint <I>y</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2s</A>( GLshort <I>x</I>,
+		      GLshort <I>y</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3d</A>( GLdouble <I>x</I>,
+		      GLdouble <I>y</I>,
+		      GLdouble <I>z</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3f</A>( GLfloat <I>x</I>,
+		      GLfloat <I>y</I>,
+		      GLfloat <I>z</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3i</A>( GLint <I>x</I>,
+		      GLint <I>y</I>,
+		      GLint <I>z</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3s</A>( GLshort <I>x</I>,
+		      GLshort <I>y</I>,
+		      GLshort <I>z</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4d</A>( GLdouble <I>x</I>,
+		      GLdouble <I>y</I>,
+		      GLdouble <I>z</I>,
+		      GLdouble <I>w</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4f</A>( GLfloat <I>x</I>,
+		      GLfloat <I>y</I>,
+		      GLfloat <I>z</I>,
+		      GLfloat <I>w</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4i</A>( GLint <I>x</I>,
+		      GLint <I>y</I>,
+		      GLint <I>z</I>,
+		      GLint <I>w</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4s</A>( GLshort <I>x</I>,
+		      GLshort <I>y</I>,
+		      GLshort <I>z</I>,
+		      GLshort <I>w</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>x</I>, <I>y</I>,	<I>z</I>, <I>w</I>
+	   Specify the x, y, z,	and w object coordinates (if present) for the
+	   raster position.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2dv</A>( const GLdouble *<I>v</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2fv</A>( const GLfloat *<I>v</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2iv</A>( const GLint *<I>v</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos2sv</A>( const GLshort *<I>v</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3dv</A>( const GLdouble *<I>v</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3fv</A>( const GLfloat *<I>v</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3iv</A>( const GLint *<I>v</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos3sv</A>( const GLshort *<I>v</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4dv</A>( const GLdouble *<I>v</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4fv</A>( const GLfloat *<I>v</I>	)
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4iv</A>( const GLint *<I>v</I> )
+  void <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos4sv</A>( const GLshort *<I>v</I>	)
+
+
+  <I>v</I>    Specifies a pointer to an array of two, three, or four elements,
+       specifying x, y,	z, and w coordinates, respectively.
+
+
+</PRE><H2>Description</H2><PRE>
+  The GL maintains a 3-D position in window coordinates.  This position,
+  called the raster position, is maintained with subpixel accuracy.  It	is
+  used to position pixel and bitmap write operations.  See <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>,
+  <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,	and <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>.
+
+  The current raster position consists of three	window coordinates (x, y, z),
+  a clip coordinate w value, an	eye coordinate distance, a valid bit, and
+  associated color data	and texture coordinates.  The w	coordinate is a	clip
+  coordinate, because w	is not projected to window coordinates.	 glRasterPos4
+  specifies object coordinates x, y, z,	and w explicitly.  glRasterPos3
+  specifies object coordinate x, y, and	z explicitly, while w is implicitly
+  set to one.  glRasterPos2 uses the argument values for x and y while
+  implicitly setting z and w to	zero and one.
+
+  The object coordinates presented by <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A> are treated just like	those
+  of a <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>	command: They are transformed by the current modelview and
+  projection matrices and passed to the	clipping stage.	 If the	vertex is not
+  culled, then it is projected and scaled to window coordinates, which become
+  the new current raster position, and the GL_CURRENT_RASTER_POSITION_VALID
+  flag is set.	If the vertex <I>is</I> culled, then the valid	bit is cleared and
+  the current raster position and associated color and texture coordinates
+  are undefined.
+
+  The current raster position also includes some associated color data and
+  texture coordinates.	If lighting is enabled,	then GL_CURRENT_RASTER_COLOR,
+  in RGBA mode,	or the GL_CURRENT_RASTER_INDEX,	in color index mode, is	set
+  to the color produced	by the lighting	calculation (see <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>,
+  <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>,	and <A HREF="glShadeModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glShadeModel.html">glShadeModel</A>).  If lighting	is disabled, current color
+  (in RGBA mode, state variable	GL_CURRENT_COLOR) or color index (in color
+  index	mode, state variable GL_CURRENT_INDEX) is used to update the current
+  raster color.
+
+  Likewise, GL_CURRENT_RASTER_TEXTURE_COORDS is	updated	as a function of
+  GL_CURRENT_TEXTURE_COORDS, based on the texture matrix and the texture
+  generation functions (see <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>).	Finally, the distance from the origin
+  of the eye coordinate	system to the vertex as	transformed by only the
+  modelview matrix replaces GL_CURRENT_RASTER_DISTANCE.
+
+  Initially, the current raster	position is (0,0,0,1), the current raster
+  distance is 0, the valid bit is set, the associated RGBA color is
+  (1,1,1,1), the associated color index	is 1, and the associated texture
+  coordinates are (0, 0, 0, 1).	 In RGBA mode, GL_CURRENT_RASTER_INDEX is
+  always 1; in color index mode, the current raster RGBA color always
+  maintains its	initial	value.
+
+</PRE><H2>Notes</H2><PRE>
+  The raster position is modified both by <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A> and by <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>.
+
+  When the raster position coordinates are invalid, drawing commands that are
+  based	on the raster position are ignored (that is, they do not result	in
+  changes to GL	state).
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A> is called between a call
+  to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call	to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_POSITION
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_POSITION_VALID
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_DISTANCE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_COLOR
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_INDEX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_TEXTURE_COORDS
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>, <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>, <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,	<A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>, <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>, <A HREF="glShadeModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glShadeModel.html">glShadeModel</A>,
+  <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>, <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>,	<A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

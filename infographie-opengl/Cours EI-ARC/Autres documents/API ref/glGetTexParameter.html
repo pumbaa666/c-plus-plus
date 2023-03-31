@@ -1,0 +1,95 @@
+<HEAD>
+<TITLE>glGetTexParameter.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetTexParameter.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameterfv</A>, <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameteriv</A> - return texture parameter values
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameterfv</A>( GLenum <I>target</I>,
+			    GLenum <I>pname</I>,
+			    GLfloat *<I>params</I> )
+  void <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameteriv</A>( GLenum <I>target</I>,
+			    GLenum <I>pname</I>,
+			    GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>  Specifies the	symbolic name of the target texture.  GL_TEXTURE_1D
+	  and GL_TEXTURE_2D are	accepted.
+
+  <I>pname</I>	  Specifies the	symbolic name of a texture parameter.
+	  GL_TEXTURE_MAG_FILTER, GL_TEXTURE_MIN_FILTER,	GL_TEXTURE_WRAP_S,
+	  GL_TEXTURE_WRAP_T, and GL_TEXTURE_BORDER_COLOR are accepted.
+
+  <I>params</I>  Returns the texture parameters.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A> returns in <I>params</I> the value	or values of the texture
+  parameter specified as <I>pname</I>.	 <I>target</I>	defines	the target texture, either
+  GL_TEXTURE_1D	or GL_TEXTURE_2D, to specify one- or two-dimensional
+  texturing.  <I>pname</I> accepts the	same symbols as	<A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>,	with the same
+  interpretations:
+
+  GL_TEXTURE_MAG_FILTER		     Returns the single-valued texture
+				     magnification filter, a symbolic
+				     constant.
+
+  GL_TEXTURE_MIN_FILTER		     Returns the single-valued texture
+				     minification filter, a symbolic
+				     constant.
+
+  GL_TEXTURE_WRAP_S		     Returns the single-valued wrapping
+				     function for texture coordinate s,	a
+				     symbolic constant.
+
+  GL_TEXTURE_WRAP_T		     Returns the single-valued wrapping
+				     function for texture coordinate t,	a
+				     symbolic constant.
+
+  GL_TEXTURE_BORDER_COLOR	     Returns four integer or floating-point
+				     numbers that comprise the RGBA color of
+				     the texture border.  Floating-point
+				     values are	returned in the	range [0,1].
+				     Integer values are	returned as a linear
+				     mapping of	the internal floating-point
+				     representation such that 1.0 maps to the
+				     most positive representable integer and
+				     -1.0 maps to the most negative
+				     representable integer.
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, no change is made to the contents of <I>params</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>target</I> or <I>pname</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A> is called between a
+  call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

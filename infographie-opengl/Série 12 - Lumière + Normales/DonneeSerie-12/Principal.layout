@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="Principal.cpp" open="1" top="0">
+		<Cursor position="408" topLine="1"/>
+	</File>
+	<File name="evenements.cpp" open="1" top="0">
+		<Cursor position="316" topLine="27"/>
+	</File>
+	<File name="geometrie.cpp" open="1" top="1">
+		<Cursor position="833" topLine="0"/>
+	</File>
+	<File name="geometrie.h" open="1" top="0">
+		<Cursor position="269" topLine="0"/>
+	</File>
+	<File name="global.cpp" open="1" top="0">
+		<Cursor position="266" topLine="0"/>
+	</File>
+	<File name="global.h" open="1" top="0">
+		<Cursor position="266" topLine="0"/>
+	</File>
+	<File name="normal.cpp" open="1" top="0">
+		<Cursor position="1110" topLine="8"/>
+	</File>
+	<Expand folder="/Sources"/>
+</CodeBlocks_layout_file>

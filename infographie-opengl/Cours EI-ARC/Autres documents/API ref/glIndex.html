@@ -1,0 +1,80 @@
+<HEAD>
+<TITLE>glIndex.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glIndex.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexd</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexf</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexi</A>,	<A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexs</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexdv</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexfv</A>,	<A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexiv</A>,
+  <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexsv</A> - set the current color index
+
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexd</A>( GLdouble <I>c</I> )
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexf</A>( GLfloat <I>c</I> )
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexi</A>( GLint <I>c</I> )
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexs</A>( GLshort <I>c</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>c</I>  Specifies the new value for the current color index.
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexdv</A>( const	GLdouble *<I>c</I> )
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexfv</A>( const	GLfloat	*<I>c</I> )
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexiv</A>( const	GLint *<I>c</I> )
+  void <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndexsv</A>( const	GLshort	*<I>c</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>c</I>    Specifies a pointer to a	one-element array that contains	the new	value
+       for the current color index.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A> updates the current (single-valued) color index.  It takes one
+  argument: the	new value for the current color	index.
+
+  The current index is stored as a floating-point value.  Integer values are
+  converted directly to	floating-point values, with no special mapping.
+
+  Index	values outside the representable range of the color index buffer are
+  not clamped.	However, before	an index is dithered (if enabled) and written
+  to the frame buffer, it is converted to fixed-point format.  Any bits	in
+  the integer portion of the resulting fixed-point value that do not
+  correspond to	bits in	the frame buffer are masked out.
+
+</PRE><H2>Notes</H2><PRE>
+  The current index can	be updated at any time.	 In particular,	<A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>	can
+  be called between a call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_INDEX
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

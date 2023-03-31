@@ -1,0 +1,154 @@
+<HEAD>
+<TITLE>glEvalMesh.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glEvalMesh.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh1</A>, <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A> - compute a one- or two-dimensional grid of points
+  or lines
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh1</A>( GLenum <I>mode</I>,
+		    GLint <I>i1</I>,
+		    GLint <I>i2</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	In <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh1</A>,	specifies whether to compute a one-dimensional mesh
+	of points or lines.  Symbolic constants	GL_POINT and GL_LINE are
+	accepted.
+
+  <I>i1</I>, <I>i2</I>
+	Specify	the first and last integer values for grid domain variable i.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A>( GLenum <I>mode</I>,
+		    GLint <I>i1</I>,
+		    GLint <I>i2</I>,
+		    GLint <I>j1</I>,
+		    GLint <I>j2</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I> In <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A>, specifies whether to compute a two-dimensional mesh of
+       points, lines, or polygons.  Symbolic constants GL_POINT, GL_LINE, and
+       GL_FILL are accepted.
+
+  <I>i1</I>, <I>i2</I>
+       Specify the first and last integer values for grid domain variable i.
+
+  <I>j1</I>, <I>j2</I>
+       Specify the first and last integer values for grid domain variable j.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A> and	<A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh</A> are used in tandem to efficiently generate and
+  evaluate a series of evenly spaced map domain	values.	 <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh</A> steps
+  through the integer domain of	a one- or two-dimensional grid,	whose range
+  is the domain	of the evaluation maps specified by <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A> and <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.	<I>mode</I>
+  determines whether the resulting vertices are	connected as points, lines,
+  or filled polygons.
+
+  In the one-dimensional case, <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh1</A>, the	mesh is	generated as if	the
+  following code fragment were executed: 
+
+	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(type);
+	for (i = <I>i1</I>; i &lt;= <I>i2</I>; i += 1)
+		<A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord1</A>(i · du + u1)
+	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>();
+
+  where
+
+       du = (u2-u1)/n
+
+  and n, u1, and u2 are	the arguments to the most recent glMapGrid1 command.
+  type is GL_POINT if <I>mode</I> is GL_POINT, or GL_LINES if	<I>mode</I> is	GL_LINE.  The
+  one absolute numeric requirement is that if i	= n, then the value computed
+  from i·du + u1 is exactly u2.
+
+  In the two-dimensional case, <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A>, let
+
+			 du = (u2-u1)/n
+
+			 dv = (v2-v1)/m 
+
+  where	n, u1, u2, m, v1, and v2 are the arguments to the most recent
+  glMapGrid2 comand.  Then, if <I>mode</I> is	GL_FILL, the <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A> command is
+  equivalent to: 
+
+  for (j = <I>j1</I>;  j &lt; <I>j2</I>; j += 1) {
+      <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(GL_QUAD_STRIP);
+      for (i = <I>i1</I>; i &lt;=	<I>i2</I>; i += 1) {
+	  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A>(i·du + u1, j·dv + v1);
+	  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A>(i·du + u1, (j+1)·dv + v1);
+      }
+      <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>(); 
+  }
+
+  If <I>mode</I> is GL_LINE, then a call to <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A> is equivalent to:
+
+  for (j = <I>j1</I>;  j &lt;= <I>j2</I>; j += 1) {
+      <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(GL_LINE_STRIP);
+      for (i = <I>i1</I>; i &lt;= <I>i2</I>; i += 1)
+	  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A>(i·du + u1, j·dv + v1);
+      <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>(); 
+  } 
+  for (i = <I>i1</I>; i &lt;= <I>i2</I>; i += 1) {
+      <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(GL_LINE_STRIP);
+      for (j = <I>j1</I>; j &lt;= <I>j1</I>; j += 1)
+	  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A>(i·du + u1, j·dv + v1);
+      <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>();
+  }
+
+  And finally, if <I>mode</I> is GL_POINT, then a call	to <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh2</A> is equivalent
+  to: 
+
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(GL_POINTS); 
+  for (j = <I>j1</I>; j &lt;= <I>j2</I>; j += 1) {
+      for (i = <I>i1</I>; i &lt;= <I>i2</I>; i += 1) {
+	  <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord2</A>(i·du + u1, j·dv + v1);
+      }	
+  } 
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>();
+
+  In all three cases, the only absolute	numeric	requirements are that if
+  i = n, then the value	computed from i·du + u1	is exactly u2, and if j	= m,
+  then the value computed from j·dv + v1 is exactly v2.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh</A> is called between a call to
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAP1_GRID_DOMAIN
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAP2_GRID_DOMAIN
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAP1_GRID_SEGMENTS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAP2_GRID_SEGMENTS
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A>,	<A HREF="glEvalPoint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalPoint.html">glEvalPoint</A>, <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>, <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>, <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

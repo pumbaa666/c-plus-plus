@@ -1,0 +1,123 @@
+# depslib dependency file v1.0
+1134380464 u:\3ème\infographie\série 19 -\donneeserie-19\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1166093926 u:\3ème\infographie\série 19 -\donneeserie-19\global.h
+
+1166092895 u:\3ème\infographie\série 19 -\donneeserie-19\geometrie.h
+
+1069230674 u:\3ème\infographie\série 19 -\donneeserie-19\evenements.h
+
+1166093910 u:\3ème\infographie\série 19 -\donneeserie-19\global.cpp
+	<GL\glut.h>
+
+1024849766 u:\3ème\infographie\série 19 -\donneeserie-19\normal.cpp
+	<math.h>
+	"normal.h"
+
+1024843364 u:\3ème\infographie\série 19 -\donneeserie-19\normal.h
+
+1166093857 u:\3ème\infographie\série 19 -\donneeserie-19\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"principal.h"
+	"Texture2.h"
+
+1043314648 u:\3ème\infographie\série 19 -\donneeserie-19\principal.h
+
+1166094534 u:\3ème\infographie\série 19 -\donneeserie-19\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"normal.h"
+	"geometrie.h"
+	"Texture2.h"
+	"Bitmap2.h"
+
+1136544762 u:\3ème\infographie\série 19 -\donneeserie-19\texture2.h
+	"bitmap2.h"
+
+1136544644 u:\3ème\infographie\série 19 -\donneeserie-19\bitmap2.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1136544762 u:\3ème\infographie\série 19 -\donneeserie-19\bitmap2.cpp
+	"bitmap2.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1136544698 u:\3ème\infographie\série 19 -\donneeserie-19\texture2.cpp
+	<stdlib.h>
+	<stdio.h>
+	"texture2.h"
+
+1136544762 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\bitmap2.cpp
+	"bitmap2.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1136544644 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\bitmap2.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1134380464 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1166093926 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\global.h
+
+1166092895 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\geometrie.h
+
+1069230674 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\evenements.h
+
+1166094733 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"normal.h"
+	"geometrie.h"
+	"Texture2.h"
+	"Bitmap2.h"
+
+1024843364 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\normal.h
+
+1136544762 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\texture2.h
+	"bitmap2.h"
+
+1166095905 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\global.cpp
+	<GL\glut.h>
+
+1024849766 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\normal.cpp
+	<math.h>
+	"normal.h"
+
+1136544698 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\texture2.cpp
+	<stdlib.h>
+	<stdio.h>
+	"texture2.h"
+
+1166622005 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"principal.h"
+	"Texture2.h"
+
+1043314648 u:\3ème\infographie\série 19 - textures + lumière\donneeserie-19\principal.h
+

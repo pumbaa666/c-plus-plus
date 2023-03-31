@@ -1,0 +1,70 @@
+<HEAD>
+<TITLE>glRotate.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glRotate.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotated</A>, <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotatef</A> - multiply the current matrix by	a rotation matrix
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotated</A>( GLdouble <I>angle</I>,
+		  GLdouble <I>x</I>,
+		  GLdouble <I>y</I>,
+		  GLdouble <I>z</I> )
+  void <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotatef</A>( GLfloat <I>angle</I>,
+		  GLfloat <I>x</I>,
+		  GLfloat <I>y</I>,
+		  GLfloat <I>z</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>angle</I>	 Specifies the angle of	rotation, in degrees.
+
+  <I>x</I>, <I>y</I>,	<I>z</I>
+	 Specify the <I>x</I>,	<I>y</I>, and <I>z</I> coordinates of	a vector, respectively.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotate</A> computes a matrix that performs a counterclockwise rotation of
+  <I>angle</I>	degrees	about the vector from the origin through the point (<I>x</I>, <I>y</I>, <I>z</I>).
+
+  The current matrix (see <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>)	is multiplied by this rotation
+  matrix, with the product replacing the current matrix.  That is, if M	is
+  the current matrix and R is the translation matrix, then M is	replaced with
+  M · R.
+
+  If the matrix	mode is	either GL_MODELVIEW or GL_PROJECTION, all objects
+  drawn	after <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotate</A> is called are rotated.  Use <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>	and
+  <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPopMatrix</A> to save and restore the unrotated	coordinate system.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotate</A> is executed between
+  the execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MATRIX_MODE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MODELVIEW_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PROJECTION_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_MATRIX
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>,	<A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A>, <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>, <A HREF="glScale.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScale.html">glScale</A>, <A HREF="glTranslate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTranslate.html">glTranslate</A>
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

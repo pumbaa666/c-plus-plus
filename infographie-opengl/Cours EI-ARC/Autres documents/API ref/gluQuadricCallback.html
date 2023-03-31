@@ -1,0 +1,60 @@
+<HEAD>
+<TITLE>gluQuadricCallback.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluQuadricCallback.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluQuadricCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricCallback.html">gluQuadricCallback</A> - define a	callback for a quadrics	object
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluQuadricCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricCallback.html">gluQuadricCallback</A>( GLUquadricObj *<I>qobj</I>,
+			   GLenum <I>which</I>,
+			   void	(*<I>fn</I>)( )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>	 Specifies the quadrics	object (created	with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>which</I>	 Specifies the callback	being defined.	The only valid value is
+	 GLU_ERROR.
+
+  <I>fn</I>	 Specifies the function	to be called.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluQuadricCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricCallback.html">gluQuadricCallback</A> is	used to	define a new callback to be used by a
+  quadrics object.  If the specified callback is already defined, then it is
+  replaced.  If	<I>fn</I> is NULL, then any existing callback is erased.
+
+  The one legal	callback is GLU_ERROR:
+
+  GLU_ERROR	 The function is called	when an	error is encountered.  Its
+		 single	argument is of type GLenum, and	it indicates the
+		 specific error	that occurred.	Character strings describing
+		 these errors can be retrieved with the	<A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A> call.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>, <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

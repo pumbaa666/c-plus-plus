@@ -1,0 +1,103 @@
+<HEAD>
+<TITLE>glIsEnabled.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glIsEnabled.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> -	test whether a capability is enabled
+
+
+</PRE><H2>C Specification</H2><PRE>
+  GLboolean <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A>( GLenum	<I>cap</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>cap</I>  Specifies a symbolic constant indicating	a GL capability.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> returns GL_TRUE if <I>cap</I> is	an enabled capability and returns
+  GL_FALSE otherwise.  The following capabilities are accepted for <I>cap</I>:
+
+  GL_ALPHA_TEST		       See <A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A>.
+  GL_AUTO_NORMAL	       See <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A>.
+  GL_BLEND		       See <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>.
+  GL_CLIP_PLANE<I>i</I>	       See <A HREF="glClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClipPlane.html">glClipPlane</A>.
+  GL_COLOR_ARRAY_EXT	       See <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>.
+  GL_COLOR_MATERIAL	       See <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A>.
+  GL_CULL_FACE		       See <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A>.
+  GL_DEPTH_TEST		       See <A HREF="glDepthFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthFunc.html">glDepthFunc</A> and  <A HREF="glDepthRange.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthRange.html">glDepthRange</A>.
+  GL_DITHER		       See <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>.
+  GL_EDGE_FLAG_ARRAY_EXT       See <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A>.
+  GL_FOG		       See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+  GL_INDEX_ARRAY_EXT	       See <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>.
+  GL_LIGHT<I>i</I>		       See <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>	and <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>.
+  GL_LIGHTING		       See <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>, <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>, and <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>.
+  GL_LINE_SMOOTH	       See <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>.
+  GL_LINE_STIPPLE	       See <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>.
+  GL_LOGIC_OP		       See <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A>.
+  GL_MAP1_COLOR_4	       See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_INDEX		       See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_NORMAL	       See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_TEXTURE_COORD_1      See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_TEXTURE_COORD_2      See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_TEXTURE_COORD_3      See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_TEXTURE_COORD_4      See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_VERTEX_3	       See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP1_VERTEX_4	       See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+  GL_MAP2_COLOR_4	       See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_INDEX		       See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_NORMAL	       See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_TEXTURE_COORD_1      See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_TEXTURE_COORD_2      See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_TEXTURE_COORD_3      See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_TEXTURE_COORD_4      See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_VERTEX_3	       See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_MAP2_VERTEX_4	       See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+  GL_NORMAL_ARRAY_EXT	       See <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>.
+  GL_NORMALIZE		       See <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>.
+  GL_POINT_SMOOTH	       See <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>.
+  GL_POLYGON_SMOOTH	       See <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>.
+  GL_POLYGON_STIPPLE	       See <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>.
+  GL_SCISSOR_TEST	       See <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>.
+  GL_STENCIL_TEST	       See <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A> and <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>.
+  GL_TEXTURE_1D		       See <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>.
+  GL_TEXTURE_2D		       See <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>.
+  GL_TEXTURE_COORD_ARRAY_EXT   See <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>.
+  GL_TEXTURE_GEN_Q	       See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+  GL_TEXTURE_GEN_R	       See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+  GL_TEXTURE_GEN_S	       See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+  GL_TEXTURE_GEN_T	       See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+  GL_VERTEX_ARRAY_EXT	       See <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>.
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A>	returns	zero.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>cap</I> is not an	accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

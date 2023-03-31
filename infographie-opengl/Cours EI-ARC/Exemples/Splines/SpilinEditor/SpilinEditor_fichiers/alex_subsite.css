@@ -1,0 +1,24 @@
+.date {
+	FONT-WEIGHT: bold; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #660066
+}
+.nav_table_2 {
+	FONT-SIZE: x-small; WIDTH: 100%; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #3366cc
+}
+.link_cell {
+	BORDER-RIGHT: #0066cc solid; PADDING-RIGHT: 5px; VERTICAL-ALIGN: top; TEXT-ALIGN: right
+}
+A {
+	COLOR: #ffcc00
+}
+A:hover {
+	
+}
+.ext_link {
+	FONT-WEIGHT: bold; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.intro_bkg {
+	PADDING-BOTTOM: 10px; WIDTH: 100%; PADDING-TOP: 10px; BACKGROUND-COLOR: #000000
+}
+.navbar_link {
+	COLOR: #ffffff
+}

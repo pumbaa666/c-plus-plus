@@ -1,0 +1,76 @@
+<HEAD>
+<TITLE>glColorMaterial.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glColorMaterial.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> - cause a material color to track the	current	color
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A>(	GLenum <I>face</I>,
+			GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>face</I>	Specifies whether front, back, or both front and back material
+	parameters should track	the current color.  Accepted values are
+	GL_FRONT, GL_BACK, and GL_FRONT_AND_BACK.  The default value is
+	GL_FRONT_AND_BACK.
+
+  <I>mode</I>	Specifies which	of several material parameters track the current
+	color.	Accepted values	are GL_EMISSION, GL_AMBIENT, GL_DIFFUSE,
+	GL_SPECULAR, and GL_AMBIENT_AND_DIFFUSE.  The default value is
+	GL_AMBIENT_AND_DIFFUSE.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> specifies which material parameters track the	current
+  color.  When GL_COLOR_MATERIAL is enabled, the material parameter or
+  parameters specified by <I>mode</I>,	of the material	or materials specified by
+  <I>face</I>,	track the current color	at all times.	GL_COLOR_MATERIAL is enabled
+  and disabled using the commands <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A>, called with
+  GL_COLOR_MATERIAL as their argument.	By default, it is disabled.
+
+</PRE><H2>Notes</H2><PRE>
+  <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> allows a subset of material parameters to be changed for
+  each vertex using only the <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A> command, without calling <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>.  If
+  only such a subset of	parameters is to be specified for each vertex,
+  <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> is preferred over calling <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>.
+
+  Call <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> before enabling the GL_COLOR_MATERIAL.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>face</I> or <I>mode</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> is executed between
+  the execution	of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_COLOR_MATERIAL
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_COLOR_MATERIAL_PARAMETER
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_COLOR_MATERIAL_FACE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>, <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>, <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

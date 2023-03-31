@@ -1,0 +1,56 @@
+<HEAD>
+<TITLE>gluGetTessProperty.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluGetTessProperty.3gl (GLU version 1.2 and later)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluGetTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetTessProperty.html">gluGetTessProperty</A> - get a tessellation object property
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluGetTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetTessProperty.html">gluGetTessProperty</A>( GLUtesselator *<I>tess</I>,
+			   GLenum <I>which</I>,
+			   GLdouble *<I>value</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tess</I>	 Specifies the tessellation object (created with <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>).
+
+  <I>which</I>	 Specifies the property	whose value is to be fetched.  Valid values
+	 are GLU_TESS_WINDING_RULE, GLU_TESS_BOUNDARY_ONLY, and
+	 GLU_TESS_TOLERANCE.
+
+  <I>value</I>	 Specifies a pointer to	the location into which	the value of the
+	 named	property is written.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluGetTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetTessProperty.html">gluGetTessProperty</A> is	used to	retrieve properties stored in a	tessellation
+  object.  These properties affect the way that	tessellation objects are
+  interpreted and rendered.  Please refer to the <A HREF="gluTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessProperty.html">gluTessProperty</A> reference
+  page for information about what the properties are and what they do.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>, <A HREF="gluTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessProperty.html">gluTessProperty</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

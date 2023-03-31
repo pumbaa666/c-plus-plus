@@ -1,0 +1,60 @@
+# Project: CanevasAPI
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = ../../../../../../../temp/CanevasAPI_private.res
+OBJ  = ../../../../../../../temp/Principal.o ../../../../../../../temp/Evenements.o ../../../../../../../temp/Geometrie.o ../../../../../../../temp/Initialisation.o ../../../../../../../temp/Global.o ../../../../../../../temp/InitialisationGL.o ../../../../../../../temp/GlobalWin.o ../../../../../../../temp/bitmap2.o ../../../../../../../temp/texture2.o ../../../../../../../temp/Dessin.o $(RES)
+LINKOBJ  = ../../../../../../../temp/Principal.o ../../../../../../../temp/Evenements.o ../../../../../../../temp/Geometrie.o ../../../../../../../temp/Initialisation.o ../../../../../../../temp/Global.o ../../../../../../../temp/InitialisationGL.o ../../../../../../../temp/GlobalWin.o ../../../../../../../temp/bitmap2.o ../../../../../../../temp/texture2.o ../../../../../../../temp/Dessin.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lopengl32 -lglu32 -lglaux -lkernel32 -luser32 -lgdi32 -lwinspool -lcomdlg32 -ladvapi32 -lshell32 -lole32 -loleaut32 -luuid -lodbc32 -lodbccp32  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include/dx8" 
+BIN  = CanevasAPI.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS) -D__GNUWIN32__ -W -DWIN32 -DNDEBUG -D_WINDOWS -D_MBCS  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before CanevasAPI.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "CanevasAPI.exe" $(LIBS)
+
+../../../../../../../temp/Principal.o: Principal.cpp
+	$(CPP) -c Principal.cpp -o ../../../../../../../temp/Principal.o $(CXXFLAGS)
+
+../../../../../../../temp/Evenements.o: Evenements.cpp
+	$(CPP) -c Evenements.cpp -o ../../../../../../../temp/Evenements.o $(CXXFLAGS)
+
+../../../../../../../temp/Geometrie.o: Geometrie.cpp
+	$(CPP) -c Geometrie.cpp -o ../../../../../../../temp/Geometrie.o $(CXXFLAGS)
+
+../../../../../../../temp/Initialisation.o: Initialisation.cpp
+	$(CPP) -c Initialisation.cpp -o ../../../../../../../temp/Initialisation.o $(CXXFLAGS)
+
+../../../../../../../temp/Global.o: Global.cpp
+	$(CPP) -c Global.cpp -o ../../../../../../../temp/Global.o $(CXXFLAGS)
+
+../../../../../../../temp/InitialisationGL.o: InitialisationGL.cpp
+	$(CPP) -c InitialisationGL.cpp -o ../../../../../../../temp/InitialisationGL.o $(CXXFLAGS)
+
+../../../../../../../temp/GlobalWin.o: GlobalWin.cpp
+	$(CPP) -c GlobalWin.cpp -o ../../../../../../../temp/GlobalWin.o $(CXXFLAGS)
+
+../../../../../../../temp/bitmap2.o: bitmap2.cpp
+	$(CPP) -c bitmap2.cpp -o ../../../../../../../temp/bitmap2.o $(CXXFLAGS)
+
+../../../../../../../temp/texture2.o: texture2.cpp
+	$(CPP) -c texture2.cpp -o ../../../../../../../temp/texture2.o $(CXXFLAGS)
+
+../../../../../../../temp/Dessin.o: Dessin.cpp
+	$(CPP) -c Dessin.cpp -o ../../../../../../../temp/Dessin.o $(CXXFLAGS)
+
+../../../../../../../temp/CanevasAPI_private.res: CanevasAPI_private.rc CanevasAPI01.rc CanevasAPI_private.rc 
+	$(WINDRES) -i CanevasAPI_private.rc --input-format=rc -o ../../../../../../../temp/CanevasAPI_private.res -O coff  --include-dir C:/MESCOU~1/INFOGR~1/COURSE~4/EXERCI~1/CANEVA~1

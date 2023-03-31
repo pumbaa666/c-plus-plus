@@ -1,0 +1,204 @@
+<HEAD>
+<TITLE>glCopyPixels.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glCopyPixels.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A> - copy pixels in	the frame buffer
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>( GLint <I>x</I>,
+		     GLint <I>y</I>,
+		     GLsizei <I>width</I>,
+		     GLsizei <I>height</I>,
+		     GLenum <I>type</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>x</I>, <I>y</I> Specify the window coordinates of the lower left	corner of the
+       rectangular region of pixels to be copied.
+
+  <I>width</I>, <I>height</I>
+       Specify the dimensions of the rectangular region	of pixels to be
+       copied.	Both must be nonnegative.
+
+  <I>type</I> Specifies whether color values, depth values, or	stencil	values are to
+       be copied.  Symbolic constants GL_COLOR,	GL_DEPTH, and GL_STENCIL are
+       accepted.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A> copies a	screen-aligned rectangle of pixels from	the specified
+  frame	buffer location	to a region relative to	the current raster position.
+  Its operation	is well	defined	only if	the entire pixel source	region is
+  within the exposed portion of	the window.  Results of	copies from outside
+  the window, or from regions of the window that are not exposed, are
+  hardware dependent and undefined.
+
+  <I>x</I> and	<I>y</I> specify the window coordinates of the	lower left corner of the
+  rectangular region to	be copied.  <I>width</I> and <I>height</I> specify the dimensions
+  of the rectangular region to be copied.  Both	<I>width</I> and <I>height</I> must not be
+  negative.
+
+  Several parameters control the processing of the pixel data while it is
+  being	copied.	 These parameters are set with three commands:
+  <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>, <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>, and <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A>.	 This reference	page
+  describes the	effects	on <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>	of most, but not all, of the
+  parameters specified by these	three commands.
+
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A> copies values from each pixel with the lower left-hand corner
+  at (<I>x</I>	+ i, <I>y</I> + j) for	0&lt;=i&lt;<I>width</I>  and 0&lt;=j&lt;<I>height</I>.  This pixel is said to be
+  the ith pixel	in the jth row.	Pixels are copied in row order from the
+  lowest to the	highest	row, left to right in each row.
+
+  <I>type</I> specifies whether color,	depth, or stencil data is to be	copied.	 The
+  details of the transfer for each data	type are as follows:
+
+  GL_COLOR	 Indices or RGBA colors	are read from the buffer currently
+		 specified as the read source buffer (see <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>).  If
+		 the GL	is in color index mode,	each index that	is read	from
+		 this buffer is	converted to a fixed-point format with an
+		 unspecified number of bits to the right of the	binary point.
+		 Each index is then shifted left by GL_INDEX_SHIFT bits, and
+		 added to GL_INDEX_OFFSET.  If GL_INDEX_SHIFT is negative,
+		 the shift is to the right.  In	either case, zero bits fill
+		 otherwise unspecified bit locations in	the result.  If
+		 GL_MAP_COLOR is true, the index is replaced with the value
+		 that it references in lookup table GL_PIXEL_MAP_I_TO_I.
+		 Whether the lookup replacement	of the index is	done or	not,
+								   b
+		 the integer part of the index is then ANDed with 2 -1,	where
+		 b is the number of bits in a color index buffer.
+
+		 If the	GL is in RGBA mode, the	red, green, blue, and alpha
+		 components of each pixel that is read are converted to	an
+		 internal floating-point format	with unspecified precision.
+		 The conversion	maps the largest representable component
+		 value to 1.0, and component value zero	to 0.0.	 The
+		 resulting floating-point color	values are then	multiplied by
+		 GL_c_SCALE and	added to GL_c_BIAS, where <I>c</I> is RED, GREEN,
+		 BLUE, and ALPHA for the respective color components.  The
+		 results are clamped to	the range [0,1].  If GL_MAP_COLOR is
+		 true, each color component is scaled by the size of lookup
+		 table GL_PIXEL_MAP_c_TO_c, then replaced by the value that
+		 it references in that table.  <I>c</I> is R, G, B, or	A,
+		 respectively.
+
+		 The resulting indices or RGBA colors are then converted to
+		 fragments by attaching	the current raster position <I>z</I>
+		 coordinate and	texture	coordinates to each pixel, then
+		 assigning window coordinates (x +i,y +j), where (x ,y ) is
+                                                r    r             r  r
+		 the current raster position, and the pixel was	the ith	pixel
+		 in the	jth row.  These	pixel fragments	are then treated just
+		 like the fragments generated by rasterizing points, lines,
+		 or polygons.  Texture mapping,	fog, and all the fragment
+		 operations are	applied	before the fragments are written to
+		 the frame buffer.
+
+  GL_DEPTH	 Depth values are read from the	depth buffer and converted
+		 directly to an	internal floating-point	format with
+		 unspecified precision.	 The resulting floating-point depth
+		 value is then multiplied by GL_DEPTH_SCALE and	added to
+		 GL_DEPTH_BIAS.	 The result is clamped to the range [0,1].
+
+		 The resulting depth components	are then converted to
+		 fragments by attaching	the current raster position color or
+		 color index and texture coordinates to	each pixel, then
+		 assigning window coordinates (x +i,y +j), where (x ,y ) is
+                                                r    r             r  r
+		 the current raster position, and the pixel was	the ith	pixel
+		 in the	jth row.  These	pixel fragments	are then treated just
+		 like the fragments generated by rasterizing points, lines,
+		 or polygons.  Texture mapping,	fog, and all the fragment
+		 operations are	applied	before the fragments are written to
+		 the frame buffer.
+
+  GL_STENCIL	 Stencil indices are read from the stencil buffer and
+		 converted to an internal fixed-point format with an
+		 unspecified number of bits to the right of the	binary point.
+		 Each fixed-point index	is then	shifted	left by
+		 GL_INDEX_SHIFT	bits, and added	to GL_INDEX_OFFSET.  If
+		 GL_INDEX_SHIFT	is negative, the shift is to the right.	 In
+		 either	case, zero bits	fill otherwise unspecified bit
+		 locations in the result.  If GL_MAP_STENCIL is	true, the
+		 index is replaced with	the value that it references in
+		 lookup	table GL_PIXEL_MAP_S_TO_S.  Whether the	lookup
+		 replacement of	the index is done or not, the integer part of
+                                               b
+		 the index is then ANDed with 2 -1, where b is the number of
+		 bits in the stencil buffer.  The resulting stencil indices
+		 are then written to the stencil buffer	such that the index
+		 read from the ith location of the jth row is written to
+		 location (x +i,y +j), where (x	,y ) is	the current raster
+                            r    r             r  r
+		 position.  Only the pixel ownership test, the scissor test,
+		 and the stencil writemask affect these	writes.
+
+  The rasterization described thus far assumes pixel zoom factors of 1.0.  If
+  <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A> is used to change	the x and y pixel zoom factors,	pixels are
+  converted to fragments as follows.  If (x , y	) is the current raster
+                                           r   r
+  position, and	a given	pixel is in the	ith location in	the jth	row of the
+  source pixel rectangle, then fragments are generated for pixels whose
+  centers are in the rectangle with corners at
+
+			    (x +zoom i,	y +zoom	j)
+			      r	    x	 r     y
+
+				      and
+
+			(x +zoom (i+1),	y +zoom	(j+1))
+			  r	x	 r     y
+
+  where	zoom  is the value of GL_ZOOM_X	and zoom  is the value of GL_ZOOM_Y.
+	    x					y
+
+</PRE><H2>Examples</H2><PRE>
+  To copy the color pixel in the lower left corner of the window to the
+  current raster position, use <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>(0, 0, 1, 1,	GL_COLOR);
+
+</PRE><H2>Notes</H2><PRE>
+  Modes	specified by <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A> have no effect on the	operation of
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>type</I> is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if either <I>width</I>	or <I>height</I> is negative.
+
+  GL_INVALID_OPERATION is generated if <I>type</I> is GL_DEPTH	and there is no	depth
+  buffer.
+
+  GL_INVALID_OPERATION is generated if <I>type</I> is GL_STENCIL and there is no
+  stencil buffer.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A> is executed	between	the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_POSITION
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_RASTER_POSITION_VALID
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glDepthFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthFunc.html">glDepthFunc</A>, <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>, <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>,
+  <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A>, <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A>, <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>,	<A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A>
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> |
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

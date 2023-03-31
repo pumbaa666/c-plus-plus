@@ -1,0 +1,70 @@
+<HEAD>
+<TITLE>glFrontFace.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glFrontFace.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A> -	define front- and back-facing polygons
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A>( GLenum <I>mode</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	Specifies the orientation of front-facing polygons.  GL_CW and GL_CCW
+	are accepted.  The default value is GL_CCW.
+
+
+</PRE><H2>Description</H2><PRE>
+  In a scene composed entirely of opaque closed	surfaces, back-facing
+  polygons are never visible.  Eliminating these invisible polygons has	the
+  obvious benefit of speeding up the rendering of the image.  Elimination of
+  back-facing polygons is enabled and disabled with <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A>
+  using	argument GL_CULL_FACE.
+
+  The projection of a polygon to window	coordinates is said to have clockwise
+  winding if an	imaginary object following the path from its first vertex,
+  its second vertex, and so on,	to its last vertex, and	finally	back to	its
+  first	vertex,	moves in a clockwise direction about the interior of the
+  polygon.  The	polygon's winding is said to be	counterclockwise if the
+  imaginary object following the same path moves in a counterclockwise
+  direction about the interior of the polygon.	<A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A> specifies whether
+  polygons with	clockwise winding in window coordinates, or counterclockwise
+  winding in window coordinates, are taken to be front-facing.	Passing
+  GL_CCW to <I>mode</I> selects counterclockwise polygons as front-facing; GL_CW
+  selects clockwise polygons as	front-facing.  By default, counterclockwise
+  polygons are taken to	be front-facing.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_FRONT_FACE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A>, <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,826 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDB_LOGO_BITMAP         BITMAP  DISCARDABLE     "res\\spil-logo.bmp"
+IDR_PREVIEWBAR          BITMAP  DISCARDABLE     "res\\previewb.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    SEPARATOR
+    BUTTON      ID_EDIT_COPY
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_SNAP
+    SEPARATOR
+    BUTTON      ID_STATO_SELECT
+    BUTTON      ID_STATO_CREA
+    BUTTON      ID_STATO_INSER
+    BUTTON      ID_STATO_MODIFICA
+    BUTTON      ID_STATO_RUOTA
+    BUTTON      ID_STATO_SCALA
+    BUTTON      ID_STATO_MIRROR_X
+    BUTTON      ID_STATO_MIRROR_Y
+    BUTTON      ID_MODIFICA_CHIUDISPLINE
+END
+
+IDR_PREVIEWBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FLIP_N
+    BUTTON      ID_VIEW_GRIDPLANE
+    BUTTON      ID_SMOOTH_SHADE
+    BUTTON      ID_REVOLUTION
+    BUTTON      ID_ESTRUSION
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        POPUP "&Export"
+        BEGIN
+            MENUITEM "&POV ...",                    ID_FILE_ESPORTAINPOV
+            MENUITEM "&VRML ...",                   ID_FILE_ESPORTAINVRML20
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT, GRAYED
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Select All\tA",               ID_EDIT_SELECT_ALL
+        MENUITEM "Select None\tN",              ID_EDIT_SELECT_NONE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "Edit &Toolbar",               ID_VIEW_TOOLBAR
+        MENUITEM "&Preview Toolbar",            ID_VIEW_PREVIEWBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "S&plit",                      ID_WINDOW_SPLIT
+        MENUITEM SEPARATOR
+        MENUITEM "Se&ttings...",                ID_SETTINGS
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "Add\tD",                      ID_STATO_CREA
+        MENUITEM "Insert\tI",                   ID_STATO_INSER
+        MENUITEM "Select\tC",                   ID_STATO_SELECT
+        MENUITEM "Translate\tT",                ID_STATO_MODIFICA
+        MENUITEM "Rotate\tR",                   ID_STATO_RUOTA
+        MENUITEM "Scale\tS",                    ID_STATO_SCALA
+        MENUITEM "X Mirror\tX",                 ID_STATO_MIRROR_X
+        MENUITEM "Y Mirror\tY",                 ID_STATO_MIRROR_Y
+        MENUITEM "Open/Close Spline",           ID_MODIFICA_CHIUDISPLINE
+        MENUITEM SEPARATOR
+        MENUITEM "Force Re&draw",               ID_VISUAL_REDRAW
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Keyboard Help...",           IDD_KEY_HELP
+        MENUITEM "&About SpilinEditor...",      ID_APP_ABOUT
+    END
+END
+
+CG_IDR_POPUP_SPILIN_EDITOR_VIEW MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Close Spline",                ID_MODIFICA_CHIUDISPLINE
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "Select All\tA",               ID_EDIT_SELECT_ALL
+        MENUITEM "Select None\tN",              ID_EDIT_SELECT_NONE
+        MENUITEM SEPARATOR
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_STATO_SELECT,        VIRTKEY, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "D",            ID_STATO_CREA,          VIRTKEY, NOINVERT
+    "I",            ID_STATO_INSER,         VIRTKEY, NOINVERT
+    "N",            ID_EDIT_SELECT_NONE,    VIRTKEY, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_STATO_RUOTA,         VIRTKEY, NOINVERT
+    "S",            ID_STATO_SCALA,         VIRTKEY, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_STATO_MODIFICA,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_STATO_MIRROR_X,      VIRTKEY, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Y",            ID_STATO_MIRROR_Y,      VIRTKEY, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,2,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "ALFAsoft\0"
+            VALUE "FileDescription", "SpilinEditor v1.2 - graphical curve editor for POV\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "SpilinEditor\0"
+            VALUE "LegalCopyright", "Copyright (C) 1998\0"
+            VALUE "OriginalFilename", "SpilinEditor.EXE\0"
+            VALUE "ProductName", "SpilinEditor Application\0"
+            VALUE "ProductVersion", "1, 2, 0, 2\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 122
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_SETTINGS_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 129, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SpilinEditor..."
+FONT 10, "MS Sans Serif"
+BEGIN
+    CONTROL         134,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE | SS_SUNKEN,14,10,102,33
+    RTEXT           "Made by :",IDC_STATIC,10,60,30,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,49,95,30,11,BS_CENTER | BS_VCENTER | WS_GROUP
+    CTEXT           "version 1.2",IDC_STATIC,22,44,85,8
+    GROUPBOX        "",IDC_STATIC,5,0,120,90
+    LTEXT           "Alessandro Falappa",IDC_AUTHOR_LINK,45,60,65,10
+    LTEXT           "Spilin Editor Home Page",IDC_HOME_LINK,45,75,75,10,
+                    SS_CENTERIMAGE
+    RTEXT           "Web :",IDC_STATIC,15,75,25,8,SS_NOPREFIX
+END
+
+IDD_SETTINGS_DLG DIALOG DISCARDABLE  0, 0, 300, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,92,194,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,158,194,50,14
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",0x0,7,7,286,180
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CUR_ROTATE          CURSOR  DISCARDABLE     "res\\cur00003.cur"
+IDC_CUR_SCALE           CURSOR  DISCARDABLE     "res\\cur_scal.cur"
+IDC_CUR_ZOOM            CURSOR  DISCARDABLE     "res\\cur00004.cur"
+IDC_CUR_CREA            CURSOR  DISCARDABLE     "res\\cur_crea.cur"
+IDC_CUR_INSER           CURSOR  DISCARDABLE     "res\\cursor1.cur"
+IDC_CUR_MODIF           CURSOR  DISCARDABLE     "res\\cur_modi.cur"
+IDC_CUR_PREVIEW         CURSOR  DISCARDABLE     "res\\cur00001.cur"
+IDC_LINK_CURSOR         CURSOR  DISCARDABLE     "res\\link_cur.cur"
+IDC_MAILTO_CURSOR       CURSOR  DISCARDABLE     "res\\cur00002.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\SpilinEditor.ico"
+IDR_SPILINTYPE          ICON    DISCARDABLE     "res\\SpilinEditorDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "SpilinEditor\n\nSpilin\nSpilin Files (*.spi)\n.spi\nSpilinEditor.Document\nSpilin Document"
+    ID_INDICATOR_STEPS      "Steps:      "
+    ID_INDICATOR_NODI       "Nodes:      "
+    ID_INDICATOR_POLYGONS   "Polygons:          "
+    IDD_KEY_HELP            "Shows the functions accessible via the keyboard."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "SpilinEditor"
+    AFX_IDS_IDLEMESSAGE     "Select a tool and start editing."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the edit toolbar\nToggle EditBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MODIFICA_CHIUDISPLINE "Opens/close the spline.\nOpen/Close Spline"
+    ID_VISUAL_REDRAW        "Forces window redraw."
+    ID_STATO_MIRROR_X       "Mirrors selected points along X axys\nMirror X"
+    ID_STATO_MIRROR_Y       "Mirrors selected points along Y axys\nMirror Y"
+    ID_STATO_SELECT         "Switch to select mode\nSelect"
+    ID_PIUSTEPS             "Increase the curve detail\nIncrease Steps"
+    ID_MENOSTEPS            "Decrease the curve detail\nDecrease Steps"
+    ID_VIEW_GRIDPLANE       "Opens a closed spline.\nOpenSpline"
+    ID_EDIT_SELECT_NONE     "Deselect all points"
+    ID_FILE_ESPORTAINPOV    "Export in POV-Ray format."
+    ID_FILE_ESPORTAINVRML20 "Export in VRML 2.0 format."
+    ID_SNAP                 "Turn the Grid and the Snap on and off\nToggle Grid"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_STATO_CREA           "Switch to creation mode\nCreate"
+    ID_STATO_MODIFICA       "Switch to translate mode\nTranslate"
+    ID_STATO_INSER          "Switch to insertion mode\nInsert"
+    ID_SETTINGS             "Modify the program settings."
+    ID_FLIP_N               "Flip the polygon normals\nFlip Normals"
+    ID_SMOOTH_SHADE         "Activates-Deactivates smooth shading\nToggle Smooth Shading"
+    ID_REVOLUTION           "Makes a Lathe preview (surface of revolution)\nLathe"
+    ID_ESTRUSION            "Makes a Prism preview (translational sweep)\nPrism"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_PREVIEWBAR      "Show or hide the preview bar\nToggle PreviewBar"
+    IDS_PROPSHT_CAPTION     "Property Sheet"
+    ID_STATO_RUOTA          "Rotate selected points.\nRotate"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_STATO_SCALA          "Scale selected points.\nScale"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Italian (Italy) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
+#ifdef _WIN32
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_KEY_HELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_VRML_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 345
+        VERTGUIDE, 13
+        VERTGUIDE, 163
+        VERTGUIDE, 255
+        VERTGUIDE, 296
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_PROPPAGE1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_PROPPAGE2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_PROPPAGE3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_PROPPAGE4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_KEY_HELP DIALOG DISCARDABLE  0, 0, 182, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Keyboard Reference"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,65,115,50,14
+    RTEXT           "Key",IDC_STATIC,10,10,50,10
+    LTEXT           "Deletes the currently selected nodes.\nSelects the next node circularly.",
+                    IDC_STATIC,70,25,100,80
+    RTEXT           "CANC\n\nTAB",IDC_STATIC,10,25,50,80
+    LTEXT           "Function",IDC_STATIC,71,10,100,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,5,20,170,90
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,5,7,170,15
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,65,8,1,103
+END
+
+IDD_VRML_OPTIONS DIALOG DISCARDABLE  0, 0, 352, 158
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "VRML Export Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Object Geometry",IDC_STATIC,7,7,141,123
+    LTEXT           "Steps per spline segment :",IDC_STATIC,12,24,88,8
+    EDITTEXT        IDC_STEPS,105,21,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN3,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,131,21,9,
+                    14
+    RTEXT           "Sections Number  :",IDC_STATIC,13,41,88,8
+    EDITTEXT        IDC_SEZIONI,105,38,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN2,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,131,38,9,
+                    14
+    RTEXT           "Smoothing Angle :",IDC_STATIC,13,60,88,8
+    EDITTEXT        IDC_CREASE,105,57,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN4,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,131,57,9,14
+    RTEXT           "Center Hole Radius:",IDC_STATIC,13,79,88,8
+    EDITTEXT        IDC_RAGGIO,105,76,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN5,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,131,76,9,14
+    GROUPBOX        "Material",IDC_STATIC,157,7,188,123,BS_LEFT
+    RTEXT           "Pigment (diffuse color)",IDC_STATIC,163,23,88,8
+    PUSHBUTTON      "Change...",IDC_COLOR_DIFFUSE,296,19,41,14
+    RTEXT           "Emitting Color",IDC_STATIC,163,46,88,8
+    PUSHBUTTON      "Change...",IDC_COLOR_EMITTED,296,42,41,14
+    RTEXT           "Shininess:",IDC_STATIC,163,67,88,8
+    EDITTEXT        IDC_SHININESS,255,65,34,14,ES_AUTOHSCROLL
+    RTEXT           "Specular Color :",IDC_STATIC,163,89,88,8
+    PUSHBUTTON      "Change...",IDC_COLOR_SPECULAR,296,86,40,14
+    RTEXT           "Trasparency :",IDC_STATIC,163,110,88,8
+    EDITTEXT        IDC_TRANSPARENCY,255,107,34,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Cancel",IDCANCEL,118,137,50,14
+    DEFPUSHBUTTON   "Export",IDOK,184,137,50,14
+    CONTROL         "Flip Normals",IDC_VERSO,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_TOP | WS_TABSTOP,46,95,68,10
+    CONTROL         "",IDC_COLOR_EMES,"Static",SS_WHITERECT | SS_SUNKEN,255,
+                    41,34,16
+    CONTROL         "",IDC_COLOR_SPEC,"Static",SS_WHITERECT | SS_SUNKEN,255,
+                    84,34,16
+    CONTROL         "",IDC_COLOR_DIFF,"Static",SS_WHITERECT | SS_SUNKEN,255,
+                    18,34,16
+END
+
+IDD_PROPPAGE1 DIALOG DISCARDABLE  0, 0, 183, 94
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Editor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_PENSIZE_EDIT,40,40,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_PENSIZE_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,65,40,11,14
+    EDITTEXT        IDC_GRIDSIZE_EDIT,80,40,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_GRIDSIZE_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,105,40,11,14
+    EDITTEXT        IDC_CURVESTEPS_EDIT,60,65,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_CURVESTEP_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,85,65,11,14
+    CONTROL         "Draw nodes polygon",IDC_DRAWPOLYG_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,95,70,81,10
+    RTEXT           "Size",IDC_STATIC,10,45,20,8
+    RTEXT           "Curve steps",IDC_STATIC,15,70,40,10
+    LTEXT           "Pen",IDC_STATIC,45,10,14,8
+    LTEXT           "Grid",IDC_STATIC,85,10,14,8
+    RTEXT           "Color",IDC_STATIC,10,25,20,8
+    LTEXT           "Background",IDC_STATIC,115,10,40,8
+    CONTROL         "",IDC_PENCOLOR_SWATCH,"Static",SS_BLACKFRAME | 
+                    SS_SUNKEN,35,20,35,15
+    CONTROL         "",IDC_GRIDCOLOR_SWATCH,"Static",SS_BLACKFRAME | 
+                    SS_SUNKEN,75,20,35,15
+    CONTROL         "",IDC_BGCOLOR_SWATCH,"Static",SS_BLACKFRAME | SS_SUNKEN,
+                    115,20,35,15
+END
+
+IDD_PROPPAGE2 DIALOG DISCARDABLE  0, 0, 183, 94
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "3D Object"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_3DSTEPS_EDIT,50,5,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_3DSTEPS_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,75,5,11,14
+    CONTROL         "",IDC_OBJCOLOR_SWATCH,"Static",SS_BLACKFRAME | 
+                    SS_SUNKEN,50,25,34,16
+    EDITTEXT        IDC_SECTIONS_EDIT,50,45,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SECTIONS_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,75,45,11,14
+    EDITTEXT        IDC_EXTRUSION_EDIT,50,65,25,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_EXTRUSION_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,75,65,11,14
+    CONTROL         "Back-Face Culling",IDC_OBJ_BACKCULL,"Button",
+                    BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,95,
+                    10,75,10
+    CONTROL         "Smooth Shading",IDC_OBJ_SMOOTH,"Button",BS_AUTOCHECKBOX | 
+                    BS_TOP | BS_MULTILINE | WS_TABSTOP,95,30,75,10
+    RTEXT           "Curve steps",IDC_STATIC,5,10,40,10
+    RTEXT           "Sections",IDC_STATIC,15,50,30,10
+    RTEXT           "Color",IDC_STATIC,25,30,20,8
+    RTEXT           "Extrusion Height",IDC_STATIC,15,65,30,20
+END
+
+IDD_PROPPAGE3 DIALOG DISCARDABLE  0, 0, 183, 94
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "3D Environment"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_FLCOLOR_SWATCH,"Static",SS_BLACKFRAME | SS_SUNKEN,
+                    35,10,34,16
+    CONTROL         "",IDC_BLCOLOR_SWATCH,"Static",SS_BLACKFRAME | SS_SUNKEN,
+                    35,30,34,16
+    CONTROL         "",IDC_GPCOLOR_SWATCH,"Static",SS_BLACKFRAME | SS_SUNKEN,
+                    35,50,34,16
+    CONTROL         "",IDC_3DBGCOLOR_SWATCH,"Static",SS_BLACKFRAME | 
+                    SS_SUNKEN,35,70,34,16
+    CONTROL         "",IDC_FL_POS,"Button",BS_AUTORADIOBUTTON | WS_GROUP,80,
+                    30,10,8
+    CONTROL         "",IDC_FL_N,"Button",BS_AUTORADIOBUTTON,95,30,10,8
+    CONTROL         "",IDC_FL_NO,"Button",BS_AUTORADIOBUTTON,110,30,8,8
+    CONTROL         "",IDC_FL_E,"Button",BS_AUTORADIOBUTTON,80,46,10,8
+    CONTROL         "",IDC_FL_O,"Button",BS_AUTORADIOBUTTON,110,45,10,8
+    CONTROL         "",IDC_FL_SE,"Button",BS_AUTORADIOBUTTON,80,60,10,8
+    CONTROL         "",IDC_FL_S,"Button",BS_AUTORADIOBUTTON,95,60,10,8
+    CONTROL         "",IDC_FL_SO,"Button",BS_AUTORADIOBUTTON,110,60,10,8
+    CONTROL         "",IDC_BL_POS,"Button",BS_AUTORADIOBUTTON | WS_GROUP,130,
+                    30,10,8
+    CONTROL         "",IDC_BL_N,"Button",BS_AUTORADIOBUTTON,145,30,10,8
+    CONTROL         "",IDC_BL_NO,"Button",BS_AUTORADIOBUTTON,160,30,10,8
+    CONTROL         "",IDC_BL_E,"Button",BS_AUTORADIOBUTTON,130,46,10,8
+    CONTROL         "",IDC_BL_O,"Button",BS_AUTORADIOBUTTON,160,46,10,8
+    CONTROL         "",IDC_BL_SE,"Button",BS_AUTORADIOBUTTON,130,60,10,8
+    CONTROL         "",IDC_BL_S,"Button",BS_AUTORADIOBUTTON,145,60,10,8
+    CONTROL         "",IDC_BL_SO,"Button",BS_AUTORADIOBUTTON,160,60,10,8
+    LTEXT           "Colors",IDC_STATIC,40,0,20,8
+    RTEXT           "Front Light",IDC_STATIC,10,10,22,20
+    RTEXT           "Back Light",IDC_STATIC,10,30,22,20
+    RTEXT           "Grid Plane",IDC_STATIC,10,50,22,20
+    RTEXT           "Back Ground",IDC_STATIC,5,70,27,20
+    CTEXT           "Front",IDC_STATIC,90,45,20,8
+    CTEXT           "Back",IDC_STATIC,140,45,20,8
+    CTEXT           "Lights Position",IDC_STATIC,80,15,90,8
+END
+
+IDD_PROPPAGE4 DIALOG DISCARDABLE  0, 0, 183, 94
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "POV Export"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_PTYPE_COMBO,5,15,75,40,CBS_DROPDOWNLIST | WS_TABSTOP
+    EDITTEXT        IDC_OBJNAME_EDIT,85,15,95,14,ES_AUTOHSCROLL
+    CONTROL         "Conical Sweep",IDC_CONIC_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_TOP | BS_MULTILINE | WS_TABSTOP,95,35,40,20
+    CONTROL         "Open",IDC_OPEN_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,140,35,35,10
+    CONTROL         "Sturm",IDC_STURM_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,140,52,34,10
+    EDITTEXT        IDC_ALTEZ_EDIT,135,70,39,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_ALTEZ_SPIN,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,170,70,11,14
+    EDITTEXT        IDC_PROPORTIONAL_EDIT,31,70,39,14,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_PROPORTIONAL_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,65,70,11,14
+    CONTROL         "Proportional",IDC_PROPORTIONAL_RADIO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,15,60,53,10
+    CONTROL         "Normalize",IDC_NORMALIZE_RADIO,"Button",
+                    BS_AUTORADIOBUTTON,15,45,47,10
+    LTEXT           "Object Name",IDC_STATIC,85,5,57,8
+    LTEXT           "Primitive type",IDC_STATIC,5,5,57,8
+    RTEXT           "Extrusion Height",IDC_STATIC,100,70,30,17
+    GROUPBOX        "Coordinates Values",IDC_STATIC,5,30,75,60
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\SpilinEditor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PROPPAGE4 DLGINIT
+BEGIN
+    IDC_PTYPE_COMBO, 0x403, 6, 0
+0x414c, 0x4854, 0x0045, 
+    IDC_PTYPE_COMBO, 0x403, 6, 0
+0x5250, 0x5349, 0x004d, 
+    IDC_PTYPE_COMBO, 0x403, 4, 0
+0x4f53, 0x0052, 
+    0
+END
+
+#endif    // Italian (Italy) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\SpilinEditor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

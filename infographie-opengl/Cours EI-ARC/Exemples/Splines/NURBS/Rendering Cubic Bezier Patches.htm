@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://www.cs.wpi.edu/~matt/courses/cs563/talks/surface/bez_surf.html -->
+<HTML><HEAD><TITLE>Rendering Cubic Bezier Patches</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY>
+<H1>Rendering Cubic Bezier Patches</H1>
+<P>by Chris Bentley 
+<P>
+<H2>Introduction</H2>Parametric curves and parametric surface patches are a very 
+popular and powerful way of representing curved objects. This summary will focus 
+on parametric Bezier surface patches. In general, a Bezier curve in two 
+dimensions is defined by four "control points". From these four points, all the 
+points on the parametric curve can be interpolated. Similarly, three dimensional 
+Bezier surface patches can be defined by a grid of sixteen control points. These 
+can be though of as four rows, with each row being a 2D Bezier curve. 
+<P>Sixteen control points define an entire curved surface. Clearly one of the 
+advantages of Bezier patches is that they allow a much more concise 
+representation than vertex, polygon lists. Other virtues of parametric surfaces 
+are that they provide exact analytical descriptions of surfaces, and permit easy 
+deformations of those surfaces. Finally, if texture mapping is being performed, 
+parametric surfaces are convenient because the (u,v) parameters used to generate 
+the surface can easily be reused as (u,v) texture parameters. 
+<P>There are, however, some disadvantages to using Bezier patches. In the first 
+place, to render a parametrically defined patch, it is usually necessary to 
+generate a vertex, polygon description of the object, and then render this. 
+Also, given a set of 3D vertices, it may be hard to extrapolate out to the 
+control points for this surface. Furthermore, if multiple patches are combined 
+to form a description of a complex shape, there may be problems with normal 
+interpolation across patch boundaries, and with cracks forming at patch 
+boundaries 
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/lid_ctrl_wire.gif" 
+align=bottom> <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/lid_ctrl_flat.gif" align=bottom> 
+<IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/lid_ctrl_sub.gif" 
+align=bottom> Bezier control points as A) wireframe, B) shaded polygons, C) 
+Generated patch 
+<P>
+<H2>Review of 2D Cubic Bezier Curves</H2>
+<P><B>I. Bezier Formulation</B> 
+<P>There are several different ways of interpolating the control points of a 2D 
+Bezier curve. Though different, these methods all generate the same points on 
+the parametric curve. The first method, developed by P. Bezier, calculates 
+points on the curve through weighted interpolation of the four control points. 
+<P>Control points for Bezier curve: <BR><IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/bez1.gif" align=bottom> 
+<P>What contribution each control point makes to the curve depends on a single 
+parameter, <B>u</B>, with <B>0 &lt;= u &lt;= 1</B>. As <B>u</B> varies along the 
+curve each control point's contribution varies as a function of <B>u</B>. In 
+fact, each control point has a function which controls its influence; these are 
+known as the Bernstein basis functions. If we look at the graph below, we see 
+that the function for the first control point has a value of <B>1</B> when <B>u 
+= 0</B>, and decays to <B>0</B> as <B>u</B> approaches <B>1</B>. This means that 
+the first control point contributes 100% to the curve when the curve is very 
+close to it, and that when the curve is far away, it hardly contributes 
+anything. The Bernstein basis functions cause Bezier curves to pass through the 
+starting and ending control points. 
+<P>Bernstein basis functions for Bezier curve: <BR><IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/basis.gif" align=bottom> 
+<P>
+<P>For a given value of <B>u</B>, a point <B>Q</B> on a Bezier curve is defined 
+as the sum of the four control points, weighted by the value of the basis 
+functions for that value of <B>u</B>: 
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img1.gif" 
+align=bottom>
+<P>
+<P>And the Bernstein basis functions are defined as follows: 
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img2.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img3.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img4.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img5.gif" 
+align=bottom>
+<P>
+<P>
+<P><B>II. Midpoint Method</B> 
+<P>
+<P>The points in a parametric Bezier curve can also be calculated by recursively 
+halving the distance between neighboring control points. This method divides the 
+original four control points into two smaller sets of Bezier control points, 
+defining a "left" and a "right" Bezier curve. The last control point in the left 
+curve coincides with the first control point in the right curve. Since, as 
+stated earlier, Bezier curves pass through the first and last control points, 
+this means this shared point is actually on the final parametric curve. 
+<P>Applying this process recursively generates more points that are on the final 
+curve, and this can be taken to any desired level of resolution. One 
+particularly nice feature of this method is that it relies entirely on halving. 
+Thus, if coordinate values are stored as fixed-point fractions, this method can 
+be implemented exclusively using adds and "shifts", which are much faster than 
+actual fractional divisions. 
+<P>Points on Bezier curve by recursive subdivision: <BR><IMG alt="" src="" 
+align=bottom> 
+<P>In the above diagram: 
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img6.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img7.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img8.gif" 
+align=bottom>
+<P>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img9.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img10.gif" 
+align=bottom>
+<P>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img11.gif" 
+align=bottom>
+<P>
+<P>
+<P>
+<P><B>III. De Casteljau Representation</B> 
+<P>The third method, developed by P. de Casteljau, is a generalization of 
+Midpoint Algorithm. It turns out that halving the distance between control 
+points is not the only way to calculate points on the curve. In fact, splitting 
+the distance between neighboring control points in any ratio works just as well. 
+
+<P>Points on Bezier curve by recursive subdivision, <B>u = 0.6</B>: <BR><IMG 
+alt="" src="" align=bottom> 
+<P>Applying the linear interpolation recursively, again, generates points on the 
+curve to any level of resolution. In de Casteljau's formulation, the control 
+points at any level of recursion are a linear combination of the neighboring 
+control points from one level "higher": 
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img12.gif" 
+align=bottom>
+<P>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img13.gif" 
+align=bottom>
+<P>
+<P>where: 
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img14.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img15.gif" 
+align=bottom>
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img16.gif" 
+align=bottom>
+<P>
+<P>
+<H2>Cubic Bezier Surfaces</H2>Bezier surface control points and polygon mesh: 
+<BR><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/patch.gif" 
+align=bottom> 
+<P><BR>Turning now to 3D Bezier surface patches; these are defined by grid of 16 
+control points (4 rows, 4 columns). Each row of four control points can be 
+thought of as a separate 2D Bezier curve. If we first compute a point on each of 
+the curves for a given value of <B>u</B> , say 0.2, we can then treat these new 
+points as the control points for 2D Bezier curves running down the columns. In 
+this way points are interpolated bilinearly to generate the surface patch. The 
+Bezier curves which form the boundaries of the patch will also be points in the 
+3D surface. Thus, for a given value of <B>(u,v)</B>, a point <B>Q</B> on a Cubic 
+Bezier surface can be defined as the weighted sum of all of the control points 
+in the patch: 
+<P>
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img17.gif" 
+align=bottom>
+<P>
+<P><BR>
+<H2>Three Approaches to Rendering Surface Patches</H2>There are three main 
+approaches to rendering an object defined by Bezier patches. In this summary, I 
+will only consider the first two methods: 
+<OL>
+  <LI>Calculate mesh of points on surface, and use mesh to generate vertex, 
+  polygon representation 
+  <P></P>
+  <LI>Recursively subdivide patch into two smaller Bezier patches until patch 
+  projects to one pixel 
+  <P></P>
+  <LI>Render directly from analytical description of curve </LI></OL>
+<P>
+<H2>1. Generating Polygon Mesh From Control Points</H2>Probably the simplest 
+method for rendering Bezier patches is to calculate evenly spaced points on the 
+surface, and use these points to define a grid of vertices and polygons. Using 
+this method, we would take the following steps to calculate a point on the 
+surface, <IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img18.gif" 
+align=middle>: 
+<P>
+<OL>
+  <LI>Consider each row of control points as defining 4 separate Bezier curves: 
+  <IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/img19.gif" 
+  align=bottom> 
+  <LI>For some value of <B>u</B>, say 0.1, for each Bezier curve, calculate <IMG 
+  alt="" src="Rendering Cubic Bezier Patches_fichiers/img20.gif" align=bottom> 
+  <LI>Use these derived points as the control points for new Bezier curves 
+  running in the <B>v</B> direction 
+  <P></P></LI></OL>
+<P>
+<P><B>Implementaton of Mesh Generation</B> 
+<P>When rendering multiple patches, it is efficient to precalculate values for 
+the Bernstein basis functions for fixed intervals of <B>u</B> and <B>v</B>, 
+since every patch uses the same values for these functions. Here is the 
+algorithm used to generate polygon mesh from Bezier patch: 
+<P><B>A. Precalculate values for Bernstein basis functions:</B> 
+<P><PRE>        uinc = 1.0/steps;
+        u = uinc;
+
+        for( i = 1; i &lt; steps; i++, u += uinc )
+        {
+                u_sqr = SQR(u);                 /* u^2 */
+                tmp = 1.0 - u;                  /* (1-u) */
+                tmp_sqr = SQR(tmp);             /* (1-u)^2 */
+
+                B[0][i] = tmp * tmp_sqr;        /* (1-u)^3 */
+                B[1][i] = 3 * u * tmp_sqr;      /* 3u(1-u)^2 */
+                B[2][i] = 3 * u_sqr * tmp;      /* 3u^2(1-u) */
+                B[3][i] = u * u_sqr;            /* u^3 */
+        }
+</PRE>
+<P><B>B. Use blending tables to calculate points in "row curve":</B> 
+<P><PRE>for( u = 0; u &lt; 10; u++ )
+{
+    blend row 0 control points -&gt; new control point
+    blend row 1 control points -&gt; new control point
+    blend row 2 control points -&gt; new control point
+    blend row 3 control points -&gt; new control point
+
+    for( v = 0; v &lt; 10; v++ )
+    {
+        blend 4 new control points -&gt; point on surface
+    }
+}
+</PRE>
+<P><B>C. Generate edges and polygons from grid of surface points.</B> 
+<P><IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/lid_facet_wire.gif" 
+align=middle> <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/lid_facet_flat.gif" align=middle> 
+<IMG alt="" src="Rendering Cubic Bezier Patches_fichiers/lid_facet_tex.gif" 
+align=middle> Bezier surface as A) triangle mesh, B) shaded triangles, C) 
+texture mapped 
+<P><BR>
+<H2>2. Recursive Subdivision of Bezier Patches</H2>Instead of generating 
+polygons from a set of control points, it is also possible to render directly 
+from the patch definitions. In this algorithm, described by Edwin Catmull 
+[CATM74], a set of control points is divided into two smaller Bezier patches, 
+and this procedure is recursively applied until each sub-patch projects to less 
+than one pixel on the screen. Then each patch is rendered by filling in the 
+single pixel it projects to. 
+<P>This method has several advantages over the polygon mesh method. One major 
+benefit is that subdivision generates a smooth silhouette in addition to smooth 
+surfaces. This is something that is hard to achieve with polygon based 
+rendering. Also, subdivision takes more compact data, since only control points 
+need to be stored. Most importantly, since there are no polygons, there is no 
+need for complex polygon scan conversion code; and since the subdivision 
+algorithm is recursive it is very compact to code. Finally, subdivision takes 
+care of problems with normals at patch boundaries. 
+<P>The subdivision method also suffers from several disadvantages. The primary 
+problem with the algorithm is that it is slow, because it requires subdivision 
+both in world and screen space, and <B>&gt; 4</B> perspective calculations are 
+needed for every pixel plotted. Another problem is that the maximum recursion 
+depth depends on the screen coverage of the largest patch, and this seems like a 
+vulnerability. 
+<P>
+<P><B>Implementation of Subdivision Rendering</B> 
+<P><PRE>1.     For each surface patch
+1.1       project corner control points to screen space
+1.2       if points project to one pixel
+1.2.1           color that pixel
+1.3       else
+1.3.1           break patch into 2 subpatches
+1.3.2           apply algorithm recursively to 2 subpatches
+</PRE>
+<P>
+<P><B>Implementation of Subdividing Patches</B> 
+<P>
+<OL>
+  <LI>Apply midpoint subdivision to control points of each row. This operation 
+  must be performed in 3D world coordinates 
+  <LI>This produces 2 sub-curves (left/right or top/bottom) for each row 
+  <LI>Save the 4 left, and 4 right curves as 2 patches 
+  <LI>Map new corner points to screen space for area coverage test </LI></OL>
+<P>For example, row 0 of a grid of control points consists of control 
+points:<BR><PRE>        P00, P01, P02, P03 
+</PRE>
+<P>Subdividing this will generate row 0 of left and right subpatches : 
+<P><PRE>        Left.P00  = P00
+        Right.P03 = P03
+        
+        Left.P01 = (P00 + P01)/2
+        Right.P02 = (P02 + P03)/2
+        
+        tmp = (P01 + P02)/2
+        
+        Left.P02 = (Left.P01 + tmp)/2
+        Right.P01 = (Right.P02 + tmp)/2
+        
+        Left.P03 = (Left.P02 + Right.P01)/2
+        Right.P00 = Left.P03
+</PRE>
+<P>
+<H2>Efficiency (Yeah, Right!) And Other Issues</H2>Overall, subdivision to 1 
+pixel was 10 times slower than rendering a mesh of triangle generated from the 
+patch, although this comparison doesn't take into account the time required to 
+create the polygon mesh. 
+<P>The subdivision algorithm is slow for a number of reasons. In the first 
+place, when we subdivide a patch, we need to subdivide world coordinates and 
+normals. Secondly, to test whether a patch projects to 1 pixel, we need to 
+maintain screen coordinates for the control points at the corners of the patch. 
+Finally, for a patch to project to 1 pixel we must project all 4 corners of the 
+patch to that pixel, which means we will perform <B>&gt; 4</B> perspective 
+calculations per pixel plotted! 
+<P>We can cut down on the number of projections to screen coordinates that we 
+perform by recognizing that we only need to transform 2 new points per patch, 
+since each patch inherits 2 corner control points from its "parent" patch. Also, 
+we can improve the performance by doing "back patch" culling: if a patch has all 
+of its corner normals backfacing, skip it. 
+<P>
+<P>
+<H2>References</H2>
+<DL>
+  <DT>[CATM74] 
+  <DD>Catmull, E., "Subdivision Algorithm for the Display of Curved Surfaces," 
+  <I>PhD Thesis</I>, University of Utah, 1974 </DD></DL>
+<HR>
+
+<P>
+<H2>Examples</H2>
+<P>Bezier surface patches rendered by converting to polygon mesh: <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/tea.gif" align=bottom> 
+<P>Bezier surface control points rendered as polygons: <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/tea_sub.gif" align=bottom> 
+<P>Bezier surface patches rendered by subdivision algorithm: <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/tea_sub2.gif" align=bottom> 
+<P>Cracking between Bezier patches subdivided to different depths: <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/tea_crak.gif" align=bottom> 
+<P>Bezier surface patches rendered with texture mapping: <IMG alt="" 
+src="Rendering Cubic Bezier Patches_fichiers/tea_mand.gif" align=bottom> 
+<P>
+<P>
+<P align=center><A 
+href="http://www.cs.wpi.edu/~matt/courses/cs563/talks95.html"><IMG 
+alt="[Return to CS563 '95 talks list]" 
+src="Rendering Cubic Bezier Patches_fichiers/back.gif" border=0></A> 
+<HR>
+
+<P>
+<ADDRESS><I>Chris Lawson Bentley <BR>chrisb@wpi.edu</I> </ADDRESS></BODY></HTML>

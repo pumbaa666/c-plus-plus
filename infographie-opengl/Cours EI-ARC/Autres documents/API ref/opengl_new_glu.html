@@ -1,0 +1,74 @@
+<HEAD>
+<TITLE>GLU Version 1.2 Polygon Tessellator Notes</TITLE>
+</HEAD>
+<BODY>
+<H2> Some notes on the new polygon tessellator in GLU version 1.2 </H2>
+GLU version 1.2 introduces a new polygon tessellator. The 
+following routines have become obsolete and should not be used for
+new development based on GLU version 1.2 and later.
+<PRE>
+	Obsolete Routine	Replace with
+
+	<A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluBeginPolygon</A>		<A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A>; <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>
+	<A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluEndPolygon</A>		<A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A>; <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A>
+	<A HREF="gluNextContour10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour10.html">gluNextContour</A>		<A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A>; <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>
+</PRE>
+<P>The following routines are new in GLU version 1.2:
+<PRE>
+	<A HREF="gluGetTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetTessProperty.html">gluGetTessProperty</A>
+	<A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>
+	<A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A>
+	<A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A>
+	<A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A>
+	<A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>
+	<A HREF="gluTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessProperty.html">gluTessProperty</A>
+
+</PRE>
+<P>Some routines have had an argument or return-value changed
+from ``GLUtriangulatorObj *'' to ``GLUtesselator *''. Since the 
+GLU header file for version 1.2 has a typedef from GLUtriangulatorObj 
+to GLUtesselator, source code should not need any immediate changes.
+However, at some time the source code should be moved to the GLU version
+1.2 name.
+<PRE>
+	<A HREF="gluBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon.html">gluBeginPolygon</A>
+	<A HREF="gluDeleteTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDeleteTess.html">gluDeleteTess</A>
+	<A HREF="gluBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon.html">gluEndPolygon</A>
+	<A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>
+	<A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A>
+	<A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>
+	<A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>
+</PRE>
+<P>One routine has been expanded to support more valid values for the 
+<I>which</I> argument:
+<PRE>
+	<A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>
+</PRE>
+<P>To distinguish what version of the GLU library you are using at compile
+time, check for the following pre-processor symbols:
+<PRE>
+	none defined			version 1.0
+	GLU_VERSION_1_1			version 1.1 or later
+	GLU_VERSION_1_2			version 1.2 or later
+</PRE>
+<P>Digital Open3D supports the following versions of the GLU library:
+<PRE>
+	Digital Open3D Version		GLU Version Supported
+
+	Before Version 2.6		version 1.0
+	Version 2.6			version 1.1
+	Version 3.0 and later		version 1.2
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Thursday, September 28, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

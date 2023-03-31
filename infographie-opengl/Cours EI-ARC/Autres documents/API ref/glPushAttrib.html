@@ -1,0 +1,238 @@
+<HEAD>
+<TITLE>glPushAttrib.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPushAttrib.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>,	<A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A> - push and pop the attribute stack
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>( GLbitfield	<I>mask</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mask</I>	Specifies a mask that indicates	which attributes to save.  Values for
+	<I>mask</I> are listed	in the table below.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A>( void )
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> takes one argument, a mask that indicates which groups of
+  state	variables to save on the attribute stack.  Symbolic constants are
+  used to set bits in the mask.	 <I>mask</I> is typically constructed by ORing
+  several of these constants together.	The special mask GL_ALL_ATTRIB_BITS
+  can be used to save all stackable states.
+
+  The symbolic mask constants and their	associated GL state are	as follows
+  (the second column lists which attributes are	saved):
+
+  GL_ACCUM_BUFFER_BIT	   Accumulation	buffer clear value
+
+  GL_COLOR_BUFFER_BIT	   GL_ALPHA_TEST enable	bit
+			   Alpha test function and reference value
+			   GL_BLEND enable bit
+			   Blending source and destination functions
+			   GL_DITHER enable bit
+			   GL_DRAW_BUFFER setting
+			   GL_LOGIC_OP enable bit
+			   Logic op function
+			   Color mode and index	mode clear values
+			   Color mode and index	mode writemasks
+
+  GL_CURRENT_BIT	   Current RGBA	color
+			   Current color index
+			   Current normal vector
+			   Current texture coordinates
+			   Current raster position
+			   GL_CURRENT_RASTER_POSITION_VALID flag
+			   RGBA	color associated with current raster position
+			   Color index associated with current raster position
+			   Texture coordinates associated with current raster position
+			   GL_EDGE_FLAG	flag
+
+  GL_DEPTH_BUFFER_BIT	   GL_DEPTH_TEST enable	bit
+			   Depth buffer	test function
+			   Depth buffer	clear value
+			   GL_DEPTH_WRITEMASK enable bit
+
+  GL_ENABLE_BIT		   GL_ALPHA_TEST flag
+			   GL_AUTO_NORMAL flag
+			   GL_BLEND flag
+			   Enable bits for the user-definable clipping planes
+			   GL_COLOR_MATERIAL
+			   GL_CULL_FACE	flag
+			   GL_DEPTH_TEST flag
+			   GL_DITHER flag
+			   GL_FOG flag
+			   GL_LIGHT<I>i</I> where 0 &lt;=	<I>i</I>&lt;GL_MAX_LIGHTS
+			   GL_LIGHTING flag
+			   GL_LINE_SMOOTH flag
+			   GL_LINE_STIPPLE flag
+			   GL_LOGIC_OP flag
+			   GL_MAP1_<I>x</I> where <I>x</I> is	a map type
+			   GL_MAP2_<I>x</I> where <I>x</I> is	a map type
+			   GL_NORMALIZE	flag
+			   GL_POINT_SMOOTH flag
+			   GL_POLYGON_SMOOTH flag
+			   GL_POLYGON_STIPPLE flag
+			   GL_SCISSOR_TEST flag
+			   GL_STENCIL_TEST flag
+			   GL_TEXTURE_1D flag
+			   GL_TEXTURE_2D flag
+			   Flags GL_TEXTURE_GEN_<I>x</I> where	<I>x</I> is S,	T, R, or Q
+
+  GL_EVAL_BIT		   GL_MAP1_<I>x</I> enable bits, where	<I>x</I> is a map type
+			   GL_MAP2_<I>x</I> enable bits, where	<I>x</I> is a map type
+			   1-D grid endpoints and divisions
+			   2-D grid endpoints and divisions
+			   GL_AUTO_NORMAL enable bit
+
+  GL_FOG_BIT		   GL_FOG enable flag
+			   Fog color
+			   Fog density
+			   Linear fog start
+			   Linear fog end
+			   Fog index
+			   GL_FOG_MODE value
+
+  GL_HINT_BIT		   GL_PERSPECTIVE_CORRECTION_HINT setting
+			   GL_POINT_SMOOTH_HINT	setting
+			   GL_LINE_SMOOTH_HINT setting
+			   GL_POLYGON_SMOOTH_HINT setting
+			   GL_FOG_HINT setting
+
+  GL_LIGHTING_BIT	   GL_COLOR_MATERIAL enable bit
+			   GL_COLOR_MATERIAL_FACE value
+			   Color material parameters that are tracking the current color
+			   Ambient scene color
+			   GL_LIGHT_MODEL_LOCAL_VIEWER value
+			   GL_LIGHT_MODEL_TWO_SIDE setting
+			   GL_LIGHTING enable bit
+			   Enable bit for each light
+			   Ambient, diffuse, and specular intensity for	each light
+			   Direction, position,	exponent, and cutoff angle for each light
+			   Constant, linear, and quadratic attenuation factors for each	light
+			   Ambient, diffuse, specular, and emissive color for each material
+			   Ambient, diffuse, and specular color	indices	for each material
+			   Specular exponent for each material
+			   GL_SHADE_MODEL setting
+
+  GL_LINE_BIT		   GL_LINE_SMOOTH flag
+			   GL_LINE_STIPPLE enable bit
+			   Line	stipple	pattern	and repeat counter
+			   Line	width
+
+  GL_LIST_BIT		   GL_LIST_BASE	setting
+
+  GL_PIXEL_MODE_BIT	   GL_RED_BIAS and GL_RED_SCALE	settings
+			   GL_GREEN_BIAS and GL_GREEN_SCALE values
+			   GL_BLUE_BIAS	and GL_BLUE_SCALE
+			   GL_ALPHA_BIAS and GL_ALPHA_SCALE
+			   GL_DEPTH_BIAS and GL_DEPTH_SCALE
+			   GL_INDEX_OFFSET and GL_INDEX_SHIFT values
+			   GL_MAP_COLOR	and GL_MAP_STENCIL flags
+			   GL_ZOOM_X and GL_ZOOM_Y factors
+			   GL_READ_BUFFER setting
+
+  GL_POINT_BIT		   GL_POINT_SMOOTH flag
+			   Point size
+
+  GL_POLYGON_BIT	   GL_CULL_FACE	enable bit
+			   GL_CULL_FACE_MODE value
+			   GL_FRONT_FACE indicator
+			   GL_POLYGON_MODE setting
+			   GL_POLYGON_SMOOTH flag
+			   GL_POLYGON_STIPPLE enable bit
+
+  GL_POLYGON_STIPPLE_BIT   Polygon stipple image
+
+  GL_SCISSOR_BIT	   GL_SCISSOR_TEST flag
+			   Scissor box
+
+  GL_STENCIL_BUFFER_BIT	   GL_STENCIL_TEST enable bit
+			   Stencil function and	reference value
+			   Stencil value mask
+			   Stencil fail, pass, and depth buffer	pass actions
+			   Stencil buffer clear	value
+			   Stencil buffer writemask
+
+  GL_TEXTURE_BIT	   Enable bits for the four texture coordinates
+			   Border color	for each texture image
+			   Minification	function for each texture image
+			   Magnification function for each texture image
+			   Texture coordinates and wrap	mode for each texture image
+			   Color and mode for each texture environment
+			   Enable bits GL_TEXTURE_GEN_<I>x</I>, <I>x</I> is S, T, R, and Q
+			   GL_TEXTURE_GEN_MODE setting for S, T, R, and	Q
+			   <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A> plane equations for	S, T, R, and Q
+
+  GL_TRANSFORM_BIT	   Coefficients	of the six clipping planes
+			   Enable bits for the user-definable clipping planes
+			   GL_MATRIX_MODE value
+			   GL_NORMALIZE	flag
+
+  GL_VIEWPORT_BIT	   Depth range (near and far)
+			   Viewport origin and extent
+
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A> restores the values of the state variables saved with the	last
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> command.	 Those not saved are left unchanged.
+
+  It is	an error to push attributes onto a full	stack, or to pop attributes
+  off an empty stack.  In either case, the error flag is set and no other
+  change is made to GL state.
+
+  Initially, the attribute stack is empty.
+
+
+</PRE><H2>Notes</H2><PRE>
+  Not all values for GL	state can be saved on the attribute stack.  For
+  example, pixel pack and unpack state,	render mode state, and select and
+  feedback state cannot	be saved.
+
+
+  The depth of the attribute stack depends on the implementation, but it must
+  be at	least 16.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_STACK_OVERFLOW is generated if <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> is called while the
+  attribute stack is full.
+
+  GL_STACK_UNDERFLOW is	generated if <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A> is called while the
+  attribute stack is empty.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> or <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A> is
+  executed between the execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and	the corresponding execution
+  of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_ATTRIB_STACK_DEPTH.
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAX_ATTRIB_STACK_DEPTH.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>, <A HREF="glGetClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetClipPlane.html">glGetClipPlane</A>, <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A>, <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLight</A>, <A HREF="glGetMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMap.html">glGetMap</A>, <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterial</A>,
+  <A HREF="glGetPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPixelMap.html">glGetPixelMap</A>, <A HREF="glGetPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPolygonStipple.html">glGetPolygonStipple</A>, <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A>, <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnv</A>,	<A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGen</A>,
+  <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>, <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A>, <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A>, <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

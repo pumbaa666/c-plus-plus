@@ -1,0 +1,76 @@
+<HEAD>
+<TITLE>glEdgeFlag.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glEdgeFlag.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>, <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlagv</A> - flag edges as either boundary or nonboundary
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>( GLboolean <I>flag</I> )
+
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>flag</I>	Specifies the current edge flag	value, either true or false.
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlagv</A>( const GLboolean *<I>flag</I> )
+
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>flag</I> Specifies a pointer to an array that contains a single Boolean
+       element,	which replaces the current edge	flag value.
+
+
+</PRE><H2>Description</H2><PRE>
+  Each vertex of a polygon, separate triangle, or separate quadrilateral
+  specified between a <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>/<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A> pair is marked as the start	of either a
+  boundary or nonboundary edge.	 If the	current	edge flag is true when the
+  vertex is specified, the vertex is marked as the start of a boundary edge.
+  Otherwise, the vertex	is marked as the start of a nonboundary	edge.
+  <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A> sets the edge flag	to true	if <I>flag</I>	is nonzero, false otherwise.
+
+  The vertices of connected triangles and connected quadrilaterals are always
+  marked as boundary, regardless of the	value of the edge flag.
+
+  Boundary and nonboundary edge	flags on vertices are significant only if
+  GL_POLYGON_MODE is set to GL_POINT or	GL_LINE.  See <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>.
+
+  Initially, the edge flag bit is true.
+
+</PRE><H2>Notes</H2><PRE>
+  The current edge flag	can be updated at any time.  In	particular,
+  <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A> can be called between a call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding
+  call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_EDGE_FLAG
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

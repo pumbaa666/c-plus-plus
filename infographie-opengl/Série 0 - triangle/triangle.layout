@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="define.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="evenements.cpp" open="1" top="0">
+		<Cursor position="148" topLine="0"/>
+	</File>
+	<File name="evenements.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="geometrie.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="global.cpp" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="global.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="triangle.cpp" open="1" top="1">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="triangle.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Headers"/>
+</CodeBlocks_layout_file>

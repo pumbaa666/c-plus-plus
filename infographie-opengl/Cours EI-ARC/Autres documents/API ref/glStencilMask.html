@@ -1,0 +1,57 @@
+<HEAD>
+<TITLE>glStencilMask.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glStencilMask.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A>	- control the writing of individual bits in the	stencil
+  planes
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A>( GLuint <I>mask</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mask</I>	Specifies a bit	mask to	enable and disable writing of individual bits
+	in the stencil planes.	Initially, the mask is all ones.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A>	controls the writing of	individual bits	in the stencil
+  planes.  The least significant n bits	of <I>mask</I>, where n is the	number of
+  bits in the stencil buffer, specify a	mask.  Wherever	a one appears in the
+  mask,	the corresponding bit in the stencil buffer is made writable.  Where
+  a zero appears, the bit is write-protected.  Initially, all bits are
+  enabled for writing.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A> is	executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_STENCIL_WRITEMASK
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_STENCIL_BITS
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A>, <A HREF="glDepthMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthMask.html">glDepthMask</A>, <A HREF="glIndexMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexMask.html">glIndexMask</A>, <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A>,	<A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

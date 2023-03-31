@@ -1,0 +1,192 @@
+<HEAD>
+<TITLE>glTexGen.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glTexGen.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGend</A>, <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGenf</A>,	<A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGeni</A>, <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGendv</A>, <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGenfv</A>, <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGeniv</A> -
+  control the generation of texture coordinates
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGend</A>( GLenum <I>coord</I>,
+		  GLenum <I>pname</I>,
+		  GLdouble <I>param</I> )
+  void <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGenf</A>( GLenum <I>coord</I>,
+		  GLenum <I>pname</I>,
+		  GLfloat <I>param</I>	)
+  void <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGeni</A>( GLenum <I>coord</I>,
+		  GLenum <I>pname</I>,
+		  GLint	<I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>coord</I>	  Specifies a texture coordinate.  Must	be one of the following:
+	  GL_S,	GL_T, GL_R, or GL_Q.
+
+  <I>pname</I>	  Specifies the	symbolic name of the texture-coordinate	generation
+	  function.  Must be GL_TEXTURE_GEN_MODE.
+
+  <I>param</I>	  Specifies a single-valued texture generation parameter, one of
+	  GL_OBJECT_LINEAR, GL_EYE_LINEAR, or GL_SPHERE_MAP.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGendv</A>( GLenum <I>coord</I>,
+		   GLenum <I>pname</I>,
+		   const GLdouble *<I>params</I> )
+  void <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGenfv</A>( GLenum <I>coord</I>,
+		   GLenum <I>pname</I>,
+		   const GLfloat *<I>params</I> )
+  void <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGeniv</A>( GLenum <I>coord</I>,
+		   GLenum <I>pname</I>,
+		   const GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>coord</I>
+       Specifies a texture coordinate.	Must be	one of the following: GL_S,
+       GL_T, GL_R, or GL_Q.
+
+  <I>pname</I>
+       Specifies the symbolic name of the texture-coordinate generation
+       function	or function parameters.	 Must be GL_TEXTURE_GEN_MODE,
+       GL_OBJECT_PLANE,	or GL_EYE_PLANE.
+
+  <I>params</I>
+       Specifies a pointer to an array of texture generation parameters.  If
+       <I>pname</I> is	GL_TEXTURE_GEN_MODE, then the array must contain a single
+       symbolic	constant, one of GL_OBJECT_LINEAR, GL_EYE_LINEAR, or
+       GL_SPHERE_MAP. Otherwise, <I>params</I>	holds the coefficients for the
+       texture-coordinate generation function specified	by <I>pname</I>.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A> selects a texture-coordinate	generation function or supplies
+  coefficients for one of the functions.  <I>coord</I>	names one of the (<I>s</I>,<I>t</I>,<I>r</I>,<I>q</I>)
+  texture coordinates, and it must be one of these symbols: GL_S, GL_T,	GL_R,
+  or GL_Q.  <I>pname</I> must be one of three symbolic	constants:
+  GL_TEXTURE_GEN_MODE, GL_OBJECT_PLANE,	or GL_EYE_PLANE. If <I>pname</I> is
+  GL_TEXTURE_GEN_MODE, then <I>params</I> chooses a mode, one of GL_OBJECT_LINEAR,
+  GL_EYE_LINEAR, or GL_SPHERE_MAP. If <I>pname</I> is either GL_OBJECT_PLANE or
+  GL_EYE_PLANE,	<I>params</I> contains	coefficients for the corresponding texture
+  generation function.
+
+  If the texture generation function is	GL_OBJECT_LINEAR, the function
+
+			     g=p x +p y	+p z +p	w
+				1 o  2 o  3 o  4 o
+
+  is used, where g is the value	computed for the coordinate named in <I>coord</I>,
+  p , p	, p , and p  are the four values supplied in <I>params</I>, and x , y , z ,
+   1   2   3       4                                              o   o   o
+  and w  are the object	coordinates of the vertex.  This function can be used
+       o
+  to texture-map terrain using sea level as a reference	plane (defined by p ,
+                                                                           1
+  p , p	, and p	). The altitude	of a terrain vertex is computed	by the	   
+   2   3       4
+  GL_OBJECT_LINEAR coordinate generation function as its distance from sea
+  level; that altitude is used to index	the texture image to map white snow
+  onto peaks and green grass onto foothills, for example.
+
+  If the texture generation function is	GL_EYE_LINEAR, the function
+
+			   g=p'x' + p'y	 + p'z  + p'w
+			      1 e    2 e    3 e	   4 e
+
+  is used, where
+                                                        -1
+		   (p'	p'  p'  p') = (p   p   p   p )·M
+		     1	 2   3   4	1   2	3   4
+
+  and x	, y , z	, and w	 are the eye coordinates of the	vertex,	p , p ,	p ,
+       e   e   e       e                                         1   2   3
+  and p  are the values supplied in <I>params</I>, and M is the modelview matrix
+       4
+  when glTexGen	is invoked.  If	M is poorly conditioned	or singular, texture
+  coordinates generated	by the resulting function may be inaccurate or
+  undefined.
+
+  Note that the	values in <I>params</I> define	a reference plane in eye coordinates.
+  The modelview	matrix that is applied to them may not be the same one in
+  effect when the polygon vertices are transformed. This function establishes
+  a field of texture coordinates that can produce dynamic contour lines	on
+  moving objects.
+
+  If <I>pname</I> is GL_SPHERE_MAP and <I>coord</I> is either GL_S or GL_T, s and t
+  texture coordinates are generated as follows.	Let <B>u</B> be the unit vector
+  pointing from	the origin to the polygon vertex (in eye coordinates). Let <B>n'</B>
+  be the current normal, after transformation to eye coordinates. Let
+                  T
+  <B>f</B> = (f   f   f )  be the reflection vector such that
+	x   y	z
+
+                                             T
+				<B>f</B> = <B>u</B> - 2<B>n'n' u</B>
+
+		      _____________
+		     | 2  2       2
+  Finally, let m = 2\|f +f +(f +1) . Then the values assigned to the s and
+                       x  y   z
+  t texture coordinates	are
+
+				       f
+				        x   1
+				  s = --- + -
+				       m    2
+
+				       f
+				        y   1
+				  t = --- + -
+				       m    2
+
+  A texture-coordinate generation function is enabled or disabled using
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> or <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A>	with one of the	symbolic texture-coordinate names
+  (GL_TEXTURE_GEN_S, GL_TEXTURE_GEN_T, GL_TEXTURE_GEN_R, or GL_TEXTURE_GEN_Q)
+  as the argument. When	enabled, the specified texture coordinate is computed
+  according to the generating function associated with that coordinate.	When
+  disabled, subsequent vertices	take the specified texture coordinate from
+  the current set of texture coordinates. Initially, all texture generation
+  functions are	set to GL_EYE_LINEAR and are disabled.	Both s plane
+  equations are	(1,0,0,0), both	t plane	equations are (0,1,0,0), and all r
+  and q	plane equations	are (0,0,0,0).
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated when <I>coord</I> or <I>pname</I> is not an accepted defined
+  value, or when <I>pname</I> is GL_TEXTURE_GEN_MODE and <I>params</I> is not	an accepted
+  defined value.
+
+  GL_INVALID_ENUM is generated when <I>pname</I> is GL_TEXTURE_GEN_MODE, <I>params</I> is
+  GL_SPHERE_MAP, and <I>coord</I> is either GL_R or GL_Q.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGen</A>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_TEXTURE_GEN_S
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_TEXTURE_GEN_T
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_TEXTURE_GEN_R
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_TEXTURE_GEN_Q
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>,	<A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Tue, May 23, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

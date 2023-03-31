@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="LUMIERE2.CPP" open="1" top="0">
+		<Cursor position="141" topLine="0"/>
+	</File>
+	<File name="evenements.cpp" open="1" top="0">
+		<Cursor position="839" topLine="0"/>
+	</File>
+	<File name="evenements.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="geometrie.cpp" open="1" top="1">
+		<Cursor position="1897" topLine="10"/>
+	</File>
+	<File name="geometrie.h" open="1" top="0">
+		<Cursor position="138" topLine="0"/>
+	</File>
+	<File name="global.cpp" open="1" top="0">
+		<Cursor position="60" topLine="0"/>
+	</File>
+	<File name="global.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="lumiere2.h" open="1" top="0">
+		<Cursor position="93" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+</CodeBlocks_layout_file>

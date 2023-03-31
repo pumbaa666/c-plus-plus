@@ -1,0 +1,72 @@
+<HEAD>
+<TITLE>glReadBuffer.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glReadBuffer.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A> - select	a color	buffer source for pixels
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>( GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	Specifies a color buffer.  Accepted values are GL_FRONT_LEFT,
+	GL_FRONT_RIGHT,	GL_BACK_LEFT, GL_BACK_RIGHT, GL_FRONT, GL_BACK,
+	GL_LEFT, GL_RIGHT, and GL_AUX<I>i</I>,	where <I>i</I>	is between 0 and
+	GL_AUX_BUFFERS -1.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A> specifies a color buffer	as the source for subsequent
+  <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> and <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>	commands.  <I>mode</I>	accepts	one of twelve or more
+  predefined values.  (GL_AUX0 through GL_AUX3 are always defined.) In a
+  fully	configured system, GL_FRONT, GL_LEFT, and GL_FRONT_LEFT	all name the
+  front	left buffer, GL_FRONT_RIGHT and	GL_RIGHT name the front	right buffer,
+  and GL_BACK_LEFT and GL_BACK name the	back left buffer.
+
+  Nonstereo double-buffered configurations have	only a front left and a	back
+  left buffer.	Single-buffered	configurations have a front left and a front
+  right	buffer if stereo, and only a front left	buffer if nonstereo.  It is
+  an error to specify a	nonexistent buffer to <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>.
+
+  By default, <I>mode</I> is GL_FRONT in single-buffered configurations, and GL_BACK
+  in double-buffered configurations.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is not one of the twelve	(or more)
+  accepted values.
+
+  GL_INVALID_OPERATION is generated if <I>mode</I> specifies a	buffer that does not
+  exist.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A> is executed	between	the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_READ_BUFFER
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>,	<A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,89 @@
+<HEAD>
+<TITLE>gluScaleImage.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluScaleImage.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A>	- scale	an image to an arbitrary size
+
+
+</PRE><H2>C Specification</H2><PRE>
+  int <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A>( GLenum <I>format</I>,
+		     GLint <I>widthin</I>,
+		     GLint <I>heightin</I>,
+		     GLenum <I>typein</I>,
+		     const void	*<I>datain</I>,
+		     GLint <I>widthout</I>,
+		     GLint <I>heightout</I>,
+		     GLenum <I>typeout</I>,
+		     void *<I>dataout</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>format</I>     Specifies the format of the pixel data.  The following symbolic
+	     values are	valid: GL_COLOR_INDEX, GL_STENCIL_INDEX,
+	     GL_DEPTH_COMPONENT, GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB,
+	     GL_RGBA, GL_LUMINANCE, and	GL_LUMINANCE_ALPHA.
+
+  <I>widthin</I>, <I>heightin</I>
+	     Specify the width and height, respectively, of the	source image
+	     that is scaled.
+
+  <I>typein</I>     Specifies the data	type for <I>datain</I>. Must be one of
+	     GL_UNSIGNED_BYTE, GL_BYTE,	GL_BITMAP, GL_UNSIGNED_SHORT,
+	     GL_SHORT, GL_UNSIGNED_INT,	GL_INT,	or GL_FLOAT.
+
+  <I>datain</I>     Specifies a pointer to the	source image.
+
+  <I>widthout</I>, <I>heightout</I>
+	     Specify the width and height, respectively, of the	destination
+	     image.
+
+  <I>typeout</I>    Specifies the data	type for <I>dataout</I>. Must be one of
+	     GL_UNSIGNED_BYTE, GL_BYTE,	GL_BITMAP, GL_UNSIGNED_SHORT,
+	     GL_SHORT, GL_UNSIGNED_INT,	GL_INT,	or GL_FLOAT.
+
+  <I>dataout</I>    Specifies a pointer to the	destination image.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A>	scales a pixel image using the appropriate pixel store modes
+  to unpack data from the source image and pack	data into the destination
+  image.
+
+  When shrinking an image, <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A> uses a	box filter to sample the
+  source image and create pixels for the destination image.  When magnifying
+  an image, the	pixels from the	source image are linearly interpolated to
+  create the destination image.
+
+  A return value of zero indicates success, otherwise a	GLU error code is
+  returned indicating what the problem was (see	<A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>).
+
+  Please refer to the <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> reference page for a	description of the
+  acceptable values for	the <I>format</I>, <I>typein</I>, and	<I>typeout</I>	parameters.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,	<A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="gluBuild1DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild1DMipmaps.html">gluBuild1DMipmaps</A>, <A HREF="gluBuild2DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild2DMipmaps.html">gluBuild2DMipmaps</A>,
+  <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

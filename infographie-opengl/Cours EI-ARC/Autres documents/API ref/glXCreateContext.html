@@ -1,0 +1,111 @@
+<HEAD>
+<TITLE>glXCreateContext.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXCreateContext.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A> - create a new GLX rendering	context
+
+
+</PRE><H2>C Specification</H2><PRE>
+  GLXContext <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>( Display *<I>dpy</I>,
+			       XVisualInfo *<I>vis</I>,
+			       GLXContext <I>shareList</I>,
+			       Bool <I>direct</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	     Specifies the connection to the X server.
+
+
+  <I>vis</I>	     Specifies the visual that defines the frame buffer	resources
+	     available to the rendering	context.  It is	a pointer to an
+	     XVisualInfo structure, not	a visual ID or a pointer to a Visual.
+
+
+  <I>shareList</I>  Specifies the context with	which to share display lists.  NULL
+	     indicates that no sharing is to take place.
+
+
+  <I>direct</I>     Specifies whether rendering is to be done with a direct
+	     connection	to the graphics	system if possible (True) or through
+	     the X server (False).
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A> creates a GLX rendering context and returns its handle.
+  This context can be used to render into both windows and GLX pixmaps.	 If
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A> fails to create a rendering context,	NULL is	returned.
+
+  If <I>direct</I> is True, then a direct rendering context is	created	if the
+  implementation supports direct rendering and the connection is to an X
+  server that is local.	 If <I>direct</I> is False, then a rendering context that
+  renders through the X	server is always created.  Direct rendering provides
+  a performance	advantage in some implementations.  However, direct rendering
+  contexts cannot be shared outside a single process, and they cannot be used
+  to render to GLX pixmaps.
+
+  If <I>shareList</I> is not NULL, then all display-list indexes and definitions are
+  shared by context <I>shareList</I> and by the newly created context.	 An arbitrary
+  number of contexts can share a single	display-list space.  However, all
+  rendering contexts that share	a single display-list space must themselves
+  exist	in the same address space.  Two	rendering contexts share an address
+  space	if both	are nondirect using the	same server, or	if both	are direct
+  and owned by a single	process.  Note that in the nondirect case, it is not
+  necessary for	the calling threads to share an	address	space, only for	their
+  related rendering contexts to	share an address space.
+
+
+</PRE><H2>Notes</H2><PRE>
+  XVisualInfo is defined in <I>Xutil</I>.<I>h</I>.  It is a structure	that includes <I>visual</I>,
+  <I>visualID</I>, <I>screen</I>, and	<I>depth</I> elements.
+
+
+  A <I>process</I> is a single	execution environment, implemented in a	single
+  address space, consisting of one or more threads.
+
+  A <I>thread</I> is one of a set of subprocesses that	share a	single address space,
+  but maintain separate	program	counters, stack	spaces,	and other related
+  global data.	A <I>thread</I> that is the only member of its	subprocess group is
+  equivalent to	a <I>process</I>.
+
+
+</PRE><H2>Errors</H2><PRE>
+  NULL is returned if execution	fails on the client side.
+
+  BadMatch is generated	if the context to be created would not share the
+  address space	or the screen of the context specified by <I>shareList</I>.
+
+  BadValue is generated	if <I>vis</I> is not a	valid visual (e.g., if the GLX
+  implementation does not support it).
+
+  GLXBadContext	is generated if	<I>shareList</I> is not a GLX context and is not
+  NULL.
+
+  BadAlloc is generated	if the server does not have enough resources to
+  allocate the new context.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXDestroyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyContext.html">glXDestroyContext</A>, <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A>, <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A>,	<A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

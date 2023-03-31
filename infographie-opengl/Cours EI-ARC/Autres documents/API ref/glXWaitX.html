@@ -1,0 +1,56 @@
+<HEAD>
+<TITLE>glXWaitX.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXWaitX.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A> - complete X	execution prior	to subsequent OpenGL calls
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A>( void )
+
+
+
+</PRE><H2>Description</H2><PRE>
+  X rendering calls made prior to <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A> are guaranteed to be	executed
+  before OpenGL	rendering calls	made after <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A>.  Although this same
+  result can be	achieved using XSync, <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A> does not	require	a round	trip
+  to the server, and it	is therefore more efficient in cases where client and
+  server are on	separate machines.
+
+  <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A> is ignored if there is no current GLX context.
+
+
+</PRE><H2>Notes</H2><PRE>
+  <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A> may or may not flush	the OpenGL stream.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GLXBadCurrentWindow is generated if the drawable associated with the
+  current context of the calling thread	is a window, and that window is	no
+  longer valid.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glFinish.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFinish.html">glFinish</A>, <A HREF="glFlush.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFlush.html">glFlush</A>, <A HREF="glXWaitGL.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitGL.html">glXWaitGL</A>,	XSync
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

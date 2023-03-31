@@ -1,0 +1,94 @@
+<HEAD>
+<TITLE>glNormal.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glNormal.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3b</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3d</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3f</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3i</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3s</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3bv</A>,
+  <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3dv</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3fv</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3iv</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3sv</A> - set the current normal
+  vector
+
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3b</A>( GLbyte <I>nx</I>,
+		   GLbyte <I>ny</I>,
+		   GLbyte <I>nz</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3d</A>( GLdouble <I>nx</I>,
+		   GLdouble <I>ny</I>,
+		   GLdouble <I>nz</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3f</A>( GLfloat <I>nx</I>,
+		   GLfloat <I>ny</I>,
+		   GLfloat <I>nz</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3i</A>( GLint <I>nx</I>,
+		   GLint <I>ny</I>,
+		   GLint <I>nz</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3s</A>( GLshort <I>nx</I>,
+		   GLshort <I>ny</I>,
+		   GLshort <I>nz</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nx</I>, <I>ny</I>, <I>nz</I>
+	    Specify the	x, y, and z coordinates	of the new current normal.
+	    The	initial	value of the current normal is (0,0,1).
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3bv</A>( const GLbyte *<I>v</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3dv</A>( const GLdouble *<I>v</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3fv</A>( const GLfloat *<I>v</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3iv</A>( const GLint	*<I>v</I> )
+  void <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal3sv</A>( const GLshort *<I>v</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>v</I>    Specifies a pointer to an array of three	elements: the x, y, and	z
+       coordinates of the new current normal.
+
+
+</PRE><H2>Description</H2><PRE>
+  The current normal is	set to the given coordinates whenever <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A> is
+  issued.  Byte, short,	or integer arguments are converted to floating-point
+  format with a	linear mapping that maps the most positive representable
+  integer value	to 1.0,	and the	most negative representable integer value to
+  -1.0.
+
+  Normals specified with <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A> need not have	unit length.  If
+  normalization	is enabled, then normals specified with	<A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A> are
+  normalized after transformation.  Normalization is controlled	using
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with the argument GL_NORMALIZE.  By default,
+  normalization	is disabled.
+
+</PRE><H2>Notes</H2><PRE>
+  The current normal can be updated at any time.  In particular, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A> can
+  be called between a call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CURRENT_NORMAL
+  glIsEnable with argument GL_NORMALIZE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>, <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

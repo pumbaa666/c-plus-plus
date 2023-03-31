@@ -1,0 +1,80 @@
+<HEAD>
+<TITLE>glLineWidth.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glLineWidth.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A> -	specify	the width of rasterized	lines
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>( GLfloat <I>width</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>width</I>	 Specifies the width of	rasterized lines.  The default is 1.0.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A> specifies	the rasterized width of	both aliased and antialiased
+  lines.  Using	a line width other than	1.0 has	different effects, depending
+  on whether line antialiasing is enabled.  Line antialiasing is controlled
+  by calling <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with argument GL_LINE_SMOOTH.
+
+  If line antialiasing is disabled, the	actual width is	determined by
+  rounding the supplied	width to the nearest integer.  (If the rounding
+  results in the value 0, it is	as if the line width were 1.) If |dx| &gt;= |dy|,
+  <I>i</I> pixels are filled in each column that is rasterized, where <I>i</I> is the
+  rounded value	of <I>width</I>.  Otherwise, <I>i</I>	pixels are filled in each row that is
+  rasterized.
+
+  If antialiasing is enabled, line rasterization produces a fragment for each
+  pixel	square that intersects the region lying	within the rectangle having
+  width	equal to the current line width, length	equal to the actual length of
+  the line, and	centered on the	mathematical line segment.  The	coverage
+  value	for each fragment is the window	coordinate area	of the intersection
+  of the rectangular region with the corresponding pixel square.  This value
+  is saved and used in the final rasterization step.
+
+  Not all widths can be	supported when line antialiasing is enabled. If	an
+  unsupported width is requested, the nearest supported	width is used.	Only
+  width	1.0 is guaranteed to be	supported; others depend on the
+  implementation.  The range of	supported widths and the size difference
+  between supported widths within the range can	be queried by calling <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>
+  with arguments GL_LINE_WIDTH_RANGE and GL_LINE_WIDTH_GRANULARITY.
+
+</PRE><H2>Notes</H2><PRE>
+  The line width specified by <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A> is always returned when
+  GL_LINE_WIDTH	is queried.  Clamping and rounding for aliased and
+  antialiased lines have no effect on the specified value.
+
+  Non-antialiased line width may be clamped to an implementation-dependent
+  maximum.  Although this maximum cannot be queried, it	must be	no less	than
+  the maximum value for	antialiased lines, rounded to the nearest integer
+  value.
+
+
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>width</I> is less than or equal to zero.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LINE_WIDTH
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LINE_WIDTH_RANGE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LINE_WIDTH_GRANULARITY
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_LINE_SMOOTH
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, glLineSmooth
+
+</PRE>
+</BODY>
+</HTML>

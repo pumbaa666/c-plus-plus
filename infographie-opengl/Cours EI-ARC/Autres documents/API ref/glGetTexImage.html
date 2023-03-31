@@ -1,0 +1,115 @@
+<HEAD>
+<TITLE>glGetTexImage.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetTexImage.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>	- return a texture image
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>( GLenum <I>target</I>,
+		      GLint <I>level</I>,
+		      GLenum <I>format</I>,
+		      GLenum <I>type</I>,
+		      GLvoid *<I>pixels</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>  Specifies which texture is to	be obtained.  GL_TEXTURE_1D and
+	  GL_TEXTURE_2D	are accepted.
+
+  <I>level</I>	  Specifies the	level-of-detail	number of the desired image.  Level 0
+	  is the base image level.  Level n is the nth mipmap reduction
+	  image.
+
+  <I>format</I>  Specifies a pixel format for the returned data.  The supported
+	  formats are GL_RED, GL_GREEN,	GL_BLUE, GL_ALPHA, GL_RGB, GL_RGBA,
+	  GL_LUMINANCE,	and GL_LUMINANCE_ALPHA.
+
+  <I>type</I>	  Specifies a pixel type for the returned data.	 The supported types
+	  are GL_UNSIGNED_BYTE,	GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT,
+	  GL_UNSIGNED_INT, GL_INT, and GL_FLOAT.
+
+  <I>pixels</I>  Returns the texture image.  Should be	a pointer to an	array of the
+	  type specified by <I>type</I>.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>	returns	a texture image	into <I>pixels</I>.  <I>target</I> specifies
+  whether the desired texture image is one specified by	<A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>
+  (GL_TEXTURE_1D) or by	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> (GL_TEXTURE_2D).  <I>level</I> specifies the
+  level-of-detail number of the	desired	image.	<I>format</I> and <I>type</I>	specify	the
+  format and type of the desired image array.  Please see the reference	pages
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> and <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>	for a description of the acceptable values
+  for the <I>format</I> and <I>type</I> parameters, respectively.
+
+  Operation of <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A> is	best understood	by considering the selected
+  internal four-component texture image	to be an RGBA color buffer the size
+  of the image.	 The semantics of <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>	are then identical to those
+  of <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> called with the same <I>format</I> and <I>type</I>,	with <I>x</I> and <I>y</I> set to
+  zero,	<I>width</I> set to the width of the texture image (including border if one
+  was specified), and <I>height</I> set to one	for 1-D	images,	or to the height of
+  the texture image (including border if one was specified) for	2-D images.
+  Because the internal texture image is	an RGBA	image, pixel formats
+  GL_COLOR_INDEX, GL_STENCIL_INDEX, and	GL_DEPTH_COMPONENT are not accepted,
+  and pixel type GL_BITMAP is not accepted.
+
+  If the selected texture image	does not contain four components, the
+  following mappings are applied.  Single-component textures are treated as
+  RGBA buffers with red	set to the single-component value, and green, blue,
+  and alpha set	to zero.  Two-component	textures are treated as	RGBA buffers
+  with red set to the value of component zero, alpha set to the	value of
+  component one, and green and blue set	to zero.  Finally, three-component
+  textures are treated as RGBA buffers with red	set to component zero, green
+  set to component one,	blue set to component two, and alpha set to zero.
+
+  To determine the required size of <I>pixels</I>, use	<A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> to
+  ascertain the	dimensions of the internal texture image, then scale the
+  required number of pixels by the storage required for	each pixel, based on
+  <I>format</I> and <I>type</I>.  Be sure to take the	pixel storage parameters into
+  account, especially GL_PACK_ALIGNMENT.
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, no change is made to the contents of <I>pixels</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>target</I>, <I>format</I>, or <I>type</I> is not an accepted
+  value.
+
+  GL_INVALID_VALUE is generated	if <I>level</I> is less than zero or greater than
+  log max, where max is	the returned value of GL_MAX_TEXTURE_SIZE.
+     2
+  GL_INVALID_OPERATION is generated if <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A> is	executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> with argument GL_TEXTURE_WIDTH
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> with argument GL_TEXTURE_HEIGHT
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> with argument GL_TEXTURE_BORDER
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> with argument GL_TEXTURE_COMPONENTS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with arguments GL_PACK_ALIGNMENT and others
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,	<A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

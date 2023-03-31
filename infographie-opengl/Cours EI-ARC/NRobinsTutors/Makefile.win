@@ -1,0 +1,33 @@
+# Project: shapes
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../../../../../../../temp/shapes.o ../../../../../../../temp/glm.o $(RES)
+LINKOBJ  = ../../../../../../../temp/shapes.o ../../../../../../../temp/glm.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include/dx8" 
+BIN  = shapes.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before shapes.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "shapes.exe" $(LIBS)
+
+../../../../../../../temp/shapes.o: shapes.cpp
+	$(CPP) -c shapes.cpp -o ../../../../../../../temp/shapes.o $(CXXFLAGS)
+
+../../../../../../../temp/glm.o: glm.cpp
+	$(CPP) -c glm.cpp -o ../../../../../../../temp/glm.o $(CXXFLAGS)

@@ -1,0 +1,106 @@
+<HEAD>
+<TITLE>glNewList.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glNewList.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>, <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A> - create	or replace a display list
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>( GLuint <I>list</I>,
+		  GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>list</I>	Specifies the display list name.
+
+  <I>mode</I>	Specifies the compilation mode,	which can be GL_COMPILE	or
+	GL_COMPILE_AND_EXECUTE.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A>( void )
+
+
+</PRE><H2>Description</H2><PRE>
+  Display lists	are groups of GL commands that have been stored	for
+  subsequent execution.	 The display lists are created with <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>.	All
+  subsequent commands are placed in the	display	list, in the order issued,
+  until	<A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A> is called.
+
+  <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A> has	two arguments.	The first argument, <I>list</I>, is a positive
+  integer that becomes the unique name for the display list.  Names can	be
+  created and reserved with <A HREF="glGenLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGenLists.html">glGenLists</A> and tested for uniqueness with
+  <A HREF="glIsList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsList.html">glIsList</A>.  The second	argument, <I>mode</I>,	is a symbolic constant that can
+  assume one of	two values:
+
+  GL_COMPILE	      Commands are merely compiled.
+
+  GL_COMPILE_AND_EXECUTE
+		      Commands are executed as they are	compiled into the
+		      display list.
+
+  Certain commands are not compiled into the display list, but are executed
+  immediately, regardless of the display-list mode.  These commands are
+  <A HREF="glIsList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsList.html">glIsList</A>, <A HREF="glGenLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGenLists.html">glGenLists</A>,	<A HREF="glDeleteLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDeleteLists.html">glDeleteLists</A>, <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>, <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A>,
+  <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>,	<A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>, <A HREF="glFlush.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFlush.html">glFlush</A>, <A HREF="glFinish.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFinish.html">glFinish</A>, <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A>,
+  and all of the <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A> routines.
+
+  When <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A> is encountered, the display-list definition is	completed by
+  associating the list with the	unique name <I>list</I> (specified in the <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>
+  command). If a display list with name	<I>list</I> already exists, it	is replaced
+  only when <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A> is called.
+
+</PRE><H2>Notes</H2><PRE>
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A> and <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> can be entered into display lists.	 The commands
+  in the display list or lists executed	by <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A> or <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> are not
+  included in the display list being created, even if the list creation	mode
+  is GL_COMPILE_AND_EXECUTE.
+
+  A display list is just a group of commands and arguments, so errors
+  generated by commands	in a display list must be generated when the list is
+  executed. If the list	is created in GL_COMPILE mode, errors are not
+  generated until the list is executed.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>list</I>	is zero.
+
+  GL_INVALID_ENUM is generated if <I>mode</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A> is called without a
+  preceding <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>, or if <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A> is called while a display list is
+  being	defined.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A> or <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glEndList</A> is executed
+  between the execution	of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+  GL_OUT_OF_MEMORY is generated	if there is insufficient memory	to compile
+  the display list.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glIsList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsList.html">glIsList</A>
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>, <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A>, <A HREF="glDeleteLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDeleteLists.html">glDeleteLists</A>, <A HREF="glGenLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGenLists.html">glGenLists</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

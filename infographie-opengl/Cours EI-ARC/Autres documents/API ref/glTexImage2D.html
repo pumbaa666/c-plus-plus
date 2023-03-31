@@ -1,0 +1,215 @@
+<HEAD>
+<TITLE>glTexImage2D.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glTexImage2D.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> - specify a two-dimensional texture image
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>( GLenum <I>target</I>,
+		     GLint <I>level</I>,
+		     GLint <I>components</I>,
+		     GLsizei <I>width</I>,
+		     GLsizei <I>height</I>,
+		     GLint <I>border</I>,
+		     GLenum <I>format</I>,
+		     GLenum <I>type</I>,
+		     const GLvoid *<I>pixels</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>      Specifies	the target texture.  Must be GL_TEXTURE_2D.
+
+  <I>level</I>	      Specifies	the level-of-detail number.  Level 0 is	the base
+	      image level.  Level <I>n</I> is the <I>n</I>th mipmap reduction	image.
+
+  <I>components</I>  Specifies	the number of color components in the texture.	Must
+	      be 1, 2, 3, or 4.
+
+                                                                  n
+  <I>width</I>	      Specifies the width of the texture image.  Must be 2 +2(border)
+              for some integer n.
+
+  <I>height</I>      Specifies	the height of the texture image.  Must be
+	       m
+	      2 +2(border) for some integer m.
+
+  <I>border</I>      Specifies	the width of the border.  Must be either 0 or 1.
+
+  <I>format</I>      Specifies	the format of the pixel	data.  The following symbolic
+	      values are accepted: GL_COLOR_INDEX, GL_RED, GL_GREEN, GL_BLUE,
+	      GL_ALPHA,	GL_RGB,	GL_RGBA, GL_LUMINANCE, and
+	      GL_LUMINANCE_ALPHA.
+
+  <I>type</I>	      Specifies	the data type of the pixel data.  The following
+	      symbolic values are accepted: GL_UNSIGNED_BYTE, GL_BYTE,
+	      GL_BITMAP, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT,
+	      GL_INT, and GL_FLOAT.
+
+  <I>pixels</I>      Specifies	a pointer to the image data in memory.
+
+
+</PRE><H2>Description</H2><PRE>
+  Texturing maps a portion of a	specified <I>texture</I> <I>image</I>	onto each graphical
+  primitive for	which texturing	is enabled.  Two-dimensional texturing is
+  enabled and disabled using <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with argument
+  GL_TEXTURE_2D.
+
+  Texture images are defined with <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>.	The arguments describe the
+  parameters of	the texture image, such	as height, width, width	of the
+  border, level-of-detail number (see <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>), and number of color
+  components provided.	The last three arguments describe the way the image
+  is represented in memory, and	they are identical to the pixel	formats	used
+  for <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>.
+
+  Data is read from <I>pixels</I> as a	sequence of signed or unsigned bytes, shorts,
+  or longs, or single-precision	floating-point values, depending on <I>type</I>.
+  These	values are grouped into	sets of	one, two, three, or four values,
+  depending on <I>format</I>, to form elements. If <I>type</I> is GL_BITMAP, the data	is
+  considered as	a string of unsigned bytes (and	<I>format</I> must be
+  GL_COLOR_INDEX). Each	data byte is treated as	eight 1-bit elements, with
+  bit ordering determined by GL_UNPACK_LSB_FIRST (see <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>).
+
+  <I>format</I> determines the	composition of each element in <I>pixels</I>.	It can assume
+  one of nine symbolic values:
+
+  GL_COLOR_INDEX
+	    Each element is a single value, a color index. It is converted to
+	    fixed point	(with an unspecified number of zero bits to the	right
+	    of the binary point), shifted left or right	depending on the
+	    value and sign of GL_INDEX_SHIFT, and added	to GL_INDEX_OFFSET
+	    (see <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>). The resulting index is converted to a set
+	    of color components	using the GL_PIXEL_MAP_I_TO_R,
+	    GL_PIXEL_MAP_I_TO_G, GL_PIXEL_MAP_I_TO_B, and GL_PIXEL_MAP_I_TO_A
+	    tables, and	clamped	to the range [0,1].
+
+  GL_RED    Each element is a single red component. It is converted to
+	    floating point and assembled into an RGBA element by attaching
+	    0.0	for green and blue, and	1.0 for	alpha. Each component is then
+	    multiplied by the signed scale factor GL_c_SCALE, added to the
+	    signed bias	GL_c_BIAS, and clamped to the range [0,1] (see
+	    <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_GREEN  Each element is a single green component. It is converted to
+	    floating point and assembled into an RGBA element by attaching
+	    0.0	for red	and blue, and 1.0 for alpha. Each component is then
+	    multiplied by the signed scale factor GL_c_SCALE, added to the
+	    signed bias	GL_c_BIAS, and clamped to the range [0,1] (see
+	    <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_BLUE   Each element is a single blue component. It	is converted to
+	    floating point and assembled into an RGBA element by attaching
+	    0.0	for red	and green, and 1.0 for alpha. Each component is	then
+	    multiplied by the signed scale factor GL_c_SCALE, added to the
+	    signed bias	GL_c_BIAS, and clamped to the range [0,1] (see
+	    <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_ALPHA  Each element is a single alpha component. It is converted to
+	    floating point and assembled into an RGBA element by attaching
+	    0.0	for red, green,	and blue.  Each	component is then multiplied
+	    by the signed scale	factor GL_c_SCALE, added to the	signed bias
+	    GL_c_BIAS, and clamped to the range	[0,1] (see <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_RGB    Each element is an RGB triple.  It is converted to floating	point
+	    and	assembled into an RGBA element by attaching 1.0	for alpha.
+	    Each component is then multiplied by the signed scale factor
+	    GL_c_SCALE,	added to the signed bias GL_c_BIAS, and	clamped	to
+	    the	range [0,1] (see  <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_RGBA   Each element is a complete RGBA element.  It is converted to
+	    floating point.  Each component is then multiplied by the signed
+	    scale factor GL_c_SCALE, added to the signed bias GL_c_BIAS, and
+	    clamped to the range [0,1] (see <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_LUMINANCE
+	    Each element is a single luminance value.  It is converted to
+	    floating point, then assembled into	an RGBA	element	by
+	    replicating	the luminance value three times	for red, green,	and
+	    blue and attaching 1.0 for alpha. Each component is	then
+	    multiplied by the signed scale factor GL_c_SCALE, added to the
+	    signed bias	GL_c_BIAS, and clamped to the range [0,1] (see
+	    <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  GL_LUMINANCE_ALPHA
+	    Each element is a luminance/alpha pair.  It	is converted to
+	    floating point, then assembled into	an RGBA	element	by
+	    replicating	the luminance value three times	for red, green,	and
+	    blue.  Each	component is then multiplied by	the signed scale
+	    factor GL_c_SCALE, added to	the signed bias	GL_c_BIAS, and
+	    clamped to the range [0,1] (see <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>).
+
+  Please refer to the <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A> reference page for a	description of the
+  acceptable values for	the <I>type</I> parameter.  A texture image can have up to
+  four components per texture element, depending on <I>components</I>.	 A one-
+  component texture image uses only the	red component of the RGBA color
+  extracted from <I>pixels</I>. A two-component image uses the	R and A	values.	 A
+  three-component image	uses the R, G, and B values.  A	four-component image
+  uses all of the RGBA components.
+
+</PRE><H2>Notes</H2><PRE>
+  Texturing has	no effect in color index mode.
+
+  The texture image can	be represented by the same data	formats	as the pixels
+  in a <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A> command, except that GL_STENCIL_INDEX and
+  GL_DEPTH_COMPONENT cannot be used.  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A> and <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A> modes
+  affect texture images	in exactly the way they	affect <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>.
+
+  A texture image with zero height or width indicates the null texture.	 If
+  the null texture is specified	for level-of-detail 0, it is as	if texturing
+  were disabled.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated when <I>target</I> is not GL_TEXTURE_2D.
+
+  GL_INVALID_ENUM is generated when <I>format</I> is not an accepted <I>format</I>
+  constant.  Format constants other than GL_STENCIL_INDEX and
+  GL_DEPTH_COMPONENT are accepted.
+
+  GL_INVALID_ENUM is generated when <I>type</I> is not	a <I>type</I> constant.
+
+  GL_INVALID_ENUM is generated if <I>type</I> is GL_BITMAP and	<I>format</I> is not
+  GL_COLOR_INDEX.
+
+  GL_INVALID_VALUE is generated	if <I>level</I> is less than zero or greater than
+  log max, where <I>max</I> is	the returned value of GL_MAX_TEXTURE_SIZE.
+     2
+  GL_INVALID_VALUE is generated	if <I>components</I> is not 1,	2, 3, or 4.
+
+  GL_INVALID_VALUE is generated	if <I>width</I> or <I>height</I> is less than	zero or
+  greater than 2 + GL_MAX_TEXTURE_SIZE,	or if either cannot be represented as
+   k
+  2 +2(border) for some	integer	value of <I>k</I>.
+
+  GL_INVALID_VALUE is generated	if <I>border</I> is not 0 or 1.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> is executed	between	the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_TEXTURE_2D
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,	<A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>, <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>, <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A>,	<A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>,
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Tue, May 23, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

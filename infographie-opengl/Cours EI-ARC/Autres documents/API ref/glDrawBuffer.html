@@ -1,0 +1,119 @@
+<HEAD>
+<TITLE>glDrawBuffer.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glDrawBuffer.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A> - specify which color buffers are to be drawn into
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>( GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	Specifies up to	four color buffers to be drawn into.  Symbolic
+	constants GL_NONE, GL_FRONT_LEFT, GL_FRONT_RIGHT, GL_BACK_LEFT,
+	GL_BACK_RIGHT, GL_FRONT, GL_BACK, GL_LEFT, GL_RIGHT,
+	GL_FRONT_AND_BACK, and GL_AUX<I>i</I>,	where <I>i</I>	is between 0 and
+	``GL_AUX_BUFFERS'' -1, are accepted (GL_AUX_BUFFERS is not the upper
+	limit; use <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A> to query the number of	available aux buffers.)	The
+	default	value is GL_FRONT for single-buffered contexts,	and GL_BACK
+	for double-buffered contexts.
+
+
+</PRE><H2>Description</H2><PRE>
+  When colors are written to the frame buffer, they are	written	into the
+  color	buffers	specified by <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>.  The	specifications are as
+  follows:
+
+  GL_NONE		   No color buffers are	written.
+
+  GL_FRONT_LEFT		   Only	the front left color buffer is written.
+
+  GL_FRONT_RIGHT	   Only	the front right	color buffer is	written.
+
+  GL_BACK_LEFT		   Only	the back left color buffer is written.
+
+  GL_BACK_RIGHT		   Only	the back right color buffer is written.
+
+  GL_FRONT		   Only	the front left and front right color buffers
+			   are written.	 If there is no	front right color
+			   buffer, only	the front left color buffer is
+			   written.
+
+  GL_BACK		   Only	the back left and back right color buffers
+			   are written.	 If there is no	back right color
+			   buffer, only	the back left color buffer is
+			   written.
+
+  GL_LEFT		   Only	the front left and back	left color buffers
+			   are written.	 If there is no	back left color
+			   buffer, only	the front left color buffer is
+			   written.
+
+  GL_RIGHT		   Only	the front right	and back right color buffers
+			   are written.	 If there is no	back right color
+			   buffer, only	the front right	color buffer is
+			   written.
+
+  GL_FRONT_AND_BACK	   All the front and back color	buffers	(front left,
+			   front right,	back left, back	right) are written.
+			   If there are	no back	color buffers, only the	front
+			   left	and front right	color buffers are written.
+			   If there are	no right color buffers,	only the
+			   front left and back left color buffers are
+			   written.  If	there are no right or back color
+			   buffers, only the front left	color buffer is
+			   written.
+
+  GL_AUX<I>i</I>		   Only	auxiliary color	buffer <I>i</I> is written.
+
+  If more than one color buffer	is selected for	drawing, then blending or
+  logical operations are computed and applied independently for	each color
+  buffer and can produce different results in each buffer.
+
+  Monoscopic contexts include only <I>left</I>	buffers, and stereoscopic contexts
+  include both <I>left</I> and	<I>right</I> buffers.	Likewise, single-buffered contexts
+  include only <I>front</I> buffers, and double-buffered contexts include both	<I>front</I>
+  and <I>back</I> buffers.  The context is selected at	GL initialization.
+
+</PRE><H2>Notes</H2><PRE>
+  It is	always the case	that GL_AUXi = GL_AUX0 + i.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if none of the buffers indicated by	<I>mode</I>
+  exists.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A> is executed	between	the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_DRAW_BUFFER
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_AUX_BUFFERS
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>, <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A>, <A HREF="glIndexMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexMask.html">glIndexMask</A>, <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A>, <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

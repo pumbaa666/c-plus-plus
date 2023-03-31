@@ -1,0 +1,162 @@
+<HEAD>
+<TITLE>glGetLight.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetLight.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLightfv</A>,	<A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLightiv</A> - return light source parameter values
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLightfv</A>( GLenum <I>light</I>,
+		     GLenum <I>pname</I>,
+		     GLfloat *<I>params</I> )
+  void <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLightiv</A>( GLenum <I>light</I>,
+		     GLenum <I>pname</I>,
+		     GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>light</I>	  Specifies a light source.  The number	of possible lights depends on
+	  the implementation, but at least eight lights	are supported.	They
+	  are identified by symbolic names of the form GL_LIGHTi where 0 &lt;= i
+	  &lt; GL_MAX_LIGHTS.
+
+  <I>pname</I>	  Specifies a light source parameter for <I>light</I>.	 Accepted symbolic
+	  names	are GL_AMBIENT,	GL_DIFFUSE, GL_SPECULAR, GL_POSITION,
+	  GL_SPOT_DIRECTION, GL_SPOT_EXPONENT, GL_SPOT_CUTOFF,
+	  GL_CONSTANT_ATTENUATION, GL_LINEAR_ATTENUATION , and
+	  GL_QUADRATIC_ATTENUATION.
+
+  <I>params</I>  Returns the requested	data.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLight</A> returns in	<I>params</I> the value or values of a	light source
+  parameter.  <I>light</I> names the light and	is a symbolic name of the form
+  GL_LIGHTi for	0&lt;=i&lt;GL_MAX_LIGHTS, where GL_MAX_LIGHTS is an implementation
+  dependent constant that is greater than or equal to eight.  <I>pname</I> specifies
+  one of ten light source parameters, again by symbolic	name.
+
+  The parameters are as	follows:
+
+  GL_AMBIENT	      <I>params</I> returns four integer or floating-point values
+		      representing the ambient intensity of the	light source.
+		      Integer values, when requested, are linearly mapped
+		      from the internal	floating-point representation such
+		      that 1.0 maps to the most	positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_DIFFUSE	      <I>params</I> returns four integer or floating-point values
+		      representing the diffuse intensity of the	light source.
+		      Integer values, when requested, are linearly mapped
+		      from the internal	floating-point representation such
+		      that 1.0 maps to the most	positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_SPECULAR	      <I>params</I> returns four integer or floating-point values
+		      representing the specular	intensity of the light
+		      source.  Integer values, when requested, are linearly
+		      mapped from the internal floating-point representation
+		      such that	1.0 maps to the	most positive representable
+		      integer value, and -1.0 maps to the most negative
+		      representable integer value.  If the internal value is
+		      outside the range	[-1,1],	the corresponding integer
+		      return value is undefined.
+
+  GL_POSITION	      <I>params</I> returns four integer or floating-point values
+		      representing the position	of the light source.  Integer
+		      values, when requested, are computed by rounding the
+		      internal floating-point values to	the nearest integer
+		      value.  The returned values are those maintained in eye
+		      coordinates.  They will not be equal to the values
+		      specified	using <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>, unless the modelview matrix
+		      was identity at the time <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A> was called.
+
+  GL_SPOT_DIRECTION   <I>params</I> returns three integer or floating-point values
+		      representing the direction of the	light source.
+		      Integer values, when requested, are computed by
+		      rounding the internal floating-point values to the
+		      nearest integer value.  The returned values are those
+		      maintained in eye	coordinates.  They will	not be equal
+		      to the values specified using <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>, unless the
+		      modelview	matrix was identity at the time	<A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>	was
+		      called.  Although	spot direction is normalized before
+		      being used in the	lighting equation, the returned
+		      values are the transformed versions of the specified
+		      values prior to normalization.
+
+  GL_SPOT_EXPONENT    <I>params</I> returns a single integer or floating-point	value
+		      representing the spot exponent of	the light.  An
+		      integer value, when requested, is	computed by rounding
+		      the internal floating-point representation to the
+		      nearest integer.
+
+  GL_SPOT_CUTOFF      <I>params</I> returns a single integer or floating-point	value
+		      representing the spot cutoff angle of the	light.	An
+		      integer value, when requested, is	computed by rounding
+		      the internal floating-point representation to the
+		      nearest integer.
+
+  GL_CONSTANT_ATTENUATION
+		      <I>params</I> returns a single integer or floating-point	value
+		      representing the constant	(not distance related)
+		      attenuation of the light.	 An integer value, when
+		      requested, is computed by	rounding the internal
+		      floating-point representation to the nearest integer.
+
+  GL_LINEAR_ATTENUATION
+		      <I>params</I> returns a single integer or floating-point	value
+		      representing the linear attenuation of the light.	 An
+		      integer value, when requested, is	computed by rounding
+		      the internal floating-point representation to the
+		      nearest integer.
+
+  GL_QUADRATIC_ATTENUATION
+		      <I>params</I> returns a single integer or floating-point	value
+		      representing the quadratic attenuation of	the light.
+		      An integer value,	when requested,	is computed by
+		      rounding the internal floating-point representation to
+		      the nearest integer.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  It is	always the case	that GL_LIGHTi = GL_LIGHT0 + i.
+
+  If an	error is generated, no change is made to the contents of <I>params</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>light</I>	or <I>pname</I> is not	an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLight</A> is called between a call to
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri, May 26, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

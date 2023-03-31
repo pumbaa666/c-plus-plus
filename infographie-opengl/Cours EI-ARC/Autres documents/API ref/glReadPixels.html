@@ -1,0 +1,219 @@
+<HEAD>
+<TITLE>glReadPixels.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glReadPixels.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> - read a	block of pixels	from the frame buffer
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>( GLint <I>x</I>,
+		     GLint <I>y</I>,
+		     GLsizei <I>width</I>,
+		     GLsizei <I>height</I>,
+		     GLenum <I>format</I>,
+		     GLenum <I>type</I>,
+		     GLvoid *<I>pixels</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>x</I>, <I>y</I> Specify the window coordinates of the first pixel that is read from
+       the frame buffer.  This location	is the lower left corner of a
+       rectangular block of pixels.
+
+  <I>width</I>, <I>height</I>
+       Specify the dimensions of the pixel rectangle.  <I>width</I> and <I>height</I>	of
+       one correspond to a single pixel.
+
+  <I>format</I>
+       Specifies the format of the pixel data.	The following symbolic values
+       are accepted: GL_COLOR_INDEX, GL_STENCIL_INDEX, GL_DEPTH_COMPONENT,
+       GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB, GL_RGBA, GL_LUMINANCE,
+       and GL_LUMINANCE_ALPHA.
+
+  <I>type</I> Specifies the data type of the pixel data.  Must	be one of
+       GL_UNSIGNED_BYTE, GL_BYTE, GL_BITMAP, GL_UNSIGNED_SHORT,	GL_SHORT,
+       GL_UNSIGNED_INT,	GL_INT,	or GL_FLOAT.
+
+  <I>pixels</I>
+       Returns the pixel data.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> returns pixel data from the frame buffer, starting with the
+  pixel	whose lower left corner	is at location (<I>x</I>, <I>y</I>), into client memory
+  starting at location <I>pixels</I>.	Several	parameters control the processing of
+  the pixel data before	it is placed into client memory.  These	parameters
+  are set with three commands: <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>, and <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+  This reference page describes	the effects on <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> of most, but not
+  all of the parameters	specified by these three commands.
+
+  <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> returns values from each	pixel with lower left-hand corner at
+  (<I>x</I> + i, <I>y</I> + j) for 0&lt;=i&lt;<I>width</I> and 0&lt;=j&lt;<I>height</I>. This pixel is said to be the
+  ith pixel in the jth row. Pixels are returned	in row order from the lowest
+  to the highest row, left to right in each row.
+
+  <I>format</I> specifies the format for the returned pixel values.  Accepted values
+  for <I>format</I> are as follows:
+
+  GL_COLOR_INDEX
+	    Color indices are read from	the color buffer selected by
+	    <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>.  Each	index is converted to fixed point, shifted
+	    left or right depending on the value and sign of GL_INDEX_SHIFT,
+	    and	added to GL_INDEX_OFFSET. If GL_MAP_COLOR is GL_TRUE, indices
+	    are	replaced by their mappings in the table	GL_PIXEL_MAP_I_TO_I.
+
+  GL_STENCIL_INDEX
+	    Stencil values are read from the stencil buffer.  Each index is
+	    converted to fixed point, shifted left or right depending on the
+	    value and sign of GL_INDEX_SHIFT, and added	to GL_INDEX_OFFSET.
+	    If GL_MAP_STENCIL is GL_TRUE, indices are replaced by their
+	    mappings in	the table GL_PIXEL_MAP_S_TO_S.
+
+  GL_DEPTH_COMPONENT
+	    Depth values are read from the depth buffer.  Each component is
+	    converted to floating point	such that the minimum depth value
+	    maps to 0.0	and the	maximum	value maps to 1.0.  Each component is
+	    then multiplied by GL_DEPTH_SCALE, added to	GL_DEPTH_BIAS, and
+	    finally clamped to the range [0,1].
+
+  GL_RED
+
+  GL_GREEN
+
+  GL_BLUE
+
+  GL_ALPHA
+
+  GL_RGB
+
+  GL_RGBA
+
+  GL_LUMINANCE
+
+  GL_LUMINANCE_ALPHA
+	    Processing differs depending on whether color buffers store	color
+	    indices or RGBA color components.  If color	indices	are stored,
+	    they are read from the color buffer	selected by <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>.
+	    Each index is converted to fixed point, shifted left or right
+	    depending on the value and sign of GL_INDEX_SHIFT, and added to
+	    GL_INDEX_OFFSET. Indices are then replaced by the red, green,
+	    blue, and alpha values obtained by indexing	the
+	    GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G, GL_PIXEL_MAP_I_TO_B,
+	    and	GL_PIXEL_MAP_I_TO_A tables.  Each of these tables must be of
+                  n
+	    size 2 , but n may be different for different tables. Before an
+                                                                 n
+	    index is used to look up a value in a table of size 2 it must
+                               n
+	    be masked against 2 -1.
+
+	    If RGBA color components are stored	in the color buffers, they
+	    are	read from the color buffer selected by <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>.  Each
+	    color component is converted to floating point such	that zero
+	    intensity maps to 0.0 and full intensity maps to 1.0.  Each
+	    component is then multiplied by GL_c_SCALE and added to
+	    GL_c_BIAS, where <I>c</I> is RED, GREEN, BLUE, or ALPHA.  Finally,	if
+	    GL_MAP_COLOR is GL_TRUE, Each component is clamped to the range
+	    [0,1], scaled to the size of its corresponding table, and is then
+	    replaced by	its mapping in the table GL_PIXEL_MAP_c_TO_c, where <I>c</I>
+	    is R, G, B,	or A.
+
+	    Unneeded data is then discarded.  For example, GL_RED discards
+	    the	green, blue, and alpha components, while GL_RGB	discards only
+	    the	alpha component.  GL_LUMINANCE computes	a single component
+	    value as the sum of	the red, green,	and blue components, and
+	    GL_LUMINANCE_ALPHA does the	same, while keeping alpha as a second
+	    value.  The	final values are clamped to the	range [0,1].
+
+  The shift, scale, bias, and lookup factors described above are all
+  specified by <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.	 The lookup table contents themselves are
+  specified by <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  The final step involves converting the indices or components to the proper
+  format, as specified by <I>type</I>.	 If <I>format</I> is GL_COLOR_INDEX or
+  GL_STENCIL_INDEX and <I>type</I> is not GL_FLOAT, each index	is masked with the
+  mask value given in the following table.  If <I>type</I> is GL_FLOAT, then each
+  integer index	is converted to	single-precision floating-point	format.
+
+  If <I>format</I> is GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB, GL_RGBA,
+  GL_LUMINANCE,	or GL_LUMINANCE_ALPHA and <I>type</I> is not GL_FLOAT,	each
+  component is multiplied by the multiplier shown in the following table.  If
+  type is GL_FLOAT, then each component	is passed as is	(or converted to the
+  client's single-precision floating-point format if it	is different from the
+  one used by the GL).
+
+	    -------------------------------------------------------
+	    |      type        | index mask | component conversion |
+	    -------------------------------------------------------
+	    |GL_UNSIGNED_BYTE  |   2^8-1    |	    (2^8-1)c	   |
+	    |	  GL_BYTE      |   2^7-1    |	 [(2^8-1)c-1]/2	   |
+	    |	 GL_BITMAP     |     1	    |	       1	   |
+	    |GL_UNSIGNED_SHORT |   2^16-1   |	   (2^16-1)c	   |
+	    |	 GL_SHORT      |   2^15-1   |	[(2^16-1)c-1]/2	   |
+	    | GL_UNSIGNED_INT  |   2^32-1   |	   (2^32-1)c	   |
+	    |	  GL_INT       |   2^31-1   |	[(2^32-1)c-1]/2	   |
+	    |    GL_FLOAT      |    none    |          c           |
+	    -------------------------------------------------------
+
+  Return values	are placed in memory as	follows.  If <I>format</I> is
+  GL_COLOR_INDEX, GL_STENCIL_INDEX, GL_DEPTH_COMPONENT,	GL_RED,	GL_GREEN,
+  GL_BLUE, GL_ALPHA, or	GL_LUMINANCE, a	single value is	returned and the data
+  for the ith pixel in the jth row is placed in	location (j) width + i.
+  GL_RGB returns three values, GL_RGBA returns four values, and
+  GL_LUMINANCE_ALPHA returns two values	for each pixel,	with all values
+  corresponding	to a single pixel occupying contiguous space in	<I>pixels</I>.
+  Storage parameters set by <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>, such as GL_PACK_SWAP_BYTES and
+  GL_PACK_LSB_FIRST, affect the	way that data is written into memory. See
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A> for a description.
+
+</PRE><H2>Notes</H2><PRE>
+  Values for pixels that lie outside the window	connected to the current GL
+  context are undefined.
+
+  If an	error is generated, no change is made to the contents of <I>pixels</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>format</I> or <I>type</I> is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if either <I>width</I>	or <I>height</I> is negative.
+
+  GL_INVALID_OPERATION is generated if <I>format</I> is GL_COLOR_INDEX and the	color
+  buffers store	RGBA color components.
+
+  GL_INVALID_OPERATION is generated if <I>format</I> is GL_STENCIL_INDEX and there
+  is no	stencil	buffer.
+
+  GL_INVALID_OPERATION is generated if <I>format</I> is GL_DEPTH_COMPONENT and	there
+  is no	depth buffer.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> is executed	between	the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_INDEX_MODE
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>,	<A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>, <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>,	<A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>,
+  <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A>
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Tue, May 23, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

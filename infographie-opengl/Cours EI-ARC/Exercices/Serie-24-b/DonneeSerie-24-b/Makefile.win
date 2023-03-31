@@ -1,0 +1,51 @@
+# Project: ProjetGlut
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = c:/temp/evenements.o c:/temp/geometrie.o c:/temp/global.o c:/temp/matriceombre.o c:/temp/mur.o c:/temp/normal.o c:/temp/Principal.o c:/temp/texture.o $(RES)
+LINKOBJ  = c:/temp/evenements.o c:/temp/geometrie.o c:/temp/global.o c:/temp/matriceombre.o c:/temp/mur.o c:/temp/normal.o c:/temp/Principal.o c:/temp/texture.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Principal.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Principal.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Principal.exe" $(LIBS)
+
+c:/temp/evenements.o: evenements.cpp
+	$(CPP) -c evenements.cpp -o c:/temp/evenements.o $(CXXFLAGS)
+
+c:/temp/geometrie.o: geometrie.cpp
+	$(CPP) -c geometrie.cpp -o c:/temp/geometrie.o $(CXXFLAGS)
+
+c:/temp/global.o: global.cpp
+	$(CPP) -c global.cpp -o c:/temp/global.o $(CXXFLAGS)
+
+c:/temp/matriceombre.o: matriceombre.cpp
+	$(CPP) -c matriceombre.cpp -o c:/temp/matriceombre.o $(CXXFLAGS)
+
+c:/temp/mur.o: mur.cpp
+	$(CPP) -c mur.cpp -o c:/temp/mur.o $(CXXFLAGS)
+
+c:/temp/normal.o: normal.cpp
+	$(CPP) -c normal.cpp -o c:/temp/normal.o $(CXXFLAGS)
+
+c:/temp/Principal.o: Principal.cpp
+	$(CPP) -c Principal.cpp -o c:/temp/Principal.o $(CXXFLAGS)
+
+c:/temp/texture.o: texture.cpp
+	$(CPP) -c texture.cpp -o c:/temp/texture.o $(CXXFLAGS)

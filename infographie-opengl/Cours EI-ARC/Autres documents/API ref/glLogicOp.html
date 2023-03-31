@@ -1,0 +1,97 @@
+<HEAD>
+<TITLE>glLogicOp.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glLogicOp.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A> - specify a	logical	pixel operation	for color index	rendering
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A>( GLenum <I>opcode</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>opcode</I>  Specifies a symbolic constant	that selects a logical operation.
+	  The following	symbols	are accepted: GL_CLEAR,	GL_SET,	GL_COPY,
+	  GL_COPY_INVERTED, GL_NOOP, GL_INVERT,	GL_AND,	GL_NAND, GL_OR,
+	  GL_NOR, GL_XOR, GL_EQUIV, GL_AND_REVERSE, GL_AND_INVERTED,
+	  GL_OR_REVERSE, and GL_OR_INVERTED.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A> specifies a	logical	operation that,	when enabled, is applied
+  between the incoming color index and the color index at the corresponding
+  location in the frame	buffer.	 The logical operation is enabled or disabled
+  with <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>	and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> using the	symbolic constant GL_LOGIC_OP.
+
+  <I>opcode</I> is a symbolic constant	chosen from the	list below.  In	the
+  explanation of the logical operations, <I>s</I> represents the incoming color
+  index	and <I>d</I> represents the index in the frame	buffer.	 Standard C-language
+  operators are	used.  As these	bitwise	operators suggest, the logical
+  operation is applied independently to	each bit pair of the source and
+  destination indices.
+		     ------------------------------------
+		     |     opcode      | resulting value |
+		     ------------------------------------
+		     |	  GL_CLEAR     |	0	 |
+		     |	   GL_SET      |	1	 |
+		     |	  GL_COPY      |	s	 |
+		     |GL_COPY_INVERTED |       !s	 |
+		     |	  GL_NOOP      |	d	 |
+		     |	 GL_INVERT     |       !d	 |
+		     |	   GL_AND      |      s	&amp; d	 |
+		     |	  GL_NAND      |    !(s	&amp; d)	 |
+		     |	   GL_OR       |      s	| d	 |
+		     |	   GL_NOR      |    !(s	| d)	 |
+		     |	   GL_XOR      |      s	^ d	 |
+		     |	  GL_EQUIV     |    !(s	^ d)	 |
+		     | GL_AND_REVERSE  |     s &amp; !d	 |
+		     |GL_AND_INVERTED  |     !s	&amp; d	 |
+		     | GL_OR_REVERSE   |     s | !d	 |
+		     | GL_OR_INVERTED  |     !s	| d	 |
+		     ------------------------------------
+
+</PRE><H2>Notes</H2><PRE>
+  Logical pixel	operations are not applied to RGBA color buffers.
+
+  When more than one color index buffer	is enabled for drawing,	logical
+  operations are done separately for each enabled buffer, using	for the
+  destination index the	contents of that buffer	(see <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>).
+
+  <I>opcode</I> must be one of	the sixteen accepted values.  Other values result in
+  an error.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>opcode</I> is not	an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LOGIC_OP_MODE
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_LOGIC_OP
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A>, <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>, <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>, <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

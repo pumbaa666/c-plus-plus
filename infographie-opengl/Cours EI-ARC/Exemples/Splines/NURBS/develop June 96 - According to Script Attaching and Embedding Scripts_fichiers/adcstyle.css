@@ -1,0 +1,108 @@
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+A:link {
+	COLOR: #000099; TEXT-DECORATION: underline
+}
+A:link {
+	COLOR: #000099; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #ff6600
+}
+A:hover {
+	COLOR: #ff6600
+}
+TD {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+TD {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+OL {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+OL {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+UL {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+UL {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+LI {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+LI {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+PRE {
+	FONT-SIZE: 10px; FONT-FAMILY: monospace
+}
+PRE {
+	FONT-SIZE: 10px; FONT-FAMILY: monospace
+}
+CODE {
+	FONT-SIZE: 10px; FONT-FAMILY: monospace
+}
+CODE {
+	FONT-SIZE: 10px; FONT-FAMILY: monospace
+}
+#bodytext {
+	FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#bodytextlarge {
+	FONT-SIZE: 12px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#bodytitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#bodytitlelarge2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#bodytitlelarge {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#bodytitleextralarge {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#callout {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #737373; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#calloutsubitem {
+	FONT-SIZE: 10px; COLOR: #666666; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#resourcetitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; FONT-FAMILY: geneva, helvetica, arial, sans-serif
+}
+#resourcetext {
+	FONT-SIZE: 10px; FONT-FAMILY: helvetica, geneva, arial, sans-serif
+}
+#resourcehead {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #808080; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#mkt {
+	FONT-SIZE: 12px; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#mkt2 {
+	FONT-SIZE: 14px; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#breadcrumb {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#breadcrumblocation {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #cc6600; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#menutitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN-LEFT: 10px; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#menutext {
+	FONT-SIZE: 10px; MARGIN-LEFT: 10px; LINE-HEIGHT: 14px; FONT-FAMILY: helvetica, geneva, arial, sans-serif
+}
+#source {
+	FONT-SIZE: 9px; COLOR: #666666; FONT-STYLE: italic; FONT-FAMILY: helvetica, geneva, arial, sans-serif
+}

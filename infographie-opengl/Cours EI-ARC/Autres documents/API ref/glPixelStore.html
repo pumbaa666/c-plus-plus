@@ -1,0 +1,266 @@
+<HEAD>
+<TITLE>glPixelStore.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPixelStore.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStoref</A>, <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStorei</A> - set pixel storage modes
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStoref</A>( GLenum <I>pname</I>,
+		      GLfloat <I>param</I> )
+  void <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStorei</A>( GLenum <I>pname</I>,
+		      GLint <I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>	 Specifies the symbolic	name of	the parameter to be set.  Six values
+	 affect	the packing of pixel data into memory: GL_PACK_SWAP_BYTES,
+	 GL_PACK_LSB_FIRST, GL_PACK_ROW_LENGTH,	GL_PACK_SKIP_PIXELS,
+	 GL_PACK_SKIP_ROWS, and	GL_PACK_ALIGNMENT.  Six	more affect the
+	 unpacking of pixel data <I>from</I> memory: GL_UNPACK_SWAP_BYTES,
+	 GL_UNPACK_LSB_FIRST, GL_UNPACK_ROW_LENGTH, GL_UNPACK_SKIP_PIXELS,
+	 GL_UNPACK_SKIP_ROWS, and GL_UNPACK_ALIGNMENT.
+
+  <I>param</I>	 Specifies the value that <I>pname</I>	is set to.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A> sets pixel storage modes	that affect the	operation of
+  subsequent <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A> and <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> as well as the unpacking of
+  polygon stipple patterns (see	<A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>), bitmaps (see	<A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>),
+  and texture patterns (see <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> and <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>).
+
+  <I>pname</I>	is a symbolic constant indicating the parameter	to be set, and <I>param</I>
+  is the new value.  Six of the	twelve storage parameters affect how pixel
+  data is returned to client memory, and are therefore significant only	for
+  <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> commands.  They are as follows:
+
+  GL_PACK_SWAP_BYTES
+	    If true, byte ordering for multibyte color components, depth
+	    components,	color indices, or stencil indices is reversed.	That
+	    is,	if a four-byte component is made up of bytes b , b , b , b ,
+                                                              0   1   2   3
+	    it is stored in memory as b	, b , b	, b  if	GL_PACK_SWAP_BYTES is
+                                       3   2   1   0
+	    true.  GL_PACK_SWAP_BYTES has no effect on the memory order	of
+	    components within a	pixel, only on the order of bytes within
+	    components or indices.  For	example, the three components of a
+	    GL_RGB format pixel	are always stored with red first, green
+	    second, and	blue third, regardless of the value of
+	    GL_PACK_SWAP_BYTES.
+
+  GL_PACK_LSB_FIRST
+	    If true, bits are ordered within a byte from least significant to
+	    most  significant; otherwise, the first bit	in each	byte is	the
+	    most significant one.  This	parameter is significant for bitmap
+	    data only.
+
+  GL_PACK_ROW_LENGTH
+	    If greater than zero, GL_PACK_ROW_LENGTH defines the number	of
+	    pixels in a	row.  If the first pixel of a row is placed at
+	    location p in memory, then the location of the first pixel of the
+	    next row is	obtained by skipping
+
+				 k = nl               if s &gt;= a
+
+					       snl
+				 k = a/s·ceil( --- )  if s &lt; a
+					        a
+
+	    components or indices, where n is the number of components or
+	    indices in a pixel,	l is the number	of pixels in a row
+	    (GL_PACK_ROW_LENGTH	if it is greater than zero, the	width
+	    argument to	the pixel routine otherwise), a	is the value of
+	    GL_PACK_ALIGNMENT, and s is	the size, in bytes, of a single
+	    component (if a&lt;s, then it is as if a=s).  In the case of 1-bit
+	    values, the	location of the	next row is obtained by	skipping
+
+					      nl
+				 k = 8a·ceil( -- )
+					      8a
+
+	    components or indices.
+
+	    The	word <I>component</I> in this description refers to the nonindex
+	    values red,	green, blue, alpha, and	depth.	Storage	format
+	    GL_RGB, for	example, has three components per pixel: first red,
+	    then green,	and finally blue.
+
+  GL_PACK_SKIP_PIXELS and GL_PACK_SKIP_ROWS
+	    These values are provided as a convenience to the programmer;
+	    they provide no functionality that cannot be duplicated simply by
+	    incrementing the pointer passed to <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>.  Setting
+	    GL_PACK_SKIP_PIXELS	to i is	equivalent to incrementing the
+	    pointer by in components or	indices, where n is the	number of
+	    components or indices in each pixel.  Setting GL_PACK_SKIP_ROWS
+	    to j is equivalent to incrementing the pointer by jk components
+	    or indices,	where k	is the number of components or indices per
+	    row, as computed above in the GL_PACK_ROW_LENGTH section.
+
+  GL_PACK_ALIGNMENT
+	    Specifies the alignment requirements for the start of each pixel
+	    row	in memory.  The	allowable values are 1 (byte-alignment), 2
+	    (rows aligned to even-numbered bytes), 4 (word alignment), and 8
+	    (rows start	on double-word boundaries).
+
+  The other six	of the twelve storage parameters affect	how pixel data is
+  read from client memory.  These values are significant for <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>, <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>,	and <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>.  They are	as
+  follows:
+
+  GL_UNPACK_SWAP_BYTES
+       If true,	byte ordering for multibyte color components, depth
+       components, color indices, or stencil indices is	reversed.  That	is,
+       if a four-byte component	is made	up of bytes b ,	b , b ,	b , it is
+                                                     0   1   2   3
+       taken from memory as b ,	b , b ,	b  if GL_UNPACK_SWAP_BYTES is true.
+                             3   2   1   0
+       GL_UNPACK_SWAP_BYTES has	no effect on the memory	order of components
+       within a	pixel, only on the order of bytes within components or
+       indices.	 For example, the three	components of a	GL_RGB format pixel
+       are always stored with red first, green second, and blue	third,
+       regardless of the value of GL_UNPACK_SWAP_BYTES.
+
+  GL_UNPACK_LSB_FIRST
+       If true,	bits are ordered within	a byte from least significant to most
+       significant; otherwise, the first bit in	each byte is the most
+       significant one.	 This is significant for bitmap	data only.
+
+  GL_UNPACK_ROW_LENGTH
+       If greater than zero, GL_UNPACK_ROW_LENGTH defines the number of
+       pixels in a row.	 If the	first pixel of a row is	placed at location p
+       in memory, then the location of the first pixel of the next row is
+       obtained	by skipping
+
+				 k = nl               if s &gt;= a
+
+					       snl
+				 k = a/s·ceil( --- )  if s &lt; a
+					        a
+
+       components or indices, where n is the number of components or indices
+       in a pixel, l is	the number of pixels in	a row (GL_UNPACK_ROW_LENGTH
+       if it is	greater	than zero, the width argument to the pixel routine
+       otherwise), a is	the value of GL_UNPACK_ALIGNMENT, and s	is the size,
+       in bytes, of a single component (if a&lt;s,	then it	is as if a=s).	In
+       the case	of 1-bit values, the location of the next row is obtained by
+       skipping
+
+					      nl
+				 k = 8a·ceil( -- )
+					      8a
+
+       components or indices.
+
+       The word	<I>component</I> in this description refers to	the nonindex values
+       red, green, blue, alpha,	and depth.  Storage format GL_RGB, for
+       example,	has three components per pixel:	first red, then	green, and
+       finally blue.
+
+  GL_UNPACK_SKIP_PIXELS	and GL_UNPACK_SKIP_ROWS
+       These values are	provided as a convenience to the programmer; they
+       provide no functionality	that cannot be duplicated simply by
+       incrementing the	pointer	passed to <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,	<A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,
+       <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>, <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>, or <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>.  Setting
+       GL_UNPACK_SKIP_PIXELS to	i is equivalent	to incrementing	the pointer
+       by in components	or indices, where n is the number of components	or
+       indices in each pixel.  Setting GL_UNPACK_SKIP_ROWS to j	is equivalent
+       to incrementing the pointer by jk components or indices,	where k	is
+       the number of components	or indices per row, as computed	above in the
+       GL_UNPACK_ROW_LENGTH section.
+
+  GL_UNPACK_ALIGNMENT
+       Specifies the alignment requirements for	the start of each pixel	row
+       in memory.  The allowable values	are 1 (byte-alignment),	2 (rows
+       aligned to even-numbered	bytes),	4 (word	alignment), and	8 (rows	start
+       on double-word boundaries).
+
+  The following	table gives the	type, initial value, and range of valid
+  values for each of the storage parameters that can be	set with
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+       -----------------------------------------------------------------
+       |   parameter name     |  type   | initial value |  valid range  |
+       -----------------------------------------------------------------
+       | GL_PACK_SWAP_BYTES   |	Boolean	|     false	| true or false	|
+       |  GL_PACK_LSB_FIRST   |	Boolean	|     false	| true or false	|
+       | GL_PACK_ROW_LENGTH   |	integer	|	0	|    [0,oo)	|
+       |  GL_PACK_SKIP_ROWS   |	integer	|	0	|    [0,oo)	|
+       | GL_PACK_SKIP_PIXELS  |	integer	|	0	|    [0,oo)	|
+       |  GL_PACK_ALIGNMENT   |	integer	|	4	| 1, 2,	4, or 8	|
+       |----------------------------------------------------------------|
+       |GL_UNPACK_SWAP_BYTES  |	Boolean	|     false	| true or false	|
+       | GL_UNPACK_LSB_FIRST  |	Boolean	|     false	| true or false	|
+       |GL_UNPACK_ROW_LENGTH  |	integer	|	0	|    [0,oo)	|
+       | GL_UNPACK_SKIP_ROWS  |	integer	|	0	|    [0,oo)	|
+       |GL_UNPACK_SKIP_PIXELS |	integer	|	0	|    [0,oo)	|
+       | GL_UNPACK_ALIGNMENT  | integer |       4       | 1, 2, 4, or 8 |
+       -----------------------------------------------------------------
+
+
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStoref</A>	can be used to set any pixel store parameter.  If the
+  parameter type is Boolean, then if <I>param</I> is 0.0, the parameter is false;
+  otherwise it is set to true.	If <I>pname</I> is a integer type parameter, <I>param</I>
+  is rounded to	the nearest integer.
+
+  Likewise, <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStorei</A> can also be used to set any of the pixel store
+  parameters.  Boolean parameters are set to false if <I>param</I> is 0 and true
+  otherwise.  <I>param</I> is converted to floating point before being	assigned to
+  real-valued parameters.
+
+</PRE><H2>Notes</H2><PRE>
+  The pixel storage modes in effect when <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>,
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>, <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>,	or <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A> is placed in a
+  display list control the interpretation of memory data.  The pixel storage
+  modes	in effect when a display list is executed are not significant.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>pname</I>	is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if a negative row length, pixel	skip, or row
+  skip value is	specified, or if alignment is specified	as other than 1, 2,
+  4, or	8.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A> is called between a	call
+  to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call	to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PACK_SWAP_BYTES
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PACK_LSB_FIRST
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PACK_ROW_LENGTH
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PACK_SKIP_ROWS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PACK_SKIP_PIXELS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PACK_ALIGNMENT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_UNPACK_SWAP_BYTES
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_UNPACK_LSB_FIRST
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_UNPACK_ROW_LENGTH
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_UNPACK_SKIP_ROWS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_UNPACK_SKIP_PIXELS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_UNPACK_ALIGNMENT
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>, <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>, <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A>,
+  <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> |
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

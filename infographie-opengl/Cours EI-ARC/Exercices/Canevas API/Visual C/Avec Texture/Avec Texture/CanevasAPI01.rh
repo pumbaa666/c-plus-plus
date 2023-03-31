@@ -1,0 +1,9 @@
+#ifndef CANEVASAPI_H
+#define CANEVASAPI_H
+
+#define IDI_MYICON 100
+#define MENU_0 1
+#define ID_FILE_EXIT 1
+
+#endif
+

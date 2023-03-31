@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1033056272 u:\3ème\infographie\exercices\série - 4\donneesserie-04\geometrie.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1018517128 u:\3ème\infographie\exercices\série - 4\donneesserie-04\geometrie.h
+
+1136989920 u:\3ème\infographie\exercices\série - 4\donneesserie-04\global.h
+
+1160044565 u:\3ème\infographie\exercices\série - 4\donneesserie-04\geomglut.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1033050400 u:\3ème\infographie\exercices\série - 4\donneesserie-04\evenements.h
+
+1136989920 u:\3ème\infographie\exercices\série - 4\donneesserie-04\global.cpp
+	<GL\glut.h>
+
+1160044557 u:\3ème\infographie\exercices\série - 4\donneesserie-04\evenements.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"geometrie.h"
+	"global.h"
+
+1160051823 u:\3ème\infographie\exercices\série 4\donneesserie-04\geometrie.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1018517128 u:\3ème\infographie\exercices\série 4\donneesserie-04\geometrie.h
+
+1136989920 u:\3ème\infographie\exercices\série 4\donneesserie-04\global.h
+
+1160050887 u:\3ème\infographie\exercices\série 4\donneesserie-04\geomglut.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1033050400 u:\3ème\infographie\exercices\série 4\donneesserie-04\evenements.h
+
+1136989920 u:\3ème\infographie\exercices\série 4\donneesserie-04\global.cpp
+	<GL\glut.h>
+
+1160044592 u:\3ème\infographie\exercices\série 4\donneesserie-04\evenements.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"geometrie.h"
+	"global.h"
+
+1160051823 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\geometrie.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1018517128 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\geometrie.h
+
+1136989920 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\global.h
+
+1160050887 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\geomglut.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1033050400 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\evenements.h
+
+1136989920 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\global.cpp
+	<GL\glut.h>
+
+1160571085 u:\3ème\infographie\exercices\série 4 - rotation, translation\donneesserie-04\evenements.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"geometrie.h"
+	"global.h"
+

@@ -1,0 +1,51 @@
+<HEAD>
+<TITLE>gluErrorString.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluErrorString.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A> - produce an error string from	an OpenGL or GLU error code
+
+
+</PRE><H2>C Specification</H2><PRE>
+  const	GLubyte* <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>( GLenum	<I>errorCode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>errorCode</I>  Specifies an OpenGL or GLU	error code.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A> produces an error string from an OpenGL or GLU	error code.
+  The string is	in an ISO Latin	1 format. For example,
+  <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>(GL_OUT_OF_MEMORY) returns the string <I>out</I> <I>of</I> <I>memory</I>.
+
+  The standard GLU error codes are GLU_INVALID_ENUM, GLU_INVALID_VALUE,	and
+  GLU_OUT_OF_MEMORY.  Certain other GLU	functions can return specialized
+  error	codes through callbacks.  Refer	to the <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> reference page for
+  the list of OpenGL error codes.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A>, <A HREF="gluNurbsCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCallback.html">gluNurbsCallback</A>,	<A HREF="gluQuadricCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricCallback.html">gluQuadricCallback</A>, <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

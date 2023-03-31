@@ -1,0 +1,238 @@
+<HEAD>
+<TITLE>glTexParameter.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glTexParameter.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameterf</A>, <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameteri</A>, <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameterfv</A>, <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameteriv</A> - set
+  texture parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameterf</A>(	GLenum <I>target</I>,
+			GLenum <I>pname</I>,
+			GLfloat	<I>param</I> )
+  void <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameteri</A>(	GLenum <I>target</I>,
+			GLenum <I>pname</I>,
+			GLint <I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>  Specifies the	target texture,	which must be either GL_TEXTURE_1D or
+	  GL_TEXTURE_2D.
+
+  <I>pname</I>	  Specifies the	symbolic name of a single-valued texture parameter.
+	  <I>pname</I>	can be one of the following: GL_TEXTURE_MIN_FILTER,
+	  GL_TEXTURE_MAG_FILTER, GL_TEXTURE_WRAP_S, or GL_TEXTURE_WRAP_T.
+
+  <I>param</I>	  Specifies the	value of <I>pname</I>.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameterfv</A>( GLenum	<I>target</I>,
+			 GLenum	<I>pname</I>,
+			 const GLfloat *<I>params</I> )
+  void <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameteriv</A>( GLenum	<I>target</I>,
+			 GLenum	<I>pname</I>,
+			 const GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>
+       Specifies the target texture, which must	be either GL_TEXTURE_1D	or
+       GL_TEXTURE_2D.
+
+  <I>pname</I>
+       Specifies the symbolic name of a	texture	parameter.  <I>pname</I> can be one
+       of the following: GL_TEXTURE_MIN_FILTER,	GL_TEXTURE_MAG_FILTER,
+       GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, or	GL_TEXTURE_BORDER_COLOR.
+
+  <I>params</I>
+       Specifies a pointer to an array where the value or values of <I>pname</I> are
+       stored.
+
+
+
+</PRE><H2>Description</H2><PRE>
+  Texture mapping is a technique that applies an image onto an object's
+  surface as if	the image were a decal or cellophane shrink-wrap. The image
+  is created in	texture	space, with an (s, t) coordinate system. A texture is
+  a one- or two-dimensional image and a	set of parameters that determine how
+  samples are derived from the image.
+
+  <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A> assigns the value or values in	<I>params</I> to the texture
+  parameter specified as <I>pname</I>.	<I>target</I> defines the target texture, either
+  GL_TEXTURE_1D	or GL_TEXTURE_2D.  The following symbols are accepted in
+  <I>pname</I>:
+
+  GL_TEXTURE_MIN_FILTER
+	    The	texture	minifying function is used whenever the	pixel being
+	    textured maps to an	area greater than one texture element. There
+	    are	six defined minifying functions.  Two of them use the nearest
+	    one	or nearest four	texture	elements to compute the	texture
+	    value. The other four use mipmaps.
+
+	    A mipmap is	an ordered set of arrays representing the same image
+	    at progressively lower resolutions.	If the texture has dimensions
+	    2nx2m there	are max(n,m)+1 mipmaps.	The first mipmap is the
+	    original texture, with dimensions 2nx2m. Each subsequent mipmap
+	    has	dimensions 2k-1x2l-1 where 2kx2l are the dimensions of the
+	    previous mipmap, until either k=0 or l=0.  At that point,
+	    subsequent mipmaps have dimension 1x2l-1 or	2k-1x1 until the
+	    final mipmap, which	has dimension 1x1. Mipmaps are defined using
+	    <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> or <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> with the level-of-detail argument
+	    indicating the order of the	mipmaps.  Level	0 is the original
+	    texture; level max(n,m) is the final 1x1 mipmap.
+
+	    <I>params</I> supplies a function for minifying the texture as one	of
+	    the	following:
+
+	    GL_NEAREST
+		      Returns the value	of the texture element that is
+		      nearest (in Manhattan distance) to the center of the
+		      pixel being textured.
+
+	    GL_LINEAR Returns the weighted average of the four texture
+		      elements that are	closest	to the center of the pixel
+		      being textured.  These can include border	texture
+		      elements,	depending on the values	of GL_TEXTURE_WRAP_S
+		      and GL_TEXTURE_WRAP_T, and on the	exact mapping.
+
+	    GL_NEAREST_MIPMAP_NEAREST
+		      Chooses the mipmap that most closely matches the size
+		      of the pixel being textured and uses the GL_NEAREST
+		      criterion	(the texture element nearest to	the center of
+		      the pixel) to produce a texture value.
+
+	    GL_LINEAR_MIPMAP_NEAREST
+		      Chooses the mipmap that most closely matches the size
+		      of the pixel being textured and uses the GL_LINEAR
+		      criterion	(a weighted average of the four	texture
+		      elements that are	closest	to the center of the pixel)
+		      to produce a texture value.
+
+	    GL_NEAREST_MIPMAP_LINEAR
+		      Chooses the two mipmaps that most	closely	match the
+		      size of the pixel	being textured and uses	the
+		      GL_NEAREST criterion (the	texture	element	nearest	to
+		      the center of the	pixel) to produce a texture value
+		      from each	mipmap.	The final texture value	is a weighted
+		      average of those two values.
+
+	    GL_LINEAR_MIPMAP_LINEAR
+		      Chooses the two mipmaps that most	closely	match the
+		      size of the pixel	being textured and uses	the GL_LINEAR
+		      criterion	(a weighted average of the four	texture
+		      elements that are	closest	to the center of the pixel)
+		      to produce a texture value from each mipmap.  The	final
+		      texture value is a weighted average of those two
+		      values.
+
+
+	    As more texture elements are sampled in the	minification process,
+	    fewer aliasing artifacts will be apparent. While the GL_NEAREST
+	    and	GL_LINEAR minification functions can be	faster than the	other
+	    four, they sample only one or four texture elements	to determine
+	    the	texture	value of the pixel being rendered and can produce
+	    moire patterns or ragged transitions. The default value of
+	    GL_TEXTURE_MIN_FILTER is GL_NEAREST_MIPMAP_LINEAR.
+
+  GL_TEXTURE_MAG_FILTER
+	    The	texture	magnification function is used when the	pixel being
+	    textured maps to an	area less than or equal	to one texture
+	    element.  It sets the texture magnification	function to either of
+	    the	following:
+
+	    GL_NEAREST
+		      Returns the value	of the texture element that is
+		      nearest (in Manhattan distance) to the center of the
+		      pixel being textured.
+
+		      GL_LINEAR	Returns	the weighted average of	the four
+		      texture elements that are	closest	to the center of the
+		      pixel being textured.  These can include border texture
+		      elements,	depending on the values	of GL_TEXTURE_WRAP_S
+		      and GL_TEXTURE_WRAP_T, and on the	exact mapping.
+
+
+	    GL_NEAREST is generally faster than	GL_LINEAR, but it can produce
+	    textured images with sharper edges because the transition between
+	    texture elements is	not as smooth. The default value of
+	    GL_TEXTURE_MAG_FILTER is GL_LINEAR.
+
+
+  GL_TEXTURE_WRAP_S
+	    Sets the wrap parameter for	texture	coordinate <I>s</I> to	either
+	    GL_CLAMP or	GL_REPEAT.  GL_CLAMP causes s coordinates to be
+	    clamped to the range [0,1] and is useful for preventing wrapping
+	    artifacts when mapping a single image onto an object. GL_REPEAT
+	    causes the integer part of the s coordinate	to be ignored; the GL
+	    uses only the fractional part, thereby creating a repeating
+	    pattern. Border texture elements are accessed only if wrapping is
+	    set	to GL_CLAMP.  Initially, GL_TEXTURE_WRAP_S is set to
+	    GL_REPEAT.
+
+
+  GL_TEXTURE_WRAP_T
+	    Sets the wrap parameter for	texture	coordinate <I>t</I> to	either
+	    GL_CLAMP or	GL_REPEAT.  See	the discussion under
+	    GL_TEXTURE_WRAP_S. Initially, GL_TEXTURE_WRAP_T is set to
+	    GL_REPEAT.
+
+  GL_TEXTURE_BORDER_COLOR
+	    Sets a border color.  <I>params</I> contains four values that comprise
+	    the	RGBA color of the texture border. Integer color	components
+	    are	interpreted linearly such that the most	positive integer maps
+	    to 1.0, and	the most negative integer maps to -1.0.	 The values
+	    are	clamped	to the range [0,1] when	they are specified.
+	    Initially, the border color	is (0, 0, 0, 0).
+
+</PRE><H2>Notes</H2><PRE>
+  Suppose texturing is enabled (by calling <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> with argument
+  GL_TEXTURE_1D	or GL_TEXTURE_2D) and GL_TEXTURE_MIN_FILTER is set to one of
+  the functions	that requires a	mipmap.	 If either the dimensions of the
+  texture images currently defined (with previous calls	to <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>	or
+  <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>)	do not follow the proper sequence for mipmaps (described
+  above), or there are fewer texture images defined than are needed, or	the
+  set of texture images	have differing numbers of texture components, then it
+  is as	if texture mapping were	disabled.
+
+  Linear filtering accesses the	four nearest texture elements only in 2-D
+  textures.  In	1-D textures, linear filtering accesses	the two	nearest
+  texture elements.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated when <I>target</I> or <I>pname</I> is not one of the
+  accepted defined values, or when <I>params</I> should have a	defined	constant
+  value	(based on the value of <I>pname</I>) and does not.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A> is called	between	a
+  call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A>
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A>
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>,	<A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

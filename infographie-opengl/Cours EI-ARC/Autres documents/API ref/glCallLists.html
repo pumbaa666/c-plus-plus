@@ -1,0 +1,146 @@
+<HEAD>
+<TITLE>glCallLists.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glCallLists.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> -	execute	a list of display lists
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A>( GLsizei <I>n</I>,
+		    GLenum <I>type</I>,
+		    const GLvoid *<I>lists</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>n</I>	 Specifies the number of display lists to be executed.
+
+
+  <I>type</I>	 Specifies the type of values in <I>lists</I>.	 Symbolic constants GL_BYTE,
+	 GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT,	GL_INT,
+	 GL_UNSIGNED_INT, GL_FLOAT, GL_2_BYTES,	GL_3_BYTES, and	GL_4_BYTES
+	 are accepted.
+
+
+  <I>lists</I>	 Specifies the address of an array of name offsets in the display
+	 list.	The pointer type is void because the offsets can be bytes,
+	 shorts, ints, or floats, depending on the value of <I>type</I>.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> causes each display list in the list of names passed as <I>lists</I>
+  to be	executed.  As a	result,	the commands saved in each display list	are
+  executed in order, just as if	they were called without using a display
+  list.	 Names of display lists	that have not been defined are ignored.
+
+  <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> provides an efficient means for executing	display	lists.	<I>type</I>
+  allows lists with various name formats to be accepted.  The formats are as
+  follows:
+
+  GL_BYTE		   <I>lists</I> is treated as an array	of signed bytes, each
+			   in the range	-128 through 127.
+
+  GL_UNSIGNED_BYTE	   <I>lists</I> is treated as an array	of unsigned bytes,
+			   each	in the range 0 through 255.
+
+  GL_SHORT		   <I>lists</I> is treated as an array	of signed two-byte
+			   integers, each in the range -32768 through 32767.
+
+  GL_UNSIGNED_SHORT	   <I>lists</I> is treated as an array	of unsigned two-byte
+			   integers, each in the range 0 through 65535.
+
+  GL_INT		   <I>lists</I> is treated as an array	of signed four-byte
+			   integers.
+
+  GL_UNSIGNED_INT	   <I>lists</I> is treated as an array	of unsigned four-byte
+			   integers.
+
+  GL_FLOAT		   <I>lists</I> is treated as an array	of four-byte
+			   floating-point values.
+
+  GL_2_BYTES		   <I>lists</I> is treated as an array	of unsigned bytes.
+			   Each	pair of	bytes specifies	a single display-list
+			   name.  The value of the pair	is computed as 256
+			   times the unsigned value of the first byte plus
+			   the unsigned	value of the second byte.
+
+  GL_3_BYTES		   <I>lists</I> is treated as an array	of unsigned bytes.
+			   Each	triplet	of bytes specifies a single display-
+			   list	name.  The value of the	triplet	is computed
+			   as 65536 times the unsigned value of	the first
+			   byte, plus 256 times	the unsigned value of the
+			   second byte,	plus the unsigned value	of the third
+			   byte.
+
+  GL_4_BYTES		   <I>lists</I> is treated as an array	of unsigned bytes.
+			   Each	 quadruplet of bytes specifies a single
+			   display-list	name.  The value of the	quadruplet is
+			   computed as 16777216	times the unsigned value of
+			   the first byte, plus	65536 times the	unsigned
+			   value of the	second byte, plus 256 times the
+			   unsigned value of the third byte, plus the
+			   unsigned value of the fourth	byte.
+
+  The list of display list names is not	null-terminated.  Rather, <I>n</I> specifies
+  how many names are to	be taken from <I>lists</I>.
+
+  An additional	level of indirection is	made available with the	<A HREF="glListBase.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glListBase.html">glListBase</A>
+  command, which specifies an unsigned offset that is added to each display-
+  list name specified in <I>lists</I> before that display list	is executed.
+
+  <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> can appear inside	a display list.	 To avoid the possibility of
+  infinite recursion resulting from display lists calling one another, a
+  limit	is placed on the nesting level of display lists	during display-list
+  execution.  This limit must be at least 64, and it depends on	the
+  implementation.
+
+  GL state is not saved	and restored across a call to <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A>.  Thus,
+  changes made to GL state during the execution	of the display lists remain
+  after	execution is completed.	 Use <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>, <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A>,	<A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>,
+  and <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPopMatrix</A> to preserve GL state across <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> calls.
+
+</PRE><H2>Notes</H2><PRE>
+  Display lists	can be executed	between	a call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the
+  corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>, as long as the display list includes only
+  commands that	are allowed in this interval.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>n</I> is	negative.
+
+  GL_INVALID_ENUM is generated if <I>type</I> is not one of GL_BYTE,
+  GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_INT, GL_UNSIGNED_INT,
+  GL_FLOAT, GL_2_BYTES,	GL_3_BYTES, GL_4_BYTES.
+
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LIST_BASE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAX_LIST_NESTING
+  <A HREF="glIsList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsList.html">glIsList</A>
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>, <A HREF="glDeleteLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDeleteLists.html">glDeleteLists</A>, <A HREF="glGenLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGenLists.html">glGenLists</A>, <A HREF="glListBase.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glListBase.html">glListBase</A>, <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>,	<A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>,
+  <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,120 @@
+BODY {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+P {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+TABLE {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+TR {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+TD {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+UL {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+LI {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+DL {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+DD {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+DT {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+PRE {
+	FONT-FAMILY: courier, monospace
+}
+TT {
+	FONT-FAMILY: courier, monospace
+}
+CODE {
+	FONT-FAMILY: courier, monospace
+}
+A {
+	COLOR: #083b6e
+}
+A:link {
+	TEXT-DECORATION: none
+}
+A:visited {
+	TEXT-DECORATION: none
+}
+A:active {
+	TEXT-DECORATION: none
+}
+H1 {
+	FONT-STYLE: italic; FONT-FAMILY: arial, helvetica, sans-serif
+}
+H2 {
+	FONT-STYLE: italic; FONT-FAMILY: arial, helvetica, sans-serif
+}
+H3 {
+	FONT-STYLE: italic; FONT-FAMILY: arial, helvetica, sans-serif
+}
+H1 {
+	FONT-SIZE: 36pt; COLOR: rgb(90,120,220)
+}
+H2 {
+	FONT-SIZE: 20pt; COLOR: rgb(90,170,120)
+}
+TABLE.menu {
+	FLOAT: right
+}
+DIV.menu TD {
+	FONT-SIZE: 12pt; BACKGROUND: #dddddd
+}
+DIV.menu TD.head {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; BACKGROUND: #c0c0c0
+}
+TABLE.whatsnew {
+	FLOAT: right
+}
+DIV.whatsnew TD {
+	FONT-SIZE: 12pt; BACKGROUND: #99baff
+}
+SPAN.whatsnewhead TD {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; BACKGROUND: #cccccc
+}
+DIV.table TR {
+	BACKGROUND: #dddddd
+}
+DIV.table TD {
+	BACKGROUND: #dddddd
+}
+DIV.table TR.head {
+	BACKGROUND: #cccccc
+}
+DIV.table TD.head {
+	BACKGROUND: #cccccc
+}
+DIV.draft P {
+	TEXT-ALIGN: justify
+}
+DIV.draft CODE {
+	FONT-SIZE: 14pt
+}
+DIV.draft H1 {
+	PADDING-BOTTOM: 1em; PADDING-TOP: 1em; TEXT-ALIGN: center
+}
+DIV.draft H1 {
+	COLOR: black
+}
+DIV.draft H2 {
+	COLOR: black
+}
+DIV.draft H3 {
+	COLOR: black
+}
+DIV.draft_header {
+	FONT-SIZE: 10pt
+}
+DIV.copyright {
+	FONT-SIZE: 12pt; COLOR: rgb(180,180,180); FONT-STYLE: italic; FONT-FAMILY: arial, helvetica, sans-serif
+}

@@ -1,0 +1,82 @@
+# depslib dependency file v1.0
+1159435150 u:\3ème\infographie\exercices\série 1\geometrie.cpp
+	<gl\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1159435166 u:\3ème\infographie\exercices\série 1\geometrie.h
+
+1159437618 u:\3ème\infographie\exercices\série 1\global.h
+
+1159437611 u:\3ème\infographie\exercices\série 1\global.cpp
+	<gl\glut.h>
+	"global.h"
+
+1159435817 u:\3ème\infographie\exercices\série 1\main.cpp
+	<gl\glut.h>
+	"define.h"
+	"evenements.h"
+	"geometrie.h"
+	"global.h"
+	"main.h"
+
+1159366580 u:\3ème\infographie\exercices\série 1\define.h
+
+1159435165 u:\3ème\infographie\exercices\série 1\evenements.h
+
+1159365540 u:\3ème\infographie\exercices\série 1\main.h
+
+1159436030 u:\3ème\infographie\exercices\série 1\evenements.cpp
+	<GL/glut.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+	"define.h"
+
+1159435150 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\geometrie.cpp
+	<gl\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1159435166 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\geometrie.h
+
+1159437618 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\global.h
+
+1159437611 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\global.cpp
+	<gl\glut.h>
+	"global.h"
+
+1159438219 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\evenements.cpp
+	<GL/glut.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+	"define.h"
+
+1159435165 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\evenements.h
+
+1159366580 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\define.h
+
+1159435817 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\main.cpp
+	<gl\glut.h>
+	"define.h"
+	"evenements.h"
+	"geometrie.h"
+	"global.h"
+	"main.h"
+
+1159365540 u:\3ème\infographie\exercices\série 1 - formes 3d basiques\main.h
+
+1159435152 e:\infographie\série 1 - formes 3d basiques\geometrie.cpp
+	<gl\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1159435168 e:\infographie\série 1 - formes 3d basiques\geometrie.h
+
+1159437620 e:\infographie\série 1 - formes 3d basiques\global.h
+
+1159437612 e:\infographie\série 1 - formes 3d basiques\global.cpp
+	<gl\glut.h>
+	"global.h"
+

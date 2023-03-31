@@ -1,0 +1,704 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Math.htm -->
+<HTML><HEAD><TITLE>efg's Reference Library: Delphi Graphics Algorithms -- Math/Geometry</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY 
+background="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/Background.gif">
+<DIV align=center>
+<CENTER>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3>
+      <DIV align=center>
+      <CENTER>
+      <TABLE border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle width=150><A 
+            href="http://www.amazon.com/exec/obidos/ASIN/0201848406/efgscomputlab"><IMG 
+            height=140 alt="0201848406_m.gif (5231 bytes)" 
+            src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/0201848406_m.gif" 
+            width=95 border=0><BR>US</A>&nbsp; <A 
+            href="http://www.amazon.co.uk/exec/obidos/ASIN/0201848406/efgscomputlab0f">UK</A>&nbsp; 
+            <A 
+            href="http://www.amazon.de/exec/obidos/ASIN/0201848406/efgscomputlab00">DE</A></TD>
+          <TD align=middle width=150><A 
+            href="http://www.amazon.com/exec/obidos/ASIN/083113111X/efgscomputlab"><IMG 
+            height=140 
+            src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/MathematicsForComputerGraphics.jpg" 
+            width=93 border=0></A><BR><A 
+            href="http://www.amazon.com/exec/obidos/ASIN/083113111X/efgscomputlab">US</A>&nbsp; 
+            <A 
+            href="http://www.amazon.co.uk/exec/obidos/ASIN/083113111X/efgscomputlab0f">UK</A>&nbsp; 
+            <A 
+            href="http://www.amazon.de/exec/obidos/ASIN/083113111X/efgscomputlab00">DE</A>&nbsp; 
+            <A 
+            href="http://www.amazon.fr/exec/obidos/ASIN/083113111X/efgscomputlaband">FR</A></TD></TR></TBODY></TABLE></CENTER></DIV></TD></TR>
+  <TR>
+    <TD colSpan=3>
+      <HR align=center color=#ff0000>
+    </TD></TR>
+  <TR>
+    <TD>
+      <P align=right><FONT face=Arial color=#0000ff size=6><EM><A 
+      href="http://homepages.borland.com/efg2lab/index.html"><IMG height=44 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/efglab.jpg" 
+      width=300 border=0></A></EM></FONT></P></TD>
+    <TD></TD>
+    <TD><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/index.html"><IMG 
+      height=44 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/DelphiReferenceLibrary.jpg" 
+      width=394 border=0></A></TD></TR></TBODY></TABLE></CENTER></DIV>
+<DIV align=center>
+<CENTER>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD></TD>
+    <TD></TD>
+    <TD><FONT face=Arial color=#0000ff size=6><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/index.html">Delphi 
+      Graphics</A>: Algorithms</FONT></TD>
+    <TD></TD>
+    <TD></TD></TR></TBODY></TABLE></CENTER></DIV>
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD align=middle><FONT face=Arial color=#000000 size=4>A.</FONT><FONT 
+      face=Arial color=#0000ff size=4> <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Algorithms.htm">General 
+      Graphics</A></FONT></TD>
+    <TD align=middle><FONT face=Arial color=#000000 size=4>B.</FONT><FONT 
+      face=Arial color=#0000ff size=4> <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Color.htm">Color</A></FONT></TD>
+    <TD align=middle><FONT face=Arial color=#000000 size=4>C.</FONT><FONT 
+      face=Arial color=#0000ff size=4> <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/ImageProcessing.htm">Image 
+      Processing</A></FONT></TD>
+    <TD align=middle><FONT face=Arial color=#ff0000 size=5>D. 
+      Mathematics/Geometry</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<HR>
+
+<DIV align=center>
+<CENTER>
+<TABLE border=0>
+  <TBODY>
+  <TR>
+    <TD><A 
+      href="http://www.amazon.com/exec/obidos/redirect?tag=efgscomputlab&amp;path=ts/browse-books/4053"><FONT 
+      face=Arial color=#0000ff size=6><EM><IMG height=62 
+      alt="AmazonTechnical.gif (2495 bytes)" 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/AmazonTechnical.gif" 
+      width=120 border=0></EM></FONT></A></TD>
+    <TD>&nbsp;in&nbsp; </TD>
+    <TD><A 
+      href="http://homepages.borland.com/efg2lab/TechBooks/index.html"><IMG 
+      height=24 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/efgTechBooksGray.jpg" 
+      width=241 border=0></A> </TD>
+    <TD>look for </TD>
+    <TD>
+      <P align=center><FONT face=Arial size=3><B><A 
+      href="http://homepages.borland.com/efg2lab/TechBooks/DelphiGraphics.htm">Delphi 
+      Graphics<BR></A><A 
+      href="http://homepages.borland.com/efg2lab/TechBooks/Delphi.htm">Delphi<BR></A><A 
+      href="http://homepages.borland.com/efg2lab/TechBooks/ComputerGraphics.htm">Graphics<BR></A><A 
+      href="http://homepages.borland.com/efg2lab/TechBooks/ImageProcessing.htm">Image 
+      Processing<BR></A><A 
+      href="http://homepages.borland.com/efg2lab/TechBooks/Mathematics.htm">Mathematics</A></B></FONT> 
+      </P></TD></TR></TBODY></TABLE></CENTER></DIV>
+<HR>
+
+<DIV align=center>
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=120>2D/3D</TD>
+    <TD vAlign=top width=640>GraphicsMathPrimitives. 2D/3D Clipping, 3D-to-2D 
+      Projections.<BR>See 2D/3D vector graphics examples on <FONT 
+      face="Arial Narrow"><EM>efg's</EM></FONT> <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/index.html">Graphics</A> 
+      projects page.</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Angle</TD>
+    <TD vAlign=top width=640><FONT face="Courier New" size=2>USES Math;&nbsp; 
+      // ArcTan2</FONT> 
+      <P><FONT face="Courier New" size=2>// Given points(iText,jText) and 
+      (iTarget,jTarget). The angle between<BR>// the x-axis and the vector 
+      (iTarget-iText, jTarget-jText) ranges in the<BR>// open interval [0.0, 
+      360.0) degrees.&nbsp; (0 degrees is the +X axis).<BR>//&nbsp; Note: 
+      Normally, ArcTan2 returns a value from -PI to PI.<BR>angle := 180 * (1 + 
+      ArcTan2(jText-jTarget, iTarget-iText) / PI);<BR>IF&nbsp;&nbsp;&nbsp; angle 
+      &gt;= 360.0<BR>THEN angle := angle - 360.0;</FONT> 
+      <P><FONT face="Courier New" size=2>Clock Angles<BR><A 
+      href="http://www.delphiforfun.com/Programs/clock_angle.htm">www.delphiforfun.com/Programs/clock_angle.htm</A>&nbsp;</FONT></P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120><FONT face="Courier New" size=2><A 
+      name=Arcs></A>Arcs</FONT></TD>
+    <TD vAlign=top width=640><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/drawarcs.zip"><IMG 
+      height=150 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/drawarcs.gif" 
+      width=200 border=0></A> 
+      <P>The <I>TCanvas.Arc</I> method is is not that easy to use for some 
+      applications.&nbsp; The <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/drawarcs.zip">DrawArcs 
+      demo</A> shows how to define a bounding rectangle and then draw the 
+      specified type of arc between opposite corners of the rectangle.</P>
+      <P><FONT face="Courier New" size=2>TYPE<BR>&nbsp; TArcOrientation = 
+      (aoSouthWest, aoSouthEast, aoNorthEast, aoNorthWest);</FONT></P>
+      <P><FONT face="Courier New" size=2>BoundRect := Rect(xMin,yMin, 
+      xMax,yMax);<BR><BR>DrawArc(Bitmap.Canvas, clLime,&nbsp; aoSouthWest, 
+      xMin,yMin,xMax,yMax, BoundRect);&nbsp;<BR>DrawArc(Bitmap.Canvas, clBlack, 
+      aoSouthEast, xMin,yMax,xMax,yMin, BoundRect);<BR>DrawArc(Bitmap.Canvas, 
+      clBlue,&nbsp; aoNorthEast, xMax,yMax,xMin,yMin, 
+      BoundRect);<BR>DrawArc(Bitmap.Canvas, clRed ,&nbsp; aoNorthWest, 
+      xMax,yMin,xMin,yMax, BoundRect);</FONT></P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Area</TD>
+    <TD vAlign=top width=640><A 
+      href="http://homepages.borland.com/efg2lab/Graphics/PolygonArea.htm"><IMG 
+      height=32 alt="PolygonArea.gif (957 bytes)" 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/PolygonArea.gif" 
+      width=32 border=0></A> &nbsp; <FONT 
+      face="Arial Narrow"><EM>efg's</EM></FONT> <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/PolygonArea.htm">Polygon 
+      Area and Centroid</A> Lab Report 
+      <P>Paul Nicholls' <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0620b.txt">UseNet 
+      Post</A> about how to compute polygon area using 3D points<BR>Clive 
+      Tooth's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0423.txt">UseNet 
+      Post</A> about Area of Spherical Triangle 
+      <P>TriangleArea and TriangleHeight functions in <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/WilliamEgge_EMath.txt">William 
+      Egge's EMath unit</A> </P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Aspect Ratio</TD>
+    <TD vAlign=top width=640><A 
+      href="http://homepages.borland.com/efg2lab/ImageProcessing/AspectRatio.htm"><IMG 
+      height=32 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/AspectRatio.gif" 
+      width=32 border=0></A>&nbsp;&nbsp; <I><FONT face=Arial>efg's </FONT></I><A 
+      href="http://homepages.borland.com/efg2lab/ImageProcessing/AspectRatio.htm">Aspect 
+      Ratio</A> Lab Report</TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=Axes></A>Axes</TD>
+    <TD vAlign=top width=640>For an explanation of the following diagram, see 
+      the <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Basketball.htm#Discussion">Discussion</A> 
+      section of the <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Basketball.htm">Basketball 
+      </A>Lab Report. 
+      <P><IMG height=233 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/xyij.gif" 
+      width=342 border=0></P>
+      <P>See <I><FONT face="Arial Narrow">efg's</FONT><FONT 
+      face=Arial>&nbsp;</FONT></I> <I><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/MapWorldToPixel.pas.TXT">MapWorldToPixel</A></I> 
+      <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/MapWorldToPixel.pas.TXT"></A>unit 
+      for a quick way to map (x,y) to (i,j).</P>
+      <P>Dave Shapiro's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/1999/0805.txt">UseNet 
+      Post</A> explaining "Why is 'y' upside down?" (or how to make the y-axis 
+      increase from bottom-to-top instead of top-to-bottom) 
+      <P>See <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Math.htm#GraphicsMath">GraphicsMath</A> 
+      (below) for Pantograph objects that perform this mapping for 2D/3D 
+      vectors, along with projections and clipping. 
+      <P> 
+      <P>"Windows 95/98 uses a 16-bit world coordinate system and restricts x- 
+      and y- coordinates for text and graphics to the range ±32K. Windows 
+      NT/Windows 2000 uses a 32-bit world coordinate system and allows 
+      coordinates in the range ±2 gigabytes (GB). If you pass full 32-bit 
+      coordinates to text and graphics functions in Windows 95/98, the system 
+      truncates the upper 16 bits of the coordinates before carrying out the 
+      requested operation." 
+      <P>"Because Windows 95/98 uses a 16-bit coordinate system, the sum of the 
+      coordinates of the bounding rectangle specified by the Arc, Chord, Pie, 
+      Ellipse, and RoundRect functions cannot exceed 32K. In addition, the sum 
+      of the nLeftRect and nRightRect parameters or the nTopRect and nBottomRect 
+      parameters cannot exceed 32K.""
+      <P>[Of course Microsoft broke the link with this information so the 
+      original MSDN reference in no longer available.]</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Bézier Curve</TD>
+    <TD vAlign=top width=640>Boris Novgorodov's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2003/0221.txt">UseNet 
+      Post</A> with PolyBezier example 
+      <P>Jean-Yves Queinec's <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Jean-YvesQueinecBezierCurves.htm">Bézier 
+      project</A> </P>
+      <P>Béziers and Paths by Clinton R. Johnson<BR><A 
+      href="http://www.undu.com/Articles/980326b.htm">www.undu.com/Articles/980326b.htm</A> 
+      </P>
+      <P>Alexander Weidauer's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0122.txt">UseNet 
+      Post</A> showing a&nbsp; "function to draw a Bézier curve starting from a 
+      variable<BR>number of points" </P>
+      <P>Drawing Curves<BR><A 
+      href="http://www.gnomehome.demon.nl/uddf/pages/graphics.htm#graphics1">www.gnomehome.demon.nl/uddf/pages/graphics.htm#graphics1</A> 
+
+      <P>The "Bezier Draw" is a sample Delphi program to demonstrate the use of 
+      "Bezier" unit.<BR><A 
+      href="http://www.programmersheaven.com/zone2/cat262/16261.htm">www.programmersheaven.com/zone2/cat262/16261.htm</A>&nbsp; 
+
+      <P>See <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Win32API.htm#PolyBezier">PolyBezier 
+      </A>API call </P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=Butterfly></A>Butterfly </TD>
+    <TD vAlign=top width=640><IMG height=256 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/Butterfly.gif" 
+      width=256 border=0> 
+      <P><FONT face="Arial Narrow"><I>efg's</I></FONT> D7 <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Butterfly.zip">project 
+      to create this mathematical butterfly</A></P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Charts </TD>
+    <TD vAlign=top width=640>See <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/ComponentsAndPrograms.htm#Charts">Charts 
+      and Graphs</A> on <EM><FONT face="Arial Narrow">efg's</FONT></EM> <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/ComponentsAndPrograms.htm">Delphi 
+      Graphics Components and Programs</A> page</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Circles</TD>
+    <TD vAlign=top width=640>How to determine the circle through three given 
+      points:&nbsp; <FONT face="Arial Narrow"><I>efg's</I></FONT> <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0410.txt">UseNet 
+      Post1</A> and <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0411a.txt">Post2</A> 
+
+      <P>Division of Semicircle into 2<SUP>N</SUP> Intervals Using Half-Angle 
+      Formula and Rotation Formula<BR><EM><FONT 
+      face="Arial Narrow">efg's</FONT></EM> <A 
+      href="http://homepages.borland.com/efg2lab/Mathematics/Buffon.htm#Method4">Buffon 
+      Lab</A> Report</P>
+      <P>See "Circle Approximation" as part of <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/PolygonArea.htm">Polygon 
+      Area and Centroid </A>Lab Report</P>
+      <P><I><FONT face="Arial Narrow">efg's</FONT></I> <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/1996/0129.txt">UseNet 
+      Post</A> about computing great circle distances</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Coordinate Systems</TD>
+    <TD vAlign=top width=640><A 
+      href="http://www.amazon.com/exec/obidos/ASIN/1556226101/efgscomputlab"><EM><FONT 
+      size=3>Tomes Graphical</FONT></EM></A>, pp. 13-19 </TD></TR>
+  <TR>
+    <TD vAlign=top width=120><FONT size=3>Contours &amp; Isosurfaces</FONT></TD>
+    <TD vAlign=top width=640><A 
+      href="http://huizen.dto.tudelft.nl/deBruijn/programs/suna55.htm">http://huizen.dto.tudelft.nl/deBruijn/programs/suna55.htm</A> 
+
+      <P>MUMIL - a cursor based contouring routine<BR><A 
+      href="http://www.triplexware.huckfinn.de/contweber.html">www.triplexware.huckfinn.de/contweber.html</A>&nbsp;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Cubic Curve</TD>
+    <TD vAlign=top width=640>Lorc CRC's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0504c.txt">UseNet 
+      Post</A> with DrawCubicCurve example</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Curves and Surfaces</TD>
+    <TD vAlign=top width=640>Non-Delphi site (in French):<BR>COURBES ET 
+      SURFACES MATHEMATIQUES<BR><A 
+      href="http://perso.wanadoo.fr/roger.assouly">http://perso.wanadoo.fr/roger.assouly</A>&nbsp;</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Distance</TD>
+    <TD vAlign=top width=640><B>Distance from point P1(x1, y1) to P2(x2, 
+      y2)</B>:<BR>SQRT( SQR(x1-x2) + SQR(y1-y2) ), or using a function from the 
+      math unit:<BR>Hypot(x1-x2, y1-y2). 
+      <P><B>Distance from point P1(x1, y1) to Line, a*x + b*y + c = 
+      0</B><BR>ABS( a*x1 + b*y1 + c ) / SQRT( SQR(a) + SQR(b) ) 
+      <P>DistPoint2Line and DistPoint2LineSegment functions in <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/WilliamEgge_EMath.txt">William 
+      Egge's EMath unit</A> </P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=RotatedElllipse></A>Elllipse, Rotated</TD>
+    <TD vAlign=top width=640>
+      <TABLE border=0>
+        <TBODY>
+        <TR>
+          <TD><FONT size=3>"How to Draw Rotated Ellipses Using Bezier Curve 
+            Approximation</FONT><BIG>"</BIG><BR>by Robert Rossmair<BR><A 
+            href="http://www.undu.com/Articles/990623a.html">www.undu.com/Articles/990623a.html</A> 
+            <BR><A 
+            href="http://home.t-online.de/home/Robert.Rossmair/ellipse.htm">http://home.t-online.de/home/Robert.Rossmair/ellipse.htm</A> 
+
+            <HR>
+          </TD></TR>
+        <TR>
+          <TD>Drawing Rotated and skewed Ellipses&nbsp; (non-Delphi)<BR><A 
+            href="http://www.codeguru.com/gdi/ellipse.shtml">http://www.codeguru.com/gdi/ellipse.shtml</A> 
+
+            <HR>
+          </TD></TR>
+        <TR>
+          <TD><A 
+            href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/RotatedEllipse.ZIP"><IMG 
+            height=278 alt="ScreenRotatedEllipse.jpg (14052 bytes)" 
+            src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/ScreenRotatedEllipse.jpg" 
+            width=238 border=0></A></TD></TR>
+        <TR>
+          <TD>D3 Source Code:&nbsp; <A 
+            href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/RotatedEllipse.ZIP">RotatedEllipse.ZIP</A><BR>Form 
+            an ellipse using this parametric equation:<BR>x = A * 
+            COS(theta)<BR>y = B * SIN(theta)
+            <P>where theta = 0 .. 360 degrees in the specified number of steps 
+            (&gt; ~40)<BR>(for an arc use a smaller angle range)</P>
+            <P>Rotate these (x,y) points using the formula shown in the<BR><A 
+            href="http://homepages.borland.com/efg2lab/ImageProcessing/RotateScanline.htm">Rotate 
+            Scanline</A> Lab Report:<BR><IMG height=48 
+            alt="RotateAxes3.gif (1515 bytes)" 
+            src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/RotateAxes3.gif" 
+            width=180></P>
+            <P>Alex Weidauer's <A 
+            href="http://homepages.borland.com/efg2lab/Library/UseNet/2002/0205.txt">UseNet 
+            Post</A> using Canvas.Ellipse and Get/SetWorldTransform </P>
+            <P>Netfox's <A 
+            href="http://homepages.borland.com/efg2lab/Library/UseNet/2002/0213.txt">UseNet 
+            Post </A>with DrawEllipse procedure using Canvas.Polygon 
+        </P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Ellipsoid</TD>
+    <TD vAlign=top width=640><I><FONT face="Arial Narrow">efg's</FONT></I> <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0327b.txt">UseNet 
+      Post</A> with comments about how to draw an ellipsoid as a series of 
+      elliptical "slices"</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Floating-Point Math</TD>
+    <TD vAlign=top width=640>Non-Delphi: "Floating-Point for Real-Time 3D," 
+      Chapter 63, Michael Abrash's <EM><A 
+      href="http://www.amazon.com/exec/obidos/ASIN/1576101746/efgscomputlab">Graphics 
+      Programming Black Book</A> </EM>(out of print)</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Fractals</TD>
+    <TD vAlign=top width=640><A 
+      href="http://homepages.borland.com/efg2lab/FractalsAndChaos/index.html"><IMG 
+      height=48 alt="logo.jpg (2397 bytes)" 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/logo.jpg" 
+      width=64 border=0></A><EM><FONT face="Arial Narrow">&nbsp; 
+      efg's</FONT><FONT face=Arial> </FONT></EM><A 
+      href="http://homepages.borland.com/efg2lab/FractalsAndChaos/index.html">Fractals 
+      and Chaos</A> page
+      <P>Using a background thread to compute and display a Mandelbrot set using 
+      HSVcolor scheme, <A 
+      href="http://www.amazon.com/exec/obidos/ASIN/1565926595/efgscomputlab"><EM>Delphi 
+      in a Nutshell</EM></A>, pp. 148-151</P>
+      <P>Borland's Fractal Generator Contest<BR><A 
+      href="http://homepages.borland.com/ccalvert/Contest/MarchContest/Announce.html">http://homepages.borland.com/ccalvert/Contest/MarchContest/Announce.html</A> 
+      </P>
+      <P>Chapter 6, "3D Fractal Landscapes" in <EM>Kick Ass Delphi Programming 
+      </EM>(out of print)<BR><A 
+      href="http://www.midnightbeach.com/jon/pubs/3D_Fractal_Landscapes.html">www.midnightbeach.com/jon/pubs/3D_Fractal_Landscapes.html</A>&nbsp;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Geometric Figure</TD>
+    <TD vAlign=top width=640>Line Art on a TImage.&nbsp; This example draws 
+      lines on a TImage resulting in this geometric figure.<BR><A 
+      href="http://www.ecnet.net/users/gsmpati/delphi">www.ecnet.net/users/gsmpati/delphi</A> 
+    </TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Geometry</TD>
+    <TD vAlign=top width=640>
+      <P>Geometry Library, Geometry.ZIP.&nbsp; This unit contains types, 
+      functions and procedures for quaternion, vector and matrix arithmetics. It 
+      is specifically designed for geometric calculations within R3 ("affine" 
+      vector space) and R4 (homogeneous vector space).<BR><A 
+      href="http://www.lischke-online.de/Graphics.php">www.lischke-online.de/Graphics.php</A>&nbsp; 
+      </P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=GraphicsMath></A>Graphics Math </TD>
+    <TD vAlign=top width=640><FONT face="Arial Narrow"><I>efg's </I></FONT><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/GraphicsMathLibrary.PAS.TXT">GraphicsMathLibrary 
+      unit</A> for Matrix/Vector Operations for 2D/3D Graphics using Homogeneous 
+      Coordinates.&nbsp; Includes conversion between coordinate systems 
+      (Cartesian, polar, spherical), matrix transforms (translation, rotation, 
+      scaling), and a <I>ViewTransformMatrix </I>routine to compute how world 
+      coordinates should be transformed for plotting from a given camera/eye 
+      location. 
+      <P><FONT face="Arial Narrow"><I>efg's</I></FONT> <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/GraphicsPrimitivesLibrary.PAS.TXT">GraphicsPrimitivesLibrary 
+      unit </A>(uses GraphicsMathLibrary unit) defines a TPantoGraph 
+      class.&nbsp; A <I>TPantoGraph </I>object maps 2D/3D "World Coordinates" to 
+      a Delphi "Canvas".&nbsp; These World Coordinates are DOUBLE values that 
+      are defined using regular mathematical conventions. This means that 
+      instead of having&nbsp; increasing "Y" values as you go down a canvas, "Y" 
+      increases as you go up using the computer "pantograph".&nbsp;&nbsp; 
+      Includes clipping and various projection options. 
+      <P><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/CampbellCC_Pantograph_TextOut.html">Suggestion 
+      by CC.Campbell </A>for using TextOut with TPantograph</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Graphs </TD>
+    <TD vAlign=top width=640>See <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/ComponentsAndPrograms.htm#Charts">Charts 
+      and Graphs</A> on <EM><FONT face="Arial Narrow">efg's</FONT></EM> <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/ComponentsAndPrograms.htm">Delphi 
+      Graphics Components and Programs</A> page</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Hex Grid </TD>
+    <TD vAlign=top width=640>John McDonnell's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0906.txt">UseNet 
+      Post</A> about drawing a hex grid</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Homogeneous Coordinates: Scaling, Rotation, 
+      Translation</TD>
+    <TD vAlign=top width=640>[<A 
+      href="http://www.amazon.com/exec/obidos/ASIN/0201848406/efgscomputlab">Foley96</A>, 
+      pp. 204-209]<BR><BR><FONT face="Arial Narrow"><EM>efg's</EM> 
+      </FONT><EM>TPantograph</EM> in <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/football.htm">Football</A>, 
+      <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/SphereInCube.htm">Sphere 
+      In Cube</A>, or other Lab Reports</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Lines, Intersecting</TD>
+    <TD vAlign=top width=640><A 
+      href="http://www.delphiforfun.org/Programs/Math_Topics/intersecting_lines.htm">http://www.delphiforfun.org/Programs/Math_Topics/intersecting_lines.htm</A>&nbsp;</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Maps, Cartography</TD>
+    <TD vAlign=top width=640>See <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Algorithms.htm#Maps">Maps</A> 
+      on <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Algorithms.htm">Delphi 
+      Graphics Algorithms</A> page</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Mathematics for Computer Graphics</TD>
+    <TD vAlign=top width=640>[<A 
+      href="http://www.amazon.com/exec/obidos/ASIN/0201848406/efgscomputlab">Foley96</A>, 
+      Appendix, pp. 1083-1112]</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Matrix Transformations</TD>
+    <TD vAlign=top width=640>GraphicsMathLibrary. 2D/3D matrices for 
+      translation, scaling, rotation of homogeneous 
+      coordinates.ViewTransformMatrix. Part of any of the 2D/3D vector graphics 
+      examples on <EM><FONT face="Arial Narrow">efg's</FONT><FONT face=Arial> 
+      </FONT></EM><A 
+      href="http://homepages.borland.com/efg2lab/Graphics/index.html">Graphics 
+      </A>page.<BR><BR>Matrices (and 3D graphics) <A 
+      href="http://www.geocities.com/SiliconValley/2151/matrices.html">www.geocities.com/SiliconValley/2151/matrices.html</A> 
+      (Non-Delphi)</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Moiré Patterns</TD>
+    <TD vAlign=top width=640><A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Daisy.htm"><IMG 
+      height=32 alt="Daisy.gif (959 bytes)" 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/Daisy.gif" 
+      width=32 border=0></A><EM><FONT face="Arial Narrow">&nbsp; 
+      efg's</FONT><FONT face=Arial> </FONT></EM><A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Daisy.htm">Daisy</A> 
+      Lab Report</TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=NumericData></A>Numeric Data to Bitmap</TD>
+    <TD vAlign=top width=640><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/MatrixToBitmap.ZIP"><IMG 
+      height=48 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/ScreenMatrixToBitmap.jpg" 
+      width=132 border=0></A>&nbsp;&nbsp;&nbsp; <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/MatrixToBitmap.ZIP">How 
+      to create a Bitmap from numeric data? </A>(D5) 
+      <P>Read TXT file into dynamically allocated matrix and show matrix as 
+      either gray scale or "rainbow" values:</P>
+      <P><FONT face="Courier New" size=2>10 8<BR>&nbsp;0.000 -0.321 -0.285&nbsp; 
+      0.267&nbsp; 1.344&nbsp; 2.656&nbsp; 3.733&nbsp; 4.285&nbsp; 4.321 
+      4.000<BR>&nbsp;0.355&nbsp; 0.062 -0.073&nbsp; 0.150&nbsp; 0.904&nbsp; 
+      1.953&nbsp; 2.707&nbsp; 2.930&nbsp; 2.795 2.502<BR>&nbsp;0.039&nbsp; 0.014 
+      -0.012&nbsp; 0.050&nbsp; 0.468&nbsp; 1.246&nbsp; 1.664&nbsp; 1.727&nbsp; 
+      1.700 1.675<BR>-1.166 -0.854 -0.547 -0.250&nbsp; 0.048&nbsp; 0.524&nbsp; 
+      0.821&nbsp; 1.119&nbsp; 1.426 1.737<BR>-2.834 -2.257 -1.675 -1.084 -0.492 
+      -0.079&nbsp; 0.512&nbsp; 1.103&nbsp; 1.685 2.263<BR>-4.039 -3.125 -2.210 
+      -1.383 -0.913 -0.801 -0.331&nbsp; 0.496&nbsp; 1.411 2.325<BR>-4.355 -3.173 
+      -2.149 -1.483 -1.348 -1.509 -1.374 -0.708&nbsp; 0.316 1.498<BR>-4.000 
+      -2.790 -1.937 -1.600 -1.789 -2.211 -2.400 -2.063 -1.210 0.000</FONT></P>
+      <P>(A "LargeMatrix" program is included to create large test 
+      matrices.&nbsp; A 1200-by-900 matrix will take about 5 minutes on a 650 
+      MHz Pentium III.)</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Perimeter</TD>
+    <TD width=640><FONT face="Arial Narrow"><I>efg's </I></FONT>E-mail to 
+      Engineering Student at kmutt about <A 
+      href="http://homepages.borland.com/efg2lab/Library/ImageProcessing/ObjectPerimeterNote.txt">how 
+      to computer perimeter of an objec</A>t</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Perlin Noise</TD>
+    <TD width=640><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/MichaelHansen_Perlin.zip"><IMG 
+      height=120 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/PerlinNoiseConcept.gif" 
+      width=500 border=0></A><BR>Michael Hansen's <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/MichaelHansen_Perlin.zip">Perlin 
+      Noise project</A></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Pi</TD>
+    <TD width=640><A 
+      href="http://homepages.borland.com/efg2lab/Mathematics/Buffon.htm"><IMG 
+      height=64 alt="Buffon.gif (1033 bytes)" 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/Buffon.gif" 
+      width=64 border=0></A>&nbsp; <FONT 
+      face="Arial Narrow"><EM>efg's</EM></FONT> Lab Report:&nbsp; <A 
+      href="http://homepages.borland.com/efg2lab/Mathematics/Buffon.htm">Estimate 
+      value of pi using Buffon's "needles"</A></TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=PointInPolygon></A>Point in Polygon</TD>
+    <TD vAlign=top width=640>Mat Ballard's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2003/0114a.txt">UseNet 
+      Post</A> with PointInPolygonTest function 
+      <P>adub's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2003/0114b.txt">UseNet 
+      Post</A> with PtInPolygon using PtInRegion WinAPI call</P>
+      <P><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/ThereseHanquet_PointAndPolygon.zip">PointAndPolygon 
+      unit </A>with PointInPolygon function by Philippe De Boe and <A 
+      href="mailto:therese.hanquet@skynet.be">Thérèse Hanquet</A> </P>
+      <P>Paul Nicholls' <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0918b.txt">UseNet 
+      Post</A> with point-in-polygon routine</P>
+      <P>John Hutchings' <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/1019.txt">UseNet 
+      Post</A> with PointInPolygonTest function</P>
+      <P><FONT face="Courier New" size=2>// InSide function by <A 
+      href="mailto:andreas@filsinger.de">Andreas Filsinger</A><BR>function 
+      InSide (const x,y : integer; Polygon: array of TPoint): boolean;<BR>&nbsp; 
+      var<BR>&nbsp;&nbsp;&nbsp;&nbsp; PolyHandle: HRGN;<BR>begin<BR>&nbsp; 
+      &nbsp;PolyHandle := 
+      CreatePolygonRgn(Polygon[0],length(Polygon),Winding);<BR>&nbsp; 
+      &nbsp;result&nbsp;&nbsp;&nbsp;&nbsp; := 
+      PtInRegion(PolyHandle,X,Y);<BR>&nbsp;&nbsp; 
+      DeleteObject(PolyHandle);<BR>end;</FONT><BR><BR>Geir Wikran's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/1999/1009.txt">UseNet 
+      Post</A> with PointInPolygon function<BR>Joe Hecht's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/1999/0329b.txt">UseNet 
+      Post </A>with three suggested methods</P>
+      <P>Also see <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/Win32API.htm#PtInRegion">PtInRegion</A> 
+      on Graphical Win32 API page
+      <P>See<I> Inside</I> function in Section 3.1 of&nbsp;<BR><A 
+      href="http://condor.informatik.uni-oldenburg.de/~stueker/graphic/index.html">http://condor.informatik.uni-oldenburg.de/~stueker/graphic/index.html</A>&nbsp;</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Point in Triangle</TD>
+    <TD vAlign=top width=640>Dave Eberly's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/1999/1103a.txt">UseNet 
+      Post:&nbsp;</A> Let the points be (x0,y0,z0), (x1,y1,z1), 
+      (x2,y2,z2).&nbsp; Given (x,y), solve for s and t in (x,y) = 
+      (x0,y0)+s*(x1-x0,y1-y0)+t*(x2-x0,y2-y0).&nbsp; The point is inside the 
+      triangle if s &gt;= 0, t &gt;= 0, and s+t &lt;= 1.&nbsp; Then choose z = 
+      (1-s-t)*z0+s*z1+t*z2.
+      <P><A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Colors/MaxwellTriangle.htm"><IMG 
+      height=32 alt="MaxwellTriangleSmall.gif (1250 bytes)" 
+      src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/MaxwellTriangleSmall.gif" 
+      width=32 border=0></A> <FONT face="Arial Narrow"><EM>efg's</EM></FONT> <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/Colors/MaxwellTriangle.htm">Maxwell 
+      Triangle</A> Lab Report</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Point on Line</TD>
+    <TD width=640>Schoeneck Howell's <A 
+      href="http://homepages.borland.com/efg2lab/Library/UseNet/2001/0921.txt">UseNet 
+      Post</A> with <I>pointonline</I> function 
+      <P><I><FONT face="Arial Narrow">efg's</FONT></I> <A 
+      href="http://homepages.borland.com/efg2lab/Graphics/LineStretch.htm">Line 
+      Stretch</A> Lab Report with <I>NearLine</I> function</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Points, Angles</TD>
+    <TD width=640>Calculating a point using angles and distance (<A 
+      href="http://community.borland.com/article/0,1410,17915,00.html">FAQ 
+      2915D</A>)<BR>Calculating an angle from two points (and the origin) (<A 
+      href="http://community.borland.com/article/0,1410,17917,00.html">FAQ 
+      1917D</A>)<BR>Finding distance between two points (<A 
+      href="http://community.borland.com/article/0,1410,17928,00.html">FAQ 
+      2928D</A>)</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Polygons</TD>
+    <TD vAlign=top width=640>Non-Delphi: Michael Abrash's <EM><A 
+      href="http://www.amazon.com/exec/obidos/ASIN/1576101746/efgscomputlab">Graphics 
+      Programming Black Book</A>, </EM>Chapter 39, "Fast Convex Polygons"</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Projections</TD>
+    <TD vAlign=top width=640>D3toD2 and D2toD3 functions in <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/WilliamEgge_EMath.txt">William 
+      Egge's EMath unit</A></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Rectangles</TD>
+    <TD vAlign=top width=640><A 
+      href="http://www.delphizine.com/features/1999/08/di199908ma_f/di199908ma_d.asp">Rectangles:&nbsp; 
+      A Closer Look at the <I>TRect</I> Windows Data Type</A>.&nbsp; (CopyRect, 
+      InflateRect, IntersectRect, IsRectEmpty, OffsetREct, Rect, SetRect, 
+      SetRectEmpty,&nbsp; SubtractRect, UnionRect, ScreenToClient, 
+      ClientToScreen, pRect, ClipCursor), <EM>Delphi Informant</EM>, Aug. 
+    1999.</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Splines</TD>
+    <TD vAlign=top width=640>Splines by Charles Hacker<BR><A 
+      href="http://www.gu.edu.au/school/eng/mmt/splines.zip">www.gu.edu.au/school/eng/mmt/splines.zip</A>&nbsp; 
+
+      <P>BSplines.ZIP by Martijn an Engeland. Component for handling and 
+      displaying BSplines. Delphi Super Page: <A 
+      href="http://delphi.icm.edu.pl/ftp/d10free/bsplines.zip">http://delphi.icm.edu.pl/ftp/d10free/bsplines.zip</A> 
+      </P>
+      <P>[<A 
+      href="http://www.amazon.com/exec/obidos/ASIN/0201848406/efgscomputlab">Foley96</A>, 
+      pp. 1013-1018]</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Surfaces</TD>
+    <TD vAlign=top width=640>Surface Plot Collection.&nbsp; Components that 
+      know how to plot surfaces given by formulas. Contains a component for 
+      (plain cartesian) graphs and one for parametric surfaces<BR><A 
+      href="http://www.xydot.com/delphi/math.htm#TD3Plot">www.xydot.com/delphi/math.htm#TD3Plot</A>&nbsp; 
+    </TD></TR>
+  <TR>
+    <TD vAlign=top width=120>TMathImage</TD>
+    <TD vAlign=top width=640>A TGraphicControl descendant that allows drawing 
+      in world coordinates. Both 2-D and 3-D graphs are supported. Surfaces can 
+      be drawn filled with hidden invisible parts and<BR><A 
+      href="http://www.xydot.com/delphi/math.htm#MathImage60">www.xydot.com/delphi/math.htm#MathImage60</A>&nbsp; 
+    </TD></TR>
+  <TR>
+    <TD vAlign=top width=120><A name=SpiralTransform></A>Spiral Transform</TD>
+    <TD vAlign=top width=640>
+      <TABLE border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=283 alt="ScreenTwirl1.jpg (13497 bytes)" 
+            src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/ScreenTwirl1.jpg" 
+            width=237></TD>
+          <TD><IMG height=283 alt="ScreenTwirl2.jpg (20777 bytes)" 
+            src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/ScreenTwirl2.jpg" 
+            width=237></TD></TR></TBODY></TABLE>
+      <P>The "Twirl" program is based on the spiral transform from <EM><A 
+      href="http://www.spinroot.com/pico/">Beyond Photography: &nbsp; The 
+      Digital Darkroom</A></EM> (the book is online) by Gerard J. Holzmann, 
+      Prentice-Hall, 1988, pp. 44-45.&nbsp; The book gives the formula for 
+      transforming a picture of Ken Thompson (one of the originators of 
+      UNIX):</P>
+      <P>new[radius, angle] = ken[radius, angle + radius/3]</P>
+      <P><A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/twirl.zip">Twist.ZIP</A> 
+      (D3-D5 complete project with source code -- BMPs not included)</P></TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Transformation, Affine and Projective</TD>
+    <TD vAlign=top width=640>Example <A 
+      href="http://homepages.borland.com/efg2lab/Library/Delphi/Graphics/AffineAndProjectiveTransforms.ZIP">code</A> 
+      by Lazikas o Pontios for Intergraph Irasc files.</TD></TR>
+  <TR>
+    <TD vAlign=top width=120>Vector Graphics</TD>
+    <TD vAlign=top width=640>Simple Vector Library<BR><A 
+      href="http://sourceforge.net/projects/svl">http://sourceforge.net/projects/svl</A>&nbsp;</TD></TR></TBODY></TABLE></CENTER></DIV>
+<HR>
+
+<P align=center><BIG><STRONG>Note:</STRONG></BIG><BR>&nbsp;&nbsp; <A 
+href="http://www.amazon.com/exec/obidos/ASIN/0201848406/efgscomputlab">Foley96</A> 
+(referenced above in several places) is not a Delphi book,<BR>but is an 
+excellent source for computer graphics algorithms.</P>
+<HR>
+
+<P align=center><FONT size=1>Links Verified 11 Feb 2003<BR>Updated <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%d %b %Y" startspan -->23 
+Mar 2003<!--webbot bot="Timestamp" endspan i-checksum="14892" --></FONT></P>
+<P align=center><IMG 
+src="efg's Reference Library Delphi Graphics Algorithms -- Math-Geometry_fichiers/count.xbm"><FONT 
+size=1><BR>since 6 Feb 2000</FONT></P></BODY></HTML>

@@ -1,0 +1,97 @@
+<HEAD>
+<TITLE>glPolygonMode.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPolygonMode.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>	- select a polygon rasterization mode
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>( GLenum <I>face</I>,
+		      GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>face</I>	Specifies the polygons that <I>mode</I> applies to.  Must be GL_FRONT for
+	front-facing polygons, GL_BACK for back-facing polygons, or
+	GL_FRONT_AND_BACK for front- and back-facing polygons.
+
+  <I>mode</I>	Specifies the way polygons will	be rasterized.	Accepted values	are
+	GL_POINT, GL_LINE, and GL_FILL.	 The default is	GL_FILL	for both
+	front- and back-facing polygons.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>	controls the interpretation of polygons	for rasterization.
+  <I>face</I> describes which polygons	<I>mode</I> applies to: front-facing polygons
+  (GL_FRONT), back-facing polygons (GL_BACK), or both (GL_FRONT_AND_BACK).
+  The polygon mode affects only	the final rasterization	of polygons.  In
+  particular, a	polygon's vertices are lit and the polygon is clipped and
+  possibly culled before these modes are applied.
+
+  Three	modes are defined and can be specified in <I>mode</I>:
+
+  GL_POINT	Polygon	vertices that are marked as the	start of a boundary
+		edge are drawn as points.  Point attributes such as
+		GL_POINT_SIZE and GL_POINT_SMOOTH control the rasterization
+		of the points.	Polygon	rasterization attributes other than
+		GL_POLYGON_MODE	have no	effect.
+
+  GL_LINE	Boundary edges of the polygon are drawn	as line	segments.
+		They are treated as connected line segments for	line
+		stippling; the line stipple counter and	pattern	are not	reset
+		between	segments (see <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>).  Line attributes such
+		as GL_LINE_WIDTH and GL_LINE_SMOOTH control the	rasterization
+		of the lines.  Polygon rasterization attributes	other than
+		GL_POLYGON_MODE	have no	effect.
+
+  GL_FILL	The interior of	the polygon is filled.	Polygon	attributes
+		such as	GL_POLYGON_STIPPLE and GL_POLYGON_SMOOTH control the
+		rasterization of the polygon.
+
+</PRE><H2>Examples</H2><PRE>
+  To draw a surface with filled	back-facing polygons and outlined front-
+  facing polygons, call	<A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>(GL_FRONT,	GL_LINE);
+
+
+</PRE><H2>Notes</H2><PRE>
+  Vertices are marked as boundary or nonboundary with an edge flag.  Edge
+  flags	are generated internally by the	GL when	it decomposes polygons,	and
+  they can be set explicitly using <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if either <I>face</I> or <I>mode</I> is not an	accepted
+  value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A> is	executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_POLYGON_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>, <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>, <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>, <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>,
+  <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

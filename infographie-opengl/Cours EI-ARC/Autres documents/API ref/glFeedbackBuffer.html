@@ -1,0 +1,186 @@
+<HEAD>
+<TITLE>glFeedbackBuffer.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glFeedbackBuffer.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> - controls feedback mode
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>( GLsizei <I>size</I>,
+			 GLenum	<I>type</I>,
+			 GLfloat *<I>buffer</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>size</I>	  Specifies the	maximum	number of values that can be written into
+	  <I>buffer</I>.
+
+  <I>type</I>	  Specifies a symbolic constant	that describes the information that
+	  will be returned for each vertex.  GL_2D, GL_3D, GL_3D_COLOR,
+	  GL_3D_COLOR_TEXTURE, and GL_4D_COLOR_TEXTURE are accepted.
+
+  <I>buffer</I>  Returns the feedback data.
+
+
+</PRE><H2>Description</H2><PRE>
+  The <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> function	controls feedback.  Feedback, like selection,
+  is a GL mode.	 The mode is selected by calling <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> with
+  GL_FEEDBACK.	When the GL is in feedback mode, no pixels are produced	by
+  rasterization.  Instead, information about primitives	that would have	been
+  rasterized is	fed back to the	application using the GL.
+
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> has three arguments:	<I>buffer</I> is a pointer to an array	of
+  floating-point values	into which feedback information	is placed.  <I>size</I>
+  indicates the	size of	the array.  <I>type</I> is a symbolic constant	describing
+  the information that is fed back for each vertex.  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> must be
+  issued before	feedback mode is enabled (by calling <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> with
+  argument GL_FEEDBACK).  Setting GL_FEEDBACK without establishing the
+  feedback buffer, or calling <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> while the GL is in feedback
+  mode,	is an error.
+
+  The GL is taken out of feedback mode by calling <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> with a
+  parameter value other	than GL_FEEDBACK.  When	this is	done while the GL is
+  in feedback mode, <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> returns the number of entries placed in the
+  feedback array.  The returned	value never exceeds <I>size</I>. If the feedback
+  data required	more room than was available in	<I>buffer</I>,	<A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> returns
+  a negative value.
+
+  While	in feedback mode, each primitive that would be rasterized generates a
+  block	of values that get copied into the feedback array.  If doing so	would
+  cause	the number of entries to exceed	the maximum, the block is partially
+  written so as	to fill	the array (if there is any room	left at	all), and an
+  overflow flag	is set.	 Each block begins with	a code indicating the
+  primitive type, followed by values that describe the primitive's vertices
+  and associated data.	Entries	are also written for bitmaps and pixel
+  rectangles.  Feedback	occurs after polygon culling and glPolyMode
+  interpretation of polygons has taken place, so polygons that are culled are
+  not returned in the feedback buffer.	It can also occur after	polygons with
+  more than three edges	are broken up into triangles, if the GL
+  implementation renders polygons by performing	this decomposition.
+
+
+  The <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A> command can	be used	to insert a marker into	the feedback
+  buffer.  See <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>.
+
+  Following is the grammar for the blocks of values written into the feedback
+  buffer.  Each	primitive is indicated with a unique identifying value
+  followed by some number of vertices.	Polygon	entries	include	an integer
+  value	indicating how many vertices follow.  A	vertex is fed back as some
+  number of floating-point values, as determined by <I>type</I>.  Colors are fed
+  back as four values in RGBA mode and one value in color index	mode.
+
+       feedbackList &lt;- feedbackItem feedbackList | feedbackItem
+
+       feedbackItem &lt;- point | lineSegment | polygon | bitmap |
+       pixelRectangle |	passThru
+
+       point &lt;-	GL_POINT_TOKEN vertex
+
+       lineSegment &lt;- GL_LINE_TOKEN vertex vertex | GL_LINE_RESET_TOKEN
+       vertex vertex
+
+       polygon &lt;- GL_POLYGON_TOKEN n polySpec
+
+       polySpec	&lt;- polySpec vertex | vertex vertex vertex
+
+       bitmap &lt;- GL_BITMAP_TOKEN vertex
+
+       pixelRectangle &lt;- GL_DRAW_PIXEL_TOKEN vertex | GL_COPY_PIXEL_TOKEN
+       vertex
+
+       passThru	&lt;- GL_PASS_THROUGH_TOKEN value
+
+       vertex &lt;- 2d | 3d | 3dColor | 3dColorTexture | 4dColorTexture
+
+       2d &lt;- value value
+
+       3d &lt;- value value value
+
+       3dColor	&lt;- value value value color
+
+       3dColorTexture &lt;- value value value color tex
+
+       4dColorTexture &lt;- value value value value color tex
+
+       color &lt;-	rgba | index
+
+       rgba &lt;- value value value value
+
+       index &lt;-	value
+
+       tex &lt;- value value value	value
+
+
+  <I>value</I>	is a floating-point number, and	<I>n</I> is a floating-point integer giving
+  the number of	vertices in the	polygon.  GL_POINT_TOKEN, GL_LINE_TOKEN,
+  GL_LINE_RESET_TOKEN, GL_POLYGON_TOKEN, GL_BITMAP_TOKEN,
+  GL_DRAW_PIXEL_TOKEN, GL_COPY_PIXEL_TOKEN and GL_PASS_THROUGH_TOKEN are
+  symbolic floating-point constants.  GL_LINE_RESET_TOKEN is returned
+  whenever the line stipple pattern is reset.  The data	returned as a vertex
+  depends on the feedback <I>type</I>.
+
+  The following	table gives the	correspondence between <I>type</I> and	the number of
+  values per vertex.  <I>k</I>	is 1 in	color index mode and 4 in RGBA mode.
+
+
+
+------------------------------------------------------------------------------
+|       type         | coordinates | color | texture | total number of values |
+------------------------------------------------------------------------------
+|	GL_2D	     |	  <I>x</I>, <I>y</I>	   |	   |	     |		 2	      |
+|	GL_3D	     |	 <I>x</I>, <I>y</I>, <I>z</I>   |	   |	     |		 3	      |
+|    GL_3D_COLOR     |	 <I>x</I>, <I>y</I>, <I>z</I>   |   k   |	     |		3+k	      |
+|GL_3D_COLOR_TEXTURE |	<I>x</I>, <I>y</I>, <I>z</I>,   |   k   |	4    |		7+k	      |
+|GL_4D_COLOR_TEXTURE | <I>x</I>, <I>y</I>, <I>z</I>,	<I>w</I>  |   k   |	4    |		8+k	      |
+------------------------------------------------------------------------------
+
+  Feedback vertex coordinates are in window coordinates, except	<I>w</I>, which is
+  in clip coordinates.	Feedback colors	are lighted, if	lighting is enabled.
+  Feedback texture coordinates are generated, if texture coordinate
+  generation is	enabled.  They are always transformed by the texture matrix.
+
+</PRE><H2>Notes</H2><PRE>
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>, when used in a display list, is not	compiled into the
+  display list but rather is executed immediately.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>type</I> is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if <I>size</I>	is negative.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>	is called while	the
+  render mode is GL_FEEDBACK, or if <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called with	argument
+  GL_FEEDBACK before <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> is called	at least once.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>	is executed between
+  the execution	of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_RENDER_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>, <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>, <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>,	<A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>,
+  <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

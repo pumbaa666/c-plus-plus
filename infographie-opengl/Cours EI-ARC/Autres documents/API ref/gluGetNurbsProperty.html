@@ -1,0 +1,60 @@
+<HEAD>
+<TITLE>gluGetNurbsProperty.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluGetNurbsProperty.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluGetNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetNurbsProperty.html">gluGetNurbsProperty</A> -	get a NURBS property
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluGetNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetNurbsProperty.html">gluGetNurbsProperty</A>( GLUnurbsObj	*<I>nobj</I>,
+			    GLenum <I>property</I>,
+			    GLfloat *<I>value</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	    Specifies the NURBS	object (created	with <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+  <I>property</I>  Specifies the property whose value is to be	fetched.  Valid
+	    values are GLU_CULLING, GLU_SAMPLING_TOLERANCE, GLU_DISPLAY_MODE,
+	    GLU_AUTO_LOAD_MATRIX, GLU_PARAMETRIC_TOLERANCE,
+	    GLU_SAMPLING_METHOD, GLU_U_STEP, and GLU_V_STEP.
+
+  <I>value</I>	    Specifies a	pointer	to the location	into which the value of	the
+	    named  property is written.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluGetNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetNurbsProperty.html">gluGetNurbsProperty</A> is used to retrieve properties stored in a NURBS
+  object.  These properties affect the way that	NURBS curves and surfaces are
+  rendered.  Please refer to the <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A> reference page for
+  information about what the properties	are and	what they do.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>, <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A>
+
+</PRE><H2>Notes</H2><PRE>
+  GLU_PARAMETRIC_TOLERANCE, GLU_SAMPLING_METHOD, GLU_U_STEP, and GLU_V_STEP are
+  additions to GLU starting with GLU version 1.1. This version can be distinguished
+  during compilation by checking if the pre-processor symbol GLU_VERSION_1_1 is
+  defined.
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

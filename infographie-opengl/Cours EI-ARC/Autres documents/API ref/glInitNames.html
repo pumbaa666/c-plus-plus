@@ -1,0 +1,52 @@
+<HEAD>
+<TITLE>glInitNames.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glInitNames.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A> -	initialize the name stack
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A>( void )
+
+
+</PRE><H2>Description</H2><PRE>
+  The name stack is used during	selection mode to allow	sets of	rendering
+  commands to be uniquely identified.  It consists of an ordered set of
+  unsigned integers.  <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A> causes the name stack	to be initialized to
+  its default empty state.
+
+  The name stack is always empty while the render mode is not GL_SELECT.
+  Calls	to <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A> while the render	mode is	not GL_SELECT are ignored.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_NAME_STACK_DEPTH
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAX_NAME_STACK_DEPTH
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glLoadName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadName.html">glLoadName</A>, <A HREF="glPushName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushName.html">glPushName</A>, <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>,	<A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

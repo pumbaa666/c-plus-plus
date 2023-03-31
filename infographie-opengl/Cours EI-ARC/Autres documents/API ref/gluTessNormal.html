@@ -1,0 +1,71 @@
+<HEAD>
+<TITLE>gluTessNormal.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluTessNormal.3gl (GLU version 1.2 and later)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>	- specify a normal for a polygon
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>( GLUtesselator *<I>tess</I>,
+		      GLdouble <I>x</I>,
+		      GLdouble <I>y</I>,
+		      GLdouble <I>z</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tess</I>	Specifies the tessellation object (created with	<A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>).
+
+  <I>x</I>	Specifies the first component of the normal.
+
+  <I>y</I>	Specifies the second component of the normal.
+
+  <I>z</I>	Specifies the third component of the normal.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>	describes a normal for a polygon that the user is defining.
+  All input data will be projected onto	a plane	perpendicular to one of	the
+  three	coordinate axes	before tessellation and	all output triangles will be
+  oriented CCW with respect to the normal (CW orientation can be obtained by
+  reversing the	sign of	the supplied normal). For example, if you know that
+  all polygons lie in the x-y plane, call <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>(tess, 0.0, 0.0,	1.0)
+  before rendering any polygons.
+
+  If the supplied normal is (0,0,0) (the default value), the normal is
+  determined as	follows. The direction of the normal, up to its	sign, is
+  found	by fitting a plane to the vertices, without regard to how the
+  vertices are connected. It is	expected that the input	data lies
+  approximately	in the plane; otherwise	projection perpendicular to one	of
+  the three coordinate axes may	substantially change the geometry. The sign
+  of the normal	is chosen so that the sum of the signed	areas of all input
+  contours is non-negative (where a CCW	contour	has positive area).
+
+  The supplied normal persists until it	is changed by another call to
+  <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A>, <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri, May 26, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

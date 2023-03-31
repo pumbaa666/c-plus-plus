@@ -1,0 +1,163 @@
+Publics by module
+
+auxCloseWindow	size = 0
+	auxCloseWindow                  
+
+auxCreateFont	size = 0
+	auxCreateFont                   
+
+auxDIBImageLoadA	size = 0
+	auxDIBImageLoadA                
+
+auxDIBImageLoadW	size = 0
+	auxDIBImageLoadW                
+
+auxDrawStrA	size = 0
+	auxDrawStrA                     
+
+auxDrawStrW	size = 0
+	auxDrawStrW                     
+
+auxExposeFunc	size = 0
+	auxExposeFunc                   
+
+auxGetColorMapSize	size = 0
+	auxGetColorMapSize              
+
+auxGetDisplayMode	size = 0
+	auxGetDisplayMode               
+
+auxGetDisplayModeID	size = 0
+	auxGetDisplayModeID             
+
+auxGetDisplayModePolicy	size = 0
+	auxGetDisplayModePolicy         
+
+auxGetHDC	size = 0
+	auxGetHDC                       
+
+auxGetHGLRC	size = 0
+	auxGetHGLRC                     
+
+auxGetHWND	size = 0
+	auxGetHWND                      
+
+auxGetMouseLoc	size = 0
+	auxGetMouseLoc                  
+
+auxIdleFunc	size = 0
+	auxIdleFunc                     
+
+auxInitDisplayMode	size = 0
+	auxInitDisplayMode              
+
+auxInitDisplayModeID	size = 0
+	auxInitDisplayModeID            
+
+auxInitDisplayModePolicy	size = 0
+	auxInitDisplayModePolicy        
+
+auxInitPosition	size = 0
+	auxInitPosition                 
+
+auxKeyFunc	size = 0
+	auxKeyFunc                      
+
+auxMainLoop	size = 0
+	auxMainLoop                     
+
+auxMouseFunc	size = 0
+	auxMouseFunc                    
+
+auxQuit 	size = 0
+	auxQuit                         
+
+auxRGBImageLoadA	size = 0
+	auxRGBImageLoadA                
+
+auxRGBImageLoadW	size = 0
+	auxRGBImageLoadW                
+
+auxReshapeFunc	size = 0
+	auxReshapeFunc                  
+
+auxSetFogRamp	size = 0
+	auxSetFogRamp                   
+
+auxSetGreyRamp	size = 0
+	auxSetGreyRamp                  
+
+auxSetOneColor	size = 0
+	auxSetOneColor                  
+
+auxSetRGBMap	size = 0
+	auxSetRGBMap                    
+
+auxSolidBox	size = 0
+	auxSolidBox                     
+
+auxSolidCone	size = 0
+	auxSolidCone                    
+
+auxSolidCube	size = 0
+	auxSolidCube                    
+
+auxSolidCylinder	size = 0
+	auxSolidCylinder                
+
+auxSolidDodecahedron	size = 0
+	auxSolidDodecahedron            
+
+auxSolidIcosahedron	size = 0
+	auxSolidIcosahedron             
+
+auxSolidOctahedron	size = 0
+	auxSolidOctahedron              
+
+auxSolidSphere	size = 0
+	auxSolidSphere                  
+
+auxSolidTeapot	size = 0
+	auxSolidTeapot                  
+
+auxSolidTetrahedron	size = 0
+	auxSolidTetrahedron             
+
+auxSolidTorus	size = 0
+	auxSolidTorus                   
+
+auxSwapBuffers	size = 0
+	auxSwapBuffers                  
+
+auxWireBox	size = 0
+	auxWireBox                      
+
+auxWireCone	size = 0
+	auxWireCone                     
+
+auxWireCube	size = 0
+	auxWireCube                     
+
+auxWireCylinder	size = 0
+	auxWireCylinder                 
+
+auxWireDodecahedron	size = 0
+	auxWireDodecahedron             
+
+auxWireIcosahedron	size = 0
+	auxWireIcosahedron              
+
+auxWireOctahedron	size = 0
+	auxWireOctahedron               
+
+auxWireSphere	size = 0
+	auxWireSphere                   
+
+auxWireTeapot	size = 0
+	auxWireTeapot                   
+
+auxWireTetrahedron	size = 0
+	auxWireTetrahedron              
+
+auxWireTorus	size = 0
+	auxWireTorus                    

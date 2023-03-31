@@ -1,0 +1,75 @@
+<HEAD>
+<TITLE>glXSwapBuffers.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXSwapBuffers.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A> - make	back buffer visible
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A>( Display *<I>dpy</I>,
+		       GLXDrawable <I>drawable</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	    Specifies the connection to	the X server.
+
+
+  <I>drawable</I>  Specifies the window whose buffers are to be swapped.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A> promotes the contents of the back buffer of <I>drawable</I> to
+  become the contents of the front buffer of <I>drawable</I>.	The contents of	the
+  back buffer then become undefined.  The update typically takes place during
+  the vertical retrace of the monitor, rather than immediately after
+  <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A> is called.  All GLX rendering contexts	share the same notion
+  of which are front buffers and which are back	buffers.
+
+  An implicit <A HREF="glFlush.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFlush.html">glFlush</A> is done by <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A>	before it returns.
+  Subsequent OpenGL commands can be issued immediately after calling
+  <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A>, but are not executed until the buffer	exchange is
+  completed.
+
+  If <I>drawable</I> was not created with respect to a	double-buffered	visual,
+  <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A> has no	effect,	and no error is	generated.
+
+
+</PRE><H2>Notes</H2><PRE>
+  Synchronization of multiple GLX contexts rendering to	the same double-
+  buffered window is the responsibility	of the clients.	 The X
+  Synchronization Extension can	be used	to facilitate such cooperation.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GLXBadDrawable is generated if <I>drawable</I> is not a valid GLX drawable.
+
+  GLXBadCurrentWindow is generated if <I>dpy</I> and <I>drawable</I> are respectively	the
+  display and drawable associated with the current context of the calling
+  thread, and <I>drawable</I> identifies a window that	is no longer valid.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glFlush.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFlush.html">glFlush</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

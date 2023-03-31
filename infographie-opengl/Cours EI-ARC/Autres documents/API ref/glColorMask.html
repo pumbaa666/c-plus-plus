@@ -1,0 +1,63 @@
+<HEAD>
+<TITLE>glColorMask.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glColorMask.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A> -	enable and disable writing of frame buffer color components
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A>( GLboolean <I>red</I>,
+		    GLboolean <I>green</I>,
+		    GLboolean <I>blue</I>,
+		    GLboolean <I>alpha</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>red</I>, <I>green</I>, <I>blue</I>, <I>alpha</I>
+			Specify	whether	red, green, blue, and alpha can	or
+			cannot be written into the frame buffer.  The default
+			values are all GL_TRUE,	indicating that	the color
+			components can be written.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A> specifies	whether	the individual color components	in the frame
+  buffer can or	cannot be written.  If <I>red</I> is GL_FALSE,	for example, no
+  change is made to the	red component of any pixel in any of the color
+  buffers, regardless of the drawing operation attempted.
+
+  Changes to individual	bits of	components cannot be controlled.  Rather,
+  changes are either enabled or	disabled for entire color components.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_COLOR_WRITEMASK
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_RGBA_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>, <A HREF="glIndexMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexMask.html">glIndexMask</A>, <A HREF="glDepthMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthMask.html">glDepthMask</A>, <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

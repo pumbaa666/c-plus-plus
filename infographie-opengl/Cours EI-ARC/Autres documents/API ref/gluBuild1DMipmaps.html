@@ -1,0 +1,75 @@
+<HEAD>
+<TITLE>gluBuild1DMipmaps.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluBuild1DMipmaps.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluBuild1DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild1DMipmaps.html">gluBuild1DMipmaps</A> - create 1-D mipmaps
+
+
+</PRE><H2>C Specification</H2><PRE>
+  int <A HREF="gluBuild1DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild1DMipmaps.html">gluBuild1DMipmaps</A>( GLenum	<I>target</I>,
+			 GLint <I>components</I>,
+			 GLint <I>width</I>,
+			 GLenum	<I>format</I>,
+			 GLenum	<I>type</I>,
+			 const void *<I>data</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>      Specifies	the target texture. Must be GL_TEXTURE_1D.
+
+  <I>components</I>  Specifies	the number of color components in the texture.	Must
+	      be 1, 2, 3, or 4.
+
+  <I>width</I>	      Specifies	the width of the texture image.
+
+  <I>format</I>      Specifies	the format of the pixel	data.  Must be one of
+	      GL_COLOR_INDEX, GL_RED, GL_GREEN,	GL_BLUE, GL_ALPHA, GL_RGB,
+	      GL_RGBA, GL_LUMINANCE, and GL_LUMINANCE_ALPHA.
+
+  <I>type</I>	      Specifies	the data type for <I>data</I>.	 Must be one of
+	      GL_UNSIGNED_BYTE,	GL_BYTE, GL_BITMAP, GL_UNSIGNED_SHORT,
+	      GL_SHORT,	GL_UNSIGNED_INT, GL_INT, or GL_FLOAT.
+
+  <I>data</I>	      Specifies	a pointer to the image data in memory.
+
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluBuild1DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild1DMipmaps.html">gluBuild1DMipmaps</A> obtains the	input image and	generates all mipmap images
+  (using <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A>)	so that	the input image	can be used as a mipmapped
+  texture image.  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> is then called to load each of the images.  If
+  the width of the input image is not a	power of two, then the image is
+  scaled to the	nearest	power of two before the	mipmaps	are generated.
+
+  A return value of zero indicates success. Otherwise, a GLU error code	is
+  returned (see	<A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>).
+
+  Please refer to the <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> reference page for a	description of the
+  acceptable values for	the <I>format</I> parameter. See the <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A> reference
+  page for a description of the	acceptable values for the <I>type</I> parameter.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="gluBuild2DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild2DMipmaps.html">gluBuild2DMipmaps</A>, <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>, <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

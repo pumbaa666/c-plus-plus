@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1161781264 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\geometrie.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1036418896 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\geometrie.h
+
+1161781345 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\global.h
+
+1161253262 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\calllistes.cpp
+	<gl\glut.h>
+	<math.h>
+	<stdlib.h>
+	"global.h"
+	"calllistes.h"
+
+1036507390 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\calllistes.h
+
+1161781167 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\evenements.cpp
+	<windows.h>
+	<GL\glut.h>
+	<ctype.h>
+	"evenements.h"
+	"geometrie.h"
+	"global.h"
+
+1036508298 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\evenements.h
+
+1161781333 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\global.cpp
+	<GL\glut.h>
+
+1161252382 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\geomglut.cpp
+	<GL\glut.h>
+	"global.h"
+	"evenements.h"
+	"calllistes.h"
+	"geomglut.h"
+
+1036418832 u:\3ème\infographie\exercices\série 7 - calllistes\donneesserie-07\geomglut.h
+

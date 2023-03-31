@@ -1,0 +1,75 @@
+<HEAD>
+<TITLE>gluCylinder.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluCylinder.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluCylinder.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluCylinder.html">gluCylinder</A> -	draw a cylinder
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluCylinder.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluCylinder.html">gluCylinder</A>( GLUquadricObj *<I>qobj</I>,
+		    GLdouble <I>baseRadius</I>,
+		    GLdouble <I>topRadius</I>,
+		    GLdouble <I>height</I>,
+		    GLint <I>slices</I>,
+		    GLint <I>stacks</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>	      Specifies	the quadrics object (created with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>baseRadius</I>  Specifies	the radius of the cylinder at <I>z</I>	= 0.
+
+  <I>topRadius</I>   Specifies	the radius of the cylinder at <I>z</I>	= <I>height</I>.
+
+  <I>height</I>      Specifies	the height of the cylinder.
+
+  <I>slices</I>      Specifies	the number of subdivisions around the <I>z</I>	axis.
+
+  <I>stacks</I>      Specifies	the number of subdivisions along the <I>z</I> axis.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluCylinder.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluCylinder.html">gluCylinder</A> draws a cylinder oriented	along the <I>z</I> axis.  The base of the
+  cylinder is placed at	 <I>z</I> = 0,	and the	top at z=height.  Like a sphere, a
+  cylinder is subdivided around	the <I>z</I> axis into	slices,	and along the <I>z</I>	axis
+  into stacks.
+
+  Note that if <I>topRadius</I> is set	to zero, then this routine will	generate a
+  cone.
+
+  If the orientation is	set to GLU_OUTSIDE (with <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>), then
+  any generated	normals	point away from	the <I>z</I> axis.  Otherwise,	they point
+  toward the <I>z</I> axis.
+
+  If texturing is turned on (with <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>), then texture
+  coordinates are generated so that <I>t</I> ranges linearly from 0.0 at <I>z</I> = 0	to
+  1.0 at <I>z</I> = <I>height</I>, and <I>s</I> ranges from 0.0 at the +<I>y</I> axis, to 0.25 at the +<I>x</I>
+  axis,	to 0.5 at the -<I>y</I> axis, to 0.75 at the -<I>x</I> axis, and back	to 1.0 at the
+  +<I>y</I> axis.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDisk.html">gluDisk</A>, <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>, <A HREF="gluPartialDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPartialDisk.html">gluPartialDisk</A>, <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>, <A HREF="gluSphere.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluSphere.html">gluSphere</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

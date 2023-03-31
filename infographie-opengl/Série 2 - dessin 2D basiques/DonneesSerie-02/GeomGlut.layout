@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="axes.cpp" open="1" top="0">
+		<Cursor position="95" topLine="0"/>
+	</File>
+	<File name="evenements.cpp" open="1" top="0">
+		<Cursor position="1152" topLine="8"/>
+	</File>
+	<File name="evenements.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="geometrie.cpp" open="1" top="0">
+		<Cursor position="1921" topLine="18"/>
+	</File>
+	<File name="geomglut.cpp" open="1" top="0">
+		<Cursor position="679" topLine="0"/>
+	</File>
+	<File name="global.cpp" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="global.h" open="1" top="0">
+		<Cursor position="0" topLine="0"/>
+	</File>
+	<File name="line_loop.cpp" open="1" top="0">
+		<Cursor position="433" topLine="0"/>
+	</File>
+	<File name="line_strip.cpp" open="1" top="0">
+		<Cursor position="714" topLine="0"/>
+	</File>
+	<File name="lines.cpp" open="1" top="0">
+		<Cursor position="1073" topLine="0"/>
+	</File>
+	<File name="points.cpp" open="1" top="0">
+		<Cursor position="723" topLine="0"/>
+	</File>
+	<File name="polygone.cpp" open="1" top="0">
+		<Cursor position="113" topLine="0"/>
+	</File>
+	<File name="quad_strip.cpp" open="1" top="0">
+		<Cursor position="122" topLine="0"/>
+	</File>
+	<File name="quads.cpp" open="1" top="0">
+		<Cursor position="105" topLine="0"/>
+	</File>
+	<File name="triangle_fan.cpp" open="1" top="0">
+		<Cursor position="499" topLine="0"/>
+	</File>
+	<File name="triangle_strip.cpp" open="1" top="0">
+		<Cursor position="134" topLine="0"/>
+	</File>
+	<File name="triangles.cpp" open="1" top="0">
+		<Cursor position="117" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+</CodeBlocks_layout_file>

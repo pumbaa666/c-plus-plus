@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1160647303 u:\3ème\infographie\exercices\série 6\donneesserie-06\geometrie.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1020433530 u:\3ème\infographie\exercices\série 6\donneesserie-06\geometrie.h
+
+1136978494 u:\3ème\infographie\exercices\série 6\donneesserie-06\global.h
+
+1160647417 u:\3ème\infographie\exercices\série 6\donneesserie-06\geomglut.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"GeomGlut.h"
+
+1017000668 u:\3ème\infographie\exercices\série 6\donneesserie-06\evenements.h
+
+1016904980 u:\3ème\infographie\exercices\série 6\donneesserie-06\geomglut.h
+
+1160645067 u:\3ème\infographie\exercices\série 6\donneesserie-06\global.cpp
+	<GL\glut.h>
+
+1160645433 u:\3ème\infographie\exercices\série 6\donneesserie-06\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1161175390 u:\3ème\infographie\exercices\série 6 - face avant, arrière\donneesserie-06\geometrie.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"global.h"
+
+1020433530 u:\3ème\infographie\exercices\série 6 - face avant, arrière\donneesserie-06\geometrie.h
+
+1136978494 u:\3ème\infographie\exercices\série 6 - face avant, arrière\donneesserie-06\global.h
+

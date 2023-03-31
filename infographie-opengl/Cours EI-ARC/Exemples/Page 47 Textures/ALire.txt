@@ -1,0 +1,9 @@
+Attention :
+
+Ces programmes présentent un bord sur la texture qui n'est pas normal.
+
+Il y a un problème avec une carte graphique Intel.
+
+Pour supprimer le problème, il faut règler l'accélération matérielle
+de la carte graphique avec une valeur plus faible (troisième trait).
+

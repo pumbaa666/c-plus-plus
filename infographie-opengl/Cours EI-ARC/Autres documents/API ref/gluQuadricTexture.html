@@ -1,0 +1,55 @@
+<HEAD>
+<TITLE>gluQuadricTexture.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluQuadricTexture.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A> - specify if texturing is desired for quadrics
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>( GLUquadricObj	*<I>qobj</I>,
+			  GLboolean <I>textureCoords</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>		 Specifies the quadrics	object (created	with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>textureCoords</I>	 Specifies a flag indicating if	texture	coordinates should be
+		 generated.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A> specifies if texture coordinates should be generated for
+  quadrics rendered with <I>qobj</I>.	If the value of	<I>textureCoords</I> is GL_TRUE,
+  then texture coordinates are generated, and if <I>textureCoords</I> is GL_FALSE,
+  they are not.	 The default is	GL_FALSE.
+
+  The manner in	which texture coordinates are generated	depends	upon the
+  specific quadric rendered.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>, <A HREF="gluQuadricDrawStyle.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricDrawStyle.html">gluQuadricDrawStyle</A>, <A HREF="gluQuadricNormals.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricNormals.html">gluQuadricNormals</A>,
+  <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

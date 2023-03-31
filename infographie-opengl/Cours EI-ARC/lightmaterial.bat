@@ -1,0 +1,2 @@
+cd .\NRobinsTutors
+lightmaterial.exe

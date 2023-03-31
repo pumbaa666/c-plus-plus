@@ -1,0 +1,86 @@
+<HEAD>
+<TITLE>glLineStipple.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glLineStipple.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>	- specify the line stipple pattern
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>( GLint <I>factor</I>,
+		      GLushort <I>pattern</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>factor</I>   Specifies a multiplier for each bit in the line stipple pattern.
+	   If <I>factor</I> is	3, for example,	each bit in the	pattern	will be	used
+	   three times before the next bit in the pattern is used.  <I>factor</I> is
+	   clamped to the range	[1, 256] and defaults to one.
+
+  <I>pattern</I>  Specifies a 16-bit integer whose bit	pattern	determines which
+	   fragments of	a line will be drawn when the line is rasterized.
+	   Bit zero is used first, and the default pattern is all ones.
+
+
+</PRE><H2>Description</H2><PRE>
+  Line stippling masks out certain fragments produced by rasterization;	those
+  fragments will not be	drawn.	The masking is achieved	by using three
+  parameters: the 16-bit line stipple pattern <I>pattern</I>, the repeat count
+  <I>factor</I>, and an integer stipple counter s.
+
+  Counter s is reset to	zero whenever <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> is called, and before each line
+  segment of a <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(GL_LINES)/<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A> sequence	is generated.  It is
+  incremented after each fragment of a unit width aliased line segment is
+  generated, or	after each i fragments of an i width line segment are
+  generated.  The i fragments associated with count s are masked out if
+
+		       <I>pattern</I> bit (s /	factor)	mod 16
+
+  is zero, otherwise these fragments are sent to the frame buffer.  Bit	zero
+  of <I>pattern</I> is	the least significant bit.
+
+  Antialiased lines are	treated	as a sequence of 1xwidth rectangles for
+  purposes of stippling.  Rectangle s is rasterized or not based on the
+  fragment rule	described for aliased lines, counting rectangles rather	than
+  groups of fragments.
+
+  Line stippling is enabled or disabled	using <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with
+  argument GL_LINE_STIPPLE.  When enabled, the line stipple pattern is
+  applied as described above.  When disabled, it is as if the pattern were
+  all ones.  Initially,	line stippling is disabled.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A> is	executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LINE_STIPPLE_PATTERN
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_LINE_STIPPLE_REPEAT
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_LINE_STIPPLE
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>, <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

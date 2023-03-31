@@ -1,0 +1,56 @@
+<HEAD>
+<TITLE>glXIsDirect.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXIsDirect.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A> -	indicate whether direct	rendering is enabled
+
+
+</PRE><H2>C Specification</H2><PRE>
+  Bool <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A>( Display *<I>dpy</I>,
+		    GLXContext <I>ctx</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>  Specifies the connection	to the X server.
+
+
+  <I>ctx</I>  Specifies the GLX context that is being queried.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A> returns True if <I>ctx</I> is a direct rendering	context, False
+  otherwise.  Direct rendering contexts	pass rendering commands	directly from
+  the calling process's	address	space to the rendering system, bypassing the
+  X server.  Nondirect rendering contexts pass all rendering commands to the
+  X server.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GLXBadContext	is generated if	<I>ctx</I> is not a valid GLX context.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

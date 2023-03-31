@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1163676447 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\global.cpp
+	<GL\glut.h>
+
+1163675859 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\normal.cpp
+	<math.h>
+	"normal.h"
+
+1024843364 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\normal.h
+
+1164206381 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1163676432 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\global.h
+
+1163676729 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\geometrie.h
+
+1022407456 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\evenements.h
+
+1164206992 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+	"normal.h"
+	<math.h>
+
+1164207078 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"principal.h"
+
+1022406220 u:\3ème\infographie\exercices\série 12 - lumière + normales\donneeserie-12\principal.h
+

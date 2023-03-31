@@ -1,0 +1,55 @@
+<HEAD>
+<TITLE>glXDestroyGLXPixmap.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXDestroyGLXPixmap.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXDestroyGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyGLXPixmap.html">glXDestroyGLXPixmap</A> -	destroy	a GLX pixmap
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glXDestroyGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyGLXPixmap.html">glXDestroyGLXPixmap</A>( Display *<I>dpy</I>,
+			    GLXPixmap <I>pix</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>  Specifies the connection	to the X server.
+
+
+  <I>pix</I>  Specifies the GLX pixmap	to be destroyed.
+
+
+</PRE><H2>Description</H2><PRE>
+  If GLX pixmap	<I>pix</I> is not current to any client, <A HREF="glXDestroyGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyGLXPixmap.html">glXDestroyGLXPixmap</A>
+  destroys it immediately.  Otherwise, <I>pix</I> is destroyed	when it	becomes	not
+  current to any client.  In either case, the resource ID is freed
+  immediately.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GLXBadPixmap is generated if <I>pix</I> is not a valid GLX pixmap.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXCreateGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateGLXPixmap.html">glXCreateGLXPixmap</A>, <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

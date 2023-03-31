@@ -1,0 +1,66 @@
+<HEAD>
+<TITLE>gluTessVertex.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluTessVertex.3gl (GLU versions 1.0 and 1.1)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>	- specify a vertex on a	polygon
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>( GLUtriangulatorObj *<I>tobj</I>,
+		      GLdouble <I>v</I>[<I>3</I>],
+		      void *<I>data</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tobj</I>	Specifies the tessellation object (created with	<A HREF="gluNewTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess10.html">gluNewTess</A>).
+
+  <I>v</I>	Specifies the location of the vertex.
+
+  <I>data</I>	Specifies an opaque pointer passed back	to the user with the vertex
+	callback (as specified by <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A>).
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>	describes a vertex on a	polygon	that the user is defining.
+  Successive <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A> calls describe a closed contour.  For example, if
+  the user wants to describe a quadrilateral, then <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A> should	be
+  called four times.  <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A> can	only be	called between
+  <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluBeginPolygon</A> and <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluEndPolygon</A>.
+
+  <I>data</I> normally	points to a structure containing the vertex location, as well
+  as other per-vertex attributes such as color and normal.  This pointer is
+  passed back to the user through the GLU_VERTEX callback after	tessellation
+  (see the <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A> reference page).
+
+
+
+</PRE><H2>Example</H2><PRE>
+  A quadrilateral with a triangular hole in it can be described	as follows:
+
+  <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluBeginPolygon</A>(tobj);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v1, v1);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v2, v2);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v3, v3);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v4, v4); 
+  <A HREF="gluNextContour10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour10.html">gluNextContour</A>(tobj, GLU_INTERIOR);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v5, v5);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v6, v6);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v7, v7); 
+  <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluEndPolygon</A>(tobj);
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluBeginPolygon</A>, <A HREF="gluNewTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess10.html">gluNewTess</A>, <A HREF="gluNextContour10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour10.html">gluNextContour</A>, <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A>
+
+
+
+</PRE>
+</BODY>
+</HTML>

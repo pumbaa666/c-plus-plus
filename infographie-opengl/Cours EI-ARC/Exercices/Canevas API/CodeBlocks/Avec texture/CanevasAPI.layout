@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="CanevasAPI01.rc" open="1" top="1">
+		<Cursor position="412" topLine="0"/>
+	</File>
+	<File name="CanevasAPI01.rh" open="0" top="0">
+		<Cursor position="124" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Others"/>
+</CodeBlocks_layout_file>

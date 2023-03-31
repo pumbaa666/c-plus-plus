@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1039539152 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\global.cpp
+	<GL\glut.h>
+
+1162463054 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\evenements.cpp
+	<GL\glut.h>
+	<windows.h>
+	<stdio.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1039538726 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\global.h
+
+1162460035 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\geometrie.h
+
+1039539118 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\evenements.h
+
+1162464621 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1162463937 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\lumiere2.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"lumiere2.h"
+
+1039538650 u:\3ème\infographie\exercices\série 10 - lumières\donneesserie-10\lumiere2.h
+
+1162463056 e:\infographie\série 10 - lumières\donneesserie-10\evenements.cpp
+	<GL\glut.h>
+	<windows.h>
+	<stdio.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1039538726 e:\infographie\série 10 - lumières\donneesserie-10\global.h
+
+1162460036 e:\infographie\série 10 - lumières\donneesserie-10\geometrie.h
+
+1039539118 e:\infographie\série 10 - lumières\donneesserie-10\evenements.h
+
+1162464622 e:\infographie\série 10 - lumières\donneesserie-10\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1039539152 e:\infographie\série 10 - lumières\donneesserie-10\global.cpp
+	<GL\glut.h>
+
+1162463938 e:\infographie\série 10 - lumières\donneesserie-10\lumiere2.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"lumiere2.h"
+
+1039538650 e:\infographie\série 10 - lumières\donneesserie-10\lumiere2.h
+

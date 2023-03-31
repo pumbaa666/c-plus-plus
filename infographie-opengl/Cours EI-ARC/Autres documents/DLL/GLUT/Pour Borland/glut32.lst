@@ -1,0 +1,358 @@
+Publics by module
+
+__glutCreateMenuWithExit	size = 0
+	__glutCreateMenuWithExit        
+
+__glutCreateWindowWithExit	size = 0
+	__glutCreateWindowWithExit      
+
+__glutGetFCB	size = 0
+	__glutGetFCB                    
+
+__glutInitWithExit	size = 0
+	__glutInitWithExit              
+
+__glutSetFCB	size = 0
+	__glutSetFCB                    
+
+glutAddMenuEntry	size = 0
+	glutAddMenuEntry                
+
+glutAddSubMenu	size = 0
+	glutAddSubMenu                  
+
+glutAttachMenu	size = 0
+	glutAttachMenu                  
+
+glutBitmapCharacter	size = 0
+	glutBitmapCharacter             
+
+glutBitmapLength	size = 0
+	glutBitmapLength                
+
+glutBitmapWidth	size = 0
+	glutBitmapWidth                 
+
+glutButtonBoxFunc	size = 0
+	glutButtonBoxFunc               
+
+glutChangeToMenuEntry	size = 0
+	glutChangeToMenuEntry           
+
+glutChangeToSubMenu	size = 0
+	glutChangeToSubMenu             
+
+glutCopyColormap	size = 0
+	glutCopyColormap                
+
+glutCreateMenu	size = 0
+	glutCreateMenu                  
+
+glutCreateSubWindow	size = 0
+	glutCreateSubWindow             
+
+glutCreateWindow	size = 0
+	glutCreateWindow                
+
+glutDestroyMenu	size = 0
+	glutDestroyMenu                 
+
+glutDestroyWindow	size = 0
+	glutDestroyWindow               
+
+glutDetachMenu	size = 0
+	glutDetachMenu                  
+
+glutDeviceGet	size = 0
+	glutDeviceGet                   
+
+glutDialsFunc	size = 0
+	glutDialsFunc                   
+
+glutDisplayFunc	size = 0
+	glutDisplayFunc                 
+
+glutEnterGameMode	size = 0
+	glutEnterGameMode               
+
+glutEntryFunc	size = 0
+	glutEntryFunc                   
+
+glutEstablishOverlay	size = 0
+	glutEstablishOverlay            
+
+glutExtensionSupported	size = 0
+	glutExtensionSupported          
+
+glutForceJoystickFunc	size = 0
+	glutForceJoystickFunc           
+
+glutFullScreen	size = 0
+	glutFullScreen                  
+
+glutGameModeGet	size = 0
+	glutGameModeGet                 
+
+glutGameModeString	size = 0
+	glutGameModeString              
+
+glutGet 	size = 0
+	glutGet                         
+
+glutGetColor	size = 0
+	glutGetColor                    
+
+glutGetMenu	size = 0
+	glutGetMenu                     
+
+glutGetModifiers	size = 0
+	glutGetModifiers                
+
+glutGetWindow	size = 0
+	glutGetWindow                   
+
+glutHideOverlay	size = 0
+	glutHideOverlay                 
+
+glutHideWindow	size = 0
+	glutHideWindow                  
+
+glutIconifyWindow	size = 0
+	glutIconifyWindow               
+
+glutIdleFunc	size = 0
+	glutIdleFunc                    
+
+glutIgnoreKeyRepeat	size = 0
+	glutIgnoreKeyRepeat             
+
+glutInit	size = 0
+	glutInit                        
+
+glutInitDisplayMode	size = 0
+	glutInitDisplayMode             
+
+glutInitDisplayString	size = 0
+	glutInitDisplayString           
+
+glutInitWindowPosition	size = 0
+	glutInitWindowPosition          
+
+glutInitWindowSize	size = 0
+	glutInitWindowSize              
+
+glutJoystickFunc	size = 0
+	glutJoystickFunc                
+
+glutKeyboardFunc	size = 0
+	glutKeyboardFunc                
+
+glutKeyboardUpFunc	size = 0
+	glutKeyboardUpFunc              
+
+glutLayerGet	size = 0
+	glutLayerGet                    
+
+glutLeaveGameMode	size = 0
+	glutLeaveGameMode               
+
+glutMainLoop	size = 0
+	glutMainLoop                    
+
+glutMenuStateFunc	size = 0
+	glutMenuStateFunc               
+
+glutMenuStatusFunc	size = 0
+	glutMenuStatusFunc              
+
+glutMotionFunc	size = 0
+	glutMotionFunc                  
+
+glutMouseFunc	size = 0
+	glutMouseFunc                   
+
+glutOverlayDisplayFunc	size = 0
+	glutOverlayDisplayFunc          
+
+glutPassiveMotionFunc	size = 0
+	glutPassiveMotionFunc           
+
+glutPopWindow	size = 0
+	glutPopWindow                   
+
+glutPositionWindow	size = 0
+	glutPositionWindow              
+
+glutPostOverlayRedisplay	size = 0
+	glutPostOverlayRedisplay        
+
+glutPostRedisplay	size = 0
+	glutPostRedisplay               
+
+glutPostWindowOverlayRedisplay	size = 0
+	glutPostWindowOverlayRedisplay  
+
+glutPostWindowRedisplay	size = 0
+	glutPostWindowRedisplay         
+
+glutPushWindow	size = 0
+	glutPushWindow                  
+
+glutRemoveMenuItem	size = 0
+	glutRemoveMenuItem              
+
+glutRemoveOverlay	size = 0
+	glutRemoveOverlay               
+
+glutReportErrors	size = 0
+	glutReportErrors                
+
+glutReshapeFunc	size = 0
+	glutReshapeFunc                 
+
+glutReshapeWindow	size = 0
+	glutReshapeWindow               
+
+glutSetColor	size = 0
+	glutSetColor                    
+
+glutSetCursor	size = 0
+	glutSetCursor                   
+
+glutSetIconTitle	size = 0
+	glutSetIconTitle                
+
+glutSetKeyRepeat	size = 0
+	glutSetKeyRepeat                
+
+glutSetMenu	size = 0
+	glutSetMenu                     
+
+glutSetWindow	size = 0
+	glutSetWindow                   
+
+glutSetWindowTitle	size = 0
+	glutSetWindowTitle              
+
+glutSetupVideoResizing	size = 0
+	glutSetupVideoResizing          
+
+glutShowOverlay	size = 0
+	glutShowOverlay                 
+
+glutShowWindow	size = 0
+	glutShowWindow                  
+
+glutSolidCone	size = 0
+	glutSolidCone                   
+
+glutSolidCube	size = 0
+	glutSolidCube                   
+
+glutSolidDodecahedron	size = 0
+	glutSolidDodecahedron           
+
+glutSolidIcosahedron	size = 0
+	glutSolidIcosahedron            
+
+glutSolidOctahedron	size = 0
+	glutSolidOctahedron             
+
+glutSolidSphere	size = 0
+	glutSolidSphere                 
+
+glutSolidTeapot	size = 0
+	glutSolidTeapot                 
+
+glutSolidTetrahedron	size = 0
+	glutSolidTetrahedron            
+
+glutSolidTorus	size = 0
+	glutSolidTorus                  
+
+glutSpaceballButtonFunc	size = 0
+	glutSpaceballButtonFunc         
+
+glutSpaceballMotionFunc	size = 0
+	glutSpaceballMotionFunc         
+
+glutSpaceballRotateFunc	size = 0
+	glutSpaceballRotateFunc         
+
+glutSpecialFunc	size = 0
+	glutSpecialFunc                 
+
+glutSpecialUpFunc	size = 0
+	glutSpecialUpFunc               
+
+glutStopVideoResizing	size = 0
+	glutStopVideoResizing           
+
+glutStrokeCharacter	size = 0
+	glutStrokeCharacter             
+
+glutStrokeLength	size = 0
+	glutStrokeLength                
+
+glutStrokeWidth	size = 0
+	glutStrokeWidth                 
+
+glutSwapBuffers	size = 0
+	glutSwapBuffers                 
+
+glutTabletButtonFunc	size = 0
+	glutTabletButtonFunc            
+
+glutTabletMotionFunc	size = 0
+	glutTabletMotionFunc            
+
+glutTimerFunc	size = 0
+	glutTimerFunc                   
+
+glutUseLayer	size = 0
+	glutUseLayer                    
+
+glutVideoPan	size = 0
+	glutVideoPan                    
+
+glutVideoResize	size = 0
+	glutVideoResize                 
+
+glutVideoResizeGet	size = 0
+	glutVideoResizeGet              
+
+glutVisibilityFunc	size = 0
+	glutVisibilityFunc              
+
+glutWarpPointer	size = 0
+	glutWarpPointer                 
+
+glutWindowStatusFunc	size = 0
+	glutWindowStatusFunc            
+
+glutWireCone	size = 0
+	glutWireCone                    
+
+glutWireCube	size = 0
+	glutWireCube                    
+
+glutWireDodecahedron	size = 0
+	glutWireDodecahedron            
+
+glutWireIcosahedron	size = 0
+	glutWireIcosahedron             
+
+glutWireOctahedron	size = 0
+	glutWireOctahedron              
+
+glutWireSphere	size = 0
+	glutWireSphere                  
+
+glutWireTeapot	size = 0
+	glutWireTeapot                  
+
+glutWireTetrahedron	size = 0
+	glutWireTetrahedron             
+
+glutWireTorus	size = 0
+	glutWireTorus                   

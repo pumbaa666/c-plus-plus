@@ -1,0 +1,63 @@
+<HEAD>
+<TITLE>glXQueryVersion.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXQueryVersion.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXQueryVersion.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryVersion.html">glXQueryVersion</A> - return the version numbers of the GLX extension
+
+
+</PRE><H2>C Specification</H2><PRE>
+  Bool <A HREF="glXQueryVersion.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryVersion.html">glXQueryVersion</A>(	Display	*<I>dpy</I>,
+			int *<I>major</I>,
+			int *<I>minor</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	 Specifies the connection to the X server.
+
+
+  <I>major</I>	 Returns the major version number of the GLX server extension.
+
+
+  <I>minor</I>	 Returns the minor version number of the GLX server extension.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXQueryVersion.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryVersion.html">glXQueryVersion</A> returns the major and minor version numbers of the GLX
+  extension available on the connection <I>dpy</I>. The client library and the
+  server implementations must have the same major version number or else
+  glXQueryVersion will return False. The minor version that is returned is 
+  the minimum of the two minor version numbers.
+
+  <I>major</I> and <I>minor</I> do not return values if they are specified as NULL.
+
+
+</PRE><H2>Errors</H2><PRE>
+  <A HREF="glXQueryVersion.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryVersion.html">glXQueryVersion</A> returns False	if it fails, True otherwise.  <I>major</I> and	<I>minor</I>
+  are not updated when False is	returned.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXQueryExtension.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryExtension.html">glXQueryExtension</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Thu Mar 16, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

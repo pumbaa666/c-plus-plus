@@ -1,0 +1,233 @@
+<HEAD>
+<TITLE>OpenGL Index of routines in Specification Order</TITLE>
+</HEAD>
+<BODY>
+<H3> Table of Contents</H3>
+<A HREF="#chap2">Chapter 2. Fundamentals</A><P>
+<A HREF="#chap3">Chapter 3. Rasterization</A><P>
+<A HREF="#chap4">Chapter 4. Per-Fragment Operations and the Framebuffer</A><P>
+<A HREF="#chap5">Chapter 5. Special Functions</A><P>
+<A HREF="#chap6">Chapter 6. State and State Requests</A><P>
+<A HREF="#glx">OpenGL on the X Window System(tm)</A><P>
+<A HREF="#glu">The OpenGL Utility Library</A><P>
+<A HREF="#vext">The Vertex Array Extension</A>
+<A NAME="chap2"></A><H3> Chapter 2. Fundamentals </H3>
+<DL>
+<DT> <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> <DD>	glGetError
+<DT> <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> <DD>	glBegin, glEnd
+<DT> <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A> <DD>	glVertex2d, glVertex2dv, glVertex2f, glVertex2fv, glVertex2i, glVertex2iv, glVertex2s, glVertex2sv, glVertex3d, glVertex3dv, glVertex3f, glVertex3fv, glVertex3i, glVertex3iv, glVertex3s, glVertex3sv, glVertex4d, glVertex4dv, glVertex4f, glVertex4fv, glVertex4i, glVertex4iv, glVertex4s, glVertex4sv
+<DT> <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A> <DD>	glNormal3b, glNormal3bv, glNormal3d, glNormal3dv, glNormal3f, glNormal3fv, glNormal3i, glNormal3iv, glNormal3s, glNormal3sv
+<DT> <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A> <DD>	glColor3b,  glColor3bv, glColor3d, glColor3dv, glColor3f, glColor3fv, glColor3i, glColor3iv, glColor3s, glColor3sv, glColor3ub, glColor3ubv, glColor3ui, glColor3uiv, glColor3us, glColor3usv, glColor4b, glColor4bv, glColor4d, glColor4dv, glColor4f, glColor4fv, glColor4i, glColor4iv, glColor4s, glColor4sv, glColor4ub, glColor4ubv, glColor4ui, glColor4uiv, glColor4us, glColor4usv
+<DT> <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A> <DD>	glIndexd, glIndexdv, glIndexf, glIndexfv, glIndexi, glIndexiv, glIndexs, glIndexsv
+<DT> <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A> <DD>	glTexCoord1d, glTexCoord1dv, glTexCoord1f, glTexCoord1fv, glTexCoord1i, glTexCoord1iv, glTexCoord1s, glTexCoord1sv, glTexCoord2d, glTexCoord2dv, glTexCoord2f, glTexCoord2fv, glTexCoord2i, glTexCoord2iv, glTexCoord2s, glTexCoord2sv, glTexCoord3d, glTexCoord3dv, glTexCoord3f, glTexCoord3fv, glTexCoord3i, glTexCoord3iv, glTexCoord3s, glTexCoord3sv, glTexCoord4d, glTexCoord4dv, glTexCoord4f, glTexCoord4fv, glTexCoord4i, glTexCoord4iv, glTexCoord4s, glTexCoord4sv
+<DT> <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A> <DD>	glEdgeFlag, glEdgeFlagv
+<DT> <A HREF="glRect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRect.html">glRect</A> <DD>	glRectd, glRectdv, glRectf, glRectfv, glRecti, glRectiv, glRects, glRectsv
+<DT> <A HREF="glViewport.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glViewport.html">glViewport</A> <DD>	glViewport
+<DT> <A HREF="glDepthRange.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthRange.html">glDepthRange</A> <DD>	glDepthRange
+<DT> <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A> <DD>	glMatrixMode
+<DT> <A HREF="glLoadMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadMatrix.html">glLoadMatrix</A> <DD>	glLoadMatrixd, glLoadMatrixf
+<DT> <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A> <DD>	glMultMatrixd, glMultMatrixf
+<DT> <A HREF="glLoadIdentity.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadIdentity.html">glLoadIdentity</A> <DD>	glLoadIdentity
+<DT> <A HREF="glRotate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRotate.html">glRotate</A> <DD>	glRotated, glRotatef
+<DT> <A HREF="glTranslate.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTranslate.html">glTranslate</A> <DD>	glTranslated, glTranslatef
+<DT> <A HREF="glScale.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScale.html">glScale</A> <DD>	glScaled, glScalef
+<DT> <A HREF="glFrustum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrustum.html">glFrustum</A> <DD>	glFrustum
+<DT> <A HREF="glOrtho.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glOrtho.html">glOrtho</A> <DD>	glOrtho
+<DT> <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A> <DD>	glPushMatrix, glPopMatrix
+<DT> <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> <DD>	glEnable, glDisable
+<DT> <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A> <DD>	glTexGend, glTexGendv, glTexGenf, glTexGenfv, glTexGeni, glTexGeniv
+<DT> <A HREF="glClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClipPlane.html">glClipPlane</A> <DD>	glClipPlane
+<DT> <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A> <DD>	glRasterPos2d, glRasterPos2dv, glRasterPos2f, glRasterPos2fv, glRasterPos2i, glRasterPos2iv, glRasterPos2s, glRasterPos2sv, glRasterPos3d, glRasterPos3dv, glRasterPos3f, glRasterPos3fv, glRasterPos3i, glRasterPos3iv, glRasterPos3s, glRasterPos3sv, glRasterPos4d, glRasterPos4dv, glRasterPos4f, glRasterPos4fv, glRasterPos4i, glRasterPos4iv, glRasterPos4s, glRasterPos4sv
+<DT> <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A> <DD>	glFrontFace
+<DT> <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A> <DD>	glMaterialf, glMaterialfv, glMateriali, glMaterialiv
+<DT> <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A> <DD>	glLightf, glLightfv, glLighti, glLightiv
+<DT> <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A> <DD>	glLightModelf, glLightModelfv, glLightModeli, glLightModeliv
+<DT> <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A> <DD>	glColorMaterial
+<DT> <A HREF="glShadeModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glShadeModel.html">glShadeModel</A> <DD>	glShadeModel
+</DL>
+<A NAME="chap3"></A><H3> Chapter 3. Rasterization</H3>
+<DL>
+<DT> <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A> <DD>	glPointSize
+<DT> <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A> <DD>	glLineWidth
+<DT> <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A> <DD>	glLineStipple
+<DT> <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A> <DD>	glCullFace
+<DT> <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A> <DD>	glPolygonStipple
+<DT> <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A> <DD>	glPolygonMode
+<DT> <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A> <DD>	glPixelStoref, glPixelStorei
+<DT> <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A> <DD>	glPixelTransferf, glPixelTransferi
+<DT> <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A> <DD>	glPixelMapfv, glPixelMapuiv, glPixelMapusv
+<DT> <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A> <DD>	glDrawPixels
+<DT> <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A> <DD>	glPixelZoom
+<DT> <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A> <DD>	glBitmap
+<DT> <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> <DD>	glTexImage2D
+<DT> <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> <DD>	glTexImage1D
+<DT> <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A> <DD>	glTexParameterf, glTexParameterfv, glTexParameteri, glTexParameteriv
+<DT> <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A> <DD>	glTexEnvf, glTexEnvfv, glTexEnvi, glTexEnviv
+<DT> <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A> <DD>	glFogf, glFogfv, glFogi, glFogiv
+</DL>
+<A NAME="chap4"></A>
+<H3> Chapter 4. Per-Fragment Operations and the Framebuffer</H3>
+<DT> <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A> <DD>	glScissor
+<DT> <A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A> <DD>	glAlphaFunc
+<DT> <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A> <DD>	glStencilFunc
+<DT> <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A> <DD>	glStencilOp
+<DT> <A HREF="glDepthFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthFunc.html">glDepthFunc</A> <DD>	glDepthFunc
+<DT> <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A> <DD>	glBlendFunc
+<DT> <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A> <DD>	glLogicOp
+<DT> <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A> <DD>	glDrawBuffer
+<DT> <A HREF="glIndexMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexMask.html">glIndexMask</A> <DD>	glIndexMask
+<DT> <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A> <DD>	glColorMask
+<DT> <A HREF="glDepthMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthMask.html">glDepthMask</A> <DD>	glDepthMask
+<DT> <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A> <DD>	glStencilMask
+<DT> <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A> <DD>	glClear
+<DT> <A HREF="glClearColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearColor.html">glClearColor</A> <DD>	glClearColor
+<DT> <A HREF="glClearIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearIndex.html">glClearIndex</A> <DD>	glClearIndex
+<DT> <A HREF="glClearDepth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearDepth.html">glClearDepth</A> <DD>	glClearDepth
+<DT> <A HREF="glClearStencil.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearStencil.html">glClearStencil</A> <DD>	glClearStencil
+<DT> <A HREF="glClearAccum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearAccum.html">glClearAccum</A> <DD>	glClearAccum
+<DT> <A HREF="glAccum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAccum.html">glAccum</A> <DD> glAccum
+<DT> <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> <DD>	glReadPixels
+<DT> <A HREF="glReadBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadBuffer.html">glReadBuffer</A> <DD>	glReadBuffer
+<DT> <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A> <DD>	glCopyPixels
+</DL>
+<A NAME=chap5></A><H3> Chapter 5. Special Functions</H3>
+<DL>
+<DT> <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A> <DD>	glMap1d, glMap1f
+<DT> <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A> <DD>	glMap2d, glMap2f
+<DT> <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A> <DD>	glEvalCoord1d, glEvalCoord1dv, glEvalCoord1f, glEvalCoord1fv, glEvalCoord2d, glEvalCoord2dv, glEvalCoord2f, glEvalCoord2fv
+<DT> <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A> <DD>	glMapGrid1d, glMapGrid1f, glMapGrid2d, glMapGrid2f
+<DT> <A HREF="glEvalMesh.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalMesh.html">glEvalMesh</A> <DD>	glEvalMesh1, glEvalMesh2
+<DT> <A HREF="glEvalPoint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalPoint.html">glEvalPoint</A> <DD>	glEvalPoint1, glEvalPoint2
+<DT> <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A> <DD>	glInitNames
+<DT> <A HREF="glPushName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushName.html">glPushName</A> <DD>	glPushName, glPopName
+<DT> <A HREF="glLoadName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadName.html">glLoadName</A> <DD>	glLoadName
+<DT> <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> <DD>	glRenderMode
+<DT> <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> <DD>	glSelectBuffer
+<DT> <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> <DD>	glFeedbackBuffer
+<DT> <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A> <DD>	glPassThrough
+<DT> <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A> <DD>	glNewList, glEndList
+<DT> <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A> <DD>	glCallList
+<DT> <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> <DD>	glCallLists
+<DT> <A HREF="glListBase.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glListBase.html">glListBase</A> <DD>	glListBase
+<DT> <A HREF="glGenLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGenLists.html">glGenLists</A> <DD>	glGenLists
+<DT> <A HREF="glIsList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsList.html">glIsList</A> <DD>	glIsList
+<DT> <A HREF="glDeleteLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDeleteLists.html">glDeleteLists</A> <DD>	glDeleteLists
+<DT> <A HREF="glFlush.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFlush.html">glFlush</A> <DD>	glFlush
+<DT> <A HREF="glFinish.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFinish.html">glFinish</A> <DD>	glFinish
+<DT> <A HREF="glHint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glHint.html">glHint</A> <DD>	glHint
+</DL>
+<A NAME="chap6"></A><H3> Chapter 6. State and State Requests</H3>
+<DL>
+<DT> <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A> <DD>	glGetBooleanv, glGetDoublev, glGetFloatv, glGetIntegerv
+<DT> <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> <DD>	glIsEnabled
+<DT> <A HREF="glGetClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetClipPlane.html">glGetClipPlane</A> <DD>	glGetClipPlane
+<DT> <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLight</A> <DD>	glGetLightfv, glGetLightiv
+<DT> <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterial</A> <DD>	glGetMaterialfv, glGetMaterialiv
+<DT> <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnv</A> <DD>	glGetTexEnvfv, glGetTexEnviv
+<DT> <A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGen</A> <DD>	glGetTexGendv, glGetTexGenfv, glGetTexGeniv
+<DT> <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A> <DD>	glGetTexParameterfv, glGetTexParameteriv
+<DT> <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> <DD>	glGetTexLevelParameterfv, glGetTexLevelParameteriv
+<DT> <A HREF="glGetPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPixelMap.html">glGetPixelMap</A> <DD>	glGetPixelMapfv, glGetPixelMapuiv, glGetPixelMapusv
+<DT> <A HREF="glGetMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMap.html">glGetMap</A> <DD>	glGetMapdv, glGetMapfv, glGetMapiv
+<DT> <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A> <DD>	glGetTexImage
+<DT> <A HREF="glGetPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPolygonStipple.html">glGetPolygonStipple</A> <DD>	glGetPolygonStipple
+<DT> <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A> <DD>	glGetString
+<DT> <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> <DD>	glPushAttrib, glPopAttrib
+</DL>
+<A NAME="glx"></A><H3> OpenGL on the X Window System(tm)</H3>
+<DL>
+<DT> <A HREF="glXIntro.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIntro.html">glXIntro</A> <DD> Introduction
+<DT> <A HREF="glXQueryExtension.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryExtension.html">glXQueryExtension</A> <DD>	glXQueryExtension
+<DT> <A HREF="glXQueryVersion.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXQueryVersion.html">glXQueryVersion</A> <DD>	glXQueryVersion
+<DT> <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A> <DD>	glXGetConfig
+<DT> <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A> <DD>	glXChooseVisual
+<DT> <A HREF="glXCreateGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateGLXPixmap.html">glXCreateGLXPixmap</A> <DD>	glXCreateGLXPixmap
+<DT> <A HREF="glXDestroyGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyGLXPixmap.html">glXDestroyGLXPixmap</A> <DD>	glXDestroyGLXPixmap
+<DT> <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A> <DD>	glXCreateContext
+<DT> <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A> <DD>	glXIsDirect
+<DT> <A HREF="glXDestroyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyContext.html">glXDestroyContext</A> <DD>	glXDestroyContext
+<DT> <A HREF="glXCopyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCopyContext.html">glXCopyContext</A> <DD>	glXCopyContext
+<DT> <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> <DD>	glXMakeCurrent
+<DT> <A HREF="glXGetCurrentContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetCurrentContext.html">glXGetCurrentContext</A> <DD>	glXGetCurrentContext
+<DT> <A HREF="glXGetCurrentDrawable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetCurrentDrawable.html">glXGetCurrentDrawable</A> <DD>	glXGetCurrentDrawable
+<DT> <A HREF="glXWaitGL.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitGL.html">glXWaitGL</A> <DD>	glXWaitGL
+<DT> <A HREF="glXWaitX.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXWaitX.html">glXWaitX</A> <DD>	glXWaitX
+<DT> <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A> <DD>	glXSwapBuffers
+<DT> <A HREF="glXUseXFont.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXUseXFont.html">glXUseXFont</A> <DD>	glXUseXFont
+</DL>
+<A NAME="glu"></A><H3> The OpenGL Utility Library</H3>
+<P><A HREF="opengl_new_glu.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_new_glu.html">See notes on the new GLU tesselator</A><BR><BR>
+<DL>
+<DT> <A HREF="gluScaleImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluScaleImage.html">gluScaleImage</A> <DD>	gluScaleImage
+<DT> <A HREF="gluBuild1DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild1DMipmaps.html">gluBuild1DMipmaps</A> <DD>	gluBuild1DMipmaps
+<DT> <A HREF="gluBuild2DMipmaps.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBuild2DMipmaps.html">gluBuild2DMipmaps</A> <DD>	gluBuild2DMipmaps
+<DT> <A HREF="gluOrtho2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluOrtho2D.html">gluOrtho2D</A> <DD>	gluOrtho2D
+<DT> <A HREF="gluPerspective.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPerspective.html">gluPerspective</A> <DD>	gluPerspective
+<DT> <A HREF="gluLookAt.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLookAt.html">gluLookAt</A> <DD>	gluLookAt
+<DT> <A HREF="gluPickMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPickMatrix.html">gluPickMatrix</A> <DD>	gluPickMatrix
+<DT> <A HREF="gluProject.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluProject.html">gluProject</A> <DD>	gluProject
+<DT> <A HREF="gluUnProject.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluUnProject.html">gluUnProject</A> <DD>	gluUnProject
+<DT> <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A> <DD>	gluNewQuadric
+<DT> <A HREF="gluDeleteQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDeleteQuadric.html">gluDeleteQuadric</A> <DD>	gluDeleteQuadric
+<DT> <A HREF="gluQuadricCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricCallback.html">gluQuadricCallback</A> <DD>	gluQuadricCallback
+<DT> <A HREF="gluQuadricNormals.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricNormals.html">gluQuadricNormals</A> <DD>	gluQuadricNormals
+<DT> <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A> <DD>	gluQuadricTexture
+<DT> <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A> <DD>	gluQuadricOrientation
+<DT> <A HREF="gluQuadricDrawStyle.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricDrawStyle.html">gluQuadricDrawStyle</A> <DD>	gluQuadricDrawStyle
+<DT> <A HREF="gluSphere.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluSphere.html">gluSphere</A> <DD>	gluSphere
+<DT> <A HREF="gluCylinder.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluCylinder.html">gluCylinder</A> <DD>	gluCylinder
+<DT> <A HREF="gluDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDisk.html">gluDisk</A> <DD>	gluDisk
+<DT> <A HREF="gluPartialDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPartialDisk.html">gluPartialDisk</A> <DD>	gluPartialDisk
+<DT> <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A> <DD>	gluNewNurbsRenderer
+<DT> <A HREF="gluDeleteNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDeleteNurbsRenderer.html">gluDeleteNurbsRenderer</A> <DD>	gluDeleteNurbsRenderer
+<DT> <A HREF="gluNurbsCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCallback.html">gluNurbsCallback</A> <DD>	gluNurbsCallback
+<DT> <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A> <DD>	gluBeginCurve, gluEndCurve
+<DT> <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A> <DD>	gluNurbsCurve
+<DT> <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A> <DD>	gluBeginSurface, gluEndSurface
+<DT> <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> <DD>	gluNurbsSurface
+<DT> <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A> <DD>	gluBeginTrim, gluEndTrim
+<DT> <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A> <DD>	gluPwlCurve
+<DT> <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A> <DD>	gluNurbsProperty
+<DT> <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A> <DD>	gluLoadSamplingMatrices
+<DT> <A HREF="gluGetNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetNurbsProperty.html">gluGetNurbsProperty</A> <DD>	gluGetNurbsProperty
+<DT> <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A> <DD>	gluErrorString
+</DL>
+<P>The GLU tesselator for GLU versions 1.0 and 1.1:
+<DL>
+<DT> <A HREF="gluNewTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess10.html">gluNewTess</A> <DD>	gluNewTess
+<DT> <A HREF="gluDeleteTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDeleteTess10.html">gluDeleteTess</A> <DD>	gluDeleteTess
+<DT> <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A> <DD>	gluTessCallback
+<DT> <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluBeginPolygon</A> <DD>	gluBeginPolygon, gluEndPolygon
+<DT> <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A> <DD>	gluTessVertex
+<DT> <A HREF="gluNextContour10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour10.html">gluNextContour</A> <DD>	gluNextContour
+</DL>
+<P>The GLU tesselator for GLU version 1.2 and later:
+<DL>
+<DT> <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A> <DD>	gluNewTess
+<DT> <A HREF="gluDeleteTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDeleteTess.html">gluDeleteTess</A> <DD>	gluDeleteTess
+<DT> <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A> <DD>	gluTessCallback
+<DT> <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> <DD> gluTessBeginPolygon 
+<DT> <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A> <DD> gluTessEndPolygon
+<DT> <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A> <DD>	gluTessVertex
+<DT> <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A> <DD>	
+gluBeginContour, gluEndContour
+<DT> <A HREF="gluTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessProperty.html">gluTessProperty</A> <DD> gluTessProperty
+<DT> <A HREF="gluGetTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetTessProperty.html">gluGetTessProperty</A> <DD> gluGetTessProperty
+<DT> <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A> <DD> gluTessNormal
+<DT> <A HREF="gluBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon.html">gluBeginPolygon</A> <DD> gluBeginPolygon, gluEndPolygon (Obsolete)
+<DT> <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A> <DD> gluNextContour (Obsolete)
+</DL>
+<A NAME="vext"></A><H3> The Vertex Array Extension</H3>
+<DL>
+<DT> <A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A> <DD> glArrayElementEXT
+<DT> <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A> <DD> glColorPointerEXT
+<DT> <A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A> <DD> glDrawArraysEXT
+<DT> <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A> <DD> glEdgeFlagPointerEXT
+<DT> <A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A> <DD> glGetPointervEXT
+<DT> <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A> <DD> glIndexPointerEXT
+<DT> <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A> <DD> glNormalPointerEXT
+<DT> <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> <DD> glTexCoordPointerEXT
+<DT> <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A> <DD> glVertexPointerEXT
+</DL>
+</BODY>
+</HTML>

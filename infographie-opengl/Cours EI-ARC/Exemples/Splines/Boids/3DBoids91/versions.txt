@@ -1,0 +1,539 @@
+
+3D Boids Version Information
+============================
+
+v0.91     Start Date: 26/12/2001   Finish Date: 27/12/2001
+        - Removed the frame rate regulation/timing.  This allows the
+          user to specify perfect frame synchronization or not by using
+          their graphic card's advanced settings (OpenGL vertical sync).
+          This solution provides the best performance across all the
+          versions of the Windows platform.
+        - Created and implemented a small black crosshair into the
+          OpenGL view in the MFC Document/View Architecture.
+
+v0.9      Start Date: 27/09/2001   Finish Date: 05/11/2001
+        - Improved the about dialog so that the cursor and hyperlinks do
+          not flicker unnecessarily.
+        - Renamed the boid behaviours to cohesion, alignment and
+          separation as now used by Craig Reynolds.
+        - The V-Formation behaviour is now set to off as default.
+        - Changed the colouring of the towers to a natural looking brown
+          colour.
+        - Changed the landscape collision avoidance representation from
+          dots to lines.  This gives greater visibility at higher
+          resolutions and also looks more appropriate.
+        - Changed the maximum number of possible boids from 100 to 200.
+        - Fixed a subtle bug where the flocking radius was wrongly used
+          instead of the flock forming distance for the cohesion
+          behaviour calculations.
+        - Inverted the 'Camera Zoom' slider to become the 'Camera Distance'.
+        - Added values to the control panel to display the current camera
+          distance with also its elevation and rotation angles.
+        - Corrected the 'Set Window Size' menu function to ONLY set the
+          window size, instead of also repositioning it.
+        - Added an new option of having a coastline as the landscape.
+        - Added an new option of having a pier structure on the landscape.
+        - Increased the gap of the landscape's wireframe overlay to prevent
+          some minor stitching.
+        - Added a fantastic speed optimization for when the user has the
+          mouse over the OpenGL viewport to select a boid.  This almost
+          doubles the frame rate =)
+        - Added the flyer size to the control panel above the size slider.
+        - Added an extra condition to prevent the camera from being
+          incorrectly moved when the menu bar is activated and then the
+          viewport is clicked.
+        - Improved the menu bar so that each menu item is only represented
+          by a single word.  This is the convention used by most GUI
+          applications.
+        - Created a colour selection dialog and added menu options for the
+          user to change the colour of the boids or the background.
+        - Added an option to animate the sea.
+        - Made the sea slightly transparent.
+
+v0.82     Start Date: 22/06/2001   Finish Date: 15/07/2001
+        - Enhanced the simulation's timing by using a much better system,
+          a high-resolution performance counter to be precise.  This
+          produces very smooth timing in all versions of Windows, so
+          all the previous jerkiness has at last been removed  :-)
+        - Improved the frame rate regulation by using the above counter
+          with an even more efficient and accurate algorithm.
+        - Slightly reduced the size of the animated bird mesh to be more
+          proportional to the other meshes.
+        - Fixed a minor bug that prevented the wireframe landscape from
+          being recalculated or flattened.
+        - Improved the underlying object oriented design, making more use
+          of inheritance and generic classes.
+        - Improved the orientation calculations used for positioning the
+          text to face the camera.  The generic classes were invaluable
+          for this enhancement.
+        - Reproduced all the flyer meshes so that their orientation points
+          towards the positive z axis.  This enables all meshes to be
+          oriented the same way, especially with the 3D text.  Doing this
+          also optimized the mesh definitions, providing a more compact
+          executable file for the final release.
+        - Improved the timing of the wing flapping, so to prevent any
+          jerkiness when the simulation is repeatedly stopped and
+          restarted.
+        - Changed internal colour representations to all use the same
+          system, which is now floating point numbers.
+        - Fixed a little juddering that occurred with the new V-formation
+          behaviour.  Also removed the blue lines that showed the vector
+          calculation offsets.
+        - Added a bit more speed control to the boids, making them
+          accelerate in certain circumstances, like when leading a
+          V-formation.
+        - Added an extra behaviour control option to fix the boids speed,
+          this makes the boids behave purely by steering themselves, as
+          in the original model defined by Craig Reynolds.  The fixed
+          speed of the boids is set as the average of the maximum and
+          minimum speed limits.
+        - Improved the effectiveness of the random orientation for newly
+          created boids.
+
+v0.8      Start Date: 23/01/2001   Finish Date: 22/04/2001
+        - Improved the flock forming algorithm.  So instead of moving to
+          the nearest boid, the boid moves to the average position of the
+          other boids in its visible range.
+        - Added a new wing flapping offset variable for each boid, this
+          allows the boids to have individual wing stroke phases.
+        - Reduced the sizes of the tetra meshes to make them more
+          proportional with the sizes of the other meshes.
+        - Implemented behaviour weights so that no particular behaviour
+          can override an other.  These weights are hard-coded into the
+          source code.
+        - Added a random behaviour option.  This allows the boids to
+          behave in a chaotic fashion, in accordance with the current
+          hard-coded weightings.
+        - Added some very versatile camera control via dragging the mouse
+          pointer over the OpenGL view-port.
+        - Added an elevation slider to provide full 3D camera control.
+        - Improved the landscape avoidance to prevent the boids clipping
+          the tower as they fly past it.
+        - Added the option of showing the boids landscape avoidance
+          behaviour.
+        - Added input validation to the flyer behaviour attributes dialog.
+        - Added three new GUI buttons to Move camera to the next or
+          previous boid and change the type of camera view.
+        - Added the ability for the user to select a boid by using the
+          mouse.  The camera moves to the selected boid when the left
+          mouse button is single or double clicked.  Additionally the
+          boid changes colour to orange when the mouse is over it, this
+          assists the user in correctly selecting it.
+        - Added smooth camera transitions when the position of the camera
+          is changed by moving to another view type or boid.
+        - Added three options for numbering the boids: full, mouse-over
+          and no numbering.
+        - Added four new main menu options for setting the number of
+          towers in the landscape: 0, 1, 2, or 4.  The default number of
+          towers has now been set to 2.
+        - Added option to render the boids as sets of points.
+        - Added option to render the landscape as a flat plane.  This
+          facility makes the chequered colouring look quite good.
+        - Added V-formation behaviour to the boids.  This can be activated
+          or deactivated via the main menu and keyboard as with the
+          other behaviours.
+        - Added an extra menu item, to toggle the display of formation
+          calculations as lines in OpenGL.
+        - Improved the 'about' dialog box to be a proper dialog box
+          complete with icon, coloured hyperlinks and mouse-over effects.
+        - Added frame rate regulation, to limit demands on the hardware.
+          The starting vertical refresh rate is used as the upper limit
+          and the lower limit is set to 20 frames below this.  In
+          Windows 9x, the upper frame rate limit is set to 85Hz as default.
+        - Fixed a bug that caused the full screen mode not to be displayed
+          properly, when the control panel was hidden on changing modes.
+
+v0.7      Start Date: 18/04/2000   Finish Date: 16/07/2000
+        - Converted the boids project to use the OpenGL graphics API.
+          This sometimes produces just over 12x the performance as compared
+          to D3DRM, using the same testing conditions.
+        - Converted the internal class structure of the application to
+          use the MFC Document View architecture.  This allows a splitter
+          window to be used.  A splitter window is needed with OpenGL
+          to prevent the MFC controls from flickering when double
+          buffering is performed.
+        - Added some nice colour interpolation to the tower.
+        - Improved the camera view to the first boid.  Giving more
+          independence of its orientation.  This makes the view seem
+          more stable and also shows the boids turning motion quite well.
+
+v0.54     Start Date: 04/03/2000   Finish Date: 18/04/2000
+        - Simplified and optimized the code that generates the landscape,
+          this produces a worthy performance increase of up to 33%.
+
+v0.53     Start Date: 31/01/2000   Finish Date: 04/03/2000
+        - Implemented a new Windows multitasking system that keeps
+          consistent good performance and responsiveness in NT and 9x.
+        - Reordered the sequence of the multitasking flags to a safer order.
+        - Made the multitasking data members volatile to prevent any errors
+          that could be caused by compiler optimizations.
+        - Moved the window size member to the windows class from the
+          application class.  To improve the object oriented design.
+        - Fixed a slight bug which caused a crash in Win98 when sometimes
+          resizing the main window.
+        - Improved the responsiveness in Win2000 when the window is resized.
+        - Improved the responsiveness of the control panel controls when
+          redrawn in Windows 2000.
+        - Improved the overall update frequency of the control panel's
+          static controls.
+        - Fixed a slight bug which caused a crash when full screen mode was
+          repeatedly and rapidly activated in Win98.
+
+v0.52     Start Date: 23/01/2000   Finish Date: 31/01/2000
+        - Added extra functionality to enable the states of the boids to be
+          saved or loaded to/from a configuration file (.ini).  The file is
+          produced in a human readable form, so that settings can be manually
+          adjusted.
+        - Created an icon for the application.
+        - Set the window's client area background brush to a hollow type.
+          This helps to prevent overlapping windows erasing the graphics.
+        - Added a new dialog box to allow some flyer attributes to be adjusted.
+
+v0.51     Start Date: 24/12/1999   Finish Date: 23/01/2000
+        - Re-designed and re-implemented the simulation's multitasking to become
+          more responsive and optimized for Windows2000 and NT in general.
+          This is considered to be the best approach to take, because of the
+          long term shift towards NT based operating systems from Microsoft.
+          Doing this helps to ensure the application's longevity.
+        - Fixed a slight problem with Windows2000, added code to make the
+          display dialog box always appear as the topmost window.
+        - Implemented gradual change over of the boids meshes.  This prevents
+          the simulation from locking up when changing to a large mesh.
+        - Changed from using the MFC timer to using the system clock.  This
+          increases accuracy, especially in Windows2000 which didn't work
+          properly.
+        - Added some code to stop the boids wings from flapping when they are
+          prevented from moving by overloading.
+        - Added options for the colouring of the solid landscape.  Included an
+          option to set the land to a chequered black and white style.
+        - Added options for setting the colours of the flyers.  This is needed
+          for contrasting the colours to the chequered landscape colours.
+
+v0.5      Start Date: 02/12/1999   Finish Date: 24/12/1999
+        - Added a simple pointed brown tower to the landscape, for testing the
+          boids new collision avoidance AI to be implemented.
+        - Enhanced the accuracy of the landscape collision detection by using
+          the correct mathematical 3D plane equations.
+        - Added some preliminary landscape tower avoidance AI.
+        - Added a proper rectangular tower to the landscape.
+        - Tested in Windows 2000 RC2 and found that the thread priorities are
+          very different.  But there is no problem in 98 and NT4, therefore
+          I have decided to wait for a newer version of Win2000 for testing.
+        - Fixed a minor bug with adding too many extra boids via the keyboard.
+        - Added a new constant UPWARD_ANGLE_FROM_COLLISION for last resort
+          collision avoidance behaviour.
+        - Added a new constant SIDE_CLEARANCE_ANGLE for giving the boids some
+          very basic side clearance around the towers.
+
+v0.498    Start Date: 11/11/1999   Finish Date: 02/12/1999
+        - Added code to prevent the simulation changing the mesh to a type that
+          is already in use.
+        - Added code to allow the landscape to have a wireframe overlay.
+        - Changed the camera menu item from 'From Boid' to 'To Boid'.
+        - Added a new constant called MAXIMUM_TIMESPAN to prevent the boids from
+          jumping when then next update is delayed.  This improvement also stops
+          the boids from being interfered with when their meshes are changed.
+        - Set the optimum priority for the rendering thread in NT4 to be
+          THREAD_PRIORITY_BELOW_NORMAL, found that one this works the best.
+        - Changed the select full screen mode dialog to have the default button
+          as Activate mode.  Seems more appropriate and intuitive.
+        - Added code to prevent the 'To Boid' camera view from going inside
+          the boid.
+
+v0.497    Start Date: 26/10/1999   Finish Date: 11/11/1999
+        - Experimented and investigated ways of increasing the responsiveness of
+          the user interface sliders.  Decided to place a limit on the minimum
+          frame rate to prevent any slow down and crashing.  When the limit is
+          exceeded the number of boids will become restricted.
+        - Implemented some features to prevent user overloading the simulation.
+        - Fixed a bug when adding boids to the scene, have to stop the rendering
+          thread while doing this.
+        - Added code to destroy the menu when in full screen mode.
+        - Added code to re-style the window as a POPUP when in full screen mode.
+
+v0.496    Start Date: 23/10/1999   Finish Date: 26/10/1999
+        - Fixed a bug with the update of the static control showing the number
+          of flyers active.
+        - Added a dialog box that allows the user to select and activate
+          available display modes.
+        - Tested the display modes in NT4.  Found that low resolution modes were
+          a little unstable concerning the restoration of the windowed mode.
+        - Tested the display modes dialog in Windows 2000 beta3.  Found that
+          the dialog was not properly presented when first created.  It remained
+          hidden under the main window.
+        - Added menu options and accelerator keys to set the size of the window.
+
+v0.4952   Start Date: 03/10/1999   Finish Date: 23/10/1999
+        - Added a Boolean data member to the window class for full screen mode.
+        - Added a flag to determine whether the simulation starts up in a window
+          or full screen mode.
+        - Changed the name of the function OnStop to OnStartStop.
+        - Added a menu item to start or stop the simulation.
+        - Tested full screen mode in NT5 beta3 and found that if the mouse is
+          displayed it interferes with the smoothness of the rendering.  NT4 was
+          fine with the mouse present.
+        - Added a flag to the main window to state whether to shutdown or not.
+        - Added menu items to allow the user to change the display mode.
+        - Added code to return the focus back to the main window when one of the
+          control panel controls has been used.  This allows the user to press
+          the ESC key, especially when in full screen mode.
+        - Added code to allow the user to change to full screen mode via the
+          menu.
+        - Added code to allow the user to change back to windowed mode from full
+          screen mode, by pressing the ESC key.
+        - Added a colour data member to the flyer boid.
+        - Changed the background colour from light grey to a sky light blue.
+        - Added a little ambient light to the scene.
+        - Fixed a bug when starting up in full screen mode and later changing
+          back to windowed mode via the menu.  The restore size of the window
+          was invalid.
+        - Added the option of making the control panel hide / show via the
+          menu bar.
+        - Also added the option of showing the control panel on startup via the
+          default constants.
+        - Improved and experimented with the boid camera views code.
+        - Added a new size data member to the flyer class.
+        - Added a new getSize member function to the flyer class and updated
+          other parts of program code to use it.
+        - Fixed the bug when the window is maximised and full screen is set, and
+          then windowed is restored to fill the whole screen.
+        - Tried to implement ALT + ENTER keyboard command via the GetKeyState
+          function but it failed to work properly.
+        - Added Accelerator keys and also replaced the previous keyboard event
+          handler.
+        - Added keyboard control for the slider controls.
+        - Changed the parameter on the add & remove flyers methods to the amount
+          to add or remove.
+        - Added code to stop the simulation while changing the boid's meshes.
+        - Fixed a bug with the camera position slider in the NSEW views (a zero
+          value).
+        - Added code to make the camera rotation slider wrap around smoothly.
+        - Added a menu item and keyboard command to centre the camera rotation.
+        - Added code to refresh the whole viewport every second, to
+          clear up junk.
+        - Added code to repaint all the control panel controls every second, to
+          clear up junk.
+
+v0.4951   Start Date: 29/09/1999   Finish Date: 03/10/1999
+        - Changed the mode of operation to a full screen mode application.
+        - Added keyboard functionality to allow the user to press the escape key
+          to exit the application.
+
+v0.495    Start Date: 25/09/1999   Finish Date: 29/09/1999
+        - Added extra boid mesh shape options that can be activated by the menu.
+        - Added animated flapping wings to a selectable boid mesh.
+        - Experimented with increasing the precision of the maths to prevent any
+          juddering when viewed from a boid camera position.  But found that the
+          best improvement was to run the simulation in Windows NT for great
+          smoothness.  Therefore I left the maths precision as it was
+          previously.
+        - Changed name from BoidsObj to BoidsFlyer.
+        - Improved land collision detection, by performing a coordinate check on
+          the selected patch.
+        - Improved collision avoidance with the landscape by increasing the rate
+          of change of velocity of the boids.  This allows them to turn faster.
+        - Added a new constant to the flyer boid for the acceleration rate.
+        - Added another new constant for the flying boids clearance distance
+          from the landscape.
+
+v0.4944   Start Date: 14/09/1999   Finish Date: 25/09/1999
+        - Implemented a second thread for the D3D rendering and GUI update.
+          This solves the problem of the about box erasing the rendered image,
+          also the disruption and timing interference when manipulating the
+          window.  This addition works very well in Windows 2000 which is good
+          for future usage.
+        - Found that also using the onIdle function to render in addition to the
+          rendering thread, can increase the frame rates in Windows 98.
+          No problems encountered with this in all the other versions of
+          Windows.
+        - Fixed the problems of using the camera on a boid with zero
+          boids in use.
+        - Fixed the problem of using the GUID, by including the proper library.
+        - Cleaned up and sorted the header files and libraries used.
+        - Fixed a shutdown bug in Windows 98, concerning waiting for the
+          rendering thread to finish properly.
+        - Changed the menu item called Render to Objects.
+        - Changed the static label from number of objects to number of flyers.
+        - Added an extra slider that controls the rotation of the camera views.
+        - Added a button to quickly centre the camera rotation slider.
+        - Added a stop/restart button.
+
+v0.4943   Start Date: 14/09/1999   Finish Date: 14/09/1999
+        - Added extra CStatic controls for proper spacing in the control panel.
+
+v0.4942   Start Date: 02/09/1999   Finish Date: 14/09/1999
+        - Added Gouraud shading to the landscape.
+        - Fixed the boid wrap around function, to keep the boids in their space
+          properly.
+        - Added menu items to change the landscape rendering style dynamically.
+        - Added code to make an X file an application resource in an exe file.
+        - Found that NT4 version crashes with a change of landscape rendering
+          style.
+        - Fixed the landscape rendering style change to work in NT4.
+        - Added a menu option to remove the landscape from the simulation.
+        - Added a menu option to recalculate the heights of the landscape.
+        - Fixed a problem when switching between flat and gouraud shading.
+        - Moved all constants to their respective header files in the
+          source code.
+        - Added menu items to toggle the activation of the boids A.I.
+        - Added code to only allow the correct scroll bar to be updated at a
+          time.
+        - Added six camera views activated by the menu bar.
+        - Added a function to the boid, to get its required velocity components.
+        - Added a function to the boid, to get its velocity components.
+        - Added A.I. to the boids to make them smoothly avoid the landscape,
+          by flying in an upwards direction and also not over reacting.
+        - Added code so that the slider works in the camera view from the boid.
+        - Fixed the size problem, when new boids are added with the slider.
+        - Added a rapid clock timer on a CStatic on the control panel for
+          reference.
+
+v0.4941   Start Date: 01/09/1999   Finish Date: 02/09/1999
+        - Produced the first version of a working flat shaded landscape made of
+          triangles.  Normals are manually calculated when triangles are
+          produced.
+
+v0.494    Start Date: 29/08/1999   Finish Date: 01/09/1999
+        - Successfully added an isometric landscape to the simulation, but
+          I have decided that it is too rigid and unnatural looking.  Also
+          the code implementation is quite large.
+          Therefore I will save this work, but convert it in the next version
+          to a more manipulative landscape with dynamic face normal
+          calculations.
+
+v0.493    Start Date: 21/08/1999   Finish Date: 29/08/1999
+        - Added code to create a mesh internally by using arrays.
+          Unfortunately when tested, acute vertex angles became distorted.
+          Also NT4 was jerky when the meshes were dynamically scaled with the
+          slider.  Therefore reverting back to v4.92 and keeping to pre created
+          meshes.
+
+v0.492    Start Date: 10/08/1999   Finish Date: 21/08/1999
+        - Changed the vector representation to the type speed & direction.
+        - Tested in Windows NT4, no problems.
+        - Added code for the object's required speed & heading.
+        - Added code to display the current number of objects above the slider.
+        - Added a static control to display the current frames per second.
+        - Tested in Windows NT4, found the frame rate to be up to 50% faster.
+        - Added flock forming behaviour function called directToBoid( ).
+        - Improved the turning of the boids so that they turn to the shortest
+          direction.
+        - Added collision avoidance behaviour function called
+          collisionAvoidance( ).
+        - Added constants to limit the min & max boid speeds.
+        - Added velocity matching behaviour function called velocityMatching( ).
+
+v0.491    Start Date: 05/08/1999   Finish Date: 10/08/1999
+        - Changed the rotation slider to control the number of objects
+          dynamically.
+        - Tested in Windows NT4, no problems.
+        - Added an extra slider to control the sizes of the objects.
+        - Tested in Windows NT4 again, no problems.
+
+v0.49     Start Date: 03/08/1999   Finish Date: 05/08/1999
+        - Added coded to randomise the initial positions and velocities of the
+          objects.
+        - Added an STL vector that holds pointers to the objects.
+        - Successfully tested the application in Windows NT4.
+        - Added a data member to the window class stating the number of objects.
+        - Added a constant for the initial number of objects.
+        - Changed the timing technique from system time to process time
+          ( clock( ); ).
+        - Successfully tested the application in Windows NT4 again, very smooth.
+
+v0.483    Start Date: 30/07/1999   Finish Date: 03/08/1999
+        - Implemented correct timing of the moving objects by virtue of using
+          the system clock.
+        - Correctly converted the bird meshes to the DirectX file format.
+        - Fixed to orientation of the bird and stealth meshes.
+        - Renamed the function names position & velocity to setPosition &
+          setVelocity.
+        - Added handle to parent window in the object class, to enable message
+          boxes.
+        - Tested in NT4 and found that it ran very smoothly.
+
+v0.482    Start Date: 30/07/1999   Finish Time: 30/07/1999
+        - Tried to smooth the timing by using D3DRM set velocity functions, but
+          the rendering speeds are still inconsistent for the simulation.
+          Reverting back to v4.7 yet again.
+
+v0.481    Start Date: 30/07/1999   Finish Date: 30/07/1999
+        - Tried to smooth the timing by calling the move object function
+          from within the applications on idle function, but still have erratic
+          speeding up.  Reverting back to v4.7 again.
+
+v0.48     Start Date: 27/07/1999   Finish Date: 30/07/1999
+        - Used an MFC timer to stabilize the simulation timing, but the effects
+          produced are jerky and undesirable.
+          Reverting back to v4.7 for re-development.
+
+v0.47     Start Date: 26/07/1999   Finish Date: 27/07/1999
+        - Implemented multiple objects moving up the screen independently.
+        - Added an extra function that sets the position of an object.
+        - Added code that makes the objects face the direction they are
+          moving in.
+        - The above orientation code stops the rotation of the first object, OK.
+        - Expanded the size of the 3D area and also the camera positioning.
+        - Added a 3D object function to set the velocity of the object.
+
+v0.46     Start Date: 26/07/1999   Finish Date: 26/07/1999
+        - Changed the callback function to move the position of the 3D object.
+        - Moved the camera to directly above the 3D object.
+        - Changed the field of vision for the camera.
+        - Amended the rotation control to work in both directions.
+
+v0.45     Start Date: 26/07/1999   Finish Date: 26/07/1999
+        - Added a callback function to move the D3DRM object while CPU is idle.
+        - Disabled the objects rotation to properly observe the changes.
+        - The callback function changes the orientation of the 3D object.
+        - Checked that the application worked properly in Win95, Win98 & WNT4.
+
+v0.44     Start Date: 22/07/1999   Finish Date: 26/07/1999
+        - Encapsulated the D3DRM object in a C++ class for a good OOD.
+        - Added two extra objects using this class.
+
+v0.43     Start Date: 14/07/1999   Finish Date: 22/07/1999
+        - Changed the mesh to a single one that works in NT4.
+        - Added code to set the background colour in the create scene function.
+
+v0.42     Start Date: 11/07/1999   Finish Date: 14/07/1999
+        - Fixed COM shutdown errors in NT4.
+        - Added wings to bird's body but mesh doesn't fully work in NT4.
+        - Converted the Visual C++ project over to version 5.0
+
+v0.41     Start Date: 07/07/1999   Finish Date: 11/07/1999
+        - Changed mesh to the bird's body.
+        - Started the code for the bird's wings.
+
+v0.4      Start Date: 06/07/1999   Finish Date: 07/07/1999
+        - Added five rendering options to the menu bar.
+        - Fixed a bug when window is resized beyond the minimum x axis size.
+
+v0.33     Start Date: 30/06/1999   Finish Date: 06/07/1999
+        - Removed the dialog bar due to problems with slider controls.
+        - Added functionality to the menu bar in terms of exit and an about box.
+
+v0.32     Start Date: 29/06/1999   Finish Date: 30/06/1999
+        - Added a menu bar to the sample, but with no functionality.
+
+v0.31     Start Date: 27/06/1999   Finish Date: 29/06/1999
+        - Added a dialog bar to the right hand side of the window.
+        - Programmed D3D to resize properly with the dialog bar, when
+          window resizes.
+
+v0.3      Start Date: 26/06/1999   Finish Date: 27/06/1999
+        - Added code to properly release the COM interfaces.
+        - Changed the position of the camera to above the cow.
+
+v0.2      Start Date: 21/06/1999   Finish Date: 26/06/1999
+        - Reduced D3D sample program to minimum amount of C++ code.
+        - Now featuring a rotating cow.
+
+v0.1      Start Date: 15/06/1999   Finish Date: 21/06/1999
+        - First D3D sample program featuring a rotating car.
+
+
+
+
+
+

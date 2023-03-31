@@ -1,0 +1,94 @@
+<HEAD>
+<TITLE>glGetError.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetError.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> - return error information
+
+
+</PRE><H2>C Specification</H2><PRE>
+  GLenum <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A>( void )
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> returns the value of the error flag.  Each	detectable error is
+  assigned a numeric code and symbolic name.  When an error occurs, the	error
+  flag is set to the appropriate error code value.  No other errors are
+  recorded until <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> is called, the error code is returned, and the
+  flag is reset	to GL_NO_ERROR.	 If a call to <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> returns GL_NO_ERROR,
+  there	has been no detectable error since the last call to <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A>,	or
+  since	the GL was initialized.
+
+  To allow for distributed implementations, there may be several error flags.
+  If any single	error flag has recorded	an error, the value of that flag is
+  returned and that flag is reset to GL_NO_ERROR when <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> is called.
+  If more than one flag	has recorded an	error, <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> returns and clears
+  an arbitrary error flag value.  Thus,	<A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> should always be called in
+  a loop, until	it returns GL_NO_ERROR,	if all error flags are to be reset.
+
+  Initially, all error flags are set to	GL_NO_ERROR.
+
+  The currently	defined	errors are as follows:
+
+  GL_NO_ERROR			No error has been recorded.  The value of
+				this symbolic constant is guaranteed to	be
+				zero.
+
+  GL_INVALID_ENUM		An unacceptable	value is specified for an
+				enumerated argument.  The offending command
+				is ignored, having no side effect other	than
+				to set the error flag.
+
+  GL_INVALID_VALUE		A numeric argument is out of range.  The
+				offending command is ignored, having no	side
+				effect other than to set the error flag.
+
+  GL_INVALID_OPERATION		The specified operation	is not allowed in the
+				current	state.	The offending command is
+				ignored, having	no side	effect other than to
+				set the	error flag.
+
+  GL_STACK_OVERFLOW		This command would cause a stack overflow.
+				The offending command is ignored, having no
+				side effect other than to set the error	flag.
+
+  GL_STACK_UNDERFLOW		This command would cause a stack underflow.
+				The offending command is ignored, having no
+				side effect other than to set the error	flag.
+
+  GL_OUT_OF_MEMORY		There is not enough memory left	to execute
+				the command.  The state	of the GL is
+				undefined, except for the state	of the error
+				flags, after this error	is recorded.
+
+  When an error	flag is	set, results of	a GL operation are undefined only if
+  GL_OUT_OF_MEMORY has occurred.  In all other cases, the command generating
+  the error is ignored and has no effect on the	GL state or frame buffer
+  contents.  If	the generating command returns a value,	it returns zero. If
+  <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> itself generates an error it returns zero.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.  In this
+  case <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A> returns zero.
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

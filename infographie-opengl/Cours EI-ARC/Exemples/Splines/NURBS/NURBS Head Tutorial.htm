@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.3drender.com/jbirn/ea/HeadModel.html -->
+<HTML><HEAD><TITLE>NURBS Head Tutorial</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<STYLE type=text/css>P {
+	FONT-FAMILY: Arial, Helvetica, Swiss, sans-serif
+}
+TD {
+	FONT-FAMILY: Arial, Helvetica, Swiss, sans-serif
+}
+TD.white {
+	COLOR: #ffffff
+}
+B {
+	COLOR: #800000; FONT-FAMILY: Arial, Helvetica, Swiss, sans-serif
+}
+A.white {
+	COLOR: #ffffff
+}
+SMALL.gray {
+	COLOR: #999999
+}
+SMALL.red {
+	COLOR: #aaaaaa
+}
+</STYLE>
+<!-- Code, Content & Design Copyright (c) 1996-2000 by Jeremy Birn www.3dRender.com -->
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#660022 aLink=#990000 link=#990000 bgColor=#e7e4e0 
+topMargin=0 marginheight="0" marginwidth="0"><!--------- Logo & Tab Bar ------------>
+<TABLE cellSpacing=0 cellPadding=0 width=720 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle width=200 bgColor=#800000><A 
+      href="http://www.3drender.com/index.html"><IMG height=28 alt=3dRender.com 
+      src="NURBS Head Tutorial_fichiers/NewRed.gif" width=180 border=0></A></TD>
+    <TD vAlign=bottom align=left width=550><IMG height=14 alt="" 
+      src="NURBS Head Tutorial_fichiers/ticker1.gif" width=495 border=0><BR><A 
+      href="http://www.3drender.com/light/index.html"><IMG height=25 
+      alt="Digital Lighting and Rendering" 
+      src="NURBS Head Tutorial_fichiers/TabLR.gif" width=145 border=0></A><A 
+      href="http://www.3drender.com/jobs/index.htm"><IMG height=25 
+      alt="CG Industry and 3D Jobs" 
+      src="NURBS Head Tutorial_fichiers/TabJobs.gif" width=117 border=0></A><A 
+      href="http://www.3drender.com/models/index.htm"><IMG height=25 
+      alt="Tutorials and 3D Model Downloads" 
+      src="NURBS Head Tutorial_fichiers/TabMod.gif" width=135 border=0></A><A 
+      href="http://www.3drender.com/ref/index.htm"><IMG height=25 
+      alt="CG Books and Links" src="NURBS Head Tutorial_fichiers/TabRef.gif" 
+      width=100 border=0></A></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width=200 bgColor=#990099 height=6><IMG 
+      height=4 alt="" src="NURBS Head Tutorial_fichiers/null.gif" width=4></TD>
+    <TD vAlign=center align=middle width=550 bgColor=#990099 height=6><IMG 
+      height=4 alt="" src="NURBS Head Tutorial_fichiers/null.gif" width=4></TD></TR>
+  <TR>
+    <TD class=white vAlign=top align=middle width=200 
+      bgColor=#800000>&nbsp;<BR>
+      <P>This model is called <A class=white 
+      href="http://www.turbosquid.com/HTMLClient/FullPreview/FullPreview.cfm/ID/171083/Action/FullPreview" 
+      target=_new>DemoHead</A> and is available through TurboSquid:<BR><A 
+      class=white href="http://www.3drender.com/models/models.htm"><IMG 
+      height=165 alt="Download Models" 
+      src="NURBS Head Tutorial_fichiers/NurbsModels.jpg" width=140 
+      border=1><BR>NURBS Model<BR>Download Catalog</A> </P></TD>
+    <TD align=left width=550>&nbsp;<BR><!--------- Tutorial ------------>
+      <BLOCKQUOTE>
+        <P align=center><B>TUTORIAL: NURBS Head Modeling</B><BR>An (old but 
+        still working) Tutorial by Jeremy Birn</P>
+        <BLOCKQUOTE>
+          <P><IMG height=400 src="NURBS Head Tutorial_fichiers/HeadTest.3.jpg" 
+          width=320 border=2><BR>This is a head I modelled in the spring of 
+          1996.&nbsp; The grid shows the UV paramaterization of the NURBS 
+          surface.</P></BLOCKQUOTE>
+        <P>NOTE: These instructions work in most programs with a "loft" or 
+        "skin" function.&nbsp; There are many ways to model a head, and this 
+        isn't necessarily the best for you, but the basic technique of lofting a 
+        surface from radial cross-sections remains valuable for building a 
+        variety of organic surfaces, including arms and torsos and other forms. 
+        <I>- jeremy</I></P>
+        <P align=center><B>HOW TO BUILD IT</B></P>
+        <P>This tutorial shows how to build a head out of one continuous NURBS 
+        component for the whole head, rather than using multiple components 
+        blended together.</P>
+        <P>1. Start by drawing a single spline curve in the side-view window, to 
+        represent for the profile of the the head. (This is the line shown in 
+        white and blue below.)</P>
+        <BLOCKQUOTE>
+          <BLOCKQUOTE>
+            <P><IMG height=424 src="NURBS Head Tutorial_fichiers/skinning.gif" 
+            width=352 align=bottom><BR><I>Start simple, and build in more detail 
+            after you like the basic shape.</I></P></BLOCKQUOTE></BLOCKQUOTE>
+        <P>2. Once the profile has been drawn in and looks good, make copies of 
+        that curve, and rotate the copies so that they all come together at the 
+        top of the scalp, much like the top of a primitive sphere. These lines 
+        should be in the position of the ones shown in black above.</P>
+        <P>3. Modify each copy so that they represent the shape at each given 
+        angle, such as getting rid of the nose for the splines that are not 
+        right in the center. Don't worry about getting it perfect - you can 
+        change the positions of some points later on, once you've seen the 
+        surface.</P>
+        <P>HINT: The fewer curves you use here, the easier it will be complete 
+        this tutorial. Start with a simple, basic form, and don't make this too 
+        complex on your first try. Note that the figure above uses 9 curves to 
+        make half of the head, with 6 in front where more detail is needed, and 
+        only 3 to represent the rear of the head.</P>
+        <P>4. When you have gone 180-degrees from the front profile, "skin" or 
+        "loft" together all of the spline curves, to form half of the head.</P>
+        <P>5. Make an instanced copy of the half-head, scaled to -1 in the X 
+        axis. This way you can see the whole head, as you tweak half of it.</P>
+        <P>6. Move points around, add or subtract rows and columns of points, 
+        and tweak the modelling until you are happy. Make sure you have enough 
+        edges in the upper eyelids that it will look good in the target shapes 
+        that make them close.</P>
+        <P align=center><IMG height=425 
+        src="NURBS Head Tutorial_fichiers/shaded.jpg" width=338 
+        align=bottom><BR><I>This is a "half head" after a few hours of intense 
+        tweaking. The immediate result of the loft command had less detail and 
+        more glitches.</I></P>
+        <P>NOTE: The whole trick here is getting the chords to come together in 
+        the places where you need more detail, such as the mouth, nostril area, 
+        eyes, and ears. You can see the grid squares mapped onto my rendering 
+        becoming thin and merging together as they head into these areas.</P>
+        <P>7. Merge the two halves. Being symmetrical at this stage is OK - the 
+        target shapes you'll make later can be assymetrical, as with your 
+        texture maps, so the final product won't be unrealistically symmetrical 
+        because of the symmetrical neutral pose.</P>
+        <P>8. Further adjust your model and repeat the skin/loft process if 
+        necessary.<BR></P>
+        <P><IMG height=613 src="NURBS Head Tutorial_fichiers/HeadWire.gif" 
+        width=392></P>
+        <P>There's more than one way to skin a head. I made the ears a part of 
+        the same surface as the rest of the head. This is tricky to do, since 
+        you have to define the edges of the ears going "against the grain" of 
+        your parameterization. Just building separate ear objects and sticking 
+        them on could be quicker and easier and look almost as good. Instead of 
+        single-component heads, a lot of people blend together several different 
+        surfaces to make a head.</P>
+        <P>Single-component heads update more quickly during animation than 
+        blended-together heads, and have a few other advantages that make me 
+        choose them. Any area of the face can be addressed to add wrinkles or 
+        dimples to a facial expression. A continuous patch surface is guaranteed 
+        to look smooth and continuous, with any type of texture mapping, 
+        displacement, rendering or animation, while blends aren't always 100% 
+        seamless. Continuous heads can easily be moved between application 
+        programs as an iges file, whereas the construction histories or 
+        relational modeling that make blends possible are more fragile and can't 
+        be translated between programs.</P>
+        <P>Another issue to think about is the direction of your curves. In this 
+        head, they run up and down, becoming opened at the neck (very useful!) 
+        but all pinching together at the top of the head. There are other 
+        approaches.</P>
+        <P>One other way is to make all the curves radiate from the mouth. You 
+        can even make curves starting in the mouth twist back around the head to 
+        open at the neck, as in the example below:</P>
+        <P align=center><A 
+        href="http://www.turbosquid.com/HTMLClient/FullPreview/FullPreview.cfm/ID/171082/Action/FullPreview" 
+        target=_new><IMG height=250 
+        src="NURBS Head Tutorial_fichiers/mouthcenterb.gif" width=400 
+        border=2></A><BR>This mouth-centered model, a more professional, 
+        animatable approach, is also available from turbosquid if you click the 
+        image.</P>
+        <P>This character is modelled with curves starting in the mouth, and 
+        coming out around the mouth all the way down to the neck. (It is 
+        basically a tube, in which one end is the mouth, the other is the neck.) 
+        The grid shows where the U and V direction curves move through the 
+        surface. Since you don't get quite as much detail in the eye area this 
+        way, it might not be the best way to make a highly detailed NURBS human, 
+        but I use geometry like this for many character and creature heads. It's 
+        much quicker and easier to make the mouth keyposes and animate the head 
+        talking with this kind of model.</P>
+        <P>For reference and advice about making heads, faces, and facial 
+        expressions, see the <A 
+        href="http://www.3drender.com/ref/anatomy.htm">Anatomy Reference 
+        Section</A>.</P>
+        <P>Return to <A href="http://www.3drender.com/index.html">3dRender.com 
+        Home</A>.</P></BLOCKQUOTE><SMALL class=gray>Copyright © 1996-1999 by 
+      Jeremy Birn, all rights reserved.</SMALL> 
+      <CENTER></CENTER></TD></TR></TBODY></TABLE></BODY></HTML>

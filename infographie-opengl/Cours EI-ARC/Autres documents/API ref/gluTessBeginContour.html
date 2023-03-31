@@ -1,0 +1,53 @@
+<HEAD>
+<TITLE>gluTessBeginContour.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluTessBeginContour.3gl (GLU version 1.2 and later)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>, <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A> - delimit a contour description
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>( GLUtesselator *<I>tess</I>	)
+
+  void <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A>( GLUtesselator	*<I>tess</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tess</I>	Specifies the tessellation object (created with	<A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>).
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A> and <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A> delimit the	definition of a
+  polygon contour. Within each <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>/<A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A> pair,
+  there	can be zero or more calls to <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>. The	vertices specify a
+  closed contour (the last vertex of each contour is automatically linked to
+  the first).  See the <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A> reference page for	more details.
+  <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A> can only be called between <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> and
+  <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A>.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>, <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A>, <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>, <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>,
+  <A HREF="gluTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessProperty.html">gluTessProperty</A>, <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>, <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri, May 26, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

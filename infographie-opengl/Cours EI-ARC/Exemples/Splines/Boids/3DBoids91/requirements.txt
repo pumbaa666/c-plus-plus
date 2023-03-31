@@ -1,0 +1,41 @@
+
+Required Runtime Environment
+============================
+
+Known to work properly in:
+
+    Windows 2000, Windows NT4 with Service Pack 3 or above installed
+    Windows 95, 98, 98 2nd Edition and ME
+    (All known win32 environments with OpenGL & DirectX 3 or above)
+
+
+To run the simulation you will need:
+
+    - An OpenGL capable graphics card.
+    - A Pentium class processor or better
+      (needed for the simulation's high performance timing).
+    - Microsoft's DirectX version 3 or above installed
+      (because DirectDraw is used to enumerate the display modes).
+    - 16 bits or more colour depth display modes
+      (because it does not use 256 colour mode palettes).
+
+
+To improve the frame rate, which is crucial to the simulation:
+    - Reduce the number of boids.
+    - Use the smaller boid's meshes.
+    - Reduce the landscape features.
+    - Reduce the active boids behaviour features.
+    - Use an accelerated graphics card.
+      ( I recommend the GeForce 256, nearly triple the frame rate with hardware
+       transform and lighting. Visit -> www.nvidia.com for more details. )
+    - The faster the CPU the better.
+    - Use a Windows NT Kernel operating system.
+    - Use NT with multiprocessing ( more than one CPU ).
+
+
+If you are using Windows 95 without DirectX drivers, visit:
+    http://www.microsoft.com/directx/homeuser/downloads/
+    to update your system.
+
+
+

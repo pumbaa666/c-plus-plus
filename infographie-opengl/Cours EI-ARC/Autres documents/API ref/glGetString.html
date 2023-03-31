@@ -1,0 +1,90 @@
+<HEAD>
+<TITLE>glGetString.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetString.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A> -	returns	a string describing the	current	GL connection
+
+
+</PRE><H2>C Specification</H2><PRE>
+  const	GLubyte	* <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A>( GLenum <I>name</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>name</I>	Specifies a symbolic constant, one of GL_VENDOR, GL_RENDERER,
+	GL_VERSION, or GL_EXTENSIONS.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A> returns a	pointer	to a static string describing some aspect of
+  the current GL connection.  <I>name</I> can be one of the following:
+
+  GL_VENDOR	      Returns the company responsible for this GL
+		      implementation.  This name does not change from release
+		      to release.
+
+  GL_RENDERER	      Returns the name of the renderer.	 This name is
+		      typically	specific to a particular configuration of a
+		      hardware platform.  It does not change from release to
+		      release.
+
+  GL_VERSION	      Returns a	version	or release number.
+
+  GL_EXTENSIONS	      Returns a	space-separated	list of	supported extensions
+		      to GL.
+
+  Because GL does not include queries for the performance characteristics of
+  an implementation, it	is expected that some applications will	be written to
+  recognize known platforms and	will modify their GL usage based on known
+  performance characteristics of these platforms.  Strings GL_VENDOR and
+  GL_RENDERER together uniquely	specify	a platform, and	will not change	from
+  release to release.  They should be used by such platform recognition
+  algorithms.
+
+  Some applications will want to make use of features which are	not part of
+  the standard GL.  These features may be implemented as extensions to the
+  standard GL.	The GL_EXTENSIONS string is a space seperated list of
+  supported GL extensions. (Extension names never contain a space character.)
+
+  The GL_VERSION string	begins with a version number.  The version number is
+  of the form major_number.minor_number	or
+  major_number.minor_number.release_number. Vendor specific information	may
+  follow the version number. Its format	depends	on the implementation, but a
+  space	always seperates the version number and	the vendor specific
+  information.
+
+  All strings are null-terminated.
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A>	returns	zero.
+
+  The client and server	may support different versions or extensions.
+  <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A> always returns a compatible version number or list of
+  extensions. The release number always	describes the server.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>name</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

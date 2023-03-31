@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1046274772 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\evenements.cpp
+	<GL\glut.h>
+	"rasterfont.h"
+	"evenements.h"
+
+1046274508 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\rasterfont.h
+
+1043318262 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\evenements.h
+
+936970290 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\font.cpp
+	<GL/glut.h>
+	<stdlib.h>
+	<string.h>
+
+1106817606 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\rasterfont.cpp
+	<GL\glut.h>
+	<string.h>
+
+1127934936 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\principal.cpp
+	<GL\glut.h>
+	"rasterfont.h"
+	"evenements.h"
+	"principal.h"
+
+1046274400 c:\mes cours\infographie\cours ei-arc\cours\exemples\page 56 glbitmap 2\principal.h
+

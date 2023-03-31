@@ -1,0 +1,123 @@
+# depslib dependency file v1.0
+1036599768 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\calllistes.cpp
+	<GL\glut.h>
+	"global.h"
+	"calllistes.h"
+
+1101132066 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\global.h
+
+1036515588 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\calllistes.h
+
+1161003716 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1099924580 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\geometrie.h
+
+1161003716 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\evenements.h
+
+1099924572 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1101132058 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\global.cpp
+	<GL\glut.h>
+
+1136976940 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"calllistes.h"
+	"principal.h"
+
+1022409820 u:\3ème\infographie\exercices\série 8 -\donneesserie-08\principal.h
+
+1161853956 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\calllistes.cpp
+	<GL\glut.h>
+	"global.h"
+	"calllistes.h"
+
+1101132066 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\global.h
+
+1036515588 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\calllistes.h
+
+1161855837 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1099924580 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\geometrie.h
+
+1161003716 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\evenements.h
+
+1161784898 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1101132058 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\global.cpp
+	<GL\glut.h>
+
+1136976940 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"calllistes.h"
+	"principal.h"
+
+1022409820 u:\3ème\infographie\exercices\série 8 - déplacement caméra\donneesserie-08\principal.h
+
+1161857889 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\calllistes.cpp
+	<GL\glut.h>
+	"global.h"
+	"calllistes.h"
+	<math.h>
+
+1161854531 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\global.h
+
+1036511988 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\calllistes.h
+
+1161858539 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1099920980 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\geometrie.h
+
+1161000116 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\evenements.h
+
+1161855180 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+	<stdlib.h>
+
+1161854541 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\global.cpp
+	<GL\glut.h>
+
+1161852745 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"calllistes.h"
+	"principal.h"
+
+1022406220 u:\3ème\infographie\exercices\série 9 - ex7+8\sans cylindre\donneesserie-09\principal.h
+

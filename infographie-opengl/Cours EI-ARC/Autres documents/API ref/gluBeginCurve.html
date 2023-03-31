@@ -1,0 +1,66 @@
+<HEAD>
+<TITLE>gluBeginCurve.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluBeginCurve.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>, <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A> - delimit a NURBS curve definition
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>( GLUnurbsObj *<I>nobj</I>	)
+
+  void <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A>( GLUnurbsObj	*<I>nobj</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	Specifies the NURBS object (created with <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+
+</PRE><H2>Description</H2><PRE>
+  Use <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A> to mark the	beginning of a NURBS curve definition.	After
+  calling <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>, make one or more calls	to <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A> to define
+  the attributes of the	curve.	Exactly	one of the calls to <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>
+  must have a curve type of GL_MAP1_VERTEX_3 or	GL_MAP1_VERTEX_4.  To mark
+  the end of the NURBS curve definition, call <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A>.
+
+  OpenGL evaluators are	used to	render the NURBS curve as a series of line
+  segments.  Evaluator state is	preserved during rendering with
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>(GL_EVAL_BIT) and	<A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A>(). See the <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> reference
+  page for details on exactly what state these calls preserve.
+
+
+</PRE><H2>Example</H2><PRE>
+  The following	commands render	a textured NURBS curve with normals; texture
+  coordinates and normals are also specified as	NURBS curves:
+
+  <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>(nobj);
+     <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>(nobj, ..., GL_MAP1_TEXTURE_COORD_2);
+     <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>(nobj, ..., GL_MAP1_NORMAL);
+     <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>(nobj, ..., GL_MAP1_VERTEX_4); <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A>(nobj);
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>, <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>, <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>, <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>,
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A>, <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

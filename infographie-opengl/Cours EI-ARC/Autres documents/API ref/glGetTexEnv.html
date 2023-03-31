@@ -1,0 +1,80 @@
+<HEAD>
+<TITLE>glGetTexEnv.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetTexEnv.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnvfv</A>, <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnviv</A> - return	texture	environment parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnvfv</A>( GLenum <I>target</I>,
+		      GLenum <I>pname</I>,
+		      GLfloat *<I>params</I> )
+  void <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnviv</A>( GLenum <I>target</I>,
+		      GLenum <I>pname</I>,
+		      GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>  Specifies a texture environment.  Must be GL_TEXTURE_ENV.
+
+  <I>pname</I>	  Specifies the	symbolic name of a texture environment parameter.
+	  Accepted values are GL_TEXTURE_ENV_MODE and GL_TEXTURE_ENV_COLOR.
+
+  <I>params</I>  Returns the requested	data.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnv</A> returns in <I>params</I>	selected values	of a texture environment that
+  was specified	with <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A>.	<I>target</I> specifies a texture environment.
+  Currently, only one texture environment is defined and supported:
+  GL_TEXTURE_ENV.
+
+  <I>pname</I>	names a	specific texture environment parameter.	 The two parameters
+  are as follows:
+
+  GL_TEXTURE_ENV_MODE
+	    <I>params</I> returns the single-valued texture environment mode, a
+	    symbolic constant.
+
+  GL_TEXTURE_ENV_COLOR
+	    <I>params</I> returns four	integer	or floating-point values that are the
+	    texture environment	color.	Integer	values,	when requested,	are
+	    linearly mapped from the internal floating-point representation
+	    such that 1.0 maps to the most positive representable integer,
+	    and	-1.0 maps to the most negative representable integer.
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, no change is made to the contents of <I>params</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>target</I> or <I>pname</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnv</A> is called between a call
+  to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding call	to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

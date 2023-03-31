@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://wwwusers.imaginet.fr/~vinthoma/h-nurbs.html -->
+<HTML><HEAD><TITLE>H-Nurbs</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY link=#8c776c bgColor=#b0a59d>
+<P align=center><B>The feeling of H-BSpline with NURBS in Softimage|3D 3.7 
+</B></P>
+<P align=center><FONT face="Courier New, Courier, mono" size=-1>Copyright©98 
+Thomas vincent </FONT></P>
+<HR>
+
+<P><I>This little trick show how to get some benefits of the H-BSpline geometry 
+using geometry already implimented;</I><I>Similar way could be envisaged on 
+other package such Alias Power Animator, Houdini or 3DS MAX ...</I></P>
+<P align=left>&nbsp;</P>
+<DIV align=center>
+<TABLE width="82%" border=1>
+  <TBODY>
+  <TR>
+    <TD height=134>
+      <P>-For this example i use 3 NURBS surfaces with different resolution. 
+      Only the high res model has a cubic degree, the others are only linear. 
+      </P>
+      <P>Anyway keep in mind that just an example.</P></TD>
+    <TD width="43%" height=215 rowSpan=2>
+      <P align=center><IMG height=300 src="H-Nurbs_fichiers/lattice.jpg" 
+      width=235 align=top></P>
+      <P><FONT size=-1>In picture above, you could see an example of such 
+      system. Deformations of the half side of my muscular chest are guided by 2 
+      controlling models. </FONT></P></TD></TR>
+  <TR>
+    <TD width="26%" height=236>
+      <P><IMG height=175 src="H-Nurbs_fichiers/tree_ex.jpg" width=254></P>
+      <P><FONT size=-1>On the right, a simple tree with 3 controlling 
+      levels.<BR>(backview)</FONT></P></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></DIV>
+<P align=left>-Choose the first controlling model </P>
+<BLOCKQUOTE>
+  <P>-For each point of control model, Set a cluster. </P>
+  <P>-Now you will apply 3 contraints to each null.<BR>(Obviously, be sure to 
+  have the correct cluster selected in your control model) <BR>* First, a scale 
+  contraint,and an orientation contraint to avoid unwanted distortions. <BR>* 
+  Finally contrain the position of the null to the corresponding cluster of the 
+  control model. </P>
+  <P>-And so one for the next points...</P></BLOCKQUOTE>
+<P>-Parent all nulls to a master and assign a global enveloppe to the controlled 
+model with the "group as skeletons" actor feature.<BR>Now you should close your 
+null hierarchy. If not i'm afraid later your shematic view would not be 
+interactive anymore because of billions null models</P>
+<P align=left>-If you want to use more than one progressive controlling objets, 
+off course build your system in a the inverse order. Let's say you have a 
+hierarchy tree like this one: </P>
+<BLOCKQUOTE>
+  <P>Root_control_model-&gt;Trunk_control_model-&gt;Leaf-High-Res </P>
+  <P>(you are free to add one or more branch levels) </P>
+  <P>Layer #A -&gt; Layer #B -&gt; Layer #C</P></BLOCKQUOTE>
+<P>Well, begin first by assigning an enveloppe to LayerC using B, next A using B 
+and so on if you want more layers... So all shape animations made in A will be 
+inherit in B *But* you could also add modications in B too relatively to those 
+made in A.</P>
+<P>-Ghost your controlling models</P>
+<HR>
+
+<P>In consequence the animation could be layered as it could with H-BSplines. 
+Note that is dramaticely different for others polygonnals rounding methods; In 
+all poly subdivisions methods, all successive refinements are completely linked 
+to the root model. </P>
+<P>Here, each layer is relatively *independant*. Lattice Animation are inherited 
+from the superior layer(s) but after you are free to make what you want with the 
+other remaining layers... <BR>In bonus the controlling models offer are a 
+superior degree of freedom than usual lattice; For instance proportionnal 
+editing,expressions based on clusters,Quick stretch...</P>
+<P><B><U><FONT size=-1>Nota Bene</FONT></U></B></P>
+<P><I><FONT color=#484848 size=-1>*Phoenix has made a tool that make steps 2,3,4 
+and 5 automaticelly for you.<BR>**You could apply the same trick to patch &amp; 
+polygonal models.<BR>***If your tree has more than an unique level don't 
+scale/rotate a full controlling model excepted the root.</FONT></I></P>
+<P>&nbsp;</P>
+<DIV align=center>
+<TABLE width="80%" align=center border=1>
+  <TBODY>
+  <TR>
+    <TD width=247>
+      <DIV align=center><I><FONT color=#484848 size=-1>Note that in case of a 
+      seamless NURBS character like mine on the right, you could find it's more 
+      really more suitable to use polygonal driving models </FONT></I><I><FONT 
+      color=#484848 size=-1>instead of linear nurbs surfaces. <BR>As polygons 
+      has not a rectangular topology, it would be easier for you to build the 
+      appropriated lattice with local subdivisions on complex areas as shoulders 
+      or hips. <BR><BR>Low res polygonal models are less hardware intensive, so 
+      it may be preferable to always convert the low res nurbs linear surface to 
+      polygons.<BR>Although it will not possible after to use proportionnal 
+      editing with UV surface actived ...</FONT></I> </DIV></TD>
+    <TD width=406>
+      <DIV align=center><IMG height=461 
+      src="H-Nurbs_fichiers/seamless-colos.jpg" width=400 border=0> 
+  </DIV></TD></TR></TBODY></TABLE></DIV>
+<P>&nbsp;</P>
+<P align=center><TT><B>This tutorial could not be duplicated without a written 
+of the author </B></TT></P>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <BLOCKQUOTE>
+      <BLOCKQUOTE>
+        <BLOCKQUOTE>
+          <P align=center><TT><A 
+          href="http://wwwusers.imaginet.fr/~vinthoma/main.html">Return Home now 
+          </A></TT></P></BLOCKQUOTE></BLOCKQUOTE></BLOCKQUOTE></BLOCKQUOTE></BLOCKQUOTE>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY></HTML>

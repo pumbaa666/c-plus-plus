@@ -1,0 +1,113 @@
+<HEAD>
+<TITLE>glXMakeCurrent.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXMakeCurrent.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> - attach a GLX	context	to a window or a GLX pixmap
+
+
+</PRE><H2>C Specification</H2><PRE>
+  Bool <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>( Display *<I>dpy</I>,
+		       GLXDrawable <I>drawable</I>,
+		       GLXContext <I>ctx</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	    Specifies the connection to	the X server.
+
+
+  <I>drawable</I>  Specifies a	GLX drawable.  Must be either an X window ID or	a GLX
+	    pixmap ID.
+
+
+  <I>ctx</I>	    Specifies a	GLX rendering context that is to be attached to
+	    <I>drawable</I>.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> does two things: It makes <I>ctx</I> the current GLX rendering
+  context of the calling thread, replacing the previously current context if
+  there	was one, and it	attaches <I>ctx</I> to	a GLX drawable,	either a window	or a
+  GLX pixmap.  As a result of these two	actions, subsequent OpenGL rendering
+  calls	use rendering context <I>ctx</I> to modify GLX	drawable <I>drawable</I>.  Because
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> always	replaces the current rendering context with <I>ctx</I>,
+  there	can be only one	current	context	per thread.
+
+  Pending commands to the previous context, if any, are	flushed	before it is
+  released.
+
+  The first time <I>ctx</I> is	made current to	any thread, its	viewport is set	to
+  the full size	of <I>drawable</I>.  Subsequent calls by any thread to
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> with <I>ctx</I> have no effect on its	viewport.
+
+  To release the current context without assigning a new one, call
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> with <I>drawable</I> and <I>ctx</I> set to None and NULL respectively.
+
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> returns True if it is successful, False otherwise.  If	False
+  is returned, the previously current rendering	context	and drawable (if any)
+  remain unchanged.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  A <I>process</I> is a single-execution environment, implemented in a	single
+  address space, consisting of one or more threads.
+
+
+  A <I>thread</I> is one of a set of subprocesses that	share a	single address space,
+  but maintain separate	program	counters, stack	spaces,	and other related
+  global data.	A <I>thread</I> that is the only member of its	subprocess group is
+  equivalent to	a <I>process</I>.
+
+
+</PRE><H2>Errors</H2><PRE>
+  BadMatch is generated	if <I>drawable</I> was	not created with the same X screen
+  and visual as	<I>ctx</I>.  It is also generated if <I>drawable</I> is None and <I>ctx</I> is not
+  None.
+
+  BadAccess is generated if <I>ctx</I>	was current to another thread at the time
+  <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> was called.
+
+  GLXBadDrawable is generated if <I>drawable</I> is not a valid GLX drawable.
+
+  GLXBadContext	is generated if	<I>ctx</I> is not a valid GLX context.
+
+  GLXBadContextState is	generated if <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> is called between a
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+  GLXBadContextState is	also generated if the rendering	context	current	to
+  the calling thread has OpenGL	renderer state GL_FEEDBACK or GL_SELECT.
+
+  GLXBadCurrentWindow is generated if there are	pending	OpenGL commands	for
+  the previous context and the current drawable	is a window that is no longer
+  valid.
+
+  BadAlloc may be generated if the server has delayed allocation of ancillary
+  buffers until	<A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A> is called, only to find that it has
+  insufficient resources to complete the allocation.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>, <A HREF="glXCreateGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateGLXPixmap.html">glXCreateGLXPixmap</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

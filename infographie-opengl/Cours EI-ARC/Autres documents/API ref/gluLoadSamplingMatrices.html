@@ -1,0 +1,66 @@
+<HEAD>
+<TITLE>gluLoadSamplingMatrices.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluLoadSamplingMatrices.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A> - load NURBS sampling	and culling matrices
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A>(	GLUnurbsObj *<I>nobj</I>,
+				const GLfloat <I>modelMatrix</I>[<I>16</I>],
+				const GLfloat <I>projMatrix</I>[<I>16</I>],
+				const GLint <I>viewport</I>[<I>4</I>]); )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	       Specifies the NURBS object (created with	<A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+  <I>modelMatrix</I>  Specifies a modelview matrix (as	from a <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetFloatv</A> call).
+
+  <I>projMatrix</I>   Specifies a projection matrix (as from a	<A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetFloatv</A> call).
+
+  <I>viewport</I>;    Specifies a viewport (as	from a <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetIntegerv</A> call).
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A> uses <I>modelMatrix</I>, <I>projMatrix</I>,	and <I>viewport</I>; to
+  recompute the	sampling and culling matrices stored in	<I>nobj</I>.  The sampling
+  matrix determines how	finely a NURBS curve or	surface	must be	tessellated
+  to satisfy the sampling tolerance (as	determined by the
+  GLU_SAMPLING_TOLERANCE property).  The  culling matrix is used in deciding
+  if a NURBS curve or surface should be	culled before rendering	(when the
+  GLU_CULLING property is turned on).
+
+  <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A> is necessary only if the GLU_AUTO_LOAD_MATRIX
+  property is turned off (see <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A>).  Although it can be
+  convenient to	leave the GLU_AUTO_LOAD_MATRIX property	turned on, there can
+  be a performance penalty for doing so.  (A round trip	to the OpenGL server
+  is needed to fetch the current values	of the modelview matrix, projection
+  matrix, and viewport.)
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluGetNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetNurbsProperty.html">gluGetNurbsProperty</A>, <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>, <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

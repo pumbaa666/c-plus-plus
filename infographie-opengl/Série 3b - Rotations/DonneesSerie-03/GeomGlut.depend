@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1099576160 u:\3ème\infographie\exercices\série 3\donneesserie-03\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1159970531 u:\3ème\infographie\exercices\série 3\donneesserie-03\global.h
+
+1098945580 u:\3ème\infographie\exercices\série 3\donneesserie-03\geometrie.h
+
+1159970173 u:\3ème\infographie\exercices\série 3\donneesserie-03\geomglut.cpp
+	<GL\glut.h>
+	"geomglut.h"
+	"geometrie.h"
+	"evenements.h"
+
+1016896160 u:\3ème\infographie\exercices\série 3\donneesserie-03\geomglut.h
+
+1098945634 u:\3ème\infographie\exercices\série 3\donneesserie-03\evenements.h
+
+1159970542 u:\3ème\infographie\exercices\série 3\donneesserie-03\global.cpp
+	<GL\glut.h>
+
+1136990146 u:\3ème\infographie\exercices\série 3\donneesserie-03\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1160040809 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1160039197 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\global.h
+
+1098945580 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\geometrie.h
+
+1160039256 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\global.cpp
+	<GL\glut.h>
+
+1160041287 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+	"iostream.h"
+
+1098945634 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\evenements.h
+
+1160039101 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\geomglut.cpp
+	<GL\glut.h>
+	"geomglut.h"
+	"geometrie.h"
+	"evenements.h"
+
+1016896160 u:\3ème\infographie\exercices\série 3 - rotations\donneesserie-03\geomglut.h
+
+1160043951 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1160043999 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\global.h
+
+1098945580 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\geometrie.h
+
+1160042501 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\geomglut.cpp
+	<GL\glut.h>
+	"geomglut.h"
+	"geometrie.h"
+	"evenements.h"
+
+1016896160 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\geomglut.h
+
+1098945634 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\evenements.h
+
+1160043996 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\global.cpp
+	<GL\glut.h>
+
+1160044480 u:\3ème\infographie\exercices\série 3b - rotations\donneesserie-03\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+	"iostream.h"
+

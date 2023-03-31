@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="Principal.cpp" open="1" top="0">
+		<Cursor position="781" topLine="5"/>
+	</File>
+	<File name="geometrie.cpp" open="1" top="0">
+		<Cursor position="1358" topLine="15"/>
+	</File>
+	<File name="geometrie.h" open="1" top="0">
+		<Cursor position="230" topLine="0"/>
+	</File>
+	<File name="global.cpp" open="1" top="0">
+		<Cursor position="980" topLine="0"/>
+	</File>
+	<File name="global.h" open="1" top="1">
+		<Cursor position="543" topLine="0"/>
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,227 @@
+# depslib dependency file v1.0
+1166095827 u:\3ème\infographie\série 20 -\donneeserie-20\sphere.cpp
+	<gl/glut.h>
+	"global.h"
+	"sphere.h"
+
+1166095636 u:\3ème\infographie\série 20 -\donneeserie-20\global.h
+
+1138199502 u:\3ème\infographie\série 20 -\donneeserie-20\sphere.h
+
+1136544762 u:\3ème\infographie\série 20 -\donneeserie-20\bitmap2.cpp
+	"bitmap2.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1136544644 u:\3ème\infographie\série 20 -\donneeserie-20\bitmap2.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1166095767 u:\3ème\infographie\série 20 -\donneeserie-20\calllistes.cpp
+	<GL\glut.h>
+	<math.h>
+	"global.h"
+	"calllistes.h"
+	"sphere.h"
+
+1139315772 u:\3ème\infographie\série 20 -\donneeserie-20\calllistes.h
+
+1138199794 u:\3ème\infographie\série 20 -\donneeserie-20\evenements.cpp
+	<GL\glut.h>
+	<windows.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1166095217 u:\3ème\infographie\série 20 -\donneeserie-20\geometrie.h
+
+1043314662 u:\3ème\infographie\série 20 -\donneeserie-20\evenements.h
+
+1166095710 u:\3ème\infographie\série 20 -\donneeserie-20\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"sphere.h"
+	"calllistes.h"
+	"geometrie.h"
+
+1166095625 u:\3ème\infographie\série 20 -\donneeserie-20\global.cpp
+	<GL\glut.h>
+
+1136544698 u:\3ème\infographie\série 20 -\donneeserie-20\texture2.cpp
+	<stdlib.h>
+	<stdio.h>
+	"texture2.h"
+
+1136544762 u:\3ème\infographie\série 20 -\donneeserie-20\texture2.h
+	"bitmap2.h"
+
+1166095680 u:\3ème\infographie\série 20 -\donneeserie-20\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"calllistes.h"
+	"global.h"
+	"evenements.h"
+	"principal.h"
+	"texture2.h"
+
+1043314648 u:\3ème\infographie\série 20 -\donneeserie-20\principal.h
+
+1166624311 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\sphere.cpp
+	<gl/glut.h>
+	<stdio.h>
+	"global.h"
+	"sphere.h"
+
+1166095636 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\global.h
+
+1138199502 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\sphere.h
+
+1136544762 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\bitmap2.cpp
+	"bitmap2.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1136544644 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\bitmap2.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1138199794 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\evenements.cpp
+	<GL\glut.h>
+	<windows.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1166095217 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\geometrie.h
+
+1043314662 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\evenements.h
+
+1166627040 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"sphere.h"
+	"calllistes.h"
+	"geometrie.h"
+
+1139315772 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\calllistes.h
+
+1166095625 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\global.cpp
+	<GL\glut.h>
+
+1136544698 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\texture2.cpp
+	<stdlib.h>
+	<stdio.h>
+	"texture2.h"
+
+1136544762 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\texture2.h
+	"bitmap2.h"
+
+1166624625 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"calllistes.h"
+	"global.h"
+	"evenements.h"
+	"principal.h"
+	"texture2.h"
+
+1043314648 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\principal.h
+
+1166627140 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\calllistes.cpp
+	<GL\glut.h>
+	<math.h>
+	"global.h"
+	"calllistes.h"
+	"sphere.h"
+	<stdio.h>
+
+1163675859 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\normal.cpp
+	<math.h>
+	"normal.h"
+
+1024843364 u:\3ème\infographie\série 20 - texture + sphere\donneeserie-20\normal.h
+
+1166624312 e:\infographie\série 20 - texture + sphere\donneeserie-20\sphere.cpp
+	<gl/glut.h>
+	<stdio.h>
+	"global.h"
+	"sphere.h"
+
+1166095638 e:\infographie\série 20 - texture + sphere\donneeserie-20\global.h
+
+1138199502 e:\infographie\série 20 - texture + sphere\donneeserie-20\sphere.h
+
+1136544762 e:\infographie\série 20 - texture + sphere\donneeserie-20\bitmap2.cpp
+	"bitmap2.h"
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1136544644 e:\infographie\série 20 - texture + sphere\donneeserie-20\bitmap2.h
+	<GL/glut.h>
+	<windows.h>
+	<wingdi.h>
+
+1138199794 e:\infographie\série 20 - texture + sphere\donneeserie-20\evenements.cpp
+	<GL\glut.h>
+	<windows.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1166095218 e:\infographie\série 20 - texture + sphere\donneeserie-20\geometrie.h
+
+1043314662 e:\infographie\série 20 - texture + sphere\donneeserie-20\evenements.h
+
+1166627042 e:\infographie\série 20 - texture + sphere\donneeserie-20\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"sphere.h"
+	"calllistes.h"
+	"geometrie.h"
+
+1139315772 e:\infographie\série 20 - texture + sphere\donneeserie-20\calllistes.h
+
+1166095626 e:\infographie\série 20 - texture + sphere\donneeserie-20\global.cpp
+	<GL\glut.h>
+
+1136544698 e:\infographie\série 20 - texture + sphere\donneeserie-20\texture2.cpp
+	<stdlib.h>
+	<stdio.h>
+	"texture2.h"
+
+1136544762 e:\infographie\série 20 - texture + sphere\donneeserie-20\texture2.h
+	"bitmap2.h"
+
+1166792747 e:\infographie\série 20 - texture + sphere\donneeserie-20\calllistes.cpp
+	<GL\glut.h>
+	<math.h>
+	"global.h"
+	"calllistes.h"
+	"sphere.h"
+	<stdio.h>
+
+1166792709 e:\infographie\série 20 - texture + sphere\donneeserie-20\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"calllistes.h"
+	"global.h"
+	"evenements.h"
+	"principal.h"
+	"texture2.h"
+
+1043314648 e:\infographie\série 20 - texture + sphere\donneeserie-20\principal.h
+

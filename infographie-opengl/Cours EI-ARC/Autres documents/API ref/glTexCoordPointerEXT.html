@@ -1,0 +1,132 @@
+<HEAD>
+<TITLE>glTexCoordPointerEXT.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glTexCoordPointerEXT.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> - define	an array of texture coordinates
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>( GLint <I>size</I>,
+			     GLenum <I>type</I>,
+			     GLsizei <I>stride</I>,
+			     GLsizei <I>count</I>,
+			     const GLvoid *<I>pointer</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>size</I>	   Specifies the number	of coordinates per array element. It must be
+	   1, 2, 3 or 4.
+
+  <I>type</I>	   Specifies the data type of each texture coordinate.	Symbolic
+	   constants GL_SHORT, GL_INT, GL_FLOAT, or GL_DOUBLE_EXT, are
+	   accepted.
+
+  <I>stride</I>   Specifies the byte offset between consecutive array elements.  If
+	   <I>stride</I> is zero the array elements are understood to be tightly
+	   packed.
+
+  <I>count</I>	   Specifies the number	of array elements, counting from the first,
+	   that	are static.
+
+  <I>pointer</I>  Specifies a pointer to the first coordinate of the first element
+	   in the array.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> specifies the location and data format of an array of
+  texture coordinates to use when rendering using the vertex array extension.  
+  <I>size</I> specifies the number of coordinates per element, and must be 1, 2, 3, 
+  or 4.  <I>type</I> specifies the data type of each texture coordinate and <I>stride</I> 
+  gives the byte stride from one array element to the next allowing vertexes 
+  and attributes to be packed into a single array or stored in separate arrays.
+  (Single-array storage may be more efficient on some implementations.) <I>count</I> 
+  indicates the number of array elements (counting from the first) that are 
+  static. Static elements may be modified by the application, but once they 
+  are modified, the application must explicitly respecify the array before 
+  using it for any rendering. When a texture coordinate array is specified, 
+  <I>size</I>, <I>type</I>, <I>stride</I>, <I>count</I>, and <I>pointer</I> are saved  as client-side state, and 
+  static array elements may be cached by the implementation.
+
+  The texture coordinate array is enabled and disabled using <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with the argument GL_TEXTURE_COORD_ARRAY_EXT. If enabled, the
+  texture coordinate array is used when	<A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A>	or <A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A>
+  is called.
+
+
+  Use <A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A> to define	a sequence of primitives (all of the same
+  type)	from pre-specified vertex and vertex attribute arrays.	Use
+  <A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A> to specify primitives by indexing vertexes and vertex
+  attributes.
+
+
+</PRE><H2>Notes</H2><PRE>
+  Non-static array elements are	not accessed until <A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A> or
+  <A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A> is executed.
+
+  By default the texture coordinate array is disabled and it won't be
+  accessed when	<A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A> or <A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A> is	called.
+
+
+  Although it is not an error to call <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>, the results
+  are undefined.
+
+
+  <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> will typically be implemented on	the client side	with
+  no protocol.
+
+
+  Since	the texture coordinate array parameters	are client side	state, they
+  are not saved	or restored by <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> and	<A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A>.
+
+
+  <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> commands	are not	entered	into display lists.
+
+
+  <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A> is part of the <B>EXT_vertex_array</B> extension,
+  not part of the core GL command set. If <B>"GL_EXT_vertex_array"</B> is
+  included in the string returned by <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A>, when called with argument
+  GL_EXTENSIONS, extension <B>EXT_vertex_array</B> is supported.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>size</I>	is not 1, 2, 3,	or 4.
+
+  GL_INVALID_ENUM is generated if <I>type</I> is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if <I>stride</I> or <I>count</I>  is negative
+
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_TEXTURE_COORD_ARRAY_EXT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_COORD_ARRAY_SIZE_EXT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_COORD_ARRAY_TYPE_EXT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_COORD_ARRAY_STRIDE_EXT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_COORD_ARRAY_COUNT_EXT
+  <A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A> with	argument GL_TEXTURE_COORD_ARRAY_POINTER_EXT
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A>, <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>,	<A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A>,
+  <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A>,	<A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A>, <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>,
+  <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>, <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>, <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri Feb 24, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

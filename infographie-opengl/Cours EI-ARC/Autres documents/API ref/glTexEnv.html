@@ -1,0 +1,146 @@
+<HEAD>
+<TITLE>glTexEnv.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glTexEnv.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnvf</A>, <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnvi</A>,	<A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnvfv</A>, <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnviv</A> - set texture environment
+  parameters
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnvf</A>( GLenum <I>target</I>,
+		  GLenum <I>pname</I>,
+		  GLfloat <I>param</I>	)
+  void <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnvi</A>( GLenum <I>target</I>,
+		  GLenum <I>pname</I>,
+		  GLint	<I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>  Specifies a texture environment.  Must be GL_TEXTURE_ENV.
+
+  <I>pname</I>	  Specifies the	symbolic name of a single-valued texture environment
+	  parameter.  Must be GL_TEXTURE_ENV_MODE.
+
+  <I>param</I>	  Specifies a single symbolic constant,	one of GL_MODULATE, GL_DECAL,
+	  or GL_BLEND.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnvfv</A>( GLenum <I>target</I>,
+		   GLenum <I>pname</I>,
+		   const GLfloat *<I>params</I> )
+  void <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnviv</A>( GLenum <I>target</I>,
+		   GLenum <I>pname</I>,
+		   const GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>
+       Specifies a texture environment.	 Must be GL_TEXTURE_ENV.
+
+  <I>pname</I>
+       Specifies the symbolic name of a	texture	environment parameter.
+       Accepted	values are GL_TEXTURE_ENV_MODE and GL_TEXTURE_ENV_COLOR.
+
+  <I>params</I>
+       Specifies a pointer to an array of parameters: either a single
+       symbolic	constant or an RGBA color.
+
+
+</PRE><H2>Description</H2><PRE>
+  A texture environment	specifies how texture values are interpreted when a
+  fragment is textured.	 <I>target</I>	must be	GL_TEXTURE_ENV.	 <I>pname</I> can be either
+  GL_TEXTURE_ENV_MODE or GL_TEXTURE_ENV_COLOR.
+
+
+  If <I>pname</I> is GL_TEXTURE_ENV_MODE, then	<I>params</I> is (or points to) the symbolic
+  name of a texture function.  Three texture functions are defined:
+  GL_MODULATE, GL_DECAL, and GL_BLEND
+
+  A texture function acts on the fragment to be	textured using the texture
+  image	value that applies to the fragment (see	<A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>)	and produces
+  an RGBA color	for that fragment.  The	following table	shows how the RGBA
+  color	is produced for	each of	the three texture functions that can be
+  chosen.  C is	a triple of color values (RGB) and A is	the associated alpha
+  value.  RGBA values extracted	from a texture image are in the	range [0,1].
+  The subscript	f refers to the	incoming fragment, the subscript t to the
+  texture image, the subscript c to the	texture	environment color, and
+  subscript v indicates	a value	produced by the	texture	function.
+
+  A texture image can have up to four components per texture element (see
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> and <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>).  In a	one-component image, L	indicates
+                                                              t
+  that single component.  A two-component image	uses L	and A .	 A three-
+                                                      t      t
+  component image has only a color value, C .  A four-component	image has
+                                           t
+  both a color value C	and an alpha value A .
+		      t			    t
+
+       ----------------------------------------------------------------
+       | number of ||		 texture functions		       |
+       |components || GL_MODULATE      GL_DECAL           GL_BLEND     |
+       ----------------------------------------------------------------
+       |     	   ||  C =L C	 |		    | C	=(1-L )C +L C  |
+       |    1	   ||	v  t f	 |    undefined	    |  v     t	f  t c |
+       |           ||  A =A      |                  | A =A             |
+       |           ||   v  f     |                  |  v  f            |
+       |-----------||------------|------------------|------------------|
+       |     	   ||  C =L C 	 |             	    | C =(1-L )C +L C  |
+       |    2	   ||	v  t f	 |    undefined	    |  v     t	f  t c |
+       |           ||  A =A A    |                  | A =A A           |
+       |	   ||	v  t f	 |             	    |  v  t f          |
+       |-----------||------------|------------------|------------------|
+       |	   ||  C =C C	 |	C =C	    |		       |
+       |    3	   ||	v  t f	 |	 v  t	    |	 undefined     |
+       |           ||  A =A      |      A =A        |                  |
+       |           ||   v  f     |       v  f       |                  |
+       |-----------||------------|------------------|------------------|
+       |           ||  C =C C    | C =(1-A )C +A C  |                  |
+       |    4	   ||   v  t f	 |  v     t  f  t t |	 undefined     |
+       |           ||  A =A A    |      A =A        |                  |
+       |           ||   v  t f   |       v  f       |                  |
+       ----------------------------------------------------------------
+
+  If <I>pname</I> is GL_TEXTURE_ENV_COLOR, <I>params</I> is a pointer to an array that
+  holds	an RGBA	color consisting of four values.  Integer color	components
+  are interpreted linearly such	that the most positive integer maps to 1.0,
+  and the most negative	integer	maps to	-1.0.  The values are clamped to the
+  range	[0,1] when they	are specified.	C  takes these four values.
+					 c
+  GL_TEXTURE_ENV_MODE defaults to GL_MODULATE and GL_TEXTURE_ENV_COLOR
+  defaults to (0,0,0,0).
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated when <I>target</I> or <I>pname</I> is not one of the
+  accepted defined values, or when <I>params</I> should have a	defined	constant
+  value	(based on the value of <I>pname</I>) and does not.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexEnv.html">glTexEnv</A> is executed between
+  the execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnv</A>
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>, <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Tue, May 23, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

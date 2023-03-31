@@ -1,0 +1,9 @@
+Pour utiliser GLUT dans Code::Blocks, il faut :
+
+Copier les fichiers suivants :
+
+glut.h 				-> C:\Program Files\CodeBlocks\include\GL\
+libglut32.a 	-> C:\Program Files\CodeBlocks\lib\
+
+Le fichier libglut32.a est une librairie statique.
+Il n'est donc pas nécessaire de copier le fichier glut32.dll

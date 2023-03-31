@@ -1,0 +1,313 @@
+# depslib dependency file v1.0
+1136990694 u:\3ème\infographie\exercices\serie-02\donneesserie-02\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1016896332 u:\3ème\infographie\exercices\serie-02\donneesserie-02\geometrie.h
+
+1033020338 u:\3ème\infographie\exercices\serie-02\donneesserie-02\evenements.h
+
+1036057446 u:\3ème\infographie\exercices\serie-02\donneesserie-02\global.h
+
+1036062626 u:\3ème\infographie\exercices\serie-02\donneesserie-02\geometrie.cpp
+	<GL\glut.h>
+	"axes.h"
+	"points.h"
+	"lines.h"
+	"line_strip.h"
+	"line_loop.h"
+	"polygone.h"
+	"quads.h"
+	"quad_strip.h"
+	"triangles.h"
+	"triangle_strip.h"
+	"triangle_fan.h"
+	"global.h"
+	"geometrie.h"
+
+1036054380 u:\3ème\infographie\exercices\serie-02\donneesserie-02\axes.h
+
+1036054320 u:\3ème\infographie\exercices\serie-02\donneesserie-02\points.h
+
+1036056058 u:\3ème\infographie\exercices\serie-02\donneesserie-02\lines.h
+
+1036056576 u:\3ème\infographie\exercices\serie-02\donneesserie-02\line_strip.h
+
+1036056790 u:\3ème\infographie\exercices\serie-02\donneesserie-02\line_loop.h
+
+1036057788 u:\3ème\infographie\exercices\serie-02\donneesserie-02\polygone.h
+
+1036059034 u:\3ème\infographie\exercices\serie-02\donneesserie-02\quads.h
+
+1036061176 u:\3ème\infographie\exercices\serie-02\donneesserie-02\quad_strip.h
+
+1036061410 u:\3ème\infographie\exercices\serie-02\donneesserie-02\triangles.h
+
+1036062788 u:\3ème\infographie\exercices\serie-02\donneesserie-02\triangle_strip.h
+
+1036062812 u:\3ème\infographie\exercices\serie-02\donneesserie-02\triangle_fan.h
+
+1036057472 u:\3ème\infographie\exercices\serie-02\donneesserie-02\global.cpp
+	<GL\glut.h>
+
+1159439054 u:\3ème\infographie\exercices\serie-02\donneesserie-02\axes.cpp
+	<GL\glut.h>
+	"global.h"
+
+1036085286 u:\3ème\infographie\exercices\serie-02\donneesserie-02\line_loop.cpp
+	<GL\glut.h>
+	"line_loop.h"
+
+1036085272 u:\3ème\infographie\exercices\serie-02\donneesserie-02\line_strip.cpp
+	<GL\glut.h>
+	"Line_strip.h"
+
+1159439785 u:\3ème\infographie\exercices\serie-02\donneesserie-02\lines.cpp
+	<GL\glut.h>
+	"Lines.h"
+
+1159439475 u:\3ème\infographie\exercices\serie-02\donneesserie-02\points.cpp
+	<GL\glut.h>
+
+1036085302 u:\3ème\infographie\exercices\serie-02\donneesserie-02\polygone.cpp
+	<GL\glut.h>
+	"polygone.h"
+
+1036085332 u:\3ème\infographie\exercices\serie-02\donneesserie-02\quad_strip.cpp
+	<GL\glut.h>
+	"quad_strip.h"
+
+1036085316 u:\3ème\infographie\exercices\serie-02\donneesserie-02\quads.cpp
+	<GL\glut.h>
+	"quads.h"
+
+1036085370 u:\3ème\infographie\exercices\serie-02\donneesserie-02\triangle_fan.cpp
+	<GL\glut.h>
+	"triangle_fan.h"
+
+1036085358 u:\3ème\infographie\exercices\serie-02\donneesserie-02\triangle_strip.cpp
+	<GL\glut.h>
+	"triangle_strip.h"
+
+1036085348 u:\3ème\infographie\exercices\serie-02\donneesserie-02\triangles.cpp
+	<GL\glut.h>
+	"Triangles.h"
+
+1159438731 u:\3ème\infographie\exercices\serie-02\donneesserie-02\geomglut.cpp
+	<GL\glut.h>
+	"geomglut.h"
+	"geometrie.h"
+	"evenements.h"
+
+1016896160 u:\3ème\infographie\exercices\serie-02\donneesserie-02\geomglut.h
+
+1159965624 u:\3ème\infographie\exercices\serie 2\donneesserie-02\axes.cpp
+	<GL\glut.h>
+	"global.h"
+
+1036057446 u:\3ème\infographie\exercices\serie 2\donneesserie-02\global.h
+
+1136990694 u:\3ème\infographie\exercices\serie 2\donneesserie-02\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1016896332 u:\3ème\infographie\exercices\serie 2\donneesserie-02\geometrie.h
+
+1033020338 u:\3ème\infographie\exercices\serie 2\donneesserie-02\evenements.h
+
+1159967695 u:\3ème\infographie\exercices\serie 2\donneesserie-02\geometrie.cpp
+	<GL\glut.h>
+	"axes.h"
+	"points.h"
+	"lines.h"
+	"line_strip.h"
+	"line_loop.h"
+	"polygone.h"
+	"quads.h"
+	"quad_strip.h"
+	"triangles.h"
+	"triangle_strip.h"
+	"triangle_fan.h"
+	"global.h"
+	"geometrie.h"
+
+1036054380 u:\3ème\infographie\exercices\serie 2\donneesserie-02\axes.h
+
+1036054320 u:\3ème\infographie\exercices\serie 2\donneesserie-02\points.h
+
+1036056058 u:\3ème\infographie\exercices\serie 2\donneesserie-02\lines.h
+
+1036056576 u:\3ème\infographie\exercices\serie 2\donneesserie-02\line_strip.h
+
+1036056790 u:\3ème\infographie\exercices\serie 2\donneesserie-02\line_loop.h
+
+1036057788 u:\3ème\infographie\exercices\serie 2\donneesserie-02\polygone.h
+
+1036059034 u:\3ème\infographie\exercices\serie 2\donneesserie-02\quads.h
+
+1036061176 u:\3ème\infographie\exercices\serie 2\donneesserie-02\quad_strip.h
+
+1036061410 u:\3ème\infographie\exercices\serie 2\donneesserie-02\triangles.h
+
+1036062788 u:\3ème\infographie\exercices\serie 2\donneesserie-02\triangle_strip.h
+
+1036062812 u:\3ème\infographie\exercices\serie 2\donneesserie-02\triangle_fan.h
+
+1159438731 u:\3ème\infographie\exercices\serie 2\donneesserie-02\geomglut.cpp
+	<GL\glut.h>
+	"geomglut.h"
+	"geometrie.h"
+	"evenements.h"
+
+1016896160 u:\3ème\infographie\exercices\serie 2\donneesserie-02\geomglut.h
+
+1036057472 u:\3ème\infographie\exercices\serie 2\donneesserie-02\global.cpp
+	<GL\glut.h>
+
+1159966010 u:\3ème\infographie\exercices\serie 2\donneesserie-02\line_loop.cpp
+	<GL\glut.h>
+	"line_loop.h"
+
+1159965958 u:\3ème\infographie\exercices\serie 2\donneesserie-02\line_strip.cpp
+	<GL\glut.h>
+	"Line_strip.h"
+
+1159439475 u:\3ème\infographie\exercices\serie 2\donneesserie-02\points.cpp
+	<GL\glut.h>
+
+1159966290 u:\3ème\infographie\exercices\serie 2\donneesserie-02\polygone.cpp
+	<GL\glut.h>
+	"polygone.h"
+
+1159967001 u:\3ème\infographie\exercices\serie 2\donneesserie-02\quad_strip.cpp
+	<GL\glut.h>
+	"quad_strip.h"
+
+1159966711 u:\3ème\infographie\exercices\serie 2\donneesserie-02\quads.cpp
+	<GL\glut.h>
+	"quads.h"
+
+1159967673 u:\3ème\infographie\exercices\serie 2\donneesserie-02\triangle_fan.cpp
+	<GL\glut.h>
+	"triangle_fan.h"
+
+1159967652 u:\3ème\infographie\exercices\serie 2\donneesserie-02\triangle_strip.cpp
+	<GL\glut.h>
+	"triangle_strip.h"
+
+1159967129 u:\3ème\infographie\exercices\serie 2\donneesserie-02\triangles.cpp
+	<GL\glut.h>
+	"Triangles.h"
+
+1159965679 u:\3ème\infographie\exercices\serie 2\donneesserie-02\lines.cpp
+	<GL\glut.h>
+	"Lines.h"
+
+1159965624 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\axes.cpp
+	<GL\glut.h>
+	"global.h"
+
+1036057446 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\global.h
+
+1159967741 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\evenements.cpp
+	<GL\glut.h>
+	"geometrie.h"
+	"evenements.h"
+	"global.h"
+
+1016896332 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\geometrie.h
+
+1033020338 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\evenements.h
+
+1159967695 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\geometrie.cpp
+	<GL\glut.h>
+	"axes.h"
+	"points.h"
+	"lines.h"
+	"line_strip.h"
+	"line_loop.h"
+	"polygone.h"
+	"quads.h"
+	"quad_strip.h"
+	"triangles.h"
+	"triangle_strip.h"
+	"triangle_fan.h"
+	"global.h"
+	"geometrie.h"
+
+1036054380 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\axes.h
+
+1036054320 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\points.h
+
+1036056058 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\lines.h
+
+1036056576 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\line_strip.h
+
+1036056790 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\line_loop.h
+
+1036057788 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\polygone.h
+
+1036059034 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\quads.h
+
+1036061176 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\quad_strip.h
+
+1036061410 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\triangles.h
+
+1036062788 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\triangle_strip.h
+
+1036062812 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\triangle_fan.h
+
+1159438731 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\geomglut.cpp
+	<GL\glut.h>
+	"geomglut.h"
+	"geometrie.h"
+	"evenements.h"
+
+1016896160 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\geomglut.h
+
+1036057472 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\global.cpp
+	<GL\glut.h>
+
+1159966010 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\line_loop.cpp
+	<GL\glut.h>
+	"line_loop.h"
+
+1159965958 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\line_strip.cpp
+	<GL\glut.h>
+	"Line_strip.h"
+
+1159965679 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\lines.cpp
+	<GL\glut.h>
+	"Lines.h"
+
+1159439475 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\points.cpp
+	<GL\glut.h>
+
+1159966290 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\polygone.cpp
+	<GL\glut.h>
+	"polygone.h"
+
+1159967001 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\quad_strip.cpp
+	<GL\glut.h>
+	"quad_strip.h"
+
+1159966711 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\quads.cpp
+	<GL\glut.h>
+	"quads.h"
+
+1159967673 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\triangle_fan.cpp
+	<GL\glut.h>
+	"triangle_fan.h"
+
+1159967652 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\triangle_strip.cpp
+	<GL\glut.h>
+	"triangle_strip.h"
+
+1159967129 u:\3ème\infographie\exercices\série 2 - dessin 2d basiques\donneesserie-02\triangles.cpp
+	<GL\glut.h>
+	"Triangles.h"
+

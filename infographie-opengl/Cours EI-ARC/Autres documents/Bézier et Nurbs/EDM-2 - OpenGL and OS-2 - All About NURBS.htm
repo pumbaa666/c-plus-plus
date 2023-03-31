@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0036)http://www.edm2.com/0608/opengl.html -->
+<HTML><HEAD><TITLE>EDM/2 - OpenGL and OS/2 - All About NURBS</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
+rev=MADE href="mailto:editor@edm2.com">
+<META content="MSHTML 6.00.2800.1141" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#993333 link=#cc0000 bgColor=#fffbfb 
+background="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/bg.gif"><!-- ====================================================== --><!--                           Map                          --><!-- ====================================================== --><MAP 
+name=Linkbar><AREA shape=RECT alt=Feedback coords=190,1,260,14 
+  href="mailto:feedback@edm2.com"><AREA shape=RECT alt=Search 
+  coords=280,1,335,14 href="http://www.edm2.com/common/search.html"><AREA 
+  shape=RECT alt=Top coords=355,1,390,14 
+  href="http://www.edm2.com/index.html"><AREA shape=RECT alt=Backward 
+  coords=400,1,475,14 href="http://www.edm2.com/0608/news.html"><AREA shape=RECT 
+  alt=Forward coords=490,1,550,14 
+href="http://www.edm2.com/0608/inet3.html"></MAP>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="15%"><IMG height=18 alt=EDM/2 hspace=10 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/edm2sm.gif" 
+      width=56 border=0> </TD>
+    <TD width="85%">
+      <H2>OpenGL and OS/2</H2>
+      <H3>All About NURBS</H3>
+      <P>Written by <A 
+      href="http://www.edm2.com/common/authors/pnewhook.html">Perry Newhook</A> 
+      </P></TD></TR></TBODY></TABLE><!-- ====================================================== --><!--                         Linkbar                        --><!-- ====================================================== -->
+<P><IMG height=14 alt=Linkbar 
+src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/articlebar.gif" 
+width=560 useMap=#Linkbar border=0> 
+<P>
+<TABLE width="100%">
+  <TBODY>
+  <TR>
+    <TD width="10%">&nbsp;</TD>
+    <TD width="80%">
+      <H2>Introduction</H2>
+      <P>Well here we are again with another month of OpenGL programming. As 
+      promised, this month we describe NURBS, what they are for, and most 
+      importantly, how to use them. I hope everyone benefitted from last month's 
+      column. In it we described the different toolkits available to OpenGL 
+      programmers such as yourselves, so that you don't have to rely on any one 
+      compiler (or platform for that matter,) to create your applications. 
+      <H2>Background</H2>
+      <P>Ok, here we go. Before getting into the OpenGL implementation of NURBS, 
+      I will give a bit of background as to what they actually are. Since this 
+      is almost impossible without at least a bit of math, those who are not 
+      mathematically inclined can simply skip to the next section. Even if you 
+      don't like the math, this section will be useful because to create the 
+      effect that you want, you have to understand at least a bit of what is 
+      going on underneath. However, since this is not a computer science course, 
+      I will try to keep the math to only what is necessary. 
+      <P>NURBS stands for Non-Uniform Rational B-Spline. B-Spline is derived 
+      from the term basis spline. (Don't you love it when acronyms contain 
+      acronyms? If you do, come join the space program.) Now to understand this 
+      fully, let's go all the way back and describe the simple curve. 
+      <P>If you recall our OpenGL primitives, you may notice that a curve is not 
+      one of them. All we can really do in OpenGL is draw points, and line 
+      segments; all other OpenGL objects are made up from them (i.e. a triangle 
+      is simply three lines connected together and filled in. A polygon is an 
+      n-sided "triangle".) The curves that we have encountered so far are simply 
+      segmented with lines; the shorter the line segments the more accurate the 
+      curve. You would have noticed this with our previous examples when we used 
+      a wire cylinder and wire sphere. 
+      <P>If we wanted a really accurate curve so that we could not visually see 
+      the individual segments, we would need to specify a lot of individual line 
+      segments. If we wanted to show a smooth surface, we would have a large 
+      number of very small polygons. This would quickly get tedious and 
+      impractical for large scenes. Many curves and surfaces, however, can 
+      instead be described by a small number of parameters in a mathematical 
+      formula. A third order function would describe a unique curve with only 
+      three parameters. Such a surface could be described with nine parameters, 
+      and take up much less storage space than the equivalent surface described 
+      with polygons. The polygon surface would also only approximate the surface 
+      (because at some scale it still consists of flat polygons) while the 
+      mathematical version is perfectly accurate. In OpenGL we use evaluators to 
+      specify the points on the curve using only the control points. 
+      <H2>Evaluators</H2>
+      <P>OpenGL evaluators always make splines and surfaces based on a Bezier 
+      basis. If you create evaluators that use some other basis, they must be 
+      converted to a Bezier basis before you can use them with OpenGL. What is a 
+      Bezier function? Well, I'm glad you asked. 
+      <P>A Bezier curve is a vector based function of one variable in the form: 
+      <FONT color=#0000bb><PRE>  C(u) = [ X(u) Y(u) Z(u) ]
+</PRE></FONT>
+      <P>and a Bezier surface is a vector valued function of two variables: 
+      <FONT color=#0000bb><PRE>  S(u,v) = [ X(u,v) Y(u,v) Z(u,v) ]
+</PRE></FONT>
+      <P>For each u (and v for surfaces) C() and S() calculates a point on the 
+      curve or surface. To use an evaluator, define and enable a function C() or 
+      S() that you wish to use, and where you normally call glVertex(), call 
+      glEvalCoord1() or glEvalCoord2() instead. 
+      <P>The definition of the evaluator is done with the functions glMap1() for 
+      a one dimensional evaluator (a line) or glMap2() for a two dimensional 
+      evaluator (a surface). glMap1() uses the following equations that define a 
+      curve: 
+      <P><IMG height=53 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/equ1.gif" 
+      width=199> 
+      <P>represents a Bernstein polynomial of degree n. Now if Pi represents a 
+      set of control points then: 
+      <P><IMG height=53 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/equ2.gif" 
+      width=199> 
+      <P>represents a Bezier curve as u varies from 0 to 1. To allow the same 
+      curve to vary from u1 to u2 instead of 0 to 1, evaluate: 
+      <P><IMG height=53 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/equ3.gif" 
+      width=119> 
+      <P>which is what is used by glMap1(). 
+      <P>glMap1() is defined as follows: <FONT color=#0000bb><PRE>   glMap1( GLenum target, TYPE u1, TYPE u2, GLint stride,
+           GLint order, const TYPE *points )
+</PRE></FONT>
+      <UL>
+        <LI>target defines what the points represent, which can be vertices, 
+        colours, normals, or texture coordinates. This type must also be enabled 
+        or disabled with glEnable() or glDisable() in order to use it. 
+        <LI>u1 and u2 indicate the range of the variable u. 
+        <LI>stride is the number of values between control points 
+        <LI>order is the degree of the polynomial plus 1 and should be equal to 
+        the number of control points 
+        <LI>points is a pointer to the list of control points </LI></UL>
+      <P>Example code of how to use the above could be: <FONT color=#0000bb><PRE>  (inside initialization code)
+  // initialize and enable the evaluators
+  glMap1f( GL_MAP1_VERTEX_3, 0.0, 1.0, 3, 4, ctrlPoints );
+  glEnable( GL_MAP1_VERTEX_3 );
+
+  (inside paint routine)
+  glBegin( GL_LINE_STRIP );
+  for( int i=0; i&lt;NUM_SEGMENTS; i++ )
+          glEvalCoord1f( (GLfloat)i / NUM_SEGMENTS );
+</PRE></FONT>
+      <P>in the above, ctrlPoints would be a pointer to an array of four XYZ 
+      points. 
+      <P>Two dimensional evaluators are very similar, except where before we had 
+      just u, we now have u and v. This defines a surface instead of just a 
+      line. Instead of glMap1() and glEvalCoord1(), we call glMap2() and 
+      glEvalCoord2(). glMap2() has the following parameters: <FONT 
+color=#0000bb><PRE>   glMap2( GLenum target, TYPE u1, TYPE u2, GLint ustride,
+           GLint uorder, TYPE v1, TYPE v2, GLint vstride,
+           GLint vorder, const TYPE *points )
+</PRE></FONT>
+      <P>the parameters mean exactly what they meant with glMap1() but now we 
+      have independent settings for both u and v. 
+      <H2>GLU NURBS Interface</H2>
+      <P>Instead of using evaluators directly, most applications use the NURBS 
+      interface provided by the OpenGL utility library. This interface removes 
+      much of the math from creating NURBS and hides it behind a few very simple 
+      to use functions. 
+      <P>Before calling any of the NURBS functions, we have to tell OpenGL that 
+      we are going to create a NURB. To do this simply call the function <FONT 
+      color=#0000bb><PRE>  nurbSurface = gluNewNurbsRenderer();
+</PRE></FONT>
+      <P>Every call to this function returns a pointer to a GLUnurbsObj, that 
+      must be used with each of the other NURBS interface functions. In this 
+      manner we can create any number of individual NURBS patches, and set 
+      properties for each independently. 
+      <P>To set the properties, we call (duh), gluNurbsProperty(). <FONT 
+      color=#0000bb><PRE>  gluNurbsProperty( GLUnurbsObj *nurb, GLenum property, GLfloat value );
+</PRE></FONT>
+      <P>property can be one of the following 
+      <DL>
+        <DT>GLU_SAMPLING_TOLERANCE 
+        <DD>value specifies the maximum length in pixels of polygon edges. The 
+        smaller the number, the smoother looking the final image is but 
+        conversely, the longer it takes to render. The default is 50 pixels. 
+        <DT>GLU_DISPLAY_MODE 
+        <DD>defines how a NURB should be rendered. value can be any one of the 
+        following: GLU_FILL, GLU_OUTLINE_POLYGON, or GLU_OUTLINE_PATCH 
+        <DT>GLU_CULLING 
+        <DD>value is a Boolean. GL_TRUE means that a NURBS curve should be 
+        discarded prior to tesselation if its control points lie outside the 
+        current viewpoint. Default is GL_FALSE. 
+        <DT>GLU_AUTO_LOAD_MATRIX 
+        <DD>value is Boolean. GL_TRUE means that the NURBS code automatically 
+        uses the current projection, modelview and viewport matrices to compute 
+        sampling and culling matrices for each curve rendered. GL_FALSE requires 
+        the user to specify matrices with gluLoadSamplingMatrices(). </DD></DL>
+      <P>For our example we will set the tolerance down to 25, and specify that 
+      the nurbs should be filled in. <FONT color=#0000bb><PRE>  gluNurbsProperty( nurbSurface, GLU_SAMPLING_TOLERANCE, 25.0 );
+  gluNurbsProperty( nurbSurface, GLU_DISPLAY_MODE, GLU_FILL );
+</PRE></FONT>
+      <P>Now that we have the NURB set up, we just have to call the code that 
+      actually displays it. All NURB drawing functions have to be surrounded by 
+      a gluBeginSurface(), gluEndSurface() pair. The only parameter that these 
+      functions take is the pointer to the NURB object returned above. 
+      <P>The surface is actually drawn with the function gluNurbsSurface(). 
+      <FONT color=#0000bb><PRE>  gluNurbsSurface( GLUnurbsObj *nurb, GLint uKnotCount, GLfloat *uKnot,
+                   GLint vKnotCount, GLfloat *vKnot, GLint uStride,
+                   GLint vStride, GLfloat *ctrlArray, GLint uOrder,
+                   GLint vOrder, GLenum type );
+</PRE></FONT>
+      <UL>
+        <LI>nurb is the pointer to the NURBS object 
+        <LI>uKnotCount specifies the number of knots in the parametric u 
+        direction 
+        <LI>uKnot specifies an array of nondecreasing knot values in the u 
+        direction 
+        <LI>vKnotCount specifies the number of knots in the parametric v 
+        direction 
+        <LI>vKnot specifies an array of nondecreasing knot values in the v 
+        direction 
+        <LI>uStride specifies an offset between successive control points in the 
+        parametric u direction in ctrlArray 
+        <LI>vStride specifies an offset between successive control points in the 
+        parametric v direction in ctrlArray 
+        <LI>uOrder specifies the order of the NURBS surface in the u direction 
+        <LI>vOrder specifies the order of the NURBS surface in the v direction 
+        <LI>type specifies the type of surface which can be any valid two 
+        dimensional evaluator type such as GL_MAP2_VERTEX_3 or GL_MAP2_COLOR_4 
+        </LI></UL>
+      <P>If you wish to draw a curved line instead of a surface, you can call 
+      gluNurbsCurve(). The parameters have the same meaning as gluNurbsSurface() 
+      except there is only a u direction because it is one-dimensional. <FONT 
+      color=#0000bb><PRE>  gluNurbsCurve( GLUnurbsObj *nurb, GLint uKnotCount, GLfloat *uKnot,
+                 GLint uStride, GLfloat *cttrlArray, GLint uOrder,
+                 GLenum type );
+</PRE></FONT>
+      <P>For an example that has 26 knots and thirteen control points in each of 
+      the u and v directions, the code could look like: <FONT color=#0000bb><PRE>  gluBeginSurface( nurbSurface );
+  gluNurbsSurface( nurbSurface, 26, knots, 26, knots, 13*3, 3,
+                   &amp;points[0][0][0], 13, 13, GL_MAP2_VERTEX_3 );
+  gluEndSurface( nurbSurface );
+</PRE></FONT>
+      <P>Complete source code fo a simple example can be downloaded <A 
+      href="http://www.edm2.com/0608/glcol12a.zip">here</A>. For this sample we 
+      used the control points shown in the following image: 
+      <P><IMG 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/points.gif"> 
+      <P>As we stated before, we can vary the quality of the rendered image by 
+      varying the NURB sampling tolerance. The following images show the 
+      resulting NURB in mesh and in solid form for varying tolerance values. 
+      <P>GLU_SAMPLING_TOLERANCE of 5: 
+      <P><IMG 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/nurbs5m.gif"> <IMG 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/nurbs5.gif"> 
+      <P>GLU_SAMPLING_TOLERANCE of 25: 
+      <P><IMG 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/nurbs25m.gif"> 
+      <IMG src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/nurbs25.gif"> 
+
+      <P>GLU_SAMPLING_TOLERANCE of 100: 
+      <P><IMG 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/nurbs100m.gif"> 
+      <IMG 
+      src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/nurbs100.gif"> 
+      <H2>NURBS Trimming</H2>
+      <P>While a NURBS patch may follow the desired shape, the patch itself may 
+      extend outside of the desired render area. This is because the NURBS patch 
+      can be thought of as a rectangular rubber sheet stretched over the control 
+      points. While the sheet does stretch to the correct shape, the edges are 
+      still rectangular. The NURBS interface allows you to trim away any 
+      section, or multiple sections that are unwanted, leaving only the desired 
+      surface. 
+      <P>Trimming is performed by specifying a gluNurbsCurve() or a 
+      gluPwlCurve(). Since gluNurbsCurve() was described above, I will describe 
+      gluPwlCurve() here. 
+      <P>gluPwlCurve() creates a piecewise linear trimming curve for the NURBS 
+      object. <FONT color=#0000bb><PRE>  gluPwlCurve( GLUnurbsObj *nurb, GLint count, GLfloat *array,
+               GLint stride, GLenum type );
+</PRE></FONT>
+      <UL>
+        <LI>nurb is the pointer to the nurb object 
+        <LI>count specifies the number of points on the curve 
+        <LI>array specifies the array containing the curve points 
+        <LI>stride specifies an offset between points on the curve 
+        <LI>type specifies the type of the curve and can be one of 
+        GLU_MAP1_TRIM_2 or GLU_MAP1_TRIM_3 </LI></UL>
+      <P>A trimming curve has to be surrounded by a gluBeginTrim(), gluEndTrim() 
+      pair, and because the trimming commands operate on the nurb, the commands 
+      must occur between the gluBeginSurface() and gluEndSurface() pair as well. 
+
+      <P>For the surface above, if we picked eight values for a trim curve, the 
+      resulting code could look like: <FONT color=#0000bb><PRE>  gluBeginSurface( nurbSurface );
+  gluNurbsSurface( nurbSurface, ... );
+
+  gluBeginTrim( nurbSurface );
+    gluPwlCurve( nurbSurface, 8, (GLfloat *)trim, 2, GLU_MAP1_TRIM_2 );
+  gluEndTrim( nurbSurface );
+  gluEndSurface( nurbSurface );
+</PRE></FONT>
+      <P>To determine what is included and what is thrown away, simply remember 
+      that everything to the left is kept and everything to the right is 
+      trimmed. Curves have to be closed and if multiple curves are specified, 
+      then they cannot intersect. You can cut multiple holes out, and you can 
+      also create islands within holes by creating a curve in the opposite 
+      direction within a trimmed out section. 
+      <P>The complete code that shows trimming can be downloaded <A 
+      href="http://www.edm2.com/0608/glcol12trim.zip">here </A>. 
+      <H2>Conclusion</H2>
+      <P>Well that's it for this month. Be sure to check back again next time 
+      when we create a full application from start to finish, one that I'm sure 
+      you'll all enjoy. </P></TD>
+    <TD width="10%">&nbsp;</TD></TR></TBODY></TABLE><!-- ====================================================== --><!--                         Linkbar                        --><!-- ====================================================== -->
+<P><IMG height=14 alt=Linkbar 
+src="EDM-2 - OpenGL and OS-2 - All About NURBS_fichiers/articlebar.gif" 
+width=560 useMap=#Linkbar border=0> </P></BODY></HTML>

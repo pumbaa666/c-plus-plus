@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="Principal.cpp" open="1" top="0">
+		<Cursor position="0" topLine="15"/>
+	</File>
+	<File name="geometrie.cpp" open="1" top="1">
+		<Cursor position="0" topLine="6"/>
+	</File>
+	<Expand folder="/Sources"/>
+</CodeBlocks_layout_file>

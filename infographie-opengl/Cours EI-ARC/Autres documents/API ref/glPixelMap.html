@@ -1,0 +1,158 @@
+<HEAD>
+<TITLE>glPixelMap.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPixelMap.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapfv</A>,	<A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapuiv</A>, <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapusv</A> - set up pixel transfer maps
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapfv</A>( GLenum <I>map</I>,
+		     GLint <I>mapsize</I>,
+		     const GLfloat *<I>values</I> )
+  void <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapuiv</A>( GLenum <I>map</I>,
+		      GLint <I>mapsize</I>,
+		      const GLuint *<I>values</I> )
+  void <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapusv</A>( GLenum <I>map</I>,
+		      GLint <I>mapsize</I>,
+		      const GLushort *<I>values</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>map</I>	   Specifies a symbolic	map name.  Must	be one of the following:
+	   GL_PIXEL_MAP_I_TO_I,	GL_PIXEL_MAP_S_TO_S, GL_PIXEL_MAP_I_TO_R,
+	   GL_PIXEL_MAP_I_TO_G,	GL_PIXEL_MAP_I_TO_B, GL_PIXEL_MAP_I_TO_A,
+	   GL_PIXEL_MAP_R_TO_R,	GL_PIXEL_MAP_G_TO_G, GL_PIXEL_MAP_B_TO_B, or
+	   GL_PIXEL_MAP_A_TO_A.
+
+  <I>mapsize</I>  Specifies the size of the map being defined.
+
+  <I>values</I>   Specifies an	array of <I>mapsize</I> values.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A> sets up translation tables, or <I>maps</I>, used by <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>,
+  <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>,	<A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, and	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>.  Use of these
+  maps is described completely in the <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A> reference	page, and
+  partly in the	reference pages	for the	pixel and texture image	commands.
+  Only the specification of the	maps is	described in this reference page.
+
+  <I>map</I> is a symbolic map	name, indicating one of	ten maps to set.  <I>mapsize</I>
+  specifies the	number of entries in the map, and <I>values</I> is a pointer to an
+  array	of <I>mapsize</I> map values.
+
+  The ten maps are as follows:
+
+  GL_PIXEL_MAP_I_TO_I		Maps color indices to color indices.
+
+  GL_PIXEL_MAP_S_TO_S		Maps stencil indices to	stencil	indices.
+
+  GL_PIXEL_MAP_I_TO_R		Maps color indices to red components.
+
+  GL_PIXEL_MAP_I_TO_G		Maps color indices to green components.
+
+  GL_PIXEL_MAP_I_TO_B		Maps color indices to blue components.
+
+  GL_PIXEL_MAP_I_TO_A		Maps color indices to alpha components.
+
+  GL_PIXEL_MAP_R_TO_R		Maps red components to red components.
+
+  GL_PIXEL_MAP_G_TO_G		Maps green components to green components.
+
+  GL_PIXEL_MAP_B_TO_B		Maps blue components to	blue components.
+
+  GL_PIXEL_MAP_A_TO_A		Maps alpha components to alpha components.
+
+  The entries in a map can be specified	as single-precision floating-point
+  numbers, unsigned short integers, or unsigned	long integers.	Maps that
+  store	color component	values (all but	GL_PIXEL_MAP_I_TO_I and
+  GL_PIXEL_MAP_S_TO_S) retain their values in floating-point format, with
+  unspecified mantissa and exponent sizes.  Floating-point values specified
+  by <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapfv</A> are converted	directly to the	internal floating-point
+  format of these maps,	then clamped to	the range [0,1].  Unsigned integer
+  values specified by <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapusv</A> and	<A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapuiv</A> are converted linearly
+  such that the	largest	representable integer maps to 1.0, and zero maps to
+  0.0.
+
+  Maps that store indices, GL_PIXEL_MAP_I_TO_I and GL_PIXEL_MAP_S_TO_S,
+  retain their values in fixed-point format, with an unspecified number	of
+  bits to the right of the binary point.  Floating-point values	specified by
+  <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapfv</A> are converted directly to the internal fixed-point format of
+  these	maps.  Unsigned	integer	values specified by <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapusv</A> and
+  <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMapuiv</A>	specify	integer	values,	with all zeros to the right of the
+  binary point.
+
+  The table below shows	the initial sizes and values for each of the maps.
+  Maps that are	indexed	by either color	or stencil indices must	have <I>mapsize</I>
+  = 2n for some	n or results are undefined.  The maximum allowable size	for
+  each map depends on the implementation and can be determined by calling
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAX_PIXEL_MAP_TABLE.  The single maximum applies to
+  all maps, and	it is at least 32.
+--------------------------------------------------------------------------------------
+|        map         |  lookup index  |  lookup value  | initial size | initial value |
+--------------------------------------------------------------------------------------
+|GL_PIXEL_MAP_I_TO_I |	color index   |	 color index   |      1	      |	     0.0      |
+|GL_PIXEL_MAP_S_TO_S | stencil index  |	stencil	index  |      1	      |	      0	      |
+|GL_PIXEL_MAP_I_TO_R |	color index   |	      R	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_I_TO_G |	color index   |	      G	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_I_TO_B |	color index   |	      B	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_I_TO_A |	color index   |	      A	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_R_TO_R |	     R	      |	      R	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_G_TO_G |	     G	      |	      G	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_B_TO_B |	     B	      |	      B	       |      1	      |	     0.0      |
+|GL_PIXEL_MAP_A_TO_A |	     A	      |	      A	       |      1	      |	     0.0      |
+--------------------------------------------------------------------------------------
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>map</I> is not an	accepted value.
+
+  GL_INVALID_VALUE is generated	if <I>mapsize</I> is negative or larger than
+  GL_MAX_PIXEL_MAP_TABLE.
+
+  GL_INVALID_VALUE is generated	if <I>map</I> is GL_PIXEL_MAP_I_TO_I,
+  GL_PIXEL_MAP_S_TO_S, GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G,
+  GL_PIXEL_MAP_I_TO_B, or GL_PIXEL_MAP_I_TO_A, and <I>mapsize</I> is not a power of
+  two.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGetPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPixelMap.html">glGetPixelMap</A>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_I_TO_I_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_S_TO_S_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_I_TO_R_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_I_TO_G_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_I_TO_B_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_I_TO_A_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_R_TO_R_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_G_TO_G_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_B_TO_B_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PIXEL_MAP_A_TO_A_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAX_PIXEL_MAP_TABLE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>,	<A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>,
+  <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>,	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

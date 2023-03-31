@@ -1,0 +1,66 @@
+<HEAD>
+<TITLE>glCullFace.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glCullFace.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A> - specify whether front- or back-facing facets can	be culled
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A>( GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	Specifies whether front- or back-facing	facets are candidates for
+	culling.  Symbolic constants GL_FRONT, GL_BACK,	and GL_FRONT_AND_BACK
+	are accepted.  The default value is GL_BACK.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A> specifies whether front- or back-facing facets are	culled (as
+  specified by <I>mode</I>) when facet	culling	is enabled.  Facet culling is enabled
+  and disabled using the <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A>	commands with the argument
+  GL_CULL_FACE.	 Facets	include	triangles, quadrilaterals, polygons, and
+  rectangles.
+
+  <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A> specifies	which of the clockwise and counterclockwise facets
+  are front-facing and back-facing.  See <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A>.
+
+</PRE><H2>Notes</H2><PRE>
+  If the <I>mode</I> is GL_FRONT_AND_BACK then	no facets are drawn, but other
+  primitives such as points and	lines are.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_CULL_FACE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_CULL_FACE_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

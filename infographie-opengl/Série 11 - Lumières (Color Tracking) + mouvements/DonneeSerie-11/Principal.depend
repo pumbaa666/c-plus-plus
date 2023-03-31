@@ -1,0 +1,94 @@
+# depslib dependency file v1.0
+1162467438 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\geometrie.cpp
+	<GL\glut.h>
+	<math.h>
+	"global.h"
+	"geometrie.h"
+
+1098794552 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\global.h
+
+1162466730 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\geometrie.h
+
+1098794526 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\global.cpp
+	<GL\glut.h>
+
+1162467452 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\principal.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"principal.h"
+
+1024655898 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\evenements.h
+
+1023029654 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\principal.h
+
+1162467006 u:\3ème\infographie\exercices\série 11 -\donneeserie-11\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<ctype.h>
+	<math.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1163601754 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\geometrie.cpp
+	<GL\glut.h>
+	<math.h>
+	"global.h"
+	"geometrie.h"
+
+1163601741 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\global.h
+
+1163599350 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\geometrie.h
+
+1163601798 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\global.cpp
+	<GL\glut.h>
+
+1163602651 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<ctype.h>
+	<math.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1024655898 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\evenements.h
+
+1163600696 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\principal.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"principal.h"
+
+1023029654 u:\3ème\infographie\exercices\série 11 - lumières (color tracking) + mouvements\donneeserie-11\principal.h
+
+1163601756 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\geometrie.cpp
+	<GL\glut.h>
+	<math.h>
+	"global.h"
+	"geometrie.h"
+
+1163601742 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\global.h
+
+1163599352 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\geometrie.h
+
+1163602676 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\global.cpp
+	<GL\glut.h>
+
+1163600698 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\principal.cpp
+	<GL\glut.h>
+	"evenements.h"
+	"principal.h"
+
+1024655898 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\evenements.h
+
+1023029654 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\principal.h
+
+1163602686 e:\infographie\série 11 - lumières (color tracking) + mouvements\donneeserie-11\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<ctype.h>
+	<math.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+

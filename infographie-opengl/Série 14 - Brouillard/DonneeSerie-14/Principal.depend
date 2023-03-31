@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1164885742 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\evenements.cpp
+	<GL\glut.h>
+	<stdio.h>
+	<math.h>
+	<ctype.h>
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1164884448 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\global.h
+
+1024841998 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\geometrie.h
+
+1043222480 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\evenements.h
+
+1164884743 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"normal.h"
+	"geometrie.h"
+
+1024843364 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\normal.h
+
+1164884407 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\global.cpp
+	<GL\glut.h>
+
+1024849766 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\normal.cpp
+	<math.h>
+	"normal.h"
+
+1164884967 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"principal.h"
+
+1022406220 u:\3ème\infographie\exercices\série 14 - brouillard\donneeserie-14\principal.h
+

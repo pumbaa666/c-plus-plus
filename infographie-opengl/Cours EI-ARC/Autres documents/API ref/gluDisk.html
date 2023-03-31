@@ -1,0 +1,73 @@
+<HEAD>
+<TITLE>gluDisk.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluDisk.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDisk.html">gluDisk</A> - draw a disk
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDisk.html">gluDisk</A>(	GLUquadricObj *<I>qobj</I>,
+		GLdouble <I>innerRadius</I>,
+		GLdouble <I>outerRadius</I>,
+		GLint <I>slices</I>,
+		GLint <I>loops</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>	       Specifies the quadrics object (created with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>innerRadius</I>  Specifies the inner radius of the disk (may be 0).
+
+  <I>outerRadius</I>  Specifies the outer radius of the disk.
+
+  <I>slices</I>       Specifies the number of subdivisions around the <I>z</I> axis.
+
+  <I>loops</I>	       Specifies the number of concentric rings	about the origin into
+	       which the disk is subdivided.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDisk.html">gluDisk</A> renders a disk on the	<I>z</I> = 0  plane.  The disk	has a radius of
+  <I>outerRadius</I>, and contains a concentric circular hole with a radius of
+  <I>innerRadius</I>.	If <I>innerRadius</I> is 0, then no hole is generated.	 The disk is
+  subdivided around the	<I>z</I> axis into slices (like pizza slices),	and also
+  about	the <I>z</I> axis into	rings (as specified by <I>slices</I> and <I>loops</I>,
+  respectively).
+
+  With respect to orientation, the +<I>z</I> side of the disk is considered to	be
+  "outside" (see <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>).  This means that if the orientation
+  is set to GLU_OUTSIDE, then any normals generated point along	the +<I>z</I> axis.
+  Otherwise, they point	along the -<I>z</I> axis.
+
+  If texturing is turned on (with <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>), texture coordinates are
+  generated linearly such that where r=outerRadius, the	value at (<I>r</I>, 0,	0) is
+  (1, 0.5), at (0, <I>r</I>, 0) it is (0.5, 1), at (-<I>r</I>, 0, 0) it is (0, 0.5), and at
+  (0, -<I>r</I>, 0) it	is (0.5, 0).
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluCylinder.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluCylinder.html">gluCylinder</A>, <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>, <A HREF="gluPartialDisk.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPartialDisk.html">gluPartialDisk</A>, <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>,
+  <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>, <A HREF="gluSphere.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluSphere.html">gluSphere</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

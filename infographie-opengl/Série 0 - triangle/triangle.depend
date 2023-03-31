@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1136991000 u:\3ème\infographie\exercices\série 0\geometrie.cpp
+	<gl\glut.h>
+	"geometrie.h"
+
+1128350194 u:\3ème\infographie\exercices\série 0\global.cpp
+	<gl\glut.h>
+
+1159364631 u:\3ème\infographie\exercices\série 0\main.cpp
+	<GL/glut.h>
+	"evenements.h"
+	"global.h"
+	"geometrie.h"
+
+1159364875 u:\3ème\infographie\exercices\série 0\evenements.h
+
+1159364860 u:\3ème\infographie\exercices\série 0\global.h
+
+1159364863 u:\3ème\infographie\exercices\série 0\geometrie.h
+
+1128350194 u:\3ème\infographie\exercices\série 0\evenements.cpp
+	<gl\glut.h>
+	"define.h"
+	"global.h"
+	"geometrie.h"
+	"evenements.h"
+
+1159364868 u:\3ème\infographie\exercices\série 0\define.h
+
+1136991022 u:\3ème\infographie\exercices\série 0\triangle.cpp
+	<gl\glut.h>
+	"define.h"
+	"evenements.h"
+	"triangle.h"
+
+1128350032 u:\3ème\infographie\exercices\série 0\triangle.h
+

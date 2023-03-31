@@ -1,0 +1,60 @@
+<HEAD>
+<TITLE>gluQuadricDrawStyle.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluQuadricDrawStyle.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluQuadricDrawStyle.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricDrawStyle.html">gluQuadricDrawStyle</A> -	specify	the draw style desired for quadrics
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluQuadricDrawStyle.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricDrawStyle.html">gluQuadricDrawStyle</A>( GLUquadricObj *<I>qobj</I>,
+			    GLenum <I>drawStyle</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>	     Specifies the quadrics object (created with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>drawStyle</I>  Specifies the desired draw	style.	Valid values are GLU_FILL,
+	     GLU_LINE, GLU_SILHOUETTE, and GLU_POINT.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluQuadricDrawStyle.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricDrawStyle.html">gluQuadricDrawStyle</A> specifies	the draw style for quadrics rendered with
+  <I>qobj</I>.	 The legal values are as follows:
+
+  GLU_FILL	 Quadrics are rendered with polygon primitives.	 The polygons
+		 are drawn in a	counterclockwise fashion with respect to
+		 their normals (as defined with	<A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>).
+
+  GLU_LINE	 Quadrics are rendered as a set	of lines.
+
+  GLU_SILHOUETTE Quadrics are rendered as a set	of lines, except that edges
+		 separating coplanar faces will	not be drawn.
+
+  GLU_POINT	 Quadrics are rendered as a set	of points.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>, <A HREF="gluQuadricNormals.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricNormals.html">gluQuadricNormals</A>, <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>,  <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

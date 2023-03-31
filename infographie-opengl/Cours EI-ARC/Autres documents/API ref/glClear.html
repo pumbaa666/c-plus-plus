@@ -1,0 +1,89 @@
+<HEAD>
+<TITLE>glClear.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glClear.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A> - clear buffers to preset values
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A>(	GLbitfield <I>mask</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mask</I>	Bitwise	OR of masks that indicate the buffers to be cleared.  The
+	four masks are GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT,
+	GL_ACCUM_BUFFER_BIT, and GL_STENCIL_BUFFER_BIT.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A> sets the bitplane area of the	window to values previously selected
+  by <A HREF="glClearColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearColor.html">glClearColor</A>, <A HREF="glClearIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearIndex.html">glClearIndex</A>, <A HREF="glClearDepth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearDepth.html">glClearDepth</A>, <A HREF="glClearStencil.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearStencil.html">glClearStencil</A>, and
+  <A HREF="glClearAccum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearAccum.html">glClearAccum</A>.	 Multiple color	buffers	can be cleared simultaneously by
+  selecting more than one buffer at a time using <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>.
+
+  The pixel ownership test, the	scissor	test, dithering, and the buffer
+  writemasks affect the	operation of <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A>.  The scissor box bounds the
+  cleared region.  Alpha function, blend function, logical operation,
+  stenciling, texture mapping, and z-buffering are ignored by <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A>.
+
+  <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A> takes	a single argument that is the bitwise OR of several values
+  indicating which buffer is to	be cleared.
+
+  The values are as follows:
+
+  GL_COLOR_BUFFER_BIT	      Indicates	the buffers currently enabled for
+			      color  writing.
+
+  GL_DEPTH_BUFFER_BIT	      Indicates	the depth buffer.
+
+  GL_ACCUM_BUFFER_BIT	      Indicates	the accumulation buffer.
+
+  GL_STENCIL_BUFFER_BIT	      Indicates	the stencil buffer.
+
+  The value to which each buffer is cleared depends on the setting of the
+  clear	value for that buffer.
+
+</PRE><H2>Notes</H2><PRE>
+  If a buffer is not present, then a <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A> directed at that buffer has no
+  effect.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if any bit other than the four defined bits
+  is set in <I>mask</I>.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glClear.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClear.html">glClear</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_ACCUM_CLEAR_VALUE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_DEPTH_CLEAR_VALUE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_INDEX_CLEAR_VALUE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_COLOR_CLEAR_VALUE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_STENCIL_CLEAR_VALUE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glClearAccum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearAccum.html">glClearAccum</A>,	<A HREF="glClearColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearColor.html">glClearColor</A>, <A HREF="glClearDepth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearDepth.html">glClearDepth</A>, <A HREF="glClearIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearIndex.html">glClearIndex</A>, <A HREF="glClearStencil.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearStencil.html">glClearStencil</A>,
+  <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>,	<A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

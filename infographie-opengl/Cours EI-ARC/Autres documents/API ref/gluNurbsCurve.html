@@ -1,0 +1,100 @@
+<HEAD>
+<TITLE>gluNurbsCurve.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluNurbsCurve.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>	- define the shape of a	NURBS curve
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>( GLUnurbsObj *<I>nobj</I>,
+		      GLint <I>nknots</I>,
+		      GLfloat *<I>knot</I>,
+		      GLint <I>stride</I>,
+		      GLfloat *<I>ctlarray</I>,
+		      GLint <I>order</I>,
+		      GLenum <I>type</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	    Specifies the NURBS	object (created	with <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+  <I>nknots</I>    Specifies the number of knots in <I>knot</I>.  <I>nknots</I> equals the number
+	    of control points plus the order.
+
+  <I>knot</I>	    Specifies an array of <I>nknots</I> nondecreasing knot values.
+
+  <I>stride</I>    Specifies the offset (as a number of single-precision floating-
+	    point values) between successive curve control points.
+
+  <I>ctlarray</I>  Specifies a	pointer	to an array of control points.	The
+	    coordinates	must agree with	<I>type</I>, specified	below.
+
+  <I>order</I>	    Specifies the order	of the NURBS curve.  <I>order</I> equals degree + 1,
+	    hence a cubic curve	has an order of	4.
+
+  <I>type</I>	    Specifies the type of the curve.  If this curve is defined within
+	    a <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>/<A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A>	pair, then the type can	be any of the
+	    valid one-dimensional evaluator types (such	as GL_MAP1_VERTEX_3
+	    or GL_MAP1_COLOR_4).  Between a <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>/<A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluEndTrim</A> pair, the
+	    only valid types are GLU_MAP1_TRIM_2 and GLU_MAP1_TRIM_3.
+
+
+</PRE><H2>Description</H2><PRE>
+  Use <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A> to describe	a NURBS	curve.
+
+  When <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A> appears between a <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>/<A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A> pair, it is
+  used to describe a curve to be rendered.  Positional,	texture, and color
+  coordinates are associated by	presenting each	as a separate <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>
+  between a <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>/<A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A> pair.  No	more than one call to
+  <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>	for each of color, position, and texture data can be made
+  within a single <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>/<A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A> pair.  Exactly one call must be
+  made to describe the position	of the curve (a	<I>type</I> of	GL_MAP1_VERTEX_3 or
+  GL_MAP1_VERTEX_4).
+
+  When <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A> appears between a <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>/<A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluEndTrim</A> pair, it	is
+  used to describe a trimming curve on a NURBS surface.	 If <I>type</I> is
+  GLU_MAP1_TRIM_2, then	it describes a curve in	two-dimensional	(<I>u</I> and <I>v</I>)
+  parameter space.  If it is GLU_MAP1_TRIM_3, then it describes	a curve	in
+  two-dimensional homogeneous (<I>u</I>, <I>v</I>, and <I>w</I>) parameter space.  See the
+  <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A> reference page for more discussion about	trimming curves.
+
+
+</PRE><H2>Example</H2><PRE>
+  The following	commands render	a textured NURBS curve with normals:
+
+  <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>(nobj);
+     <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>(nobj, ..., GL_MAP1_TEXTURE_COORD_2);
+     <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>(nobj, ..., GL_MAP1_NORMAL);
+     <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>(nobj, ..., GL_MAP1_VERTEX_4); <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluEndCurve</A>(nobj);
+
+
+</PRE><H2>Notes</H2><PRE>
+  To define trim curves	which stitch well use <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A>.
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>, <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>, <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>, <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

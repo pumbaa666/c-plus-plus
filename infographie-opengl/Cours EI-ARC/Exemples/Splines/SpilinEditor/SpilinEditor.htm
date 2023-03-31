@@ -1,0 +1,323 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)http://www.falappa.net/alessandro/apps/spilin/index.html -->
+<HTML><HEAD><TITLE>SpilinEditor</TITLE><!-- #BeginTemplate "/Templates/iniziale_apps.dwt" --><!-- #BeginEditable "doctitle" --><!-- #EndEditable -->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1"><LINK 
+href="SpilinEditor_fichiers/alex_subsite.css" type=text/css rel=stylesheet><LINK 
+href="SpilinEditor_fichiers/site.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY text=#ffffff bgColor=#6699ff><!-- #BeginLibraryItem "/Library/alex_navbar.lbi" -->
+<TABLE class=nav_table>
+  <TBODY>
+  <TR>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/index.html">Falappa.net</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/main.html">Main</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/apps/index.html">Applications</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/programming/index.html">Programming</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/art/index.html">Art</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/links/index.html">Links</A></TD></TR></TBODY></TABLE><!-- #EndLibraryItem --><!-- #BeginLibraryItem "/Library/alex_apps_navbar.lbi" -->
+<TABLE class=nav_table_2>
+  <TBODY>
+  <TR>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/apps/spilin/index.html">SpilinEditor</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/apps/afplugins/index.html">AF 
+      Plugins</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/apps/texcreator/index.html">Texture 
+      Creator</A></TD>
+    <TD><A class=navbar_link 
+      href="http://www.falappa.net/alessandro/apps/jtexcreator/index.html">JTex 
+      Creator</A></TD></TR></TBODY></TABLE><!-- #EndLibraryItem --><!-- #BeginEditable "corpo" -->
+<P class=image><IMG height=125 alt="SPILIN EDITOR" 
+src="SpilinEditor_fichiers/spil-logo400.jpg" width=400 border=0> 
+<H1>What is it ...</H1>
+<P><B><IMG height=245 alt="Screenshot of Spilin Editor v1.2" hspace=5 
+src="SpilinEditor_fichiers/spil-screenshot.gif" width=300 align=right 
+border=0>SpilinEditor</B> is a graphical curve editor mainly designed for <A 
+href="http://www.povray.org/">POV-Ray 3.0X</A> raytracer. You can draw and edit 
+2D cubic_spline curves used in <I>LATHE</I> and <I>PRISM</I> primitives then 
+obtain a 3D shaded preview (via OpenGL library) of the corresponding object. It 
+takes advantage of an accelerated video card if present.</P>
+<P><B>SpilinEditor</B> let you export the result to a .INC file (SOR primitive 
+is included even if not previewed) or to a VRML 2.0 file, you can export the 
+currently previewed object via the clipboard too. </P>
+<P><B>SpilinEditor</B>, like POV-Ray, is distributed as copyrighted FREEWARE and 
+its source is available.</P>
+<P>SpilinEditor v1.2 main features: 
+<UL>
+  <LI>Redesigned Interface with 2 panes. 
+  <LI>2D functions: add,move,insert,select points. 
+  <LI>Multiple Points Selection and Editing on Selection (Translate, Rotate, 
+  Scale, Mirror) 
+  <LI>Grid and snap to grid function. 
+  <LI>Real Time 3D Preview (LATHE and PRISM), Flat or Smooth shading, 3D 
+  GridPlane. 
+  <LI>"Instant" POV Export trough Clipboard. 
+  <LI>Fixed Coordinate Mapping (the 2D area is mapped to a POV square of 
+  customizable size). 
+  <LI>Complete customization of colors, line thickness, grid size etc. </LI></UL>
+<P class=image><A 
+href="http://www.falappa.net/alessandro/apps/spilin/biccdiffract-high.jpg"><IMG 
+height=120 alt="click for larger version" hspace=5 
+src="SpilinEditor_fichiers/biccdiffract-low.jpg" width=160 border=1></A></P>
+<H1>On-line Documentation</H1>
+<H2 align=left>Introduction</H2>
+<P>After the first execution <B>SpilinEditor</B> saves to the system registry 
+some of the preferences settings(all the colors, graphic parameters, object 
+parameters) and its window state and placement, these values are then reused at 
+each successive execution.</P>
+<P>An application extension is registered (*.spi) so that <B>SpilinEditor</B> is 
+launched by double-clicking those files.</P>
+<P><B>SpilinEditor</B> cannot preview self intersecting splines correctly (but 
+draws and export them): you may experiment some inside-out artifacts on the 
+whole LATHE preview, and on the side of PRISM previews.</P>
+<H2 align=left>Main Window</H2>
+<P class=image><IMG height=501 src="SpilinEditor_fichiers/prism-example.gif" 
+width=612></P>
+<P>The <B>Main Window</B> is divided into two panes: the left one is the <B>2D 
+Edit Pane</B> the right one is the <B>3D Preview Pane</B>.</P>
+<P>In the 2D Edit Pane you edit the cubic splines by creating and moving the 
+control points. A red circle represents a selected point, the green circle 
+identify the last point (the create tool adds points starting from this 
+one).<BR>A right mouse click brings up a context menu with most used 
+commands.<BR>The status bar displays mouse position coordinates and commands 
+descriptions on the left while on the right we have other indicators: a polygon 
+counter (approximated in PRISM previews), a nodes counter and a spline steps 
+indicator.</P>
+<P>In the 3D Preview Pane you see in real time the effect of 2D editing on the 
+previewed object. The 3D view can be rotated by left mouse click-and-dragging or 
+zoomed by right mouse click-and-dragging. In LATHE previews of open splines the 
+interior surface is painted with a darker and less refletive color than the 
+exterior surface.</P>
+<H2 align=left>Menu</H2>
+<P>Below is a description of Spilin Editor specific menu items (the common ones 
+are not descripted):</P>
+<UL>
+  <LI><B>File:</B> contains the <I>Export</I> submenu: selecting the export 
+  format (POV or VRML) recalls a file dialog and then one of the export dialogs 
+  (see below). 
+  <LI><B>Edit:</B> the <I>Copy</I> item exports to the clipboard the currently 
+  previewed object in POV format using some settings speified in the 
+  <I>POV-Export Settings Page</I> (see below). 
+  <LI><B>View: </B>the <I>Settings</I> item recall the settings dialog box (see 
+  below). 
+  <LI><B>Tools:</B> Replicates the editing commands on the EditBar. 
+  <LI><B>Help:</B> the <I>Keyboard Help</I> item presents a dialog with commands 
+  accessible trough the keyboard. </LI></UL>
+<H2 align=left>ToolBars</H2>
+<P class=image><IMG height=54 hspace=5 src="SpilinEditor_fichiers/editbar.gif" 
+width=399 align=middle></P>
+<P>The <B>EditBar</B> is the toolbar for the 2D pane. From left to right we 
+have:<BR><B>File New, File Open:</B> obvious.<B><BR>Copy:</B> exports to the 
+clipboard the currently previewed object in POV format.<B><BR>Undo,Redo:</B> 
+obvious.<BR><B>Toggle Grid:</B> obvious.<BR><B>Create, Translate, Insert, 
+Select, Rotate, Scale, MirrorX, MirrorY:</B> these are the editing tools, note 
+that rotate, scale and mirror tools work only on multiple selected points (they 
+refer to the center of selection).<BR><B>Open/Close Spline:</B> obvious.</P>
+<P class=image><IMG height=53 hspace=5 
+src="SpilinEditor_fichiers/previewbar.gif" width=136 align=middle></P>
+<P>The <B>PreviewBar</B> is the toolbar for the 3D pane.From left to right we 
+have:<BR><B>Flip Normals:</B> reverses the polygons normals. Use if the object 
+looks inside-out or darker than normal.<BR><B>Toggle Grid Plane:</B> 
+obvious.<BR><B>Toggle Smooth Shading:</B> obvious.<BR><B>Lathe/Prism 
+Preview:</B> choose which type of object to preview, note that the prism button 
+is only available with closed splines.</P>
+<H2>VRML Export Dialog</H2>
+<P class=image><IMG height=282 src="SpilinEditor_fichiers/vrmlexp.gif" 
+width=534></P>
+<P><B>IMPORTANT:</B> <I>developing of this feature has been abandoned starting 
+from this version: you will likely get wrong results (closed splines don't 
+work).</I><BR>The VRML export dialog let you to choose the detail of the 
+geometry and some material properties.<BR><I><B>Steps per spline 
+segment:</B></I> set the polygonal detail of the 
+cross-section.<BR><I><B>Sections number:</B></I> set the detail of the lathed 
+object<BR><I><B>Smoothing Angle:</B></I> indicates the threshold angle between 
+two polygons, below this angle polygon are smooth shaded (see VRML 2.0 
+documentation).<BR><I><B>Center Hole Radius:</B></I> specify the radius of an 
+optional center hole<I><B><BR>Flip normals:</B></I> this checkbox reflects the 
+preview setting so youll'obtain exactly the previewed object.<BR><I><B>Material 
+Parameters:</B></I> see VRML 2.0 documentation for a complete explanation of 
+these parameters.</P>
+<H2>Settings Dialog</H2>
+<H3>Editor</H3>
+<P><IMG height=180 hspace=10 src="SpilinEditor_fichiers/SpilPrefs-4.gif" 
+width=330 align=left>Here are grouped the 2D Edit Pane parameters.<BR><I><B>Pen 
+Color and Size, Grid Color and Size, Background Color:</B></I> should be 
+obvious.<BR><I><B>Curve Steps:</B></I> is the detail of the cubic_spline 
+curves.<BR><I><B>Draw Nodes Polygon:</B></I> if selected dotted lines joining 
+internal spline nodes are drawn.<BR clear=left></P>
+<H3>3D Object</H3>
+<P><IMG height=180 hspace=10 src="SpilinEditor_fichiers/SpilPrefs-2.gif" 
+width=330 align=left>Here you choose the previewed object 
+characteristics.<BR><I><B>Curve Steps:</B></I> is the detail of polygonal 
+approximation to make the curves.<BR><I><B>Sections:</B></I> is the number of 
+sections used to approximate the Lathe oject.<BR><I><B>Extrusion Height:</B></I> 
+is used in the preview of the Prism object.<BR><I><B>Smooth Shading:</B></I> 
+(de)activates smooth shading.<BR><I><B>Back-Face Culling:</B></I> actually it 
+has no effect since back-face culling is treated internally, consider it a 
+performance indicator.<BR clear=left></P>
+<H3>3D Environment</H3>
+<P><IMG height=180 hspace=10 src="SpilinEditor_fichiers/SpilPrefs-3.gif" 
+width=330 align=left>Here you choose other preview 
+aspects.<BR><I><B>Colors:</B></I> should be obvious (light color indicates its 
+intensity too).<BR><I><B>Lights Position:</B></I> you can choose between eight 
+directions (North, South and so on).<BR clear=left></P>
+<H3>POV Export</H3>
+<P><IMG height=180 hspace=10 src="SpilinEditor_fichiers/SpilPrefs-1.gif" 
+width=330 align=left>Here you choose the export options that apply to the 
+<I>File Export</I> command and to the <I>Edit Copy</I> command with the 
+exception of the primitive type that is that currently 
+previewed.<BR><I><B>Primitive type:</B></I> can be Lathe, Prism or 
+Sor.<BR><I><B>Obejct Name:</B></I> is the name given to the object and to use in 
+the POV scene file to instantiate the object once include its relative .INC 
+file. It defaults to the file name when File Export is choosen.<BR><I><B>Conical 
+Sweep,Open and Sturm:</B></I> they are primitive options, see POV 
+documentation.<BR><I><B>Extrusion Height:</B></I> the Prism object extends from 
+origin to this value along y axis.<BR><I><B>Coordinates Values:</B></I> if set 
+to Normalize exported coordinates are normalized so the objects fit into a one 
+unit radius cylinder of one unit height (value in Extrusion Height for prism). 
+If set to Proportional the whole area of the 2D editor is mapped to a square of 
+given side in POV units.<BR><B>NOTE:</B> It's possible to export a SOR object 
+because the point specification of this primitive is very similar to the LATHE 
+one but the SOR curves equation is different from the LATHE one so the object 
+isn't correctly previewed (neither in 2D nor in 3D). </P>
+<H2>Credits</H2>
+<P>Spilin Editor contains free reusable code copyrighted by <B>Keith Rule</B> 
+(Undo-Redo support) and <B>Chris Maunder</B> (HyperLink control in About 
+DialogBox). Visit <A href="http://www.codeguru.com/">MFC Codeguru</A> site for 
+more infos (a must see site if you are a programmer).</P>
+<P>Special Thanks go to the two invaluable Beta Testers: <B><U>Cesare 
+DiGravio</U></B> and <B><U>Bill DeWitt</U></B></P>
+<P>
+<H1>Known Bugs</H1>
+<H3>POV-Ray Problems</H3>
+<P>Follow the advices beolw if you experience some rendering oddities:</P>
+<OL>
+  <LI><B>OPEN KEYWORD: </B>In POV-Ray version 3.02 and below the documented 
+  <I>open</I> keyword in SOR primitives has no effect: the resulting objects are 
+  never capped. You could make the first two and the last two points lie on the 
+  y axis to obtain a closed solid. <B>Update to version 3.1 or above</B>. 
+  <LI><B>RENDERING ERRORS: </B>Using spline based objects you can experience an 
+  "Illegal intersection number" error in POV-Ray versions 3.01 and below 
+  (especially transparent LATHE object viewed under certain angles). <B>Update 
+  to version 3.02 or above</B>. </LI></OL>
+<H3>Spilin Editor Problems</H3>
+<OL>
+  <LI><B>WRONG VRML EXPORT: </B>VRML export has been "left behind" in version 
+  1.2: closed splines will not export correctly.(see Notes about VRML). 
+  <LI><B>BAD SPLINE REDRAWING:</B> during single node translation in closed 
+  splines with 3 or 4 nodes the spline is not redrawed correctly (it is indeed 
+  treated as an open spline). </LI></OL>
+<H1>Download</H1>
+<H2>System Requirements ...</H2>
+<P>Requested:</P>
+<UL>
+  <LI>Windows 95 with OpenGL or Windows NT 4.0 (preferred). 
+  <LI>POV-Ray v3.X or VRML2.0 viewer. </LI></UL>
+<P>Recommended: </P>
+<UL>
+  <LI>At least 800x600x16bit-color resolution. 
+  <LI>3D accelerated video card and drivers with OpenGL acceleration support. 
+  <LI>Fast processor. </LI></UL>
+<H2>Copyright Notice ...</H2>
+<P align=center><B>Copyright © Alessandro Falappa</B> </P>
+<P>Permission to use, copy, modify, and distribute this software and its 
+documentation for any purpose is hereby granted without fee, provided that the 
+above copyright notice, author statement appear in all copies of this software 
+and related documentation. </P>
+<P>THE SOFTWARE IS PROVIDED "AS-IS'' AND WITHOUT WARRANTY OF ANY KIND, EXPRESS, 
+IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF 
+MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. </P>
+<P>IN NO EVENT SHALL ALESSANDRO FALAPPA BE LIABLE FOR ANY SPECIAL, INCIDENTAL, 
+INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND, OR ANY DAMAGES WHATSOEVER 
+RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER OR NOT ADVISED OF THE 
+POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF LIABILITY, ARISING OUT OF OR IN 
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</P>
+<H2>Executables and sources</H2>
+<P>I would have been pleased to support Silicon Graphics' implementation of 
+OpenGL libraries but after SGI's agreement with Microsoft about a future fusion 
+of OpenGL libraries and Direct3D API on the Window platform (Farenheit project) 
+this implementation is unsupported. Perhaps in the future I'll release a special 
+version.<BR>Microsoft's libraries are distributed with Windows NT 4.0, Windows 
+95 OSR 2 and Windows98 (plain Windows 95 users download the <A 
+href="ftp://ftp.microsoft.com/Softlib/MSLFILES/Opengl95.exe">upgrade from 
+Microsoft FTP site</A>).<BR>Check your system directory: OpenGL libraries are 
+named <FONT face="Times New Roman"><CODE>opengl32.dll</CODE></FONT> and <FONT 
+face="Times New Roman"><CODE>glu32.dll</CODE></FONT>.<BR>The archives <B>do not 
+contain</B> the libraries files. 
+<P>
+<UL>
+  <LI><A 
+  href="http://www.falappa.net/alessandro/apps/spilin/spilin12.zip">SpilinEditor 
+  v1.2 executables</A> <SPAN class=small>(263 Kb)</SPAN> 
+  <LI><A 
+  href="http://www.falappa.net/alessandro/apps/spilin/spilin12_sources.zip">SpilinEditor 
+  v1.2 sources</A> <SPAN class=small>(Visual C++ 5.0 project 278 Kb)</SPAN> 
+</LI></UL>
+<H1>The Math behind</H1>
+<H2>Catmull-Rom Splines</H2>
+<H3>Teory</H3>
+<P>E.Catmull and R.Rom showed in one of theirs articles [CATM74] that in a 
+B-Spline mathematical representation one can substitute the control pooints with 
+parametrical functions in t. The choice of particular functions generates curves 
+with particular properties such as the control points interpolation property: 
+this class of B-Splines is called Splines of Catmull-Rom.</P>
+<P>A Catmull-Rom spline can be defined as:</P>
+<P class=image><IMG height=36 src="SpilinEditor_fichiers/Image1.gif" 
+width=114></P>
+<P>Where:</P>
+<P class=image><IMG height=222 src="SpilinEditor_fichiers/Image2.gif" 
+width=176></P>
+<P>A simple way to understand these curves is to use a nice property: the 
+tangent in point P<SUB>i</SUB> is parallel to the line joining P<SUB>i-1</SUB> 
+and P<SUB>i+1</SUB> (see figure).</P>
+<P class=image><IMG height=218 src="SpilinEditor_fichiers/Image3.gif" 
+width=496></P>
+<H3>Implementation</H3>
+<P>In the project has been implemented the algorithm presented in [FOLEY90] 
+calculating the representation coefficients and constants. The algorithm 
+approximates each curve segment with a polyline composed of <I>numsteps 
+</I>linear segments using a fast incremental method.</P>
+<P>Below is a pseudocode version of the algorithm:</P><PRE><CODE>
+ DrawSegment(numsteps,x,y)
+ begin
+   CalculateInitialValues(dx,d2x,d3x, dy,d2y,d3y);
+   MoveTo(x,y);
+   for i=1 to numsteps do
+      begin
+         x=x+dx; dx=dx+d2x; d2x=d2x+d3x;
+         y=y+dy; dy=dy+d2y; d2y=d2y+d3y;
+         LineTo(x,y);
+      end;
+  end;
+</CODE></PRE>
+<P>Initial values are calculated for x coefficients and y coefficients by 
+solving two systems like:</P>
+<P class=image><IMG height=144 src="SpilinEditor_fichiers/Image4.gif" 
+width=281></P>
+<P>where a,b,c,d are the coefficients of the cubic function in t coming from the 
+matrix form of a Catmull-Rom spline.</P>
+<H3>Bibliography</H3>
+<P>[CATM74] Catmull E.,Rom R., "A class of local interpolating splines" in 
+"Computer Aided Geometric Design" by R.E.Barnhill and R.F.Reisenfeld, New York 
+Press 1974.</P>
+<P>[FOLEY90] Foley J.,Van Dam A.,Feiner S.,Hughes J., "Computer Graphics: 
+Principles and Practice, Second Edition", Addison-Wesley 1990.</P><!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<P>&nbsp;</P>
+<HR>
+
+<TABLE class=footer_table>
+  <TBODY>
+  <TR>
+    <TD>
+      <P class=webmaster>the webmaster address is 
+      webmaster(at)falappa(dot)net</P></TD>
+    <TD class=webmaster noWrap align=right>updated <!-- #BeginDate format:En2 -->13-Nov-2002<!-- #EndDate --> 
+</TD></TR></TBODY></TABLE><!-- #EndLibraryItem --><!-- #EndEditable --><!-- #EndTemplate --></BODY></HTML>

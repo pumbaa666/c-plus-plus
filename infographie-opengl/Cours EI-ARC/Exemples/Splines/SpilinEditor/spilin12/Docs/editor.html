@@ -1,0 +1,280 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Alessandro Falappa">
+<meta name="Description" content="SpilinEditor: DOCUMENTATION">
+<meta name="Keywords"
+content="POV, Raytracing, POV-Ray, spline, prism, lathe, OpenGL, SpilinEditor">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>SpilinEditor</title>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FF0000"
+vlink="#800000" alink="#FF00FF">
+<div align="center"><center>
+
+<table border="0" width="100%">
+    <tr>
+        <td><h2>On-line Documentation</h2>
+        </td>
+        <td align="right"><a
+        href="http://www.flashnet.it/users/fn027571/index.html"><font
+        size="1">Back to HOME</font></a></td>
+    </tr>
+</table>
+</center></div>
+
+<h2 align="center"><font color="#FF00FF"><img
+src="spil-logo400.jpg" width="400" height="125"></font></h2>
+
+<h2 align="left"><font color="#FFFFFF">Introduction</font></h2>
+
+<p align="left"><font color="#FFFFFF">After the first execution <strong>SpilinEditor</strong>
+saves to the system registry some of the preferences settings
+(all the colors, graphic parameters, object parameters) and its
+window state and placement, these values are then reused at each
+successive execution.</font></p>
+
+<p align="left"><font color="#FFFFFF">An application extension is
+registered (*.spi) so that double-clicking these files launches <strong>SpilinEditor</strong>.</font></p>
+
+<p align="left"><font color="#FFFFFF"><strong>SpilinEditor</strong>
+cannot preview self intersecting splines correctly (but draws and
+export them): you may experiment some inside-out surfaces on the
+whole object in LATHE preview, on the side in PRISM preview.</font></p>
+
+<h2 align="left"><font color="#FFFFFF">Main Window</font></h2>
+
+<p align="center"><font color="#FFFFFF"><img
+src="prism-example.gif" width="612" height="501"></font></p>
+
+<p align="left"><font color="#FFFFFF">The <strong>Main Window</strong>
+is divided into two panes: the left one is the <strong>2D Edit
+Pane</strong> the right one is the <strong>3D Preview Pane</strong>.</font></p>
+
+<p align="left"><font color="#FFFFFF">In the 2D Edit Pane you
+edit the cubic splines by creating and moving the control points.
+A red circle represents a selected point, the green circle
+identify the last point (the create tool </font>adds <font
+color="#FFFFFF">points </font>starting from this one<font
+color="#FFFFFF">).<br>
+A right mouse click brings up a context menu with most used
+commands.<br>
+The status bar displays mouse position coordinates and commands
+descriptions on the left while on the right we have other
+indicators: a polygon counter (approximated in PRISM previews), a
+nodes counter and a spline steps indicator.</font></p>
+
+<p align="left"><font color="#FFFFFF">In the 3D Preview Pane you
+see in real time the effect of 2D editing on the previewed
+object. The 3D view can be rotated by left mouse
+click-and-dragging or zoomed by right mouse click-and-dragging.
+In LATHE previews of open splines the interior surface is painted
+with a darker and less refletive color than the exterior surface.</font></p>
+
+<h2 align="left"><font color="#FFFFFF">Menu</font></h2>
+
+<p align="left"><font color="#FFFFFF">Below is a description of
+Spilin Editor specific menu items (the common ones are not
+descripted):</font></p>
+
+<ul>
+    <li><p align="left"><font color="#FFFFFF"><strong>File:</strong>
+        contains the <em>Export</em> submenu: selecting the
+        export format (POV or VRML) recalls a file dialog and
+        then one of the export dialogs (see below).</font></p>
+    </li>
+    <li><p align="left"><font color="#FFFFFF"><strong>Edit:</strong>
+        the <em>Copy</em> item exports to the clipboard the
+        currently previewed object in POV format using some
+        settings speified in the <em>POV-Export Settings Page</em>
+        (see below). </font></p>
+    </li>
+    <li><p align="left"><font color="#FFFFFF"><strong>View: </strong>the
+        <em>Settings</em> item recall the settings dialog box
+        (see below).</font></p>
+    </li>
+    <li><p align="left"><font color="#FFFFFF"><strong>Tools:</strong>
+        Replicates the editing commands on the EditBar.</font></p>
+    </li>
+    <li><p align="left"><font color="#FFFFFF"><strong>Help:</strong>
+        the <em>Keyboard Help</em> item presents a dialog with
+        commands accessible trough the keyboard.</font></p>
+    </li>
+</ul>
+
+<h2 align="left"><font color="#FFFFFF">ToolBars</font></h2>
+
+<p align="center"><font color="#FFFFFF"><img src="editbar.gif"
+align="middle" hspace="5" width="399" height="54"></font></p>
+
+<p align="left"><font color="#FFFFFF">The <strong>EditBar</strong>
+is the toolbar for the 2D pane. From left to right we have:<br>
+<strong>File New, File Open:</strong> obvious.<strong><br>
+Copy:</strong> exports to the clipboard the currently previewed
+object in POV format.<strong><br>
+Undo,Redo:</strong> obvious.<br>
+<strong>Toggle Grid:</strong> obvious.<br>
+<strong>Create, Translate, Insert, Select, Rotate, Scale,
+MirrorX, MirrorY:</strong> these are the editing tools, note that
+rotate, scale and mirror tools work only on multiple selected
+points (they refer to the center of selection).<br>
+<strong>Open/Close Spline:</strong> obvious.</font></p>
+
+<p align="center"><font color="#FFFFFF"><img src="previewbar.gif"
+align="middle" hspace="5" width="136" height="53"></font></p>
+
+<p align="left"><font color="#FFFFFF">The <strong>PreviewBar</strong>
+is the toolbar for the 3D pane.From left to right we have:<br>
+<strong>Flip Normals:</strong> reverses the polygons normals. Use
+if the object looks inside-out or darker than normal.<br>
+<strong>Toggle Grid Plane:</strong> obvious.<br>
+<strong>Toggle Smooth Shading:</strong> obvious.<br>
+<strong>Lathe/Prism Preview:</strong> choose which type of object
+to preview, note that the prism button is only available with
+closed splines.</font></p>
+
+<p align="left">&nbsp;</p>
+
+<h2>VRML Export Dialog</h2>
+
+<p align="center"><img src="vrmlexp.gif" width="534" height="282">
+</p>
+
+<p><strong>IMPORTANT:</strong> <em>developing of this feature has
+been abandoned starting from this version: you will likely get
+wrong results (closed splines don't work).</em><br>
+The VRML export dialog let you to choose the detail of the
+geometry and some material properties.<br>
+<em><strong>Steps per spline segment:</strong></em> set the
+polygonal detail of the cross-section.<br>
+<em><strong>Sections number:</strong></em> set the detail of the
+lathed object<br>
+<em><strong>Smoothing Angle:</strong></em> indicates the
+threshold angle between two polygons, below this angle polygon
+are smooth shaded (see VRML 2.0 documentation).<br>
+<em><strong>Center Hole Radius:</strong></em> specify the radius
+of an optional center hole<em><strong><br>
+Flip normals:</strong></em> this checkbox reflects the preview
+setting so youll'obtain exactly the previewed object.<br>
+<em><strong>Material Parameters:</strong></em> see VRML 2.0
+documentation for a complete explanation of these parameters.</p>
+
+<p>&nbsp;</p>
+
+<h2>Settings Dialog</h2>
+
+<h3><img src="SpilPrefs-4.gif" align="left" hspace="10"
+width="330" height="180">Editor</h3>
+
+<p>Here are grouped the 2D Edit Pane parameters.<br>
+<em><strong>Pen Color and Size, Grid Color and Size, Background
+Color:</strong></em> should be obvious.<br>
+<em><strong>Curve Steps:</strong></em> is the detail of the
+cubic_spline curves.<br>
+<em><strong>Draw Nodes Polygon:</strong></em> if selected dotted
+lines joining internal spline nodes are drawn.<br clear="left">
+</p>
+
+<h3><img src="SpilPrefs-2.gif" align="left" hspace="10"
+width="330" height="180">3D Object</h3>
+
+<p>Here you choose the previewed object characteristics.<br>
+<em><strong>Curve Steps:</strong></em> is the detail of polygonal
+approximation to make the curves.<br>
+<em><strong>Sections:</strong></em> is the number of sections
+used to approximate the Lathe oject.<br>
+<em><strong>Extrusion Height:</strong></em> is used in the
+preview of the Prism object.<br>
+<em><strong>Smooth Shading:</strong></em> (de)activates smooth
+shading.<br>
+<em><strong>Back-Face Culling:</strong></em> actually it has no
+effect since back-face culling is treated internally, consider it
+a performance indicator.<br clear="left">
+</p>
+
+<h3><img src="SpilPrefs-3.gif" align="left" hspace="10"
+width="330" height="180">3D Environment</h3>
+
+<p>Here you choose other preview aspects.<br>
+<em><strong>Colors:</strong></em> should be obvious (light color
+indicates its intensity too).<br>
+<em><strong>Lights Position:</strong></em> you can choose between
+eight directions (North, South and so on).<br clear="left">
+</p>
+
+<h3><img src="SpilPrefs-1.gif" align="left" hspace="20"
+width="330" height="180">POV Export</h3>
+
+<p>Here you choose the export options that apply to the <em>File
+Export</em> command and to the <em>Edit Copy</em> command with
+the exception of the primitive type that is that currently
+previewed.<br>
+<em><strong>Primitive type:</strong></em> can be Lathe, Prism or
+Sor.<br>
+<em><strong>Obejct Name:</strong></em> is the name given to the
+object and to use in the POV scene file to instantiate the object
+once include its relative .INC file. It defaults to the file name
+when File Export is choosen.<br>
+<em><strong>Conical Sweep,Open and Sturm:</strong></em> they are
+primitive options, see POV documentation.<br>
+<em><strong>Extrusion Height:</strong></em> the Prism object
+extends from origin to this value along y axis.<br>
+<em><strong>Coordinates Values:</strong></em> if set to Normalize
+exported coordinates are normalized so the objects fit into a one
+unit radius cylinder of one unit height (value in Extrusion
+Height for prism). If set to Proportional the whole area of the
+2D editor is mapped to a square of given side in POV units.<br>
+<strong>NOTE:</strong> It's possible to export a SOR object
+because the point specification of this primitive is very similar
+to the LATHE one but the SOR curves equation is different from
+the LATHE one so the object isn't correctly previewed (neither in
+2D nor in 3D). </p>
+
+<h2>Credits</h2>
+
+<p>Spilin Editor contains free reusable code copyrighted by <strong>Keith
+Rule</strong> (Undo-Redo support) and <strong>Chris Maunder</strong>
+(HyperLink control in About DialogBox).<br>
+Visit <a href="http://www.codeguru.com">MFC SourceBook</a> site
+for more infos (a must see site if you are a programmer).</p>
+
+<p>Special Thanks go to the two invaluable Beta Testers: <strong><u>Cesare
+DiGravio</u></strong> and <strong><u>Bill DeWitt</u></strong></p>
+
+<h2>Copyright Notice</h2>
+
+<p align="center"><b>Copyright © Alessandro Falappa</b> </p>
+
+<p>Permission to use, copy, modify, and distribute this software
+and its documentation for any purpose is hereby granted without
+fee, provided that the above copyright notice, author statement
+appear in all copies of this software and related documentation. </p>
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS-IS&quot; AND WITHOUT
+WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR OTHERWISE, INCLUDING
+WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR A PARTICULAR PURPOSE. </p>
+
+<p>IN NO EVENT SHALL ALESSANDRO FALAPPA BE LIABLE FOR ANY
+SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY
+KIND, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA
+OR PROFITS, WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE,
+AND ON ANY THEORY OF LIABILITY, ARISING OUT OF OR IN CONNECTION
+WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. </p>
+
+<hr color="#FFFFFF">
+
+<table border="0" width="100%">
+    <tr>
+        <td><font size="1"><i>Page by Alessandro Falappa </i><sup><i>©</i></sup><i>1997.</i></font></td>
+        <td align="right"><font color="#00FFFF" size="1"><em><i>Last
+        Updated </i></em><em><!--webbot bot="Timestamp"
+        startspan s-type="EDITED" s-format="%d/%m/%y %H:%M" -->27/02/98 19:06<!--webbot
+        bot="Timestamp" i-checksum="17170" endspan --></em></font></td>
+    </tr>
+</table>
+</body>
+</html>

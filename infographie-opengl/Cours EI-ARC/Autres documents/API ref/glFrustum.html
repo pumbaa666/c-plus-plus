@@ -1,0 +1,123 @@
+<HEAD>
+<TITLE>glFrustum.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glFrustum.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glFrustum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrustum.html">glFrustum</A> - multiply the current matrix by a perspective matrix
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glFrustum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrustum.html">glFrustum</A>( GLdouble <I>left</I>,
+		  GLdouble <I>right</I>,
+		  GLdouble <I>bottom</I>,
+		  GLdouble <I>top</I>,
+		  GLdouble <I>near</I>,
+		  GLdouble <I>far</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>left</I>,	<I>right</I> Specify the coordinates for the left and right vertical
+	      clipping planes.
+
+  <I>bottom</I>, <I>top</I> Specify the coordinates for the bottom and top horizontal
+	      clipping planes.
+
+  <I>near</I>,	<I>far</I>   Specify the distances to the near	and far	depth clipping
+	      planes.  Both distances must be positive.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glFrustum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrustum.html">glFrustum</A> describes a	perspective matrix that	produces a perspective
+  projection.  (<I>left</I>, <I>bottom</I>, -<I>near</I>) and (<I>right</I>, <I>top</I>,  -<I>near</I>) specify the
+  points on the	near clipping plane that are mapped to the lower left and
+  upper	right corners of the window, respectively, assuming that the eye is
+  located at (0, 0, 0).	 -<I>far</I> specifies	the location of	the far	clipping
+  plane.  Both <I>near</I> and	<I>far</I> must be positive.  The corresponding matrix	is
+
+		   |					   |
+		   |    2·near  			   |
+                   |  ----------                           |
+		   |  right-left       0       A       0   |
+		   |					   |
+		   |	  0	    2·near     B       0   |
+		   |              ----------               |
+		   |		  top-bottom		   |
+		   |	  0	       0       C       D   |
+		   |					   |
+		   |	  0	       0       -1      0   |
+
+				    right+left
+				A = ----------
+				    right-left
+
+				    top+bottom
+				B = ----------
+				    top-bottom
+
+				      far+near
+				C = - --------
+				      far-near
+
+				      2·far·near
+				D = - ----------
+				       far-near
+
+
+  The current matrix is	multiplied by this matrix with the result replacing
+  the current matrix.  That is,	if M is	the current matrix and F is the
+  frustum perspective matrix, then M is	replaced with M·F.
+
+  Use <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A> and <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPopMatrix</A> to save and restore the current matrix
+  stack.
+
+</PRE><H2>Notes</H2><PRE>
+  Depth	buffer precision is affected by	the values specified for <I>near</I> and
+  <I>far</I>.	The greater the	ratio of <I>far</I> to	<I>near</I> is, the less effective the	depth
+  buffer will be at distinguishing between surfaces that are near each other.
+  If
+
+				       far
+				   r = ----
+				       near
+
+  roughly log  r bits of depth buffer precision are lost.  Because r
+             2
+  approaches infinity as <I>near</I> approaches zero, <I>near</I> must never be set to
+  zero.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>near</I>	or <I>far</I> is not positive.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glFrustum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrustum.html">glFrustum</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MATRIX_MODE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MODELVIEW_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PROJECTION_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_MATRIX
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glOrtho.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glOrtho.html">glOrtho</A>, <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>, <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A>, <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>, <A HREF="glViewport.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glViewport.html">glViewport</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

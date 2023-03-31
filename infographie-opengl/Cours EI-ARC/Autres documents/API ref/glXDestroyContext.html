@@ -1,0 +1,55 @@
+<HEAD>
+<TITLE>glXDestroyContext.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXDestroyContext.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXDestroyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyContext.html">glXDestroyContext</A> - destroy a	GLX context
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glXDestroyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyContext.html">glXDestroyContext</A>( Display *<I>dpy</I>,
+			  GLXContext <I>ctx</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>  Specifies the connection	to the X server.
+
+
+  <I>ctx</I>  Specifies the GLX context to be destroyed.
+
+
+</PRE><H2>Description</H2><PRE>
+  If GLX rendering context <I>ctx</I> is not current to any thread,
+  <A HREF="glXDestroyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXDestroyContext.html">glXDestroyContext</A>  destroys it immediately.  Otherwise, <I>ctx</I> is destroyed
+  when it becomes not current to any thread.  In either	case, the resource ID
+  referenced by	<I>ctx</I> is freed immediately.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GLXBadContext	is generated if	<I>ctx</I> is not a valid GLX context.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>, <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

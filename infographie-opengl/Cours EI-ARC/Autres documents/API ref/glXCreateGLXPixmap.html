@@ -1,0 +1,86 @@
+<HEAD>
+<TITLE>glXCreateGLXPixmap.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXCreateGLXPixmap.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXCreateGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateGLXPixmap.html">glXCreateGLXPixmap</A> - create an off-screen GLX	rendering area
+
+
+</PRE><H2>C Specification</H2><PRE>
+  GLXPixmap <A HREF="glXCreateGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateGLXPixmap.html">glXCreateGLXPixmap</A>(	Display	*<I>dpy</I>,
+				XVisualInfo *<I>vis</I>,
+				Pixmap <I>pixmap</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	  Specifies the	connection to the X server.
+
+
+  <I>vis</I>	  Specifies the	visual that defines the	structure of the rendering
+	  area.	 It is a pointer to an XVisualInfo structure, not a visual ID
+	  or a pointer to a Visual.
+
+
+  <I>pixmap</I>  Specifies the	X pixmap that will be used as the front	left color
+	  buffer of the	off-screen rendering area.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXCreateGLXPixmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateGLXPixmap.html">glXCreateGLXPixmap</A> creates an	off-screen rendering area and returns its
+  XID.	Any GLX	rendering context that was created with	respect	to <I>vis</I> can be
+  used to render into this off-screen area.  Use <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>	to associate
+  the rendering	area with a GLX	rendering context.
+
+  The X	pixmap identified by <I>pixmap</I> is used as the front left buffer of	the
+  resulting off-screen rendering area.	All other buffers specified by <I>vis</I>,
+  including color buffers other	than the front left buffer, are	created
+  without externally visible names.  GLX pixmaps with double-buffering are
+  supported.  However, <A HREF="glXSwapBuffers.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXSwapBuffers.html">glXSwapBuffers</A> is ignored by these pixmaps.
+
+  Direct rendering contexts cannot be used to render into GLX pixmaps.
+
+
+</PRE><H2>Notes</H2><PRE>
+  XVisualInfo is defined in <I>Xutil</I>.<I>h</I>.  It is a structure	that includes <I>visual</I>,
+  <I>visualID</I>, <I>screen</I>, and	<I>depth</I> elements.
+
+
+</PRE><H2>Errors</H2><PRE>
+  BadMatch is generated	if the depth of	<I>pixmap</I> does not	match the
+  GLX_BUFFER_SIZE value	of <I>vis</I>,	or if <I>pixmap</I> was not created with respect to
+  the same screen as <I>vis</I>.
+
+  BadValue is generated	if <I>vis</I> is not a	valid XVisualInfo pointer (e.g., if
+  the GLX implementation does not support this visual).
+
+
+  BadPixmap is generated if <I>pixmap</I> is not a valid pixmap.
+
+  BadAlloc is generated	if the server cannot allocate the GLX pixmap.
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>, <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A>, <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

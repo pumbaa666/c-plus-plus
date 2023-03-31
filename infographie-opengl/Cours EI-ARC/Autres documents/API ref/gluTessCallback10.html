@@ -1,0 +1,115 @@
+<HEAD>
+<TITLE>gluTessCallback.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluTessCallback.3gl (GLU versions 1.0 and 1.1)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A> - define a callback for a tessellation object
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A>(	GLUtriangulatorObj *<I>tobj</I>,
+			GLenum <I>which</I>,
+			void (*<I>fn</I>)( )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tobj</I>	 Specifies the tessellation object (created with <A HREF="gluNewTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess10.html">gluNewTess</A>).
+
+  <I>which</I>	 Specifies the callback	being defined.	The following values are
+	 valid:	GLU_BEGIN, GLU_EDGE_FLAG, GLU_VERTEX, GLU_END, and GLU_ERROR.
+
+  <I>fn</I>	 Specifies the function	to be called.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A> is used to indicate a	callback to be used by a tessellation
+  object.  If the specified callback is	already	defined, then it is replaced.
+  If <I>fn</I>	is NULL, then the existing callback is erased.
+
+  These	callbacks are used by the tessellation object to describe how a
+  polygon specified by the user	is broken into triangles.
+
+  The legal callbacks are as follows:
+
+  GLU_BEGIN The	begin callback is invoked like <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> to indicate the start
+	    of a (triangle) primitive.	The function takes a single argument
+	    of type GLenum that	is either GL_TRIANGLE_FAN, GL_TRIANGLE_STRIP,
+	    or GL_TRIANGLES.
+
+  GLU_EDGE_FLAG
+	    The	edge flag callback is similar to <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>.  The function
+	    takes a single Boolean flag	that indicates which edges of the
+	    created triangles were part	of the original	polygon	defined	by
+	    the	user, and which	were created by	the tessellation process.  If
+	    the	flag is	GL_TRUE, then each vertex that follows begins an edge
+	    that was part of the original polygon.  If the flag	is GL_FALSE,
+	    then each vertex that follows begins an edge that was generated
+	    by the tessellator.	 The edge flag callback	(if defined) is
+	    invoked before the first vertex callback is	made.
+
+	    Since triangle fans	and triangle strips do not support edge
+	    flags, the begin callback is not called with GL_TRIANGLE_FAN or
+	    GL_TRIANGLE_STRIP if an edge flag callback is provided.  Instead,
+	    the	fans and strips	are converted to independent triangles.
+
+  GLU_VERTEX
+	    The	vertex callback	is invoked between the begin and end
+	    callbacks.	It is similar to <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>, and it defines the
+	    vertices of	the triangles created by the tessellation process.
+	    The	function takes a pointer as its	only argument.	This pointer
+	    is identical to the	opaque pointer provided	by the user when the
+	    vertex was described (see <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>).
+
+  GLU_END   The	end callback serves the	same purpose as	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>. It indicates
+	    the	end of a primitive and it takes	no arguments.
+
+  GLU_ERROR The	error callback is called when an error is encountered.	The
+	    one	argument is of type GLenum, and	it indicates the specific
+	    error that occurred.  There	are eight errors unique	to polygon
+	    tessellation, named	GLU_TESS_ERROR1	through	GLU_TESS_ERROR8.
+	    Character strings describing these errors can be retrieved with
+	    the	<A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A> call.
+
+
+</PRE><H2>Example</H2><PRE>
+  Polygons tessellated can be rendered directly	like this:
+
+  <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A>(tobj, GLU_BEGIN, <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>);
+  <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A>(tobj, GLU_VERTEX, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex3dv</A>);
+  <A HREF="gluTessCallback10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback10.html">gluTessCallback</A>(tobj, GLU_END, <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>);
+
+  <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluBeginPolygon</A>(tobj);
+     <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>(tobj, v, v);
+     ...  
+  <A HREF="gluBeginPolygon10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon10.html">gluEndPolygon</A>(tobj);
+
+  Typically, the tessellated polygon should be stored in a display list	so
+  that it does not need	to be retessellated every time it is rendered.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>, <A HREF="gluDeleteTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluDeleteTess10.html">gluDeleteTess</A>,	<A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>,	<A HREF="gluNewTess10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess10.html">gluNewTess</A>,
+  <A HREF="gluTessVertex10.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex10.html">gluTessVertex</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri, May 26, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+
+</BODY>
+</HTML>

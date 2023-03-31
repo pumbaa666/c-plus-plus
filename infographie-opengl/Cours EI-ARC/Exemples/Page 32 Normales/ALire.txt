@@ -1,0 +1,8 @@
+Attention :
+
+Si ce programme utilise glMaterial à l'intérieur d'un bloc
+
+glBegin(...);
+glEnd();
+
+Il y a alors un problème de couleur avec une carte graphique Intel.

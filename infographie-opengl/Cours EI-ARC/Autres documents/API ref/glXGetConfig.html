@@ -1,0 +1,158 @@
+<HEAD>
+<TITLE>glXGetConfig.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXGetConfig.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A> - return	information about GLX visuals
+
+
+</PRE><H2>C Specification</H2><PRE>
+  int <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A>( Display *<I>dpy</I>,
+		    XVisualInfo	*<I>vis</I>,
+		    int	<I>attrib</I>,
+		    int	*<I>value</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	  Specifies the	connection to the X server.
+
+
+  <I>vis</I>	  Specifies the	visual to be queried.  It is a pointer to an
+	  XVisualInfo structure, not a visual ID or a pointer to a Visual.
+
+
+  <I>attrib</I>  Specifies the	visual attribute to be returned.
+
+
+  <I>value</I>	  Returns the requested	value.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A> sets <I>value</I> to the <I>attrib</I>	value of windows or GLX	pixmaps
+  created with respect to <I>vis</I>.	<A HREF="glXGetConfig.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXGetConfig.html">glXGetConfig</A> returns an	error code if it
+  fails	for any	reason.	 Otherwise, zero is returned.
+
+  <I>attrib</I> is one	of the following:
+
+  GLX_USE_GL		True if	OpenGL rendering is supported by this visual,
+			False otherwise.
+
+  GLX_BUFFER_SIZE	Number of bits per color buffer.  For RGBA visuals,
+			GLX_BUFFER_SIZE	is the sum of GLX_RED_SIZE,
+			GLX_GREEN_SIZE,	GLX_BLUE_SIZE, and GLX_ALPHA_SIZE.
+			For color index	visuals, GLX_BUFFER_SIZE is the	size
+			of the color indexes.
+
+  GLX_LEVEL		Frame buffer level of the visual.  Level zero is the
+			default	frame buffer.  Positive	levels correspond to
+			frame buffers that overlay the default buffer, and
+			negative levels	correspond to frame buffers that
+			underlay the default buffer.
+
+  GLX_RGBA		True if	color buffers store red, green,	blue, and
+			alpha values, False if they store color	indexes.
+
+  GLX_DOUBLEBUFFER	True if	color buffers exist in front/back pairs	that
+			can be swapped,	False otherwise.
+
+  GLX_STEREO		True if	color buffers exist in left/right pairs,
+			False otherwise.
+
+  GLX_AUX_BUFFERS	Number of auxiliary color buffers that are available.
+			Zero indicates that no auxiliary color buffers exist.
+
+  GLX_RED_SIZE		Number of bits of red stored in	each color buffer.
+			Undefined if GLX_RGBA is False.
+
+  GLX_GREEN_SIZE	Number of bits of green	stored in each color buffer.
+			Undefined if GLX_RGBA is False.
+
+  GLX_BLUE_SIZE		Number of bits of blue stored in each color buffer.
+			Undefined if GLX_RGBA is False.
+
+  GLX_ALPHA_SIZE	Number of bits of alpha	stored in each color buffer.
+			Undefined if GLX_RGBA is False.
+
+  GLX_DEPTH_SIZE	Number of bits in the depth buffer.
+
+  GLX_STENCIL_SIZE	Number of bits in the stencil buffer.
+
+  GLX_ACCUM_RED_SIZE	Number of bits of red stored in	the accumulation
+			buffer.
+
+  GLX_ACCUM_GREEN_SIZE	Number of bits of green	stored in the accumulation
+			buffer.
+
+  GLX_ACCUM_BLUE_SIZE	Number of bits of blue stored in the accumulation
+			buffer.
+
+  GLX_ACCUM_ALPHA_SIZE	Number of bits of alpha	stored in the accumulation
+			buffer.
+
+  The X	protocol allows	a single visual	ID to be instantiated with different
+  numbers of bits per pixel.  Windows or GLX pixmaps that will be rendered
+  with OpenGL, however,	must be	instantiated with a color buffer depth of
+  GLX_BUFFER_SIZE.
+
+  Although a GLX implementation	can export many	visuals	that support OpenGL
+  rendering, it	must support at	least two.  One	is an RGBA visual with at
+  least	one color buffer, a stencil buffer of at least 1 bit, a	depth buffer
+  of at	least 12 bits, and an accumulation buffer.  Alpha bitplanes are
+  optional in this visual.  However, its color buffer size must	be as great
+  as that of the deepest TrueColor, DirectColor,  PseudoColor, or StaticColor
+  visual supported on level zero, and it must itself be	made available on
+  level	zero.
+
+  The other required visual is a color index one with at least one color
+  buffer, a stencil buffer of at least 1 bit, and a depth buffer of at least
+  12 bits.  This visual	must have as many color	bitplanes as the deepest
+  PseudoColor or StaticColor visual supported on level zero, and it must
+  itself be made available on level zero.
+
+  Applications are best	written	to select the visual that most closely meets
+  their	requirements.  Creating	windows	or GLX pixmaps with unnecessary
+  buffers can result in	reduced	rendering performance as well as poor
+  resource allocation.
+
+
+</PRE><H2>Notes</H2><PRE>
+  XVisualInfo is defined in <I>Xutil</I>.<I>h</I>.  It is a structure	that includes <I>visual</I>,
+  <I>visualID</I>, <I>screen</I>, and	<I>depth</I> elements.
+
+
+</PRE><H2>Errors</H2><PRE>
+  GLX_NO_EXTENSION is returned if <I>dpy</I> does not support the GLX extension.
+
+  GLX_BAD_SCREEN is returned if	the screen of <I>vis</I> does not correspond to a
+  screen.
+
+  GLX_BAD_ATTRIB is returned if	<I>attrib</I> is not a	valid GLX attribute.
+
+  GLX_BAD_VISUAL is returned if	<I>vis</I> doesn't support GLX	and an attribute
+  other	than GLX_USE_GL	is requested.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glXChooseVisual.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXChooseVisual.html">glXChooseVisual</A>, <A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

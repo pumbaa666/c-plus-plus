@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="calllistes.cpp" open="1" top="0">
+		<Cursor position="2188" topLine="61"/>
+	</File>
+	<File name="evenements.cpp" open="1" top="1">
+		<Cursor position="5737" topLine="162"/>
+	</File>
+	<File name="geometrie.cpp" open="1" top="0">
+		<Cursor position="313" topLine="0"/>
+	</File>
+	<File name="global.cpp" open="1" top="0">
+		<Cursor position="231" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+</CodeBlocks_layout_file>

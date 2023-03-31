@@ -1,0 +1,75 @@
+<HEAD>
+<TITLE>glScissor.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glScissor.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A> - define the scissor box
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>( GLint	<I>x</I>,
+		  GLint	<I>y</I>,
+		  GLsizei <I>width</I>,
+		  GLsizei <I>height</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>x</I>, <I>y</I> Specify the lower left corner of	the scissor box.  Initially (0,0).
+
+  <I>width</I>, <I>height</I>
+       Specify the width and height of the scissor box.	 When a	GL context is
+       <I>first</I> attached to a window, <I>width</I> and <I>height</I> are	set to the dimensions
+       of that window.
+
+
+</PRE><H2>Description</H2><PRE>
+  The <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>	routine	defines	a rectangle, called the	scissor	box, in
+  window coordinates.  The first two arguments,	<I>x</I> and <I>y</I>, specify the lower
+  left corner of the box.  <I>width</I> and <I>height</I> specify the	width and height of
+  the box.
+
+  The scissor test is enabled and disabled using <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A>	with
+  argument GL_SCISSOR_TEST.  While the scissor test is enabled,	only pixels
+  that lie within the scissor box can be modified by drawing commands.
+  Window coordinates have integer values at the	shared corners of frame
+  buffer pixels, so  <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>(0,0,1,1)	allows only the	lower left pixel in
+  the window to	be modified,  and <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>(0,0,0,0) disallows modification
+  to all pixels	in the window.
+
+  When the scissor test	is disabled, it	is as though the scissor box includes
+  the entire window.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if either <I>width</I>	or <I>height</I> is negative.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A> is executed between
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_SCISSOR_BOX
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_SCISSOR_TEST
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, <A HREF="glViewport.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glViewport.html">glViewport</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Tue, May 23, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

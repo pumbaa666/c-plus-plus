@@ -1,0 +1,105 @@
+<HEAD>
+<TITLE>glRenderMode.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glRenderMode.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> - set rasterization mode
+
+
+</PRE><H2>C Specification</H2><PRE>
+  GLint	<A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>( GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	Specifies the rasterization mode.  Three values	are accepted:
+	GL_RENDER, GL_SELECT, and GL_FEEDBACK.	The default value is
+	GL_RENDER.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> sets the	rasterization mode.  It	takes one argument, <I>mode</I>,
+  which	can assume one of three	predefined values:
+
+  GL_RENDER	  Render mode. Primitives are rasterized, producing pixel
+		  fragments, which are written into the	frame buffer.  This
+		  is the normal	mode and also the default mode.
+
+  GL_SELECT	  Selection mode.  No pixel fragments are produced, and	no
+		  change to the	frame buffer contents is made.	Instead, a
+		  record of the	names of primitives that would have been
+		  drawn	if the render mode was GL_RENDER is returned in	a
+		  select buffer, which must be created (see <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A>)
+		  before selection mode	is entered.
+
+  GL_FEEDBACK	  Feedback mode.  No pixel fragments are produced, and no
+		  change to the	frame buffer contents is made.	Instead, the
+		  coordinates and attributes of	vertices that would have been
+		  drawn	had the	render mode been GL_RENDER is returned in a
+		  feedback buffer, which must be created (see
+		  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>) before feedback mode is entered.
+
+  The return value of <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is determined by the	render mode at the
+  time <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called, rather than by <I>mode</I>.  The values	returned for
+  the three render modes are as	follows:
+
+  GL_RENDER	  Zero.
+
+  GL_SELECT	  The number of	hit records transferred	to the select buffer.
+
+  GL_FEEDBACK	  The number of	values (not vertices) transferred to the
+		  feedback buffer.
+
+  Refer	to the <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> and <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> reference pages for more
+  details concerning selection and feedback operation.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> returns zero regardless of the
+  current render mode.
+
+
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is not one of the three accepted
+  values.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> is called	while the
+  render mode is GL_SELECT, or if <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called with argument
+  GL_SELECT before <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A> is called at least once.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>	is called while	the
+  render mode is GL_FEEDBACK, or if <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is called with	argument
+  GL_FEEDBACK before <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> is called	at least once.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A> is executed	between	the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_RENDER_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>, <A HREF="glInitNames.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glInitNames.html">glInitNames</A>, <A HREF="glLoadName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadName.html">glLoadName</A>, <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>, <A HREF="glPushName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushName.html">glPushName</A>,
+  <A HREF="glSelectBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glSelectBuffer.html">glSelectBuffer</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

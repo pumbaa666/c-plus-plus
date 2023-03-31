@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0039)http://www.abs2net.com/robert/3d_boids/ -->
+<HTML><HEAD><TITLE>3D Boids Simulation</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META 
+content="Boids, 3D, OpenGL, C++, Direct3D, DirectX, Direct3DRM, Graphics,&#13;&#10;               Artificial, Life, Landscapes, Virtual, Environments, Collision,&#13;&#10;               Avoidance, Detection" 
+name=keywords>
+<META content="Robert's 3D Boids Final Year Project" name=description>
+<STYLE type=text/css>A:link {
+	TEXT-DECORATION: underline
+}
+A:visited {
+	TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A:active {
+	TEXT-DECORATION: underline
+}
+</STYLE>
+
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY background="3D Boids Simulation_fichiers/white5.gif"><BASEFONT face=Arial 
+color=#00000>
+<CENTER><BR><BR><FONT face=Arial color=#00cc00 size=7><B><I>3D Boids 
+Simulation</I></B></FONT><BR><BR><BR><BR><FONT face=Arial size=4><B><A 
+href="http://www.abs2net.com/robert/3d_boids/#introduction">Introduction</A> 
+&nbsp; &nbsp;&nbsp; <A 
+href="http://www.abs2net.com/robert/3d_boids/#screenshots">Screen Shots</A> 
+&nbsp; &nbsp;&nbsp; <A href="http://www.abs2net.com/robert/3d_boids/#bbc">BBC 
+Talking with Animals</A> <BR><BR><A 
+href="http://www.abs2net.com/robert/3d_boids/#download">Download</A> &nbsp; 
+&nbsp;&nbsp; <A href="http://www.abs2net.com/robert/3d_boids/#links">Related 
+Links</A> &nbsp; &nbsp;&nbsp; <A 
+href="http://www.abs2net.com/robert/index.html">Robert's Resource</A> 
+</B></FONT><BR><BR><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="80%" bgColor=#000000 border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE width="100%" bgColor=#000000 border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ffffcc><FONT face=Arial><B>&nbsp;Latest 
+            Version:</B></FONT></TD>
+          <TD bgColor=#ffffcc><FONT face=Arial 
+            color=#ff0000><B>&nbsp;0.91</B></FONT></TD>
+          <TD bgColor=#ffffcc><FONT face=Arial><B>&nbsp;Enhancement 
+            Date:</B></FONT></TD>
+          <TD bgColor=#ffffcc><FONT face=Arial color=#ff0000><B>&nbsp;27th Dec 
+            2001</B></FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffcc><FONT face=Arial><B>&nbsp;Project Start 
+            Date:</B></FONT></TD>
+          <TD bgColor=#ffffcc><FONT face=Arial color=#ff0000><B>&nbsp;15th 
+            June 1999</FONT></B></TD>
+          <TD bgColor=#ffffcc><FONT face=Arial><B>&nbsp;Current 
+            Status:</B></FONT></TD>
+          <TD bgColor=#ffffcc><FONT face=Arial color=#ff0000><B>&nbsp;Fully 
+            Functional</FONT></B></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><A 
+href="http://www.abs2net.com/robert/3d_boids/versions.txt"><FONT face=Arial 
+size=3><B>Click Here For Detailed Version Information</B></FONT> </A><BR><BR>
+<TABLE width="88%" border=0>
+  <TBODY>
+  <TR>
+    <TD><A name=introduction></A>&nbsp;<BR><B><FONT face=Arial color=#000000 
+      size=4>Introduction</FONT></B> </TD></TR></TBODY></TABLE><BR>
+<TABLE width="76%" border=0>
+  <TBODY>
+  <TR>
+    <TD><FONT face=Arial size=3><B>Boids were originally invented by <A 
+      href="http://www.red3d.com/cwr/">Craig Reynolds</A> and are quite simply a 
+      model of the flocking, herding or schooling behaviours observed with 
+      intelligent lifeforms.&nbsp; The grouping behaviour for the boids is 
+      produced by the application of just three simple forces:</B> <BR><BR>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="10%"></TD>
+          <TD vAlign=top width="10%"><FONT face=Arial color=#ff0000 
+            size=3><B>Cohesion&nbsp;&nbsp;</B></FONT></TD>
+          <TD vAlign=top width="70%"><FONT face=Arial color=#0000ff 
+            size=3><B>The attraction of the boids to each other.</B></FONT></TD>
+          <TD width="10%"></TD></TR>
+        <TR>
+          <TD width="10%"></TD>
+          <TD vAlign=top width="10%"><FONT face=Arial color=#ff0000 
+            size=3><B>Alignment&nbsp;&nbsp;</B></FONT></TD>
+          <TD width="70%"><FONT face=Arial color=#0000ff size=3><B>The 
+            adjustment of each individual boid's velocity to match up with the 
+            rest of the flock's velocity.</B></FONT></TD>
+          <TD width="10%"></TD></TR>
+        <TR>
+          <TD width="10%"></TD>
+          <TD vAlign=top width="10%"><FONT face=Arial color=#ff0000 
+            size=3><B>Separation&nbsp;&nbsp;</B></FONT></TD>
+          <TD width="70%"><FONT face=Arial color=#0000ff size=3><B>The 
+            avoidance of any direct collisions with any other 
+          boids.</B></FONT></TD>
+          <TD width="10%"></TD></TR></TBODY></TABLE><BR><B>All the behaviour 
+      produced from each boid is a resultant combination of these three 
+      individual boid behaviours, within its local environment.&nbsp; Boid 
+      behaviour therefore is a good model of a cellular automaton, where there 
+      can be an emergence of group behaviour.&nbsp; The implementation of the 
+      boid behaviours can be varied using very basic or advanced programming 
+      techniques.&nbsp; Basic boids would just inhabit a blank two dimensional 
+      plane and follow simple averaging algorithms.&nbsp; Advanced boids could 
+      live in a complex three dimensional environment with obstacles ect.&nbsp; 
+      Their behaviour could be influenced by much finer details, like their 
+      field of vision and movement characteristics, which could even be 
+      particular to each boid.&nbsp; This project features three extra optional 
+      behaviours:</B> <BR><BR>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="10%"></TD>
+          <TD vAlign=top width="20%"><FONT face=Arial color=#ff0000 
+            size=3><B>Land Avoidance&nbsp;&nbsp;</B></FONT></TD>
+          <TD vAlign=top width="60%"><FONT face=Arial color=#0000ff 
+            size=3><B>A combination of collision detection and avoidance 
+            algorithms.</B></FONT></TD>
+          <TD width="10%"></TD></TR>
+        <TR>
+          <TD width="10%"></TD>
+          <TD vAlign=top width="20%"><FONT face=Arial color=#ff0000 
+            size=3><B>V-Formation&nbsp;&nbsp;</B></FONT></TD>
+          <TD width="60%"><FONT face=Arial color=#0000ff size=3><B>Without 
+            using any pre-designated leaders, the boids adjust their relative 
+            positions to form a V-Formation.&nbsp; Thus naturally producing an 
+            emergent leader boid.</B></FONT></TD>
+          <TD width="10%"></TD></TR>
+        <TR>
+          <TD width="10%"></TD>
+          <TD vAlign=top width="20%"><FONT face=Arial color=#ff0000 
+            size=3><B>Random Behaviour&nbsp;&nbsp;</B></FONT></TD>
+          <TD width="60%"><FONT face=Arial color=#0000ff size=3><B>To generate 
+            natural noise and indirection.</B></FONT></TD>
+          <TD width="10%"></TD></TR></TBODY></TABLE><BR><B>Elaboration of boid 
+      details can go on and on indefinitely.&nbsp; But the essence and 
+      underlying framework for all boid simulations, is just the deployment of 
+      the first three simple rules to produce the complex and fascinating 
+      emergent behaviour.</B> <BR><BR><BR><B>I am developing this simulation 
+      using Microsoft Visual C++ Version 6, the Microsoft Foundation Classes, 
+      the C++ Standard Template Library and OpenGL.&nbsp; Previously it used 
+      Direct3D with COM, because my graphics card did not support OpenGL at the 
+      time.&nbsp; It also uses multiprocessing to allow the user interface to be 
+      used without causing any interference to the rendering.&nbsp; The 
+      application is a pure Win32 format and has been developed and tested cross 
+      platform.&nbsp; Such as NT4 (with service pack 3 or above) and Windows 
+      2000.&nbsp; The simulation also works fine in all the Windows 9X releases 
+      including ME with DirectX version 3 or above installed.&nbsp; DirectDraw 
+      is used to enumerate the available display modes.</B> 
+</FONT></TD></TR></TBODY></TABLE><BR><BR><BR><BR><BR>
+<TABLE width="88%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left width="100%"><A name=screenshots></A>&nbsp;<BR><B><FONT 
+      face=Arial size=4>3D Boids Project Screen Shots</FONT></B> 
+</TD></TR></TBODY></TABLE><BR><BR>
+<DIV align=center>
+<CENTER>
+<TABLE width=700 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle><A 
+      href="http://www.abs2net.com/robert/3d_boids/pier.jpg"><IMG height=150 
+      src="3D Boids Simulation_fichiers/pier_small.jpg" width=200 
+    border=0></A></TD>
+    <TD vAlign=center align=middle width=50></TD>
+    <TD vAlign=center align=middle><A 
+      href="http://www.abs2net.com/robert/3d_boids/closeup.jpg"><IMG height=150 
+      src="3D Boids Simulation_fichiers/closeup_small.jpg" width=200 
+      border=0></A></TD>
+    <TD vAlign=center align=middle width=50></TD>
+    <TD vAlign=center align=middle><A 
+      href="http://www.abs2net.com/robert/3d_boids/detection.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/detection_small.jpg" 
+      width=200 border=0></A></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle height=50></TD>
+    <TD vAlign=center align=middle width=50 height=50></TD>
+    <TD vAlign=center align=middle height=50></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle><A 
+      href="http://www.abs2net.com/robert/3d_boids/selected.jpg"><IMG height=150 
+      src="3D Boids Simulation_fichiers/selected_small.jpg" width=200 
+      border=0></A></TD>
+    <TD vAlign=center align=middle width=50></TD>
+    <TD vAlign=center align=middle><A 
+      href="http://www.abs2net.com/robert/3d_boids/vformation1.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/vformation1_small.jpg" 
+      width=200 border=0></A></TD>
+    <TD vAlign=center align=middle width=50></TD>
+    <TD vAlign=center align=middle><A 
+      href="http://www.abs2net.com/robert/3d_boids/vformation2.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/vformation2_small.jpg" 
+      width=200 
+border=0></A></TD></TR></TBODY></TABLE></CENTER></DIV><BR><BR><BR><BR><BR><BR>
+<TABLE width="88%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=left width="100%"><A name=bbc></A>&nbsp;<BR><B><FONT face=Arial 
+      size=4>BBC Talking with Animals</FONT></B> </TD></TR></TBODY></TABLE><BR><BR>
+<DIV align=center>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width=800 border=0>
+  <TBODY>
+  <TR><FONT face=Arial size=4>Filmed with Charlotte Uhlenbroek at Brighton's 
+    West Pier in November 2001</FONT><BR><BR></TR>
+  <TR>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/1_28.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/1_28_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/1_34.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/1_34_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/1_43.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/1_43_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/1_48.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/1_48_small.jpg" width=200 
+      border=0></A></TD></TR>
+  <TR>
+    <TD height=20></TD></TR>
+  <TR>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/1_55.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/1_55_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/1_58.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/1_58_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/2_33.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/2_33_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/2_42.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/2_42_small.jpg" width=200 
+      border=0></A></TD></TR>
+  <TR>
+    <TD height=20></TD></TR>
+  <TR>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/2_58.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/2_58_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/3_05.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/3_05_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/3_12.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/3_12_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/3_23.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/3_23_small.jpg" width=200 
+      border=0></A></TD></TR>
+  <TR>
+    <TD height=20></TD></TR>
+  <TR>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/3_32.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/3_32_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/3_42.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/3_42_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/4_25.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/4_25_small.jpg" width=200 
+      border=0></A></TD>
+    <TD><A href="http://www.abs2net.com/robert/3d_boids/5_34.jpg"><IMG 
+      height=150 src="3D Boids Simulation_fichiers/5_34_small.jpg" width=200 
+      border=0></A></TD></TR></TBODY></TABLE></CENTER></DIV><BR><BR><BR><BR><BR><BR>
+<TABLE width="88%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%"><A name=download></A>&nbsp;<BR><B><FONT face=Arial 
+      size=4>3D Boids Project Download</FONT></B><BR><BR>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="6%"></TD>
+          <TD width="94%"><FONT face=Arial size=3><B>Latest OpenGL binary 
+            &gt;&gt;&gt; <A 
+            href="http://www.abs2net.com/robert/3d_boids/3DBoids91.zip">3DBoids91.zip</A> 
+            &nbsp; &nbsp; &nbsp;236Kbytes<BR><BR>University Project VC++6 source 
+            &amp; Direct3D binary &gt;&gt;&gt; <A 
+            href="http://www.abs2net.com/robert/3d_boids/3DBoids54.zip">3DBoids54.zip</A> 
+            &nbsp; &nbsp; &nbsp;302Kbytes 
+  </B></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR><BR><BR><BR><BR><BR>
+<TABLE width="88%" border=0>
+  <TBODY>
+  <TR>
+    <TD><A name=links></A>&nbsp;<BR><B><FONT face=Arial size=4>Related 
+      Links:</FONT></B><BR><BR>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width="6%"></TD>
+          <TD width="94%"><FONT face=Arial size=3><B><A 
+            href="http://www.red3d.com/cwr/boids/">Craig Reynolds' 
+            Boids</A><BR><A 
+            href="http://www.bbc.co.uk/nature/programmes/tv/talking/">BBC 
+            Talking with Animals</A><BR><A 
+            href="http://www.bbc.co.uk/nature/programmes/who/charlotte_uhlenbroek.shtml">Charlotte 
+            Uhlenbroek</A><BR><A 
+            href="http://www.westpier-trust.demon.co.uk/">Brighton West Pier 
+            Trust</A><BR><A href="http://www.opengl.org/">OpenGL.org</A><BR><A 
+            href="http://www.naturewizard.com/">NATUREWIZARD</A><BR><A 
+            href="http://www.osborne.com/programming_webdev/0078825733/0078825733.shtml">MFC 
+            Programming from the Ground Up</A><BR><A 
+            href="http://www.osborne.com/programming_webdev/0078825075/0078825075.shtml">STL 
+            Programming from the Ground Up</A><BR><A 
+            href="http://www.rezio.net/d3d/">Cutting-Edge Direct3D 
+            Programming</A><BR></B></FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER><BR><BR><BR><BR><BR><BR><BR><B><FONT 
+face=Arial size=3>email: <A 
+href="mailto:robert@abs2net.com">robert@abs2net.com</A><BR>home page: <A 
+href="http://www.roberts-resource.com/">http://www.roberts-resource.com/</A><BR>University 
+Project Supervisor: <A href="http://www.westminster.ac.uk/~pattins/">Stuart 
+Pattinson</A><BR></FONT></B>
+<TABLE cellSpacing=0 cellPadding=0 width=770 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=bottom align=left width="60%"><!-- BEGIN FASTCOUNTER CODE --><A 
+      href="http://member.bcentral.com/cgi-bin/fc/fastcounter-login?1003469" 
+      target=_top><IMG src="3D Boids Simulation_fichiers/digits.gif" 
+      border=0></A> <!-- END FASTCOUNTER CODE --><BR><!-- BEGIN FASTCOUNTER LINK --><FONT 
+      face=Arial size=1><A href="http://fastcounter.bcentral.com/fc-join" 
+      target=_top>FastCounter</A> <!-- END FASTCOUNTER LINK -->and project page 
+      initiated on Friday 17th September 1999</FONT><BR><BR></TD>
+    <TD vAlign=top align=right width="40%"><A 
+      href="http://www.opengl.org/"><IMG height=97 
+      src="3D Boids Simulation_fichiers/OGL2.gif" width=220 border=0></A> 
+  </TD></TR></TBODY></TABLE><BR><BR><BR></BASEFONT></BODY></HTML>

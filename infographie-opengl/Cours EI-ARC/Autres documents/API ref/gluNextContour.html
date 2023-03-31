@@ -1,0 +1,108 @@
+<HEAD>
+<TITLE>gluNextContour.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluNextContour.3gl (Obsolete in GLU version 1.2 and later)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A> - mark	the beginning of another contour
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A>( GLUtesselator *<I>tess</I>,
+		       GLenum <I>type</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tess</I>	Specifies the tessellation object (created with	<A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>).
+
+  <I>type</I>	Specifies the type of the contour being	defined.  Valid	values are
+	GLU_EXTERIOR, GLU_INTERIOR, GLU_UNKNOWN, GLU_CCW, and GLU_CW.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A> is used in describing polygons	with multiple contours.
+  After	the first contour has been described through a series of
+  <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>	calls, a <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A>	call indicates that the	previous
+  contour is complete and that the next	contour	is about to begin.  Another
+  series of <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A> calls	is then	used to	describe the new contour.
+  This process can be repeated until all contours have been described.
+
+  <I>type</I> defines what type of contour follows.  The legal	contour	types are as
+  follows:
+
+  GLU_EXTERIOR	 An exterior contour defines an	exterior boundary of the
+		 polygon.
+
+  GLU_INTERIOR	 An interior contour defines an	interior boundary of the
+		 polygon (such as a hole).
+
+  GLU_UNKNOWN	 An unknown contour is analyzed	by the library to determine
+		 if it is interior or exterior.
+
+  GLU_CCW, GLU_CW
+		 The first GLU_CCW or GLU_CW contour defined is	considered to
+		 be exterior.  All other contours are considered to be
+		 exterior if they are oriented in the same direction
+		 (clockwise or counterclockwise) as the	first contour, and
+		 interior if they are not.
+
+		 If one	contour	is of type GLU_CCW or GLU_CW, then all
+		 contours must be of the same type (if they are	not, then all
+		 GLU_CCW and GLU_CW contours will be changed to	GLU_UNKNOWN).
+
+		 Note that there is no real difference between the GLU_CCW
+		 and GLU_CW contour types.
+
+  <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A> can be	called before the first	contour	is described to
+  define the type of the first contour.	 If <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A> is not called
+  before the first contour, then the first contour is marked GLU_EXTERIOR.
+
+</PRE><H2>Notes</H2><PRE>
+
+  As of GLU version 1.2, this command is obsolete and is provided for backwards
+  compatibility only. GLU version 1.2 (and later) can be distinguished during
+  compilation by checking if the pre-processor symbol GLU_VERSION_1_2 is defined.
+
+  Calls	to <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A> are mapped to	<A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A> followed by
+  <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>.
+
+
+</PRE><H2>Example</H2><PRE>
+  A quadrilateral with a triangular hole in it can be described	as follows:
+
+  <A HREF="gluBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon.html">gluBeginPolygon</A>(tobj);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v1, v1);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v2, v2);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v3, v3);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v4, v4); 
+  <A HREF="gluNextContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNextContour.html">gluNextContour</A>(tobj, GLU_INTERIOR);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v5, v5);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v6, v6);
+     <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v7, v7); 
+  <A HREF="gluBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon.html">gluEndPolygon</A>(tobj);
+
+
+</PRE><H2>See Also</H2><PRE>
+   <A HREF="gluBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginPolygon.html">gluBeginPolygon</A>, <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>,	<A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>, <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>,
+  <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

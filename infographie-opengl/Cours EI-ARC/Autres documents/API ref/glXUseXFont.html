@@ -1,0 +1,86 @@
+<HEAD>
+<TITLE>glXUseXFont.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXUseXFont.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXUseXFont.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXUseXFont.html">glXUseXFont</A> -	create bitmap display lists from an X font
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glXUseXFont.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXUseXFont.html">glXUseXFont</A>( Font <I>font</I>,
+		    int	<I>first</I>,
+		    int	<I>count</I>,
+		    int	<I>listBase</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>font</I>	    Specifies the font from which character glyphs are to be taken.
+
+
+  <I>first</I>	    Specifies the index	of the first glyph to be taken.
+
+
+  <I>count</I>	    Specifies the number of glyphs to be taken.
+
+
+  <I>listBase</I>  Specifies the index	of the first display list to be	generated.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXUseXFont.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXUseXFont.html">glXUseXFont</A> generates	<I>count</I> display lists, named <I>listBase</I> through
+  <I>listBase</I>+<I>count</I>-1, each containing a single <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A> command.	The
+  parameters of	the <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A> command of	display	list <I>listBase</I>+<I>i</I>	are derived
+  from glyph <I>first</I>+<I>i</I>.  Bitmap parameters <I>xorig</I>,	<I>yorig</I>, <I>width</I>, and <I>height</I> are
+  computed from	font metrics as	<I>descent</I>-<I>1</I>, -<I>lbearing</I>, <I>rbearing</I>-<I>lbearing</I>, and
+  <I>ascent</I>+<I>descent</I>, respectively.	 <I>xmove</I> is taken	from the glyph's <I>width</I>
+  metric, and <I>ymove</I> is set to zero.  Finally, the glyph's image	is converted
+  to the appropriate format for	<A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>.
+
+  Using	<A HREF="glXUseXFont.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXUseXFont.html">glXUseXFont</A> may	be more	efficient than accessing the X font and
+  generating the display lists explicitly, both	because	the display lists are
+  created on the server	without	requiring a round trip of the glyph data, and
+  because the server may choose	to delay the creation of each bitmap until it
+  is accessed.
+
+  Empty	display	lists are created for all glyphs that are requested and	are
+  not defined in <I>font</I>.	<A HREF="glXUseXFont.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXUseXFont.html">glXUseXFont</A> is ignored if there	is no current GLX
+  context.
+
+
+</PRE><H2>Errors</H2><PRE>
+  BadFont is generated if <I>font</I> is not a	valid font.
+
+  GLXBadContextState is	generated if the current GLX context is	in display-
+  list construction mode.
+
+
+  GLXBadCurrentWindow is generated if the drawable associated with the
+  current context of the calling thread	is a window, and that window is	no
+  longer valid.
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBitmap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBitmap.html">glBitmap</A>, <A HREF="glXMakeCurrent.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXMakeCurrent.html">glXMakeCurrent</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

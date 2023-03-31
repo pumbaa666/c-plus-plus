@@ -1,0 +1,67 @@
+<HEAD>
+<TITLE>glPassThrough.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPassThrough.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>	- place	a marker in the	feedback buffer
+
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>( GLfloat <I>token</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>token</I>	 Specifies a marker value to be	placed in the feedback buffer
+	 following a GL_PASS_THROUGH_TOKEN.
+
+
+</PRE><H2>Description</H2><PRE>
+
+  Feedback is a	GL render mode.	 The mode is selected by calling <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>
+  with GL_FEEDBACK.  When the GL is in feedback	mode, no pixels	are produced
+  by rasterization.  Instead, information about	primitives that	would have
+  been rasterized is fed back to the application using the GL.	See
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A> for a description of	the feedback buffer and	the values in
+  it.
+
+  <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>	inserts	a user-defined marker in the feedback buffer when it
+  is executed in feedback mode.	<I>token</I> is returned as if	it were	a primitive;
+  it is	indicated with its own unique identifying value:
+  GL_PASS_THROUGH_TOKEN.  The order of <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A> commands with respect to
+  the specification of graphics	primitives is maintained.
+
+</PRE><H2>Notes</H2><PRE>
+  <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A>	is ignored if the GL is	not in feedback	mode.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glPassThrough.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPassThrough.html">glPassThrough</A> is	executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_RENDER_MODE
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glFeedbackBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFeedbackBuffer.html">glFeedbackBuffer</A>, <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

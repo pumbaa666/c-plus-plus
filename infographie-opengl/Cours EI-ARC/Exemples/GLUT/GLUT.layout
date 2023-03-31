@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="GLUT_private.rc" open="1" top="1">
+		<Cursor position="68" topLine="0"/>
+	</File>
+	<File name="main.cpp" open="1" top="0">
+		<Cursor position="22" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+	<Expand folder="/Others"/>
+</CodeBlocks_layout_file>

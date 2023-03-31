@@ -1,0 +1,69 @@
+<HEAD>
+<TITLE>glMultMatrix.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glMultMatrix.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrixd</A>, <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrixf</A> - multiply the current matrix by	an arbitrary
+  matrix
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrixd</A>( const GLdouble *<I>m</I>	)
+  void <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrixf</A>( const GLfloat *<I>m</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>m</I>  Specifies a pointer a to 4x4 matrix stored	in column-major	order as
+     sixteen consecutive values.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A> multiplies the current matrix with the one specified in <I>m</I>.
+  That is, if M	is the current matrix and T is the matrix passed to
+  <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A>,	then M is replaced with	M · T.
+
+  The current matrix is	the projection matrix, modelview matrix, or texture
+  matrix, determined by	the current matrix mode	(see <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>).
+
+  <I>m</I> points to a	4x4 matrix of single- or double-precision floating-point
+  values stored	in column-major	order.	That is, the matrix is stored as
+
+			      |a0  a4  a8   a12|
+			      |		       |
+			      |a1  a5  a9   a13|
+			      |		       |
+			      |a2  a6  a10  a14|
+			      |		       |
+			      |a3  a7  a11  a15|
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MATRIX_MODE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MODELVIEW_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PROJECTION_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_MATRIX
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>,	<A HREF="glLoadIdentity.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadIdentity.html">glLoadIdentity</A>,	<A HREF="glLoadMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLoadMatrix.html">glLoadMatrix</A>, <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

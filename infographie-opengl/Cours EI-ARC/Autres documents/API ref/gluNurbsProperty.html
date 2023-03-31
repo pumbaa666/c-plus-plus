@@ -1,0 +1,158 @@
+<HEAD>
+<TITLE>gluNurbsProperty.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluNurbsProperty.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A> - set a NURBS property
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A>( GLUnurbsObj *<I>nobj</I>,
+			 GLenum	<I>property</I>,
+			 GLfloat <I>value</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	    Specifies the NURBS	object (created	with <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+  <I>property</I>  Specifies the property to be set.  Valid values are
+	    GLU_SAMPLING_TOLERANCE, GLU_DISPLAY_MODE, GLU_CULLING,
+	    GLU_AUTO_LOAD_MATRIX, GLU_PARAMETRIC_TOLERANCE,
+	    GLU_SAMPLING_METHOD, GLU_U_STEP, or	GLU_V_STEP.
+
+  <I>value</I>	    Specifies the value	of the indicated property.  It may be a
+	    numeric value, or one of GLU_PATH_LENGTH, GLU_PARAMETRIC_ERROR,
+	    or GLU_DOMAIN_DISTANCE.
+
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsProperty.html">gluNurbsProperty</A> is used to control properties stored	in a NURBS object.
+  These	properties affect the way that a NURBS curve is	rendered.  The legal
+  values for <I>property</I> are as follows:
+
+
+  GLU_SAMPLING_METHOD	   specifies how a NURBS surface should	be
+			   tessellated.	<I>value</I> may be set to one	of
+			   GLU_PATH_LENGTH, GLU_PARAMETRIC_ERROR, or
+			   GLU_DOMAIN_DISTANCE.	When set to GLU_PATH_LENGTH,
+			   the surface is rendered so that the maximum
+			   length, in pixels, of the edges of the
+			   tessellation	polygons is no greater than what is
+			   specified by	GLU_SAMPLING_TOLERANCE.
+
+			   GLU_PARAMETRIC_ERROR	specifies that the surface is
+			   rendered in such a way that the value specified by
+			   GLU_PARAMETRIC_TOLERANCE describes the maximum
+			   distance, in	pixels,	between	the tessellation
+			   polygons and	the surfaces they approximate.
+
+			   GLU_DOMAIN_DISTANCE allows users to specify,	in
+			   parametric coordinates, how many sample points per
+			   unit	length are taken in u, v direction. The
+			   default value of GLU_SAMPLING_METHOD	is
+			   GLU_PATH_LENGTH.
+
+
+  GLU_SAMPLING_TOLERANCE   specifies the maximum length, in pixels to use
+			   when	the sampling method is set to
+			   GLU_PATH_LENGTH. The	NURBS code is conservative
+			   when	rendering a curve or surface, so the actual
+			   length can be somewhat shorter. The default value
+			   is 50.0 pixels.
+
+
+  GLU_PARAMETRIC_TOLERANCE specifies the maximum distance, in pixels, to use
+			   when	the sampling method is set to
+			   GLU_PARAMETRIC_ERROR.  The default value for
+			   GLU_PARAMETRIC_TOLERANCE is 0.5.
+
+
+  GLU_U_STEP		   specifies the number	of sample points per unit
+			   length taken	along the u axis in parametric
+			   coordinates.	It is needed when GLU_SAMPLING_METHOD
+			   is set to GLU_DOMAIN_DISTANCE. The default value
+			   is 100.
+
+
+  GLU_V_STEP		   specifies the number	of sample points per unit
+			   length taken	along the v axis in parametric
+			   coordinate. It is needed when GLU_SAMPLING_METHOD
+			   is set to GLU_DOMAIN_DISTANCE.  The default value
+			   is 100.
+
+
+  GLU_DISPLAY_MODE	   <I>value</I> defines how a NURBS surface should be
+			   rendered.  <I>value</I> can	be set to GLU_FILL,
+			   GLU_OUTLINE_POLYGON,	or GLU_OUTLINE_PATCH.  When
+			   set to GLU_FILL, the	surface	is rendered as a set
+			   of polygons.	 GLU_OUTLINE_POLYGON instructs the
+			   NURBS library to draw only the outlines of the
+			   polygons created by tessellation.
+			   GLU_OUTLINE_PATCH causes just the outlines of
+			   patches and trim curves defined by the user to be
+			   drawn.  The default value is	GLU_FILL.
+
+
+  GLU_CULLING		   <I>value</I> is a Boolean value that, when set to
+			   GL_TRUE, indicates that a NURBS curve should	be
+			   discarded prior to tessellation if its control
+			   points lie outside the current viewport.  The
+			   default is GL_FALSE (because	a NURBS	curve cannot
+			   fall	entirely within	the convex hull	of its
+			   control points).
+
+
+  GLU_AUTO_LOAD_MATRIX	   <I>value</I> is a Boolean value.  When set to GL_TRUE,
+			   the NURBS code downloads the	projection matrix,
+			   the modelview matrix, and the viewport from the
+			   OpenGL server to compute sampling and culling
+			   matrices for	each NURBS curve that is rendered.
+			   Sampling and	culling	matrices are required to
+			   determine the tesselation of	a NURBS	surface	into
+			   line	segments or polygons and to cull a NURBS
+			   surface if it lies outside of the viewport.	If
+			   this	mode is	set to GL_FALSE, then the user needs
+			   to provide a	projection matrix, a modelview
+			   matrix, and a viewport for the NURBS	renderer to
+			   use to construct sampling and culling matrices.
+			   This	can be done with the <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A>
+			   function.  The default for this mode	is GL_TRUE.
+			   Changing this mode from GL_TRUE to GL_FALSE does
+			   not affect the sampling and culling matrices	until
+			   <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A> is called.
+
+</PRE><H2>Notes</H2><PRE>
+  A <I>property</I> of	GLU_PARAMETRIC_TOLERANCE, GLU_SAMPLING_METHOD, GLU_U_STEP, or
+  GLU_V_STEP, or a <I>value</I> of GLU_PATH_LENGTH, GLU_PARAMETRIC_ERROR,
+  GLU_DOMAIN_DISTANCE will only	be supported in	GLU version number 1.1.	They
+  are not valid	parameters in GLU 1.0.
+
+  gluGetString can be used to determine	the GLU	version.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluGetNurbsProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluGetNurbsProperty.html">gluGetNurbsProperty</A>, <A HREF="gluLoadSamplingMatrices.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluLoadSamplingMatrices.html">gluLoadSamplingMatrices</A>,	<A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>,
+  gluGetString.
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Thu Mar 16, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

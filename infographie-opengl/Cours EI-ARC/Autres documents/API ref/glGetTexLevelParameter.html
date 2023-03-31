@@ -1,0 +1,98 @@
+<HEAD>
+<TITLE>glGetTexLevelParameter.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetTexLevelParameter.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameterfv</A>, <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameteriv</A> - return texture
+  parameter values for a specific level	of detail
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameterfv</A>( GLenum	<I>target</I>,
+				 GLint <I>level</I>,
+				 GLenum	<I>pname</I>,
+				 GLfloat *<I>params</I> )
+  void <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameteriv</A>( GLenum	<I>target</I>,
+				 GLint <I>level</I>,
+				 GLenum	<I>pname</I>,
+				 GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>target</I>  Specifies the	symbolic name of the target texture, either
+	  GL_TEXTURE_1D	or GL_TEXTURE_2D.
+
+  <I>level</I>	  Specifies the	level-of-detail	number of the desired image.  Level 0
+	  is the base image level.  Level n is the nth mipmap reduction
+	  image.
+
+  <I>pname</I>	  Specifies the	symbolic name of a texture parameter.
+	  GL_TEXTURE_WIDTH, GL_TEXTURE_HEIGHT, GL_TEXTURE_COMPONENTS, and
+	  GL_TEXTURE_BORDER are	accepted.
+
+  <I>params</I>  Returns the requested	data.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> returns in <I>params</I> texture parameter values for	a
+  specific level-of-detail value, specified as <I>level</I>.  <I>target</I> defines the
+  target texture, either GL_TEXTURE_1D or GL_TEXTURE_2D, to specify one- or
+  two-dimensional texturing.  <I>pname</I> specifies the texture parameter whose
+  value	or values will be returned.
+
+  The accepted parameter names are as follows:
+
+  GL_TEXTURE_WIDTH
+	    <I>params</I> returns a single value, the width of	the texture image.
+	    This value includes	the border of the texture image.
+
+  GL_TEXTURE_HEIGHT
+	    <I>params</I> returns a single value, the height of the texture image.
+	    This value includes	the border of the texture image.
+
+  GL_TEXTURE_COMPONENTS
+	    <I>params</I> returns a single value, the number of components in the
+	    texture image.
+
+  GL_TEXTURE_BORDER
+	    <I>params</I> returns a single value, the width in	pixels of the border
+	    of the texture image.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  If an	error is generated, no change is made to the contents of <I>params</I>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>target</I> or <I>pname</I> is not an accepted value.
+
+  GL_INVALID_VALUE is generated	if <I>level</I> is less than zero or greater than
+  log max, where max is	the returned value of GL_MAX_TEXTURE_SIZE.
+     2
+  GL_INVALID_OPERATION is generated if <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A> is called
+  between a call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and	the corresponding call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>, <A HREF="glTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexParameter.html">glTexParameter</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

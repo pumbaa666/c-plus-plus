@@ -1,0 +1,597 @@
+
+
+<html>
+
+
+<head>
+
+
+<title>3D Boids Documentation</title>
+
+
+<meta content="Boids, 3D, OpenGL, C++, Direct3D, DirectX, Direct3DRM, Graphics,
+               Artificial, Life, Landscapes, Virtual, Environments, Collision,
+               Avoidance, Detection" name=keywords>
+<meta content="Robert's 3D Boids Final Year Project" name=description>
+
+
+<style type="text/css">
+   a:link { text-decoration: underline; }
+   a:visited { text-decoration: underline; }
+   a:hover { text-decoration: underline;
+             color: red; }
+   a:active { text-decoration: underline; }
+</style>
+
+
+</head>
+
+
+
+
+<body bgcolor="#FFFFCC">
+
+
+<br>
+
+
+<center>
+  <img border="0" src="Docs_Files/docs_title.gif" width="575" height="50"><br><br>
+  <font face="Arial" size="5" color="#FF0000"><b>Version 0.54 &nbsp; 15th May 2000</b></font>
+</center>
+
+
+<br><br>
+
+
+<b><font face="Arial" size="6" color="#0000FF">Contents</font></b><br><br>
+
+
+<font face="Arial" size="3"><b>
+ &nbsp; &nbsp; &nbsp; <a href="#Requirements"> 1. Required Runtime Environment</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Introduction"> 2. Introduction to Boids</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#StopStart"> 3. Stopping and Starting the Simulation</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Camera"> 4. Controlling the Camera View</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Objects"> 5. Manipulating the Scene's Objects</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Landscape"> 6. Landscape Options</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#BoidBehaviour"> 7. Controlling the Boid's Behaviour</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Configurations"> 8. Saving and Restoring Boid Configurations to and from Disk</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Display"> 9. Display Mode Options</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#KnownIssues"> 10. Known Issues or Problems</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="#Author"> 11. About the Author</a><br><br>
+ &nbsp; &nbsp; &nbsp; <a href="Docs_Files/versions.txt"> 12. Version Information</a>
+</b></font><br><br><br>
+
+
+<hr>
+
+
+<a name="Requirements"></a><br>
+
+
+<b><font face="Arial" size="4">1. Required Runtime Environment</font></b><br><br>
+
+
+<table border="0" width="590">
+ <tr><td><font face="Arial" size="3">
+  <b>Known to work properly in:</b><br>
+  &nbsp; &nbsp;Windows 2000, Windows NT4 with Service Pack 3 or above installed<br>
+  &nbsp; &nbsp;Windows 95, 98 &amp; 98 2nd Edition<br>
+  &nbsp; &nbsp;(All known win32 environments with DirectX 3 or above)<br><br>
+
+  <b>To run the simulation you will need:</b><br>
+  &nbsp; &nbsp;Microsoft's DirectX version 3 or above installed.<br>
+  &nbsp; &nbsp;16 bits or more colour depth display mode<br>
+  &nbsp; &nbsp;(it does not use 256 colour mode palettes).<br><br>
+
+  <b>To improve the frame rate, which is crucial to the simulation:</b><br>
+  &nbsp; &nbsp; - Reduce the number of boids.<br>
+  &nbsp; &nbsp; - Use the smaller boid meshes.<br>
+  &nbsp; &nbsp; - Reduce the landscape features.<br>
+  &nbsp; &nbsp; - Reduce the number of active boid behaviours.<br>
+  &nbsp; &nbsp; - Use an accelerated graphics card.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; I recommend the GeForce range, nearly triple the frame rate with hardware<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; transform and lighting.
+  &nbsp;Visit <a href="http://www.nvidia.com/"> www.nvidia.com</a> for more details.<br>
+  &nbsp; &nbsp; - The faster the CPU the better.<br>
+  &nbsp; &nbsp; - Use a Windows NT Kernel operating system.<br>
+  &nbsp; &nbsp; - Use NT with multiprocessing ( more than one CPU ).<br><br>
+
+  <b>If you are using Windows 95 without DirectX drivers, visit:</b><br>
+  &nbsp; &nbsp; <a href="http://www.microsoft.com/directx/homeuser/downloads/">www.microsoft.com/directx/homeuser/downloads/</a>
+  &nbsp;to update your system.<br><br><br>
+ </font></td></tr>
+</table>
+
+
+<hr>
+
+
+<a name="Introduction"></a><br>
+
+
+<b><font face="Arial" size="4">2. Introduction to Boids</font></b><br><br>
+
+<table border="0" width="590">
+ <tr><td><font face="Arial" size="3">
+  Boids were originally invented by <a href="http://www.red3d.com/cwr/">Craig Reynolds</a>
+  and are quite simply a model of the flocking, herding or schooling behaviours observed with
+  intelligent lifeforms.&nbsp; The grouping behaviour for the boids is produced by the
+  application of just three simple rules:<br><br>
+
+  <table border="0" width="100%">
+   <tr>
+    <td width="6%"></td>
+    <td width="6%" valign="top"><font color="#FF0000"> 1.</td>
+    <td width="76%"><font color="#0000FF">The attraction of the boids to each other.</font></td>
+    <td width="12%"></td>
+   </tr>
+
+   <tr>
+    <td width="6%"></td>
+    <td width="6%" valign="top"><font color="#FF0000"> 2.</td>
+    <td width="76%"><font color="#0000FF">The adjustment of each individual boid's velocity to
+        match up with the rest of the flock's velocity.</td>
+    <td width="12%"></td>
+   </tr>
+
+   <tr>
+    <td width="6%"></td>
+    <td width="6%" valign="top"><font color="#FF0000"> 3.</td>
+    <td width="76%"><font color="#0000FF">The avoidance of any direct collisions with any other
+        boids, objects or landscape.</font></td>
+    <td width="12%"></td>
+   </tr>
+  </table><br>
+
+
+  All the behaviour produced from each boid is a resultant combination of these three individual
+  boid behaviours, within it's local environment.&nbsp; Boid behaviour therefore is a good model
+  of a cellular automaton, where there can be an emergence of group behaviour.&nbsp; The
+  implementation of the boid behaviours can be varied using very basic or advanced programming
+  techniques.&nbsp; Basic boids would just inhabit a blank two dimensional plane and follow simple
+  averaging algorithms.&nbsp; Advanced boids could live in a complex three dimensional environment
+  with obstacles ect.&nbsp; Their behaviour could be influenced by much finer details, like their
+  field of vision and movement characteristics, which could even be particular to each boid.<br><br>
+
+  Elaboration of boid details can go on and on indefinitely.&nbsp; But the essence and underlying
+  framework for all boid simulations, is just the deployment of the three simple rules to produce
+  the complex and fascinating emergent behaviour.<br><br><br>
+
+ </font></td></tr>
+</table>
+
+
+<hr>
+
+
+<a name="StopStart"></a><br>
+
+
+<b><font face="Arial" size="4">3. Stopping and Starting the Simulation</font></b><br><br>
+
+
+<table border="0" width="590">
+ <tr><td><font face="Arial" size="3">
+
+  There are three ways in which to stop or restart the simulation:<br><br>
+
+  &nbsp; &nbsp;1. Pressing the Start/Stop button at the bottom of the control panel.<br>
+  &nbsp; &nbsp;2. Selecting the Start/Stop option from the 'Main' drop down menu.<br>
+  &nbsp; &nbsp;3. Pressing the space bar.<br><br>
+
+  When the simulation is stopped, only the boids motion is affected.<br>
+  Therefore most of the other features still remain active.<br><br><br>
+
+ </font></td></tr>
+</table>
+
+
+<hr>
+
+
+<a name="Camera"></a><br>
+
+
+<b><font face="Arial" size="4">4. Controlling the Camera View</font></b><br><br>
+
+
+<font face="Arial" size="3">
+
+
+<table border="0" width="590">
+ <tr><td>
+  There are four ways to manipulate or change the camera view:<br><br>
+
+  &nbsp; &nbsp; 1. Using the sliders on the right hand side control panel.<br>
+  &nbsp; &nbsp; 2. Pressing the 'Centre Angle' button on the control panel.<br>
+  &nbsp; &nbsp; 3. Using the menu items from the 'Camera View' drop down menu.<br>
+  &nbsp; &nbsp; 4. Directly pressing the menu's accelerator keys.<br><br>
+
+  When there are no boids present in the scene, the view 'To Boid' becomes unavailable.<br><br><br>
+
+ </td></tr>
+</table>
+
+
+<b>The Camera Menu Accelerator Keys:</b>
+
+
+<table border="0" width="406">
+ <tr>
+  <td width="224" valign="top" align="left">
+   From Above<br>
+   To Boid<br>
+   Looking North<br>
+   Looking East<br>
+   Looking South<br>
+   Looking West<br>
+   + Camera Position<br>
+   - Camera Position<br>
+   + Camera Rotation<br>
+   - Camera Rotation<br>
+   Centre Rotation<br>
+  </td>
+
+  <td width="168" valign="top" align="left">
+   NumPad5<br>
+   NumPad*<br>
+   NumPad8<br>
+   NumPad6<br>
+   NumPad2<br>
+   NumPad4<br>
+   Up Arrow<br>
+   Down Arrow<br>
+   Right Arrow<br>
+   Left Arrow<br>
+   Home<br>
+  </td>
+ </tr>
+</table><br><br>
+
+
+</font>
+
+
+<hr>
+
+
+<a name="Objects"></a><br>
+
+
+<b><font face="Arial" size="4">5. Manipulating the Scene's Objects</font></b><br><br>
+
+
+<font face="Arial" size="3">
+
+
+<table border="0" width="590">
+ <tr><td>
+
+  There are three ways to manipulate or change the objects in the active scene:<br><br>
+
+  &nbsp; &nbsp; 1. Using the two sliders on the control panel that control the boid<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numbers and sizes.<br>
+
+  &nbsp; &nbsp; 2. The 'Objects' drop down menu contains many commands including:<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - Setting the style of the rendering.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - Setting the number and sizes of the boids.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - Setting the colours of the boids.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - Setting the mesh shapes of the boids.<br>
+
+  &nbsp;&nbsp;&nbsp; 3. There are accelerator keys for all the menu options.<br>
+
+ </td></tr>
+</table><br>
+
+
+<b>The Object Menu Accelerator Keys:</b><br>
+
+
+<table border="0" width="404">
+ <tr><td width="66%" valign="top" align="left">
+
+  Wireframe<br>
+  Unlit Flat<br>
+  Flat<br>
+  Gouraud<br>
+  Add Flyer<br>
+  Remove Flyer<br>
+  Increase Flyer Size<br>
+  Decrease Flyer Size<br>
+  Set Flyers to Tetrahedrons<br>
+  Set Flyers to Small Birds<br>
+  Set Flyers to Animated Birds<br>
+  Set Flyers to White<br>
+  Set Flyers to Yellow<br>
+  Set Flyers to Pink<br>
+
+ <td width="34%" valign="top" align="left">
+
+  F5<br>
+  F6<br>
+  F7<br>
+  F8<br>
+  =<br>
+  -<br>
+  ]<br>
+  [<br>
+  CTRL+T<br>
+  CTRL+S<br>
+  CTRL+A<br>
+  1<br>
+  2<br>
+  3<br>
+
+ </tr>
+</table><br><br>
+
+
+<hr>
+
+
+<a name="Landscape"></a><br>
+
+
+<b><font face="Arial" size="4">6. Landscape Options</font></b><br><br>
+
+
+<font size="3" face="Arial">
+
+
+<table border="0" width="590">
+ <tr><td>
+  There are two ways to manipulate the landscape:<br><br>
+
+  &nbsp; &nbsp; 1. The 'Landscape' drop down menu contains many commands including:<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   - 'None' deactivates the landscape completely removing it from the scene.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   - Four different rendering styles to choose from.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   The landscape can have both a wire-frame and solid appearance<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   enabled simultaneously.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   - The geometry of the landscape can be recalculated.<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   - The colouring style can be set to either green or checkerboard.<br><br>
+
+  &nbsp; &nbsp; 2. All the commands on the landscape menu also have keyboard accelerators.<br>
+ </td></tr>
+</table><br>
+
+
+<b>The Landscape Menu Accelerator Keys:</b><br>
+
+
+<table border="0" width="300">
+ <tr><td width="53%" valign="top" align="left">
+
+  None<br>
+  Wireframe<br>
+  Unlit Flat<br>
+  Flat<br>
+  Gouraud<br>
+  Green<br>
+  Checkered<br>
+  Recalculate<br>
+
+ <td width="47%" valign="top" align="left">
+
+  CTRL+N<br>
+  F9<br>
+  F10<br>
+  F11<br>
+  F12<br>
+  6<br>
+  7<br>
+  CTRL+R<br>
+
+ </td></tr>
+</table><br><br>
+
+
+<hr>
+
+
+<a name="BoidBehaviour"></a><br>
+
+
+<b><font face="Arial" size="4">7. Controlling the Boid's Behaviour</font></b><br><br>
+
+
+<font size="3" face="Arial">
+
+
+<table border="0" width="590" height="240">
+ <tr><td width="647" height="236">
+
+  The 'Behaviour' drop down menu gives all the available options for changing the boids
+  behaviour including the following:<br><br>
+
+  &nbsp; &nbsp; - Three checked menu items that enable/disable the boid behaviours.<br>
+  &nbsp; &nbsp; - A menu item to display the flyer attributes dialog box.<br><br><br>
+
+  <b>Flyer attributes and their default values:</b><br><br>
+
+  <table border="1" width="367" height="241">
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="26">Acceleration Rate</td>
+    <td width="107" valign="middle" align="left" height="26">2.0</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="26">Angle of Vision (deg)</td>
+    <td width="107" valign="middle" align="left" height="26">90</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Collision Distance</td>
+    <td width="107" valign="middle" align="left" height="27">50</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Flock Forming Distance</td>
+    <td width="107" valign="middle" align="left" height="27">500</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Flocking Radius</td>
+    <td width="107" valign="middle" align="left" height="27">150</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Maximum Speed</td>
+    <td width="107" valign="middle" align="left" height="27">350</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Minimum Speed</td>
+    <td width="107" valign="middle" align="left" height="27">150</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Range of Flock Headings</td>
+    <td width="107" valign="middle" align="left" height="27">60</td>
+   </tr>
+
+   <tr>
+    <td width="246" valign="middle" align="left" height="27">Wing Strokes Per Second</td>
+    <td width="107" valign="middle" align="left" height="27">1.5</td>
+   </tr>
+
+  </table><br><br>
+
+
+  The 'Range of Flock Headings' is the horizontal heading range that determines whether a certain
+  boid is heading in a similar enough direction to become part of the flock.&nbsp; If the difference
+  between the boids headings does not exceed this range, they can join together in a flock.&nbsp;
+  Having this feature allows boids traveling in totally different directions to ignore each other.
+  &nbsp;Making the boids more selective about flocking with other boids.&nbsp; Therefore allowing
+  different flocks going in different directions, to pass each other without splitting up or
+  interfering with each other.<br><br>
+
+  Please note that there is no input validation for the flyer attributes.&nbsp; This allows maximum
+  flexibility but can cause the simulation to crash in extreme cases.
+
+ </tr>
+</table><br><br>
+
+
+<hr>
+
+
+<a name="Configurations"></a><br>
+
+
+<b><font face="Arial" size="4">8. Saving and Restoring Boid Configurations to and from Disk</font></b><br><br>
+
+
+<table border="0" width="590">
+ <tr><td width="100%"><font face="Arial" size="3">
+
+   The 'Main' drop down menu contains two menu items for loading and saving
+   configurations of boids to and from disk.&nbsp; The configuration files
+   are produced in a human readable format that allows detailed examination
+   and alteration of their contents.&nbsp; It is worth noting that if a
+   configuration is loaded and it contains more boids than there is
+   currently active, only the active number of boids will be loaded
+   in.&nbsp; This feature is to prevent any overloading that could be
+   caused by transferring files to a less powerful workstation.&nbsp;
+   Therefore it is worth checking beforehand, how many boids there are to
+   load in.&nbsp; Then possibly increase the active number of boids to accommodate
+   them.
+
+ </font></td></tr>
+</table><br><br>
+
+
+<hr>
+
+
+<a name="Display"></a><br>
+
+
+<b><font face="Arial" size="4">9. Display Mode Options</font></b><br><br>
+
+
+<table border="0" width="590">
+ <tr><td width="100%"><font face="Arial" size="3">
+
+  The 'Display Mode' drop down menu gives the following options:<br><br>
+
+  &nbsp; &nbsp; - Full screen mode (default), also activated by pressing ALT+ENTER.<br>
+  &nbsp; &nbsp; - Select mode dialog, which sets the default full screen mode resolution.<br>
+  &nbsp; &nbsp; - Window sizing commands, which are useful for benchmarking a workstation.<br>
+  &nbsp; &nbsp; - Toggle Show / Hide the control panel, also activated by pressing TAB.<br>
+
+ </font></td></tr>
+</table><br><br>
+
+
+<hr>
+
+
+<a name="KnownIssues"></a><br>
+
+
+<b><font face="Arial" size="4">10. Known Issues or Problems</font></b><br><br>
+
+
+<table border="0" width="590">
+ <tr><td><font size="3" face="Arial">
+
+  There are no known bugs or errors in the code, but there are the following issues:<br><br>
+
+  &nbsp; &nbsp; - There is no input validation for the flyer attributes.&nbsp; This allows maximum<br>
+  &nbsp; &nbsp; &nbsp; &nbsp;flexibility but can cause the simulation to crash in the worst case.<br>
+  &nbsp; &nbsp; - The rendering of the landscape creates a very significant performance<br>
+  &nbsp; &nbsp; &nbsp; &nbsp;overhead.&nbsp; Rewriting the project to use Direct3D immediate mode or<br>
+  &nbsp; &nbsp; &nbsp; &nbsp;OpenGL would solve this.<br>
+
+ </td></tr>
+</table><br><br>
+
+
+<hr>
+
+
+<a name="Author"></a><br>
+
+
+<b><font face="Arial" size="4">11. About the Author</font></b><br><br>
+
+
+<table border="0" width="590">
+ <tr><td><font face="Arial" size="3">
+
+  The simulation was designed and programmed by <a href="mailto:robert@abs2net.com">Robert Platt</a>,
+  a mature student of BSc (Hons) Software Engineering at the
+
+  <a href="http://www.westminster.ac.uk/">University of Westminster</a>,
+
+  London, England.&nbsp; It constituted for the final year project for the academic year 1999/2000.<br>
+
+ </tr>
+</table><br>
+
+
+<b>www:</b> <a href="http://www.roberts-resource.com/">www.roberts-resource.com</a><br>
+<b>email:</b> <a href="mailto:robert@abs2net.com">robert@abs2net.com</a><br>
+
+
+<hr>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,105 @@
+<HEAD>
+<TITLE>glPointSize.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPointSize.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A> -	specify	the diameter of	rasterized points
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>( GLfloat <I>size</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>size</I>	Specifies the diameter of rasterized points.  The default is 1.0.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A> specifies	the rasterized diameter	of both	aliased	and
+  antialiased points.  Using a point size other	than 1.0 has different
+  effects, depending on	whether	point antialiasing is enabled.	Point
+  antialiasing is controlled by	calling	<A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A> and <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glDisable</A> with argument
+  GL_POINT_SMOOTH.
+
+  If point antialiasing	is disabled, the actual	size is	determined by
+  rounding the supplied	size to	the nearest integer.  (If the rounding
+  results in the value 0, it is	as if the point	size were 1.) If the rounded
+  size is odd, then the	center point (x, y) of the pixel fragment that
+  represents the point is computed as
+
+		    ( floor(x )+.5, floor(y )+.5 )
+			     w	           w
+
+  where	w subscripts indicate window coordinates.  All pixels that lie within
+  the square grid of the rounded size centered at (x, y) make up the
+  fragment.  If	the size is even, the center point is
+
+		    ( floor(x +.5), floor(y +.5) )
+			     w	           w
+
+  and the rasterized fragment's	centers	are the	half-integer window
+  coordinates within the square	of the rounded size centered at	(x, y).	 All
+  pixel	fragments produced in rasterizing a nonantialiased point are assigned
+  the same associated data, that of the	vertex corresponding to	the point.
+
+  If antialiasing is enabled, then point rasterization produces	a fragment
+  for each pixel square	that intersects	the region lying within	the circle
+  having diameter equal	to the current point size and centered at the point's
+  (x , y ).  The coverage value	for each fragment is the window	coordinate
+    w   w
+  area of the intersection of the circular region with the corresponding
+  pixel	square.	 This value is saved and used in the final rasterization
+  step.	The data associated with each fragment is the data associated with
+  the point being rasterized.
+
+  Not all sizes	are supported when point antialiasing is enabled. If an
+  unsupported size is requested, the nearest supported size is used.  Only
+  size 1.0 is guaranteed to be supported; others depend	on the
+  implementation.  The range of	supported sizes	and the	size difference
+  between supported sizes within the range can be queried by  calling <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>
+  with arguments GL_POINT_SIZE_RANGE and GL_POINT_SIZE_GRANULARITY.
+
+</PRE><H2>Notes</H2><PRE>
+  The point size specified by <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A> is always returned when
+  GL_POINT_SIZE	is queried.  Clamping and rounding for aliased and
+  antialiased points have no effect on the specified value.
+
+  Non-antialiased point	size may be clamped to an implementation-dependent
+  maximum.  Although this maximum cannot be queried, it	must be	no less	than
+  the maximum value for	antialiased points, rounded to the nearest integer
+  value.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_VALUE is generated	if <I>size</I>	is less	than or	equal to zero.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A> is executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_POINT_SIZE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_POINT_SIZE_RANGE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_POINT_SIZE_GRANULARITY
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A> with argument GL_POINT_SMOOTH
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glEnable.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEnable.html">glEnable</A>, glPointSmooth
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Tue, May 23, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

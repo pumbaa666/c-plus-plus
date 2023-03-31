@@ -1,0 +1,140 @@
+<HEAD>
+<TITLE>glBegin.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glBegin.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A> - delimit the vertices	of a primitive or a group of like
+  primitives
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>(	GLenum <I>mode</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>mode</I>	Specifies the primitive	or primitives that will	be created from
+	vertices presented between <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the subsequent <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.  Ten
+	symbolic constants are accepted: GL_POINTS, GL_LINES, GL_LINE_STRIP,
+	GL_LINE_LOOP, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN,
+	GL_QUADS, GL_QUAD_STRIP, and GL_POLYGON.
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>( void )
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A> delimit the	vertices that define a primitive or a group
+  of like primitives.  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> accepts a single	argument that specifies	which
+  of ten ways the vertices are interpreted.  Taking <I>n</I> as an integer count
+  starting at one, and <I>N</I> as the	total number of	vertices specified, the
+  interpretations are as follows:
+
+  GL_POINTS Treats each	vertex as a single point.  Vertex <I>n</I> defines point <I>n</I>.
+	    <I>N</I> points are drawn.
+
+  GL_LINES  Treates each pair of vertices as an	independent line segment.
+	    Vertices <I>2n</I>-<I>1</I> and <I>2n</I> define	line <I>n</I>.	 <I>N</I>/<I>2</I> lines are drawn.
+
+  GL_LINE_STRIP
+	    Draws a connected group of line segments from the first vertex to
+	    the	last.  Vertices	<I>n</I> and <I>n</I>+<I>1</I> define line <I>n</I>.  <I>N</I>-<I>1</I> lines are
+	    drawn.
+
+  GL_LINE_LOOP
+	    Draws a connected group of line segments from the first vertex to
+	    the	last, then back	to the first.  Vertices	<I>n</I> and <I>n</I>+<I>1</I> define line
+	    <I>n</I>.	The last line, however,	is defined by vertices <I>N</I> and <I>1</I>.	 <I>N</I>
+	    lines are drawn.
+
+  GL_TRIANGLES
+	    Treates each triplet of vertices as	an independent triangle.
+	    Vertices <I>3n</I>-<I>2</I>, <I>3n</I>-<I>1</I>, and <I>3n</I>	define triangle	<I>n</I>.  <I>N</I>/<I>3</I>	triangles are
+	    drawn.
+
+  GL_TRIANGLE_STRIP
+	    Draws a connected group of triangles.  One triangle	is defined
+	    for	each vertex presented after the	first two vertices.  For odd
+	    <I>n</I>, vertices	<I>n</I>, <I>n</I>+<I>1</I>,	and <I>n</I>+<I>2</I>	define triangle	<I>n</I>.  For	even <I>n</I>,
+	    vertices <I>n</I>+<I>1</I>, <I>n</I>, and <I>n</I>+<I>2</I> define triangle <I>n</I>.	 <I>N</I>-<I>2</I> triangles are
+	    drawn.
+
+  GL_TRIANGLE_FAN
+	    Draws a connected group of triangles.  One triangle	is defined
+	    for	each vertex presented after the	first two vertices.  Vertices
+	    <I>1</I>, <I>n</I>+<I>1</I>, and	<I>n</I>+<I>2</I> define triangle <I>n</I>.	<I>N</I>-<I>2</I> triangles are drawn.
+
+  GL_QUADS  Treats each	group of four vertices as an independent
+	    quadrilateral.  Vertices <I>4n</I>-<I>3</I>, <I>4n</I>-<I>2</I>, <I>4n</I>-<I>1</I>, and <I>4n</I> define
+	    quadrilateral <I>n</I>.  <I>N</I>/<I>4</I> quadrilaterals are drawn.
+
+  GL_QUAD_STRIP
+	    Draws a connected group of quadrilaterals.	One quadrilateral is
+	    defined for	each pair of vertices presented	after the first	pair.
+	    Vertices <I>2n</I>-<I>1</I>, <I>2n</I>, <I>2n</I>+<I>2</I>, and <I>2n</I>+<I>1</I> define quadrilateral <I>n</I>.  <I>N</I>/<I>2</I>-<I>1</I>
+	    quadrilaterals are drawn.  Note that the order in which vertices
+	    are	used to	construct a quadrilateral from strip data is
+	    different from that	used with independent data.
+
+  GL_POLYGON
+	    Draws a single, convex polygon.  Vertices <I>1</I>	through	<I>N</I> define this
+	    polygon.
+
+  Only a subset	of GL commands can be used between <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.  The
+  commands are <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>, <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>, <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A>,
+  <A HREF="glEvalPoint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalPoint.html">glEvalPoint</A>, <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>, and <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>.  Also, it is	acceptable to use
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A> or	<A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> to execute display lists that include only the
+  preceding commands.  If any other GL command is executed between <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>
+  and <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>, the error flag is set and the command is ignored.
+
+  Regardless of	the value chosen for <I>mode</I>, there is no limit to	the number of
+  vertices that	can be defined between <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.  Lines, triangles,
+  quadrilaterals, and polygons that are	incompletely specified are not drawn.
+  Incomplete specification results when	either too few vertices	are provided
+  to specify even a single primitive or	when an	incorrect multiple of
+  vertices is specified. The incomplete	primitive is ignored; the rest are
+  drawn.
+
+  The minimum specification of vertices	for each primitive is as follows: 1
+  for a	point, 2 for a line, 3 for a triangle, 4 for a quadrilateral, and 3
+  for a	polygon.  Modes	that require a certain multiple	of vertices are
+  GL_LINES (2),	GL_TRIANGLES (3), GL_QUADS (4),	and GL_QUAD_STRIP (2).
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>mode</I> is set to an unaccepted value.
+
+  GL_INVALID_OPERATION is generated if a command other than <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>,
+  <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>, <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>, <A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A>, <A HREF="glEvalPoint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalPoint.html">glEvalPoint</A>,
+  <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>, <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>, <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>, or <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A> is	executed between
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+  GL_INVALID_OPERATION is generated if a <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> is executed between a
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A> is	executed without being
+  preceded by a	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>, <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A>, <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>, <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>,	<A HREF="glEvalCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalCoord.html">glEvalCoord</A>, <A HREF="glEvalPoint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEvalPoint.html">glEvalPoint</A>,
+  <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>, <A HREF="glMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMaterial.html">glMaterial</A>, <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>, <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,56 @@
+<HEAD>
+<TITLE>gluQuadricOrientation.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluQuadricOrientation.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>	- specify inside/outside orientation for quadrics
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>( GLUquadricObj *<I>qobj</I>,
+			      GLenum <I>orientation</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>qobj</I>	       Specifies the quadrics object (created with <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>).
+
+  <I>orientation</I>  Specifies the desired orientation.  Valid values	are
+	       GLU_OUTSIDE and GLU_INSIDE.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluQuadricOrientation.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricOrientation.html">gluQuadricOrientation</A>	specifies what kind of orientation is desired for
+  quadrics rendered with <I>qobj</I>.	The <I>orientation</I>	values are as follows:
+
+  GLU_OUTSIDE	 Quadrics are drawn with normals pointing outward.
+
+  GLU_INSIDE	 Normals point inward.	The default is GLU_OUTSIDE.
+
+  Note that the	interpretation of <I>outward</I> and <I>inward</I> depends on	the quadric
+  being	drawn.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluNewQuadric.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewQuadric.html">gluNewQuadric</A>, <A HREF="gluQuadricDrawStyle.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricDrawStyle.html">gluQuadricDrawStyle</A>, <A HREF="gluQuadricNormals.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricNormals.html">gluQuadricNormals</A>, <A HREF="gluQuadricTexture.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluQuadricTexture.html">gluQuadricTexture</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

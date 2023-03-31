@@ -1,0 +1,106 @@
+<HEAD>
+<TITLE>glOrtho.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glOrtho.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glOrtho.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glOrtho.html">glOrtho</A> - multiply the current matrix	by an orthographic matrix
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glOrtho.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glOrtho.html">glOrtho</A>(	GLdouble <I>left</I>,
+		GLdouble <I>right</I>,
+		GLdouble <I>bottom</I>,
+		GLdouble <I>top</I>,
+		GLdouble <I>near</I>,
+		GLdouble <I>far</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>left</I>,	<I>right</I> Specify the coordinates for the left and right vertical
+	      clipping planes.
+
+  <I>bottom</I>, <I>top</I> Specify the coordinates for the bottom and top horizontal
+	      clipping planes.
+
+  <I>near</I>,	<I>far</I>   Specify the distances to the nearer and farther depth clipping
+	      planes.  These distances are negative if the plane is to be
+	      behind the viewer.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glOrtho.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glOrtho.html">glOrtho</A> describes a perspective matrix that produces a parallel projection.
+  (<I>left</I>, <I>bottom</I>,  -<I>near</I>) and (<I>right</I>, <I>top</I>,  -<I>near</I>) specify the points on	the
+  near clipping	plane that are mapped to the lower left	and upper right
+  corners of the window, respectively, assuming	that the eye is	located	at
+  (0, 0, 0).  -<I>far</I> specifies the location of the far clipping plane.  Both
+  <I>near</I> and <I>far</I> can be either positive or negative.  The	corresponding matrix
+  is
+
+		    |     2	     		          |
+		    |----------      0          0      t  |
+		    |right-left				x |
+		    |					  |
+		    |		      2    		  |
+		    |    0       ----------	0      t  |
+		    |	  	 top-bottom	        y |
+		    |                                     |
+		    |					  |
+		    |	 0	     0	        -2        |
+		    |                        --------  t  |
+		    |			     far-near	z |
+		    |                                     |
+		    |	 0	     0		0      1  |
+
+  where
+			              right+left
+			       t  = - ----------
+				x     right-left
+
+				      top+bottom
+			       t  = - ----------
+				y     top-bottom
+
+				       far+near
+				t  = - --------
+				 z     far-near
+
+  The current matrix is	multiplied by this matrix with the result replacing
+  the current matrix.  That is,	if M is	the current matrix and O is the	ortho
+  matrix, then M is replaced with M · O.
+
+  Use <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A> and <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPopMatrix</A> to save and restore the current matrix
+  stack.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_OPERATION is generated if <A HREF="glOrtho.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glOrtho.html">glOrtho</A> is executed between the
+  execution of	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>	and the	corresponding execution	of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MATRIX_MODE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MODELVIEW_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_PROJECTION_MATRIX
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_TEXTURE_MATRIX
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glFrustum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrustum.html">glFrustum</A>, <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>, <A HREF="glMultMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMultMatrix.html">glMultMatrix</A>, <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>, <A HREF="glViewport.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glViewport.html">glViewport</A>
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> |
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

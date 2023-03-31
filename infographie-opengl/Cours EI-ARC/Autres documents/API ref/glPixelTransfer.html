@@ -1,0 +1,208 @@
+<HEAD>
+<TITLE>glPixelTransfer.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glPixelTransfer.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransferf</A>, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransferi</A> - set pixel transfer modes
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransferf</A>( GLenum	<I>pname</I>,
+			 GLfloat <I>param</I> )
+  void <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransferi</A>( GLenum	<I>pname</I>,
+			 GLint <I>param</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>	 Specifies the symbolic	name of	the pixel transfer parameter to	be
+	 set.  Must be one of the following: GL_MAP_COLOR, GL_MAP_STENCIL,
+	 GL_INDEX_SHIFT, GL_INDEX_OFFSET, GL_RED_SCALE,	GL_RED_BIAS,
+	 GL_GREEN_SCALE, GL_GREEN_BIAS,	GL_BLUE_SCALE, GL_BLUE_BIAS,
+	 GL_ALPHA_SCALE, GL_ALPHA_BIAS,	GL_DEPTH_SCALE,	or GL_DEPTH_BIAS.
+
+  <I>param</I>	 Specifies the value that <I>pname</I>	is set to.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A> sets pixel transfer modes that affect	the operation of
+  subsequent <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, and
+  <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> commands.  The algorithms that are specified by pixel transfer
+  modes	operate	on pixels after	they are read from the frame buffer
+  (<A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>	and <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>) or unpacked from client memory
+  (<A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, and <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>).  Pixel transfer operations
+  happen in the	same order, and	in the same manner, regardless of the command
+  that resulted	in the pixel operation.	 Pixel storage modes (see
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>)	control	the unpacking of pixels	being read from	client
+  memory, and the packing of pixels being written back into client memory.
+
+  Pixel	transfer operations handle four	fundamental pixel types: <I>color</I>,	<I>color</I>
+  <I>index</I>, <I>depth</I>,	and <I>stencil</I>.  <I>Color</I> pixels are made up of four floating-point
+  values with unspecified mantissa and exponent	sizes, scaled such that	0.0
+  represents zero intensity and	1.0 represents full intensity.	<I>Color</I> <I>indices</I>
+  comprise a single fixed-point	value, with unspecified	precision to the
+  right	of the binary point.  <I>Depth</I> pixels comprise a single floating-point
+  value, with unspecified mantissa and exponent	sizes, scaled such that	0.0
+  represents the minimum depth buffer value, and 1.0 represents	the maximum
+  depth	buffer value.  Finally,	<I>stencil</I>	pixels comprise	a single fixed-point
+  value, with unspecified precision to the right of the	binary point.
+
+  The pixel transfer operations	performed on the four basic pixel types	are
+  as follows:
+
+  Color	      Each of the four color components	is multiplied by a scale
+	      factor, then added to a bias factor.  That is, the red
+	      component	is multiplied by GL_RED_SCALE, then added to
+	      GL_RED_BIAS; the green component is multiplied by
+	      GL_GREEN_SCALE, then added to GL_GREEN_BIAS; the blue component
+	      is multiplied by GL_BLUE_SCALE, then added to GL_BLUE_BIAS; and
+	      the alpha	component is multiplied	by GL_ALPHA_SCALE, then	added
+	      to GL_ALPHA_BIAS.	 After all four	color components are scaled
+	      and biased, each is clamped to the range [0,1].  All color
+	      scale and	bias values are	specified with <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+	      If GL_MAP_COLOR is true, each color component is scaled by the
+	      size of the corresponding	color-to-color map, then replaced by
+	      the contents of that map indexed by the scaled component.	 That
+	      is, the red component is scaled by GL_PIXEL_MAP_R_TO_R_SIZE,
+	      then replaced by the contents of GL_PIXEL_MAP_R_TO_R indexed by
+	      itself.  The green component is scaled by
+	      GL_PIXEL_MAP_G_TO_G_SIZE,	then replaced by the contents of
+	      GL_PIXEL_MAP_G_TO_G indexed by itself.  The blue component is
+	      scaled by	GL_PIXEL_MAP_B_TO_B_SIZE, then replaced	by the
+	      contents of GL_PIXEL_MAP_B_TO_B indexed by itself.  And the
+	      alpha component is scaled	by GL_PIXEL_MAP_A_TO_A_SIZE, then
+	      replaced by the contents of GL_PIXEL_MAP_A_TO_A indexed by
+	      itself.  All components taken from the maps are then clamped to
+	      the range	[0,1].	GL_MAP_COLOR is	specified with
+	      <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.	The contents of	the various maps are
+	      specified	with <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  Color	index Each color index is shifted left by GL_INDEX_SHIFT bits,
+	      filling with zeros any bits beyond the number of fraction	bits
+	      carried by the fixed-point index.	 If GL_INDEX_SHIFT is
+	      negative,	the shift is to	the right, again zero filled.  Then
+	      GL_INDEX_OFFSET is added to the index.  GL_INDEX_SHIFT and
+	      GL_INDEX_OFFSET are specified with <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+	      From this	point, operation diverges depending on the required
+	      format of	the resulting pixels.  If the resulting	pixels are to
+	      be written to a color index buffer, or if	they are being read
+	      back to client memory in GL_COLOR_INDEX format, the pixels
+	      continue to be treated as	indices.  If GL_MAP_COLOR is true,
+	      each index is masked by 2n - 1, where n is
+	      GL_PIXEL_MAP_I_TO_I_SIZE,	then replaced by the contents of
+	      GL_PIXEL_MAP_I_TO_I indexed by the masked	value.	GL_MAP_COLOR
+	      is specified with	<A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.  The contents of the index
+	      map are specified	with <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+	      If the resulting pixels are to be	written	to an RGBA color
+	      buffer, or if they are being read	back to	client memory in a
+	      format other than	GL_COLOR_INDEX,	the pixels are converted from
+	      indices to colors	by referencing the four	maps
+	      GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G,	GL_PIXEL_MAP_I_TO_B,
+	      and GL_PIXEL_MAP_I_TO_A.	Before being dereferenced, the index
+	      is masked	by 2n -	1, where n is GL_PIXEL_MAP_I_TO_R_SIZE for
+	      the red map, GL_PIXEL_MAP_I_TO_G_SIZE for	the green map,
+	      GL_PIXEL_MAP_I_TO_B_SIZE for the blue map, and
+	      GL_PIXEL_MAP_I_TO_A_SIZE for the alpha map.  All components
+	      taken from the maps are then clamped to the range	[0,1].	The
+	      contents of the four maps	are specified with <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  Depth	      Each depth value is multiplied by	GL_DEPTH_SCALE,	added to
+	      GL_DEPTH_BIAS, then clamped to the range [0,1].
+
+  Stencil     Each index is shifted GL_INDEX_SHIFT bits	just as	a color	index
+	      is, then added to	GL_INDEX_OFFSET.  If GL_MAP_STENCIL is true,
+	      each index is masked by 2n - 1, where n is
+	      GL_PIXEL_MAP_S_TO_S_SIZE,	then replaced by the contents of
+	      GL_PIXEL_MAP_S_TO_S indexed by the masked	value.
+
+  The following	table gives the	type, initial value, and range of valid
+  values for each of the pixel transfer	parameters that	are set	with
+  <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+	   ---------------------------------------------------------
+	   |    pname       |  type   | initial value | valid range |
+	   ---------------------------------------------------------
+	   | GL_MAP_COLOR   | Boolean |	    false     |	true/false  |
+	   |GL_MAP_STENCIL  | Boolean |	    false     |	true/false  |
+	   |GL_INDEX_SHIFT  | integer |	      0	      |	 (-oo,oo)   |
+	   |GL_INDEX_OFFSET | integer |	      0	      |	 (-oo,oo)   |
+	   | GL_RED_SCALE   |  float  |	     1.0      |	 (-oo,oo)   |
+	   |GL_GREEN_SCALE  |  float  |	     1.0      |	 (-oo,oo)   |
+	   | GL_BLUE_SCALE  |  float  |	     1.0      |	 (-oo,oo)   |
+	   |GL_ALPHA_SCALE  |  float  |	     1.0      |	 (-oo,oo)   |
+	   |GL_DEPTH_SCALE  |  float  |	     1.0      |	 (-oo,oo)   |
+	   |  GL_RED_BIAS   |  float  |	     0.0      |	 (-oo,oo)   |
+	   | GL_GREEN_BIAS  |  float  |	     0.0      |	 (-oo,oo)   |
+	   | GL_BLUE_BIAS   |  float  |	     0.0      |	 (-oo,oo)   |
+	   | GL_ALPHA_BIAS  |  float  |	     0.0      |	 (-oo,oo)   |
+	   | GL_DEPTH_BIAS  |  float  |	     0.0      |	 (-oo,oo)   |
+	   ---------------------------------------------------------
+
+  <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransferf</A> can be used to set any pixel	transfer parameter.  If	the
+  parameter type is Boolean, 0.0 implies false and any other value implies
+  true.	 If <I>pname</I> is an	integer	parameter, <I>param</I> is rounded to the nearest
+  integer.
+
+  Likewise, <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransferi</A> can also be used to set any of the	pixel
+  transfer parameters.	Boolean	parameters are set to false if <I>param</I> is	0 and
+  true otherwise.  <I>param</I> is converted to floating point	before being assigned
+  to real-valued parameters.
+
+</PRE><H2>Notes</H2><PRE>
+  If a <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, or
+  <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A> command is placed in a display list (see	<A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A> and
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>), the pixel transfer mode settings	in effect when the display
+  list is <I>executed</I> are the ones	that are used.	They may be different from
+  the settings when the	command	was compiled into the display list.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>pname</I>	is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A> is called between a
+  call to <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding	call to	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>Associated Gets</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAP_COLOR
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_MAP_STENCIL
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_INDEX_SHIFT
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_INDEX_OFFSET
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_RED_SCALE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_RED_BIAS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_GREEN_SCALE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_GREEN_BIAS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_BLUE_SCALE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_BLUE_BIAS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_ALPHA_SCALE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_ALPHA_BIAS
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_DEPTH_SCALE
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>	with argument GL_DEPTH_BIAS
+
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>, <A HREF="glCopyPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCopyPixels.html">glCopyPixels</A>, <A HREF="glDrawPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawPixels.html">glDrawPixels</A>, <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>, <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>,
+  <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>,	<A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A>, <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A>, <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>, <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> |
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

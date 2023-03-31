@@ -1,0 +1,253 @@
+<HEAD>
+<TITLE>gluTessCallback.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluTessCallback.3gl (GLU version 1.2 and later)</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A> - define a callback for a tessellation object
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>(	GLUtesselator *<I>tess</I>,
+			GLenum <I>which</I>,
+			void (*<I>fn</I>)() )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>tess</I>	 Specifies the tessellation object (created with <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>).
+
+  <I>which</I>	 Specifies the callback	being defined.	The following values are
+	 valid:	GLU_TESS_BEGIN,	GLU_TESS_BEGIN_DATA, GLU_TESS_EDGE_FLAG,
+	 GLU_TESS_EDGE_FLAG_DATA, GLU_TESS_VERTEX, GLU_TESS_VERTEX_DATA,
+	 GLU_TESS_END, GLU_TESS_END_DATA, GLU_TESS_COMBINE,
+	 GLU_TESS_COMBINE_DATA,	GLU_TESS_ERROR,	and GLU_TESS_ERROR_DATA.
+
+  <I>fn</I>	 Specifies the function	to be called.
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A> is used to indicate a	callback to be used by a tessellation
+  object.  If the specified callback is	already	defined, then it is replaced.
+  If <I>fn</I>	is NULL, then the existing callback becomes undefined.
+
+  These	callbacks are used by the tessellation object to describe how a
+  polygon specified by the user	is broken into triangles. Note that there are
+  two versions of each callback: one with user-specified polygon data and one
+  without. If both versions of a particular callback are specified then	the
+  callback with	user-specified polygon data will be used. Note that
+  "polygon_data" is a copy of the pointer that was specified when
+  <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called.
+
+  The legal callbacks are as follows:
+
+  GLU_TESS_BEGIN
+	    The	begin callback is invoked like <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> to indicate the start
+	    of a (triangle) primitive. The function takes a single argument
+	    of type GLenum.  If	the GLU_TESS_BOUNDARY_ONLY property is set to
+	    GL_FALSE then the argument is set to either	GL_TRIANGLE_FAN,
+	    GL_TRIANGLE_STRIP, or GL_TRIANGLES.	If the GLU_TESS_BOUNDARY_ONLY
+	    property is	set to GL_TRUE then the	argument will be set to
+	    GL_LINE_LOOP. The function prototype for this callback looks
+	    like:
+
+	    void begin ( GLenum	type );
+
+  GLU_TESS_BEGIN_DATA
+	    The	same as	the GLU_TESS_BEGIN callback except that	it takes an
+	    additional pointer argument. This pointer is identical to the
+	    opaque pointer provided when <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called. The
+	    function prototype for this	callback looks like:
+
+	    void beginData ( GLenum type, void *polygon_data );
+
+  GLU_TESS_EDGE_FLAG
+	    The	edge flag callback is similar to <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>.  The function
+	    takes a single Boolean flag	that indicates which edges lie on the
+	    polygon boundary. If the flag is GL_TRUE, then each	vertex that
+	    follows begins an edge which lies on the polygon boundary -- that
+	    is,	an edge	which separates	an interior region from	an exterior
+	    one.  If the flag is GL_FALSE, then	each vertex that follows
+	    begins an edge which lies in the polygon interior. The edge	flag
+	    callback (if defined) is invoked before the	first vertex callback
+	    is made.
+
+	    Since triangle fans	and triangle strips do not support edge
+	    flags, the begin callback is not called with GL_TRIANGLE_FAN or
+	    GL_TRIANGLE_STRIP if an edge flag callback is provided.  Instead,
+	    the	fans and strips	are converted to independent triangles.	The
+	    function prototype for this	callback looks like:
+
+	    void edgeFlag ( GLboolean flag );
+
+  GLU_TESS_EDGE_FLAG_DATA
+	    The	same as	the GLU_TESS_EDGE_FLAG callback	except that it takes
+	    an additional pointer argument. This pointer is identical to the
+	    opaque pointer provided when <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called. The
+	    function prototype for this	callback looks like:
+
+	    void edgeFlagData (	GLboolean flag,	void *polygon_data );
+
+  GLU_TESS_VERTEX
+	    The	vertex callback	is invoked between the begin and end
+	    callbacks.	It is similar to <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>, and it defines the
+	    vertices of	the triangles created by the tessellation process.
+	    The	function takes a pointer as its	only argument.	This pointer
+	    is identical to the	opaque pointer provided	by the user when the
+	    vertex was described (see <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>). The function prototype
+	    for	this callback looks like:
+
+	    void vertex	( void *vertex_data );
+
+  GLU_TESS_VERTEX_DATA
+	    The	same as	the GLU_TESS_VERTEX callback except that it takes an
+	    additional pointer argument. This pointer is identical to the
+	    opaque pointer provided when <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called. The
+	    function prototype for this	callback looks like:
+
+	    void vertexData ( void *vertex_data, void *polygon_data );
+
+  GLU_TESS_END
+	    The	end callback serves the	same purpose as	<A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>. It indicates
+	    the	end of a primitive and it takes	no arguments. The function
+	    prototype for this callback	looks like:
+
+	    void end ( void );
+
+  GLU_TESS_END_DATA
+	    The	same as	the GLU_TESS_END callback except that it takes an
+	    additional pointer argument. This pointer is identical to the
+	    opaque pointer provided when <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called. The
+	    function prototype for this	callback looks like:
+	    void endData ( void	*polygon_data);
+
+  GLU_TESS_COMBINE
+	    The	combine	callback is called to create a new vertex when the
+	    tessellation detects an intersection, or wishes to merge
+	    features. The function takes four arguments: an array of three
+	    elements each of type GLdouble, an array of	four pointers, an
+	    array of four elements each	of type	GLfloat, and a pointer to a
+	    pointer. The prototype looks like:
+	    void combine( GLdouble coords[3], void *vertex_data[4],
+			  GLfloat weight[4], void **outData );
+
+	    The	vertex is defined as a linear combination of up	to 4 existing
+	    vertices, stored in	<I>vertex</I>_<I>data</I>. The coefficients of the linear
+	    combination	are given by <I>weight</I>; these weights always sum to 1.0.
+	    All	vertex pointers	are valid even when some of the	weights	are
+	    zero.  <I>coords</I> gives	the location of	the new	vertex.
+
+	    The	user must allocate another vertex, interpolate parameters
+	    using <I>vertex</I>_<I>data</I> and <I>weight</I>, and return the new vertex pointer
+	    in <I>outData</I>.	 This handle is	supplied during	rendering callbacks.
+	    The	user is	responsible for	freeing	the memory sometime after
+	    <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A> is called.
+
+	    For	example, if the	polygon	lies in	an arbitrary plane in 3-space,
+	    and we associate a color with each vertex, the GLU_TESS_COMBINE 
+	    callback might look like this:
+
+	    void myCombine( GLdouble coords[3],	VERTEX *d[4],
+			    GLfloat w[4], VERTEX **dataOut ) 
+            {
+	       VERTEX *new = new_vertex();
+
+	       new-&gt;x = coords[0];
+	       new-&gt;y = coords[1];
+	       new-&gt;z = coords[2];
+	       new-&gt;r = w[0]*d[0]-&gt;r + w[1]*d[1]-&gt;r + w[2]*d[2]-&gt;r + w[3]*d[3]-&gt;r;
+	       new-&gt;g = w[0]*d[0]-&gt;g + w[1]*d[1]-&gt;g + w[2]*d[2]-&gt;g + w[3]*d[3]-&gt;g;
+	       new-&gt;b = w[0]*d[0]-&gt;b + w[1]*d[1]-&gt;b + w[2]*d[2]-&gt;b + w[3]*d[3]-&gt;b;
+	       new-&gt;a = w[0]*d[0]-&gt;a + w[1]*d[1]-&gt;a + w[2]*d[2]-&gt;a + w[3]*d[3]-&gt;a;
+	       *dataOut	= new; 
+            }
+
+	    If the tessellation	detects	an intersection, then the
+	    GLU_TESS_COMBINE or	GLU_TESS_COMBINE_DATA callback (see below)
+	    must be defined, and it must write a non-NULL pointer into
+	    <I>dataOut</I>. Otherwise the GLU_TESS_NEED_COMBINE_CALLBACK error
+	    occurs, and	no output is generated.	 (This is the only error that
+	    can	occur during tessellation and rendering.)
+
+  GLU_TESS_COMBINE_DATA
+	    The	same as	the GLU_TESS_COMBINE callback except that it takes an
+	    additional pointer argument. This pointer is identical to the
+	    opaque pointer provided when <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called. The
+	    function prototype for this	callback looks like:
+
+	    void combineData ( GLdouble	coords[3], void	*vertex_data[4],
+			       GLfloat weight[4], void **outData,
+			       void *polygon_data );
+
+  GLU_TESS_ERROR
+	    The	error callback is called when an error is encountered.	The
+	    one	argument is of type GLenum; it indicates the specific error
+	    that occurred and will be set to one of
+	    GLU_TESS_MISSING_BEGIN_POLYGON, GLU_TESS_MISSING_END_POLYGON,
+	    GLU_TESS_MISSING_BEGIN_CONTOUR, GLU_TESS_MISSING_END_CONTOUR,
+	    GLU_TESS_COORD_TOO_LARGE, GLU_TESS_NEED_COMBINE_CALLBACK.
+	    Character strings describing these errors can be retrieved with
+	    the	<A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A> call. The function prototype for	this callback
+	    looks like:
+
+	    void error ( GLenum	errno );
+
+	    The	GLU library will recover from the first	four errors by
+	    inserting the missing call(s).  GLU_TESS_COORD_TOO_LARGE says
+	    that some vertex coordinate	exceeded the predefined	constant
+	    GLU_TESS_MAX_COORD in absolute value, and that the value has been
+	    clamped.  (Coordinate values must be small enough so that two can
+	    be multiplied together without overflow.)
+	    GLU_TESS_NEED_COMBINE_CALLBACK says	that the tessellation
+	    detected an	intersection between two edges in the input data, and
+	    the	GLU_TESS_COMBINE or GLU_TESS_COMBINE_DATA callback was not
+	    provided.  No output will be generated. 
+
+  GLU_TESS_ERROR_DATA
+	    The	same as	the GLU_TESS_ERROR callback except that	it takes an
+	    additional pointer argument. This pointer is identical to the
+	    opaque pointer provided when <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A> was called. The
+	    function prototype for this	callback looks like:
+
+	    void errorData ( GLenum errno, void	*polygon_data );
+
+</PRE><H2>Example</H2><PRE>
+  Polygons tessellated can be rendered directly	like this:
+
+  <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>(tobj, GLU_TESS_BEGIN, <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>); 
+  <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>(tobj, GLU_TESS_VERTEX, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex3dv</A>); 
+  <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>(tobj, GLU_TESS_END, <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>);
+  <A HREF="gluTessCallback.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessCallback.html">gluTessCallback</A>(tobj, GLU_TESS_COMBINE, myCombine);
+  <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A>(tobj, NULL);
+    <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>(tobj);
+      <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>(tobj, v, v);
+      ...
+    <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessEndContour</A>(tobj); 
+  <A HREF="gluTessEndPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessEndPolygon.html">gluTessEndPolygon</A>(tobj);
+
+  Typically, the tessellated polygon should be stored in a display list	so
+  that it does not need	to be retessellated every time it is rendered.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A>, <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>, <A HREF="glVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertex.html">glVertex</A>, <A HREF="gluNewTess.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewTess.html">gluNewTess</A>, <A HREF="gluErrorString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluErrorString.html">gluErrorString</A>, <A HREF="gluTessVertex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessVertex.html">gluTessVertex</A>,
+  <A HREF="gluTessBeginPolygon.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginPolygon.html">gluTessBeginPolygon</A>, <A HREF="gluTessBeginContour.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessBeginContour.html">gluTessBeginContour</A>, <A HREF="gluTessProperty.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessProperty.html">gluTessProperty</A>, <A HREF="gluTessNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluTessNormal.html">gluTessNormal</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

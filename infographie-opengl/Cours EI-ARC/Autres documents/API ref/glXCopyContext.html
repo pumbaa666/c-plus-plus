@@ -1,0 +1,108 @@
+<HEAD>
+<TITLE>glXCopyContext.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glXCopyContext.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glXCopyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCopyContext.html">glXCopyContext</A> - copy	state from one rendering context to another
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glXCopyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCopyContext.html">glXCopyContext</A>( Display *<I>dpy</I>,
+		       GLXContext <I>src</I>,
+		       GLXContext <I>dst</I>,
+		       GLuint <I>mask</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>dpy</I>	Specifies the connection to the	X server.
+
+
+  <I>src</I>	Specifies the source context.
+
+
+  <I>dst</I>	Specifies the destination context.
+
+
+  <I>mask</I>	Specifies which	portions of <I>src</I>	state are to be	copied to <I>dst</I>.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glXCopyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCopyContext.html">glXCopyContext</A> copies	selected groups	of state variables from	<I>src</I> to <I>dst</I>.
+  <I>mask</I> indicates which groups of state variables are to	be copied.  <I>mask</I>
+  contains the bitwise OR of the same symbolic names that are passed to	the
+  OpenGL command <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>.	The single symbolic constant
+  GL_ALL_ATTRIB_BITS can be used to copy the maximum possible portion of
+  rendering state.
+
+  The copy can be done only if the renderers named by <I>src</I> and <I>dst</I> share	an
+  address space.  Two rendering	contexts share an address space	if both	are
+  nondirect using the same server, or if both are direct and owned by a
+  single process.  Note	that in	the nondirect case it is not necessary for
+  the calling threads to share an address space, only for their	related
+  rendering contexts to	share an address space.
+
+  Not all values for OpenGL state can be copied.  For example, pixel pack and
+  unpack state,	render mode state, and select and feedback state are not
+  copied.  The state that can be copied	is exactly the state that is
+  manipulated by OpenGL	command	 <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>.
+
+  An implicit <A HREF="glFlush.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFlush.html">glFlush</A> is done by <A HREF="glXCopyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCopyContext.html">glXCopyContext</A>	if <I>src</I> is the current context
+  for the calling thread.
+
+  If <I>src</I> is not	the current context for	the thread issuing the request,	then
+  the state of the <I>src</I> context is undefined.
+
+
+
+</PRE><H2>Notes</H2><PRE>
+  Two rendering	contexts share an address space	if both	are nondirect using
+  the same server, or if both are direct and owned by a	single process.
+
+  A <I>process</I> is a single	execution environment, implemented in a	single
+  address space, consisting of one or more threads.
+
+  A <I>thread</I> is one of a set of subprocesses that	share a	single address space,
+  but maintain separate	program	counters, stack	spaces,	and other related
+  global data.	A <I>thread</I> that is the only member of its	subprocess group is
+  equivalent to	a <I>process</I>.
+
+
+</PRE><H2>Errors</H2><PRE>
+  BadMatch is generated	if rendering contexts <I>src</I> and <I>dst</I> do not share an
+  address space	or were	not created with respect to the	same screen.
+
+  BadAccess is generated if <I>dst</I>	is current to any thread (including the
+  calling thread) at the time <A HREF="glXCopyContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCopyContext.html">glXCopyContext</A> is	called.
+
+  GLXBadCurrentWindow is generated if <I>src</I> is the current context and the
+  current drawable is a	window that is no longer valid.
+
+  GLXBadContext	is generated if	either <I>src</I> or <I>dst</I> is not a valid GLX context.
+
+  BadValue is generated	if undefined <I>mask</I> bits are specified.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>,	<A HREF="glXCreateContext.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXCreateContext.html">glXCreateContext</A>, <A HREF="glXIsDirect.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glXIsDirect.html">glXIsDirect</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

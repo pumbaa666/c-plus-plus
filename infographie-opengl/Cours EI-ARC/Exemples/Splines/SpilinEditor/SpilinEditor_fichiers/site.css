@@ -1,0 +1,63 @@
+BODY {
+	MARGIN: 0px; COLOR: #ffffff; BACKGROUND-COLOR: #6699ff
+}
+H1 {
+	MARGIN-LEFT: 5px; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H2 {
+	MARGIN-LEFT: 10px; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H3 {
+	MARGIN-LEFT: 15px; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+P {
+	FONT-FAMILY: Georgia, "Times New Roman", Times, serif
+}
+HR {
+	WIDTH: 90%; COLOR: #ffffff
+}
+.webmaster {
+	FONT-SIZE: xx-small; COLOR: #003399; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.footer_table {
+	WIDTH: 100%
+}
+.nav_table {
+	WIDTH: 100%; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #333399
+}
+.lingua {
+	FONT-SIZE: xx-small; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.famiglie_table {
+	WIDTH: 80%; POSITION: static
+}
+BODY {
+	
+}
+H4 {
+	MARGIN-LEFT: 20px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.short_rule {
+	LEFT: 10%; WIDTH: 50%; COLOR: #ffffff
+}
+.image_cell {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; BACKGROUND-COLOR: #000000; TEXT-ALIGN: center
+}
+.small {
+	FONT-SIZE: x-small
+}
+.image {
+	TEXT-ALIGN: center
+}
+.image_desc {
+	VERTICAL-ALIGN: top
+}
+.linkDownload {
+	FONT-SIZE: x-small; COLOR: #cc3366; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.downloadTable {
+	BORDER-RIGHT: #66ccff thin solid; BORDER-TOP: #66ccff thin solid; BORDER-LEFT: #66ccff thin solid; BORDER-BOTTOM: #66ccff thin solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #99ccff
+}
+.downloadText {
+	COLOR: #000000; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}

@@ -1,0 +1,121 @@
+<HEAD>
+<TITLE>gluNurbsSurface.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluNurbsSurface.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> - define the shape of	a NURBS	surface
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(	GLUnurbsObj *<I>nobj</I>,
+			GLint <I>uknot</I>_<I>count</I>,
+			GLfloat	*<I>uknot</I>,
+			GLint <I>vknot</I>_<I>count</I>,
+			GLfloat	*<I>vknot</I>,
+			GLint <I>u</I>_<I>stride</I>,
+			GLint <I>v</I>_<I>stride</I>,
+			GLfloat	*<I>ctlarray</I>,
+			GLint <I>uorder</I>,
+			GLint <I>vorder</I>,
+			GLenum <I>type</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	       Specifies the NURBS object (created with	<A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+  <I>uknot</I>_<I>count</I>  Specifies the number of knots in	the parametric <I>u</I> direction.
+
+  <I>uknot</I>	       Specifies an array of <I>uknot</I>_<I>count</I> nondecreasing knot values in
+	       the parametric <I>u</I>	direction.
+
+  <I>vknot</I>_<I>count</I>  Specifies the number of knots in	the parametric <I>v</I> direction.
+
+  <I>vknot</I>	       Specifies an array of <I>vknot</I>_<I>count</I> nondecreasing knot values in
+	       the parametric <I>v</I>	direction.
+
+  <I>u</I>_<I>stride</I>     Specifies the offset (as	a number of  single-precision
+	       floating	point values) between successive control points	in
+	       the parametric u	direction in <I>ctlarray</I>.
+
+  <I>v</I>_<I>stride</I>     Specifies the offset (in	single-precision floating-point
+	       values) between successive control points in the	parametric <I>v</I>
+	       direction in <I>ctlarray</I>.
+
+  <I>ctlarray</I>     Specifies an array containing control points for	the NURBS
+	       surface.	 The offsets between successive	control	points in the
+	       parametric <I>u</I> and	<I>v</I> directions are given by <I>u</I>_<I>stride</I> and
+	       <I>v</I>_<I>stride</I>.
+
+  <I>uorder</I>       Specifies the order of the NURBS	surface	in the parametric <I>u</I>
+	       direction.  The order is	one more than the degree, hence	a
+	       surface that is cubic in	<I>u</I> has a	<I>u</I> order	of 4.
+
+  <I>vorder</I>       Specifies the order of the NURBS	surface	in the parametric <I>v</I>
+	       direction.  The order is	one more than the degree, hence	a
+	       surface that is cubic in	<I>v</I> has a	<I>v</I> order	of 4.
+
+  <I>type</I>	       Specifies type of the surface. <I>type</I> can be any of the valid
+	       two-dimensional evaluator types (such as	GL_MAP2_VERTEX_3 or
+	       GL_MAP2_COLOR_4).
+
+
+
+</PRE><H2>Description</H2><PRE>
+  Use <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> within a NURBS (Non-Uniform Rational B-Spline) surface
+  definition to	describe the shape of a	NURBS surface (before any trimming).
+  To mark the beginning	of a NURBS surface definition, use the
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A> command.  To mark the	end of a NURBS surface definition,
+  use the <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>	command.  Call <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> within a	NURBS surface
+  definition only.
+
+  Positional, texture, and color coordinates are associated with a surface by
+  presenting each as a separate	<A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>	between	a
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>/<A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>	pair.  No more than one	call to
+  <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> for each of color, position, and texture data	can be made
+  within a single <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>/<A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>	pair.  Exactly one call	must
+  be made to describe the position of the surface (a <I>type</I> of GL_MAP2_VERTEX_3
+  or GL_MAP2_VERTEX_4).
+
+  A NURBS surface can be trimmed by using the commands <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A> and
+  <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A> between calls to <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A> and	<A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluEndTrim</A>.
+
+  Note that a <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> with <I>uknot</I>_<I>count</I> knots in	the u direction	and
+  <I>vknot</I>_<I>count</I> knots in the <I>v</I> direction with orders <I>uorder</I> and <I>vorder</I> must
+  have (<I>uknot</I>_<I>count</I> - <I>uorder</I>) x	(<I>vknot</I>_<I>count</I> - <I>vorder</I>) control points.
+
+
+</PRE><H2>Example</H2><PRE>
+  The following	commands render	a textured NURBS surface with normals; the
+  texture coordinates and normals are also NURBS surfaces:
+
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>(nobj);
+     <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(nobj, ...,	GL_MAP2_TEXTURE_COORD_2);
+     <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(nobj, ...,	GL_MAP2_NORMAL);
+     <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(nobj, ...,	GL_MAP2_VERTEX_4); <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>(nobj);
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>, <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>, <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>, <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>,
+  <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

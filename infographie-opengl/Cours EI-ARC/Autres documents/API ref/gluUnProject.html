@@ -1,0 +1,67 @@
+<HEAD>
+<TITLE>gluUnProject.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluUnProject.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluUnProject.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluUnProject.html">gluUnProject</A> - map window coordinates	to object coordinates
+
+
+</PRE><H2>C Specification</H2><PRE>
+  int <A HREF="gluUnProject.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluUnProject.html">gluUnProject</A>( GLdouble <I>winx</I>,
+		    GLdouble <I>winy</I>,
+		    GLdouble <I>winz</I>,
+		    const GLdouble <I>modelMatrix</I>[<I>16</I>],
+		    const GLdouble <I>projMatrix</I>[<I>16</I>],
+		    const GLint	<I>viewport</I>[<I>4</I>],
+		    GLdouble *<I>objx</I>,
+		    GLdouble *<I>objy</I>,
+		    GLdouble *<I>objz</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>winx</I>,	<I>winy</I>, <I>winz</I>
+		  Specify the window coordinates to be mapped.
+
+  <I>modelMatrix</I>	  Specifies the	modelview matrix (as from a <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetDoublev</A>
+		  call).
+
+  <I>projMatrix</I>	  Specifies the	projection matrix (as from a <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetDoublev</A>
+		  call).
+
+  <I>viewport</I>	  Specifies the	viewport (as from a <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetIntegerv</A> call).
+
+  <I>objx</I>,	<I>objy</I>, <I>objz</I>
+		  Returns the computed object coordinates.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="gluUnProject.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluUnProject.html">gluUnProject</A> maps the	specified window coordinates into object coordinates
+  using	<I>modelMatrix</I>, <I>projMatrix</I>, and <I>viewport</I>.	The result is stored in	<I>objx</I>,
+  <I>objy</I>,	and <I>objz</I>.  A return value of GL_TRUE indicates success,	and GL_FALSE
+  indicates failure.
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A>, <A HREF="gluProject.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluProject.html">gluProject</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>aux toolkit: manual</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; I; SunOS 5.5 sun4u) [Netscape]">
+</HEAD>
+<BODY>
+
+<H1 ALIGN=CENTER>aux toolkit: manual</H1>
+
+<H2>Index</H2>
+
+<UL>
+<DT><A HREF="#auxIdleFunc">auxIdleFunc</A> </DT>
+
+<DT><A HREF="#auxInitDisplayMode">auxInitDisplayMode</A> </DT>
+
+<DT><A HREF="#auxInitPosition">auxInitPosition</A> </DT>
+
+<DT><A HREF="#auxInitWindow">auxInitWindow</A> </DT>
+
+<DT><A HREF="#auxKeyFunc">auxKeyFunc</A> </DT>
+
+<DT><A HREF="#auxMouseFunc">auxMouseFunc</A> </DT>
+
+<DT><A HREF="#auxReshapeFunc">auxReshapeFunc</A> </DT>
+
+<DT><A HREF="#auxSetOneColor">auxSetOneColor</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidBox</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidCone</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidCube</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidCylinder</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidDodecahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidIcosahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidOctahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidSphere</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidTeapot</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidTetrahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxSolidTorus</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireBox</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireCone</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireCube</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireCylinder</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireDodecahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireIcosahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireOctahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireSphere</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireTeapot</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireTetrahedron</A> </DT>
+
+<DT><A HREF="#aux3d">auxWireTorus</A> </DT>
+</UL>
+
+<H2>Initializing and Exiting a Window</H2>
+
+<P><A NAME="auxInitWindow"></A></P>
+
+<H3>auxInitWindow</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxInitWindow</B>(GLbyte *titleString); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Opens a window with the characteristics specified by <B>auxInitDisplayMode()</B>
+and <B>auxInitPosition()</B>. The string <I>titleString</I> appears in
+the title bar, if your window system does that sort of thing. The <TT>Escape</TT>
+key is bound to an exiting function that kills the window, exits the program,
+and generally cleans up. Also, the default color for the background is
+set to black for an RGBA window and to color index 0 for a color-index
+window. </P>
+</BLOCKQUOTE>
+
+<P><A NAME="auxInitDisplayMode"></A></P>
+
+<H3>auxInitDisplayMode</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxInitDisplayMode</B>(GLbitfield <I>mask</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Tells <B>auxInitWindow()</B> whether to create an RGBA or color-index
+window, or a single- or double-buffered window. You can also specify that
+the window have an associated depth, stencil, and/or accumulation buffwe.
+The <I>mask</I> argument is a bitwise ORed combination of AUX_RGBA or AUX_INDEX,
+AUX_SINGLE or AUX_DOUBLE, and any of the buffer-enabling flags: AUX_DEPTH,
+AUX_STENCIL, or AUX_ACCUM. For example, for a double-buffered, RGBA-mode
+window with a depth and stencil buffer, use AUX_DOUBLE|AUX_RGBA|AUX_DEPTH|AUX_STENCIL.
+The default value is AUX_INDEX|AUX_SINGLE, or a color-index, single-buffered
+window. </P>
+</BLOCKQUOTE>
+
+<P><A NAME="auxInitPosition"></A></P>
+
+<H3>auxInitPosition</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxInitPosition</B>(GLint <I>x</I>, GLInt <I>y</I>,
+GLsizei <I>width</I>, GLsizei <I>height</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Tells <B>auxInitWindow()</B> where to position a window on the screen.
+The arguments (x,y) indicate the location of the lower left corner of the
+windowm and width and height indicate the window's size (in pixels). The
+default values are (0,0) for (x,y) and (100,100) for (width, height). </P>
+</BLOCKQUOTE>
+
+<H2>Handling Window and Input Events</H2>
+
+<P><A NAME="auxReshapeFunc"></A></P>
+
+<H3>auxReshapeFunc</H3>
+
+<H4>C Specification</H4>
+
+<P><A NAME="auxReshapeFunc"></A></P>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxReshapeFunc</B>(void (<I>*function</I>(GLsizei,
+GLsizei)); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Specifies the function that's called whenever the window is resized,
+moved or exposed. The argument <I>function</I> is a pointer to a function
+that expects two arguments, the new width and height of the window. Typically
+<I>function</I> calls <B>glViewPort()</B>, so that the display is clipped
+to the new size, and it redefines the projection matrix so that the aspect
+ratio of the projected image matches the viewport, avoiding aspect ratio
+distortion. If you don't call <B>auxReshapeFunc()</B>, a default reshape
+function is called, which assumes a 2D orthographic projection. With this
+auxiliary library, the window is automatically redrawn after every reshaping
+event. </P>
+</BLOCKQUOTE>
+
+<P><A NAME="auxKeyFunc"></A></P>
+
+<H3>auxKeyFunc</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxKeyFunc</B>(GLint <I>key</I>, void(<I>* function</I>(void));
+</formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Specifies the function, <I>function</I>, that's called when the keyboard
+key indicated by <I>key</I> is pressed. Use one of the defined auxiliary
+constants for <I>key</I>: AUX_A through AUX_Z, AUX_a through AUX_z, AUX_0
+through AUX_9, AUX_LEFT, AUX_RIGHT, AUX_UP, AUX_DOWN (the arrow keys),
+AUX_ESCAPE, AUX_SPACE, or AUX_RETURN. With this auxiliary library, the
+window is automatically redrawn after every processed key event, although
+in a real application, you might wait for several events to be completed
+before drawing. </P>
+</BLOCKQUOTE>
+
+<P><A NAME="auxMouseFunc"></A></P>
+
+<H3>auxMouseFunc</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxMouseFunc</B>(GLint <I>button</I>, GLInt <I>mode</I>,
+void (<I>* function)</I>(AUX_EVENTREC *)); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Specifies the function, <I>function</I> that's called when the mouse
+button indicated by <I>button</I> enters the mode defined by <I>mode</I>.
+The <B>button</B> argument can be AUX_LEFTBUTTON, AUX_MIDDLEBUTTON, or
+AUX_RIGHTBUTTON (assuming a right-handed setup). The <I>mode</I> argument
+indicates whether the button is clicked, AUX_MOUSEDOWN or released, AUX_MOUSEUP.
+The <I>function</I> argument must take one argument, which is a pointer
+to a structure of type AUX_EVENTREC. The <B>auxMouseFunc()</B> routine
+allocates memory for the structure. For example, to determine the pointer
+coodinates at the time of the event, you might define <I>function</I> like
+this: </P>
+
+<P><TT>void function(AUX_EVENTREC *event)<BR>
+{ </TT></P>
+
+<BLOCKQUOTE>
+<P><TT>GLINT x, y;<BR>
+x = event-&gt;data[AUX_MOUSEX];<BR>
+y = event-&gt;data[AUX_MOUSEY];<BR>
+....</TT><BR>
+</P>
+</BLOCKQUOTE>
+
+<P><TT>}</TT><BR>
+</P>
+</BLOCKQUOTE>
+
+<H2>Loading the Color Map</H2>
+
+<P><A NAME="auxSetOneColor"></A></P>
+
+<H3>auxSetOneColor</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxSetOneColor</B>(GLint <I>index</I>, GLfloat <I>red</I>,
+GLfloat <I>green</I>, GLfloat <I>blue</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Loads the index in the color map, <I>index</I>, with the given <I>red,
+green</I> and <I>blue</I> values. These values are normalized to lie in
+the range [0.0,1.0]. </P>
+</BLOCKQUOTE>
+
+<H2>Initializing and drawing 3D Objects</H2>
+
+<P><A NAME="aux3d"></A></P>
+
+<H4>C Specifications</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireSphere</B>(GLdouble <I>radius</I>);<BR>
+void <B>auxSolidSphere</B>(GLdouble <I>radius</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireCube</B>(GLdouble <I>size</I>);<BR>
+void <B>auxSolidCube</B>(GLdouble <I>size</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireBox</B>(GLdouble <I>width</I>,<I>height</I>,<I>depth</I>);<BR>
+void <B>auxSolidBox</B>(GLdouble <I>width</I>,<I>height</I>,<I>depth</I>);
+</formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireTorus</B>(GLdouble <I>innerRadius</I>,<I>outerRadius</I>);<BR>
+void <B>auxSolidTorus</B>(GLdouble <I>innerRadius</I>,<I>outerRadius</I>);
+</formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireCylinder</B>(GLdouble <I>radius</I>,<I>height</I>);<BR>
+void <B>auxSolidCylinder</B>(GLdouble <I>radius</I>,<I>height</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireIcosahedron</B>(GLdouble <I>radius</I>);<BR>
+void <B>auxSolidIcosahedron</B>(GLdouble <I>radius</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireOctahedron</B>(GLdouble <I>radius</I>);<BR>
+void <B>auxSolidOctahedron</B>(GLdouble <I>radius</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireTetrahedron</B>(GLdouble <I>radius</I>);<BR>
+void <B>auxSoliTetrahedron</B>(GLdouble <I>radius</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireDodecahedron</B>(GLdouble <I>radius</I>);<BR>
+void <B>auxSolidDodecahedron</B>(GLdouble <I>radius</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireCone</B>(GLdouble <I>radius</I>, GLdouble
+height);<BR>
+void <B>auxSolidCone</B>(GLdouble <I>radius</I>, GLdouble height); </formatted></P>
+</BLOCKQUOTE>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxWireTeapot</B>(GLdouble <I>size</I>);<BR>
+void <B>auxSolidTeapot</B>(GLdouble <I>size</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<P>Draws the specified wireframe or solid object. These routines are self-initializing,
+that is, the first time a rendering request is made, a display list is
+created for the object. Every subsequent time the routine is called, the
+same display list is executed. All these models are drawn centered at the
+origin. When drawn with unit scale factors, these models fits into a box
+with all coordinates from -1 ot 1. Use the arguments for these routines
+to scale the objects. </P>
+
+<H2>Managing a Background Process</H2>
+
+<P><A NAME="auxIdleFunc"></A></P>
+
+<H3>auxIdleFunc</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxIdleFunc</B>(void <I>* func</I>); </formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Specifies the function, <I>func</I>, to be executed if no other events
+are pending. If zero is passed in, execution of <I>func</I> is disabled.
+</P>
+</BLOCKQUOTE>
+
+<H2>Running the Program</H2>
+
+<P><A NAME="auxMainLoop"></A></P>
+
+<H3>auxMainLoop</H3>
+
+<H4>C Specification</H4>
+
+<BLOCKQUOTE>
+<P><formatted>void <B>auxMainLoop</B>(void (<I>*displayFunc</I>)(void));
+</formatted></P>
+</BLOCKQUOTE>
+
+<H4>Description</H4>
+
+<BLOCKQUOTE>
+<P>Specifies the function, <I>displayFunc</I>, that's called when the window
+needs to be updated. <I>displayFunc</I> should redraw the objects in your
+scene. </P>
+</BLOCKQUOTE>
+
+<!--GH_SEARCH-->
+<hr>
+<center>
+<table border=5>
+
+<tr border=0> <td colspan=3><center><strong> Full Text Search ! </strong>
+<font size=-1> (Could be slow...) <font size=+1>
+</td></tr>
+<tr border=0>
+<td align=center valign=middle>
+<a href=http://glimpse.cs.arizona.edu/webglimpse>
+<img src=http://www.info.ucl.ac.be/.glimpse-eye.jpg alt="WG" align=middle width=50><br>
+<font size=-3>WebGlimpse</font></a></td>
+<td> <FORM method=get ACTION=http://titanic.info.ucl.ac.be/glimpse-bin/webglimpse/info/web>
+<INPUT NAME=query size=30>
+<INPUT TYPE=submit VALUE="Search">
+<INPUT name=file type=hidden value="/etudiants/Cours/2760/OpenGL/doc/aux.html">
+<a href=http://titanic.info.ucl.ac.be/glimpse-bin/webglimpse-fullsearch?file=/etudiants/Cours/2760/OpenGL/doc/aux.html>
+Search Options</a>&nbsp;&nbsp;<INPUT TYPE=reset VALUE="Clear">
+</td></tr>
+<tr><td colspan=2>
+Search:	
+<INPUT TYPE=radio NAME=scope VALUE=neighbor CHECKED>
+The neighborhood of this page
+<INPUT TYPE=radio NAME=scope VALUE=full>The full archive
+</td></tr></form></table></center><hr>
+<!--GH_END-->
+</BODY>
+</HTML>

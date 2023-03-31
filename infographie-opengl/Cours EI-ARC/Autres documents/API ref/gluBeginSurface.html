@@ -1,0 +1,71 @@
+<HEAD>
+<TITLE>gluBeginSurface.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>gluBeginSurface.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>, <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A> - delimit a NURBS surface definition
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>(	GLUnurbsObj *<I>nobj</I> )
+
+  void <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>( GLUnurbsObj *<I>nobj</I>	)
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>nobj</I>	Specifies the NURBS object (created with <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>).
+
+
+</PRE><H2>Description</H2><PRE>
+  Use <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A> to mark the beginning of a NURBS surface definition.
+  After	calling	<A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>, make one or more calls	to <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> to
+  define the attributes	of the surface.	 Exactly one of	these calls to
+  <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A> must have a surface type of GL_MAP2_VERTEX_3 or
+  GL_MAP2_VERTEX_4.  To	mark the end of	the NURBS surface definition, call
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>.
+
+  Trimming of NURBS surfaces is	supported with <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>, <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A>,
+  <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>, and <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluEndTrim</A>.  Refer	to the <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A> reference page
+  for details.
+
+  OpenGL evaluators are	used to	render the NURBS surface as a set of
+  polygons.  Evaluator state is	preserved during rendering with
+  <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>(GL_EVAL_BIT) and	<A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPopAttrib</A>(). See the <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A> reference
+  page for details on exactly what state these calls preserve.
+
+
+</PRE><H2>Example</H2><PRE>
+  The following	commands render	a textured NURBS surface with normals; the
+  texture coordinates and normals are also described as	NURBS surfaces:
+
+  <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluBeginSurface</A>(nobj);
+     <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(nobj, ...,	GL_MAP2_TEXTURE_COORD_2);
+     <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(nobj, ...,	GL_MAP2_NORMAL);
+     <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>(nobj, ...,	GL_MAP2_VERTEX_4); <A HREF="gluBeginSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginSurface.html">gluEndSurface</A>(nobj);
+
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="gluBeginCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginCurve.html">gluBeginCurve</A>, <A HREF="gluBeginTrim.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluBeginTrim.html">gluBeginTrim</A>, <A HREF="gluNewNurbsRenderer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNewNurbsRenderer.html">gluNewNurbsRenderer</A>, <A HREF="gluNurbsCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsCurve.html">gluNurbsCurve</A>,
+  <A HREF="gluNurbsSurface.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluNurbsSurface.html">gluNurbsSurface</A>, <A HREF="gluPwlCurve.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/gluPwlCurve.html">gluPwlCurve</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

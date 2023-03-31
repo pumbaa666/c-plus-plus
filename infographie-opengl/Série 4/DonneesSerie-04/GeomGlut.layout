@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE CodeBlocks_layout_file>
+<CodeBlocks_layout_file>
+	<File name="evenements.cpp" open="1" top="1">
+		<Cursor position="318" topLine="0"/>
+	</File>
+	<File name="geomglut.cpp" open="1" top="0">
+		<Cursor position="507" topLine="0"/>
+	</File>
+	<Expand folder="/Sources"/>
+</CodeBlocks_layout_file>

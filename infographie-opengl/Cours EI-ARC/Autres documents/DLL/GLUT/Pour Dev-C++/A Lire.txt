@@ -1,0 +1,16 @@
+Pour installer GLUT dans Dev-Cpp :
+
+Après avoir installer l'environnemnet Dev-Cpp, il faut
+double-cliquer sur le fichier
+
+	glut.3.7.6+.DevPak
+
+Ceci va installer tout ce qui est nécessaire dans les répertoires
+de Dev-Cpp.
+
+Attention :
+La librairie libglut32.a qui est copiée est une librairie statique.
+Le fichier glut32.dll n'est donc pas indispensable avec cette distribution.
+
+Si on veut aussi utiliser la librairie AUX, il faut copier les
+fichier glaux.h et glaux.dll.

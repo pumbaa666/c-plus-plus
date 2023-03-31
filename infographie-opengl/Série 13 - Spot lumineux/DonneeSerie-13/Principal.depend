@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1136898480 u:\3ème\infographie\exercices\série 13\donneeserie-13\global.cpp
+	<GL\glut.h>
+
+1164803335 u:\3ème\infographie\exercices\série 13\donneeserie-13\evenements.cpp
+	<GL\glut.h>
+	<math.h>
+	<ctype.h>
+	"geometrie.h"
+	"global.h"
+	"evenements.h"
+
+1164804270 u:\3ème\infographie\exercices\série 13\donneeserie-13\geometrie.h
+
+1026033664 u:\3ème\infographie\exercices\série 13\donneeserie-13\global.h
+
+1026033822 u:\3ème\infographie\exercices\série 13\donneeserie-13\evenements.h
+
+1164805035 u:\3ème\infographie\exercices\série 13\donneeserie-13\geometrie.cpp
+	<GL\glut.h>
+	"global.h"
+	"geometrie.h"
+
+1164805090 u:\3ème\infographie\exercices\série 13\donneeserie-13\principal.cpp
+	<GL\glut.h>
+	<stdio.h>
+	"global.h"
+	"evenements.h"
+	"principal.h"
+
+1026034064 u:\3ème\infographie\exercices\série 13\donneeserie-13\principal.h
+

@@ -1,0 +1,65 @@
+<HEAD>
+<TITLE>glGetPointervEXT.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGetPointervEXT.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A> - return the	address	of a vertex data array
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A>( GLenum	<I>pname</I>,
+			 GLvoid* *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>	  Specifies the	array pointer to be returned.  Symbolic	constants
+	  GL_VERTEX_ARRAY_POINTER_EXT, GL_NORMAL_ARRAY_POINTER_EXT,
+	  GL_COLOR_ARRAY_POINTER_EXT, GL_INDEX_ARRAY_POINTER_EXT,
+	  GL_TEXTURE_COORD_ARRAY_POINTER_EXT, GL_EDGE_FLAG_ARRAY_POINTER_EXT,
+	  are accepted.
+
+  <I>params</I>  returns the array pointer value specified by <I>pname</I>.
+
+
+</PRE><H2>Description</H2><PRE>
+  <A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A> returns array pointer information. <I>pname</I> is a symbolic
+  constant indicating the array	pointer	to be returned,	and params is a
+  pointer to a location	in which to place the returned data.
+
+</PRE><H2>Notes</H2><PRE>
+  The array pointers are client	side state.
+
+  <A HREF="glGetPointervEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPointervEXT.html">glGetPointervEXT</A> is part of the <B>EXT_vertex_array</B> extension,	not
+  part of the core GL command set. If <B>"GL_EXT_vertex_array"</B> is
+  included in the string returned by <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A>, when called with argument
+  GL_EXTENSIONS, extension <B>EXT_vertex_array</B> is supported.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>pname</I>	is not an accepted value.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glArrayElementEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glArrayElementEXT.html">glArrayElementEXT</A>, <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>,	<A HREF="glDrawArraysEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawArraysEXT.html">glDrawArraysEXT</A>,
+  <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A>,	<A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>, <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>,
+  <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>,	<A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> |
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Fri Feb 24, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>

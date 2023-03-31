@@ -1,0 +1,997 @@
+<HEAD>
+<TITLE>glGet.3gl</TITLE>
+</HEAD>
+<BODY>
+<H2>glGet.3gl</H2>
+<PRE>
+
+
+
+</PRE><H2>Name</H2><PRE>
+  <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetBooleanv</A>, <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetDoublev</A>, <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetFloatv</A>, <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetIntegerv</A> - return the value
+  or values of a selected parameter
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetBooleanv</A>( GLenum <I>pname</I>,
+		      GLboolean	*<I>params</I>	)
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetDoublev</A>( GLenum <I>pname</I>,
+		     GLdouble *<I>params</I> )
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetFloatv</A>( GLenum <I>pname</I>,
+		    GLfloat *<I>params</I> )
+
+
+</PRE><H2>C Specification</H2><PRE>
+  void <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetIntegerv</A>( GLenum <I>pname</I>,
+		      GLint *<I>params</I> )
+
+
+</PRE><H2>Parameters</H2><PRE>
+
+  <I>pname</I>	  Specifies the	parameter value	to be returned.	 The symbolic
+	  constants in the list	below are accepted.
+
+  <I>params</I>  Returns the value or values of the specified parameter.
+
+</PRE><H2>Description</H2><PRE>
+  These	four commands return values for	simple state variables in GL. <I>pname</I>
+  is a symbolic	constant indicating the	state variable to be returned, and
+  <I>params</I> is a pointer to an array of the indicated type	in which to place the
+  returned data.
+
+  Type conversion is performed if <I>params</I> has a different type than the state
+  variable value being requested.  If <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetBooleanv</A> is called, a floating-
+  point	or integer value is converted to GL_FALSE if and only if it is zero.
+  Otherwise, it	is converted to	GL_TRUE.  If <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetIntegerv</A> is called, Boolean
+  values are returned as GL_TRUE or GL_FALSE, and most floating-point values
+  are rounded to the nearest integer value.  Floating-point colors and
+  normals, however, are	returned with a	linear mapping that maps 1.0 to	the
+  most positive	representable integer value, and -1.0 to the most negative
+  representable	integer	value.	If <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetFloatv</A> or <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGetDoublev</A> is called,
+  Boolean values are returned as GL_TRUE or GL_FALSE, and integer values are
+  converted to floating-point values.
+
+  The following	symbolic constants are accepted	by <I>pname</I>:
+
+  GL_ACCUM_ALPHA_BITS	   <I>params</I> returns one value, the number	of alpha
+			   bitplanes in	the accumulation buffer.
+
+  GL_ACCUM_BLUE_BITS	   <I>params</I> returns one value, the number	of blue
+			   bitplanes in	the accumulation buffer.
+
+  GL_ACCUM_CLEAR_VALUE	   <I>params</I> returns four values: the red,	green, blue,
+			   and alpha values used to clear the accumulation
+			   buffer.  Integer values, if requested, are
+			   linearly mapped from	the internal floating-point
+			   representation such that 1.0	returns	the most
+			   positive representable integer value, and -1.0
+			   returns the most negative representable integer
+			   value.  See <A HREF="glClearAccum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearAccum.html">glClearAccum</A>.
+
+  GL_ACCUM_GREEN_BITS	   <I>params</I> returns one value, the number	of green
+			   bitplanes in	the accumulation buffer.
+
+  GL_ACCUM_RED_BITS	   <I>params</I> returns one value, the number	of red
+			   bitplanes in	the accumulation buffer.
+
+  GL_ALPHA_BIAS		   <I>params</I> returns one value, the alpha bias factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_ALPHA_BITS		   <I>params</I> returns one value, the number	of alpha
+			   bitplanes in	each color buffer.
+
+  GL_ALPHA_SCALE	   <I>params</I> returns one value, the alpha scale factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_ALPHA_TEST		   <I>params</I> returns a single Boolean value indicating
+			   whether alpha testing of fragments is enabled.
+			   See <A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A>.
+
+  GL_ALPHA_TEST_FUNC	   <I>params</I> returns one value, the symbolic name of the
+			   alpha test function.	 See <A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A>.
+
+  GL_ALPHA_TEST_REF	   <I>params</I> returns one value, the reference value for
+			   the alpha test.  See	<A HREF="glAlphaFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAlphaFunc.html">glAlphaFunc</A>.  An integer
+			   value, if requested,	is linearly mapped from	the
+			   internal floating-point representation such that
+			   1.0 returns the most	positive representable
+			   integer value, and -1.0 returns the most negative
+			   representable integer value.
+
+  GL_ATTRIB_STACK_DEPTH	   <I>params</I> returns one value, the depth of the
+			   attribute stack.  If	the stack is empty, zero is
+			   returned.  See <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>.
+
+  GL_AUTO_NORMAL	   <I>params</I> returns a single Boolean value indicating
+			   whether 2-D map evaluation automatically generates
+			   surface normals.  See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_AUX_BUFFERS	   <I>params</I> returns one value, the number	of auxiliary
+			   color buffers.
+
+  GL_BLEND		   <I>params</I> returns a single Boolean value indicating
+			   whether blending is enabled.	 See <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>.
+
+  GL_BLEND_DST		   <I>params</I> returns one value, the symbolic constant
+			   identifying the destination blend function.	See
+			   <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>.
+
+  GL_BLEND_SRC		   <I>params</I> returns one value, the symbolic constant
+			   identifying the source blend	function.  See
+			   <A HREF="glBlendFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBlendFunc.html">glBlendFunc</A>.
+
+  GL_BLUE_BIAS		   <I>params</I> returns one value, the blue bias factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_BLUE_BITS		   <I>params</I> returns one value, the number	of blue
+			   bitplanes in	each color buffer.
+
+  GL_BLUE_SCALE		   <I>params</I> returns one value, the blue scale factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_CLIP_PLANE<I>i</I>	   <I>params</I> returns a single Boolean value indicating
+			   whether the specified clipping plane	is enabled.
+			   See <A HREF="glClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClipPlane.html">glClipPlane</A>.
+
+  GL_COLOR_ARRAY_EXT	   <I>params</I> returns a single boolean value, indicating
+			   whether the color array is enabled.	See
+			   <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>.
+
+  GL_COLOR_ARRAY_COUNT_EXT <I>params</I> returns one value, the number	of colors in
+			   the color array, counting from the first, that are
+			   static.  See	<A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>.
+
+  GL_COLOR_ARRAY_SIZE_EXT  <I>params</I> returns one value, the number	of components
+			   per color in	the color array.  See
+			   <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>.
+
+  GL_COLOR_ARRAY_STRIDE_EXT
+			   <I>params</I> returns one value, the byte offset between
+			   consecutive colors in the color array.  See
+			   <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>.
+
+  GL_COLOR_ARRAY_TYPE_EXT  <I>params</I> returns one value, the data type of each
+			   component in	the color array.  See
+			   <A HREF="glColorPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorPointerEXT.html">glColorPointerEXT</A>.
+
+  GL_COLOR_CLEAR_VALUE	   <I>params</I> returns four values: the red,	green, blue,
+			   and alpha values used to clear the color buffers.
+			   Integer values, if requested, are linearly mapped
+			   from	the internal floating-point representation
+			   such	that 1.0 returns the most positive
+			   representable integer value,	and -1.0 returns the
+			   most	negative representable integer value.  See
+			   <A HREF="glClearColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearColor.html">glClearColor</A>.
+
+  GL_COLOR_MATERIAL	   <I>params</I> returns a single Boolean value indicating
+			   whether one or more material	parameters are
+			   tracking the	current	color.	See <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A>.
+
+  GL_COLOR_MATERIAL_FACE   <I>params</I> returns one value, a symbolic	constant
+			   indicating which materials have a parameter that
+			   is tracking the current color.  See
+			   <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A>.
+
+  GL_COLOR_MATERIAL_PARAMETER
+			   <I>params</I> returns one value, a symbolic	constant
+			   indicating which material parameters	are tracking
+			   the current color.  See <A HREF="glColorMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMaterial.html">glColorMaterial</A>.
+
+  GL_COLOR_WRITEMASK	   <I>params</I> returns four Boolean values: the red,
+			   green, blue,	and alpha write	enables	for the	color
+			   buffers.  See <A HREF="glColorMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColorMask.html">glColorMask</A>.
+
+  GL_CULL_FACE		   <I>params</I> returns a single Boolean value indicating
+			   whether polygon culling is enabled.	See
+			   <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A>.
+
+  GL_CULL_FACE_MODE	   <I>params</I> returns one value, a symbolic	constant
+			   indicating which polygon faces are to be culled.
+			   See <A HREF="glCullFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCullFace.html">glCullFace</A>.
+
+  GL_CURRENT_COLOR	   <I>params</I> returns four values: the red,	green, blue,
+			   and alpha values of the current color.  Integer
+			   values, if requested, are linearly mapped from the
+			   internal floating-point representation such that
+			   1.0 returns the most	positive representable
+			   integer value, and -1.0 returns the most negative
+			   representable integer value.	 See <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>.
+
+  GL_CURRENT_INDEX	   <I>params</I> returns one value, the current color index.
+			   See <A HREF="glIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndex.html">glIndex</A>.
+
+  GL_CURRENT_NORMAL	   <I>params</I> returns three	values:	the <I>x</I>, <I>y</I>, and <I>z</I>
+			   values of the current normal.  Integer values, if
+			   requested, are linearly mapped from the internal
+			   floating-point representation such that 1.0
+			   returns the most positive representable integer
+			   value, and -1.0 returns the most negative
+			   representable integer value.	 See <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>.
+
+  GL_CURRENT_RASTER_COLOR  <I>params</I> returns four values: the red,	green, blue,
+			   and alpha values of the current raster position.
+			   Integer values, if requested, are linearly mapped
+			   from	the internal floating-point representation
+			   such	that 1.0 returns the most positive
+			   representable integer value,	and -1.0 returns the
+			   most	negative representable integer value.  See
+			   <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A>.
+
+  GL_CURRENT_RASTER_DISTANCE
+			   <I>params</I> returns one value, the distance from the
+			   eye to the current raster position.	See
+			   <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A>.
+
+  GL_CURRENT_RASTER_INDEX  <I>params</I> returns one value, the color index of	the
+			   current raster position.  See <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A>.
+
+  GL_CURRENT_RASTER_POSITION
+			   <I>params</I> returns four values: the <I>x</I>, <I>y</I>, <I>z</I>, and	<I>w</I>
+			   components of the current raster position.  <I>x</I>, <I>y</I>,
+			   and <I>z</I> are in	window coordinates, and	<I>w</I> is in	clip
+			   coordinates.	 See <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A>.
+
+  GL_CURRENT_RASTER_TEXTURE_COORDS
+			   <I>params</I> returns four values: the <I>s</I>, <I>t</I>, <I>r</I>, and	<I>q</I>
+			   current raster texture coordinates.	See
+			   <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A> and <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>.
+
+  GL_CURRENT_RASTER_POSITION_VALID
+			   <I>params</I> returns a single Boolean value indicating
+			   whether the current raster position is valid.  See
+			   <A HREF="glRasterPos.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRasterPos.html">glRasterPos</A>.
+
+  GL_CURRENT_TEXTURE_COORDS
+			   <I>params</I> returns four values: the <I>s</I>, <I>t</I>, <I>r</I>, and	<I>q</I>
+			   current texture coordinates.	 See <A HREF="glTexCoord.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoord.html">glTexCoord</A>.
+
+  GL_DEPTH_BIAS		   <I>params</I> returns one value, the depth bias factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_DEPTH_BITS		   <I>params</I> returns one value, the number	of bitplanes
+			   in the depth	buffer.
+
+  GL_DEPTH_CLEAR_VALUE	   <I>params</I> returns one value, the value that is used
+			   to clear the	depth buffer.  Integer values, if
+			   requested, are linearly mapped from the internal
+			   floating-point representation such that 1.0
+			   returns the most positive representable integer
+			   value, and -1.0 returns the most negative
+			   representable integer value.	 See <A HREF="glClearDepth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearDepth.html">glClearDepth</A>.
+
+  GL_DEPTH_FUNC		   <I>params</I> returns one value, the symbolic constant
+			   that	indicates the depth comparison function.  See
+			   <A HREF="glDepthFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthFunc.html">glDepthFunc</A>.
+
+  GL_DEPTH_RANGE	   <I>params</I> returns two values: the near and far
+			   mapping limits for the depth	buffer.	 Integer
+			   values, if requested, are linearly mapped from the
+			   internal floating-point representation such that
+			   1.0 returns the most	positive representable
+			   integer value, and -1.0 returns the most negative
+			   representable integer value.	 See <A HREF="glDepthRange.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthRange.html">glDepthRange</A>.
+
+  GL_DEPTH_SCALE	   <I>params</I> returns one value, the depth scale factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_DEPTH_TEST		   <I>params</I> returns a single Boolean value indicating
+			   whether depth testing of fragments is enabled.
+			   See <A HREF="glDepthFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthFunc.html">glDepthFunc</A> and <A HREF="glDepthRange.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthRange.html">glDepthRange</A>.
+
+  GL_DEPTH_WRITEMASK	   <I>params</I> returns a single Boolean value indicating
+			   if the depth	buffer is enabled for writing.	See
+			   <A HREF="glDepthMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDepthMask.html">glDepthMask</A>.
+
+  GL_DITHER		   <I>params</I> returns a single Boolean value indicating
+			   whether dithering of	fragment colors	and indices
+			   is enabled.
+
+  GL_DOUBLEBUFFER	   <I>params</I> returns a single Boolean value indicating
+			   whether double buffering is supported.
+
+  GL_DRAW_BUFFER	   <I>params</I> returns one value, a symbolic	constant
+			   indicating which buffers are	being drawn to.	 See
+			   <A HREF="glDrawBuffer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glDrawBuffer.html">glDrawBuffer</A>.
+
+  GL_EDGE_FLAG		   <I>params</I> returns a single Boolean value indication
+			   whether the current edge flag is true or false.
+			   See <A HREF="glEdgeFlag.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlag.html">glEdgeFlag</A>.
+
+  GL_EDGE_FLAG_ARRAY_EXT   <I>params</I> returns a single boolean value, indicating
+			   whether the edge flag array is enabled.  See
+			   <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A>.
+
+  GL_EDGE_FLAG_ARRAY_COUNT_EXT
+			   <I>params</I> returns one value, the number	of edge	flags
+			   in the edge flag array, counting from the first,
+			   that	are static.  See <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A>.
+
+  GL_EDGE_FLAG_ARRAY_STRIDE_EXT
+			   <I>params</I> returns one value, the byte offset between
+			   consecutive edge flags in the edge flag array.
+			   See <A HREF="glEdgeFlagPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glEdgeFlagPointerEXT.html">glEdgeFlagPointerEXT</A>.
+
+  GL_FOG		   <I>params</I> returns a single Boolean value indicating
+			   whether fogging is enabled.	See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FOG_COLOR		   <I>params</I> returns four values: the red,	green, blue,
+			   and alpha components	of the fog color.  Integer
+			   values, if requested, are linearly mapped from the
+			   internal floating-point representation such that
+			   1.0 returns the most	positive representable
+			   integer value, and -1.0 returns the most negative
+			   representable integer value.	 See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FOG_DENSITY	   <I>params</I> returns one value, the fog density
+			   parameter.  See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FOG_END		   <I>params</I> returns one value, the end factor for	the
+			   linear fog equation.	 See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FOG_HINT		   <I>params</I> returns one value, a symbolic	constant
+			   indicating the mode of the fog hint.	 See <A HREF="glHint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glHint.html">glHint</A>.
+
+  GL_FOG_INDEX		   <I>params</I> returns one value, the fog color index.
+			   See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FOG_MODE		   <I>params</I> returns one value, a symbolic	constant
+			   indicating which fog	equation is selected.  See
+			   <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FOG_START		   <I>params</I> returns one value, the start factor for the
+			   linear fog equation.	 See <A HREF="glFog.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFog.html">glFog</A>.
+
+  GL_FRONT_FACE		   <I>params</I> returns one value, a symbolic	constant
+			   indicating whether clockwise	or counterclockwise
+			   polygon winding is treated as front-facing.	See
+			   <A HREF="glFrontFace.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glFrontFace.html">glFrontFace</A>.
+
+  GL_GREEN_BIAS		   <I>params</I> returns one value, the green bias factor
+			   used	during pixel transfers.
+
+  GL_GREEN_BITS		   <I>params</I> returns one value, the number	of green
+			   bitplanes in	each color buffer.
+
+  GL_GREEN_SCALE	   <I>params</I> returns one value, the green scale factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_INDEX_ARRAY_EXT	   <I>params</I> returns a single boolean value, indicating
+			   whether the color index array is enabled.  See
+			   <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>.
+
+  GL_INDEX_ARRAY_COUNT_EXT <I>params</I> returns one value, the number	of color
+			   indexes in the color	index array, counting from
+			   the first, that are static.	See
+			   <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>.
+
+  GL_INDEX_ARRAY_STRIDE_EXT
+			   <I>params</I> returns one value, the byte offset between
+			   consecutive color indexes in	the color index
+			   array.  See <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>.
+
+  GL_INDEX_ARRAY_TYPE_EXT  <I>params</I> returns one value, the data type of indexes
+			   in the color	index array.  See <A HREF="glIndexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexPointerEXT.html">glIndexPointerEXT</A>.
+
+  GL_INDEX_BITS		   <I>params</I> returns one value, the number	of bitplanes
+			   in each color index buffer.
+
+  GL_INDEX_CLEAR_VALUE	   <I>params</I> returns one value, the color index used to
+			   clear the color index buffers.  See <A HREF="glClearIndex.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearIndex.html">glClearIndex</A>.
+
+  GL_INDEX_MODE		   <I>params</I> returns a single Boolean value indicating
+			   whether the GL is in	color index mode (true)	or
+			   RGBA	mode (false).
+
+  GL_INDEX_OFFSET	   <I>params</I> returns one value, the offset	added to
+			   color and stencil indices during pixel transfers.
+			   See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_INDEX_SHIFT	   <I>params</I> returns one value, the amount	that color
+			   and stencil indices are shifted during pixel
+			   transfers.  See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_INDEX_WRITEMASK	   <I>params</I> returns one value, a mask indicating which
+			   bitplanes of	each color index buffer	can be
+			   written.  See <A HREF="glIndexMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIndexMask.html">glIndexMask</A>.
+
+  GL_LIGHT<I>i</I>		   <I>params</I> returns a single Boolean value indicating
+			   whether the specified light is enabled.  See
+			   <A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A> and <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>.
+
+  GL_LIGHTING		   <I>params</I> returns a single Boolean value indicating
+			   whether lighting is enabled.	 See <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>.
+
+  GL_LIGHT_MODEL_AMBIENT   <I>params</I> returns four values: the red,	green, blue,
+			   and alpha components	of the ambient intensity of
+			   the entire scene.  Integer values, if requested,
+			   are linearly	mapped from the	internal floating-
+			   point representation	such that 1.0 returns the
+			   most	positive representable integer value, and
+			   -1.0	returns	the most negative representable
+			   integer value.  See <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>.
+
+  GL_LIGHT_MODEL_LOCAL_VIEWER
+			   <I>params</I> returns a single Boolean value indicating
+			   whether specular reflection calculations treat the
+			   viewer as being local to the	scene.	See
+			   <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>.
+
+  GL_LIGHT_MODEL_TWO_SIDE  <I>params</I> returns a single Boolean value indicating
+			   whether separate materials are used to compute
+			   lighting for	front- and back-facing polygons.  See
+			   <A HREF="glLightModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLightModel.html">glLightModel</A>.
+
+  GL_LINE_SMOOTH	   <I>params</I> returns a single Boolean value indicating
+			   whether antialiasing	of lines is enabled.  See
+			   <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>.
+
+  GL_LINE_SMOOTH_HINT	   <I>params</I> returns one value, a symbolic	constant
+			   indicating the mode of the line antialiasing	hint.
+			   See <A HREF="glHint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glHint.html">glHint</A>.
+
+  GL_LINE_STIPPLE	   <I>params</I> returns a single Boolean value indicating
+			   whether stippling of	lines is enabled.  See
+			   <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>.
+
+  GL_LINE_STIPPLE_PATTERN  <I>params</I> returns one value, the 16-bit	line stipple
+			   pattern.  See <A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>.
+
+  GL_LINE_STIPPLE_REPEAT   <I>params</I> returns one value, the line stipple repeat
+			   factor.  See	<A HREF="glLineStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineStipple.html">glLineStipple</A>.
+
+  GL_LINE_WIDTH		   <I>params</I> returns one value, the line width as
+			   specified with <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>.
+
+  GL_LINE_WIDTH_GRANULARITY
+			   <I>params</I> returns one value, the width difference
+			   between adjacent supported widths for antialiased
+			   lines.  See <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>.
+
+  GL_LINE_WIDTH_RANGE	   <I>params</I> returns two values: the smallest and
+			   largest supported widths for	antialiased lines.
+			   See <A HREF="glLineWidth.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLineWidth.html">glLineWidth</A>.
+
+  GL_LIST_BASE		   <I>params</I> returns one value, the base offset added to
+			   all names in	arrays presented to <A HREF="glCallLists.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallLists.html">glCallLists</A>.  See
+			   <A HREF="glListBase.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glListBase.html">glListBase</A>.
+
+  GL_LIST_INDEX		   <I>params</I> returns one value, the name of the display
+			   list	currently under	construction.  Zero is
+			   returned if no display list is currently under
+			   construction.  See <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>.
+
+  GL_LIST_MODE		   <I>params</I> returns one value, a symbolic	constant
+			   indicating the construction mode of the display
+			   list	currently being	constructed.  See <A HREF="glNewList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNewList.html">glNewList</A>.
+
+  GL_LOGIC_OP		   <I>params</I> returns a single Boolean value indicating
+			   whether fragment indexes are	merged into the
+			   framebuffer using a logical operation.  See
+			   <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A>.
+
+  GL_LOGIC_OP_MODE	   <I>params</I> returns one value, a symbolic	constant
+			   indicating the selected logic operational mode.
+			   See <A HREF="glLogicOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLogicOp.html">glLogicOp</A>.
+
+  GL_MAP1_COLOR_4	   <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates colors.  See
+			   <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_GRID_DOMAIN	   <I>params</I> returns two values: the endpoints of the
+			   1-D map's grid domain.  See <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A>.
+
+  GL_MAP1_GRID_SEGMENTS	   <I>params</I> returns one value, the number	of partitions
+			   in the 1-D map's grid domain.  See <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A>.
+
+  GL_MAP1_INDEX		   <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates color indices.
+			   See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_NORMAL	   <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates normals.  See
+			   <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_TEXTURE_COORD_1  <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates 1D texture
+			   coordinates.	 See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_TEXTURE_COORD_2  <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates 2D texture
+			   coordinates.	 See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_TEXTURE_COORD_3  <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates 3D texture
+			   coordinates.	 See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_TEXTURE_COORD_4  <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates 4D texture
+			   coordinates.	 See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_VERTEX_3	   <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates 3D vertex
+			   coordinates.	 See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP1_VERTEX_4	   <I>params</I> returns a single Boolean value indicating
+			   whether 1D evaluation generates 4D vertex
+			   coordinates.	 See <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A>.
+
+  GL_MAP2_COLOR_4	   <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates colors.  See
+			   <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_GRID_DOMAIN	   <I>params</I> returns four values: the endpoints of	the
+			   2-D map's i and j grid domains.  See	<A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A>.
+
+  GL_MAP2_GRID_SEGMENTS	   <I>params</I> returns two values: the number of
+			   partitions in the 2-D map's i and j grid domains.
+			   See <A HREF="glMapGrid.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMapGrid.html">glMapGrid</A>.
+
+  GL_MAP2_INDEX		   <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates color indices.
+			   See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_NORMAL	   <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates normals.  See
+			   <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_TEXTURE_COORD_1  <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates 1D texture
+			   coordinates.	 See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_TEXTURE_COORD_2  <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates 2D texture
+			   coordinates.	 See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_TEXTURE_COORD_3  <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates 3D texture
+			   coordinates.	 See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_TEXTURE_COORD_4  <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates 4D texture
+			   coordinates.	 See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_VERTEX_3	   <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates 3D vertex
+			   coordinates.	 See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP2_VERTEX_4	   <I>params</I> returns a single Boolean value indicating
+			   whether 2D evaluation generates 4D vertex
+			   coordinates.	 See <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAP_COLOR		   <I>params</I> returns a single Boolean value indicating
+			   if colors and color indices are to be replaced by
+			   table lookup	during pixel transfers.	 See
+			   <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_MAP_STENCIL	   <I>params</I> returns a single Boolean value indicating
+			   if stencil indices are to be	replaced by table
+			   lookup during pixel transfers.  See
+			   <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_MATRIX_MODE	   <I>params</I> returns one value, a symbolic	constant
+			   indicating which matrix stack is currently the
+			   target of all matrix	operations.  See
+			   <A HREF="glMatrixMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMatrixMode.html">glMatrixMode</A>.
+
+  GL_MAX_ATTRIB_STACK_DEPTH
+			   <I>params</I> returns one value, the maximum supported
+			   depth of the	attribute stack.  See <A HREF="glPushAttrib.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushAttrib.html">glPushAttrib</A>.
+
+  GL_MAX_CLIP_PLANES	   <I>params</I> returns one value, the maximum number	of
+			   application-defined clipping	planes.	 See
+			   <A HREF="glClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClipPlane.html">glClipPlane</A>.
+
+  GL_MAX_EVAL_ORDER	   <I>params</I> returns one value, the maximum equation
+			   order supported by 1-D and 2-D evaluators.  See
+			   <A HREF="glMap1.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap1.html">glMap1</A> and <A HREF="glMap2.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glMap2.html">glMap2</A>.
+
+  GL_MAX_LIGHTS		   <I>params</I> returns one value, the maximum number	of
+			   lights.  See	<A HREF="glLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glLight.html">glLight</A>.
+
+  GL_MAX_LIST_NESTING	   <I>params</I> returns one value, the maximum recursion
+			   depth allowed during	display-list traversal.	 See
+			   <A HREF="glCallList.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glCallList.html">glCallList</A>.
+
+  GL_MAX_MODELVIEW_STACK_DEPTH
+			   <I>params</I> returns one value, the maximum supported
+			   depth of the	modelview matrix stack.	 See
+			   <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_MAX_NAME_STACK_DEPTH  <I>params</I> returns one value, the maximum supported
+			   depth of the	selection name stack.  See
+			   <A HREF="glPushName.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushName.html">glPushName</A>.
+
+  GL_MAX_PIXEL_MAP_TABLE   <I>params</I> returns one value, the maximum supported
+			   size	of a <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>	lookup table.  See
+			   <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_MAX_PROJECTION_STACK_DEPTH
+			   <I>params</I> returns one value, the maximum supported
+			   depth of the	projection matrix stack.  See
+			   <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_MAX_TEXTURE_SIZE	   <I>params</I> returns one value, the maximum width or
+			   height of any texture image (without	borders).
+			   See <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A> and	<A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>.
+
+  GL_MAX_TEXTURE_STACK_DEPTH
+			   <I>params</I> returns one value, the maximum supported
+			   depth of the	texture	matrix stack.  See
+			   <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_MAX_VIEWPORT_DIMS	   <I>params</I> returns two values: the maximum supported
+			   width and height of the viewport.  See <A HREF="glViewport.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glViewport.html">glViewport</A>.
+
+  GL_MODELVIEW_MATRIX	   <I>params</I> returns sixteen values: the modelview
+			   matrix on the top of	the modelview matrix stack.
+			   See <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_MODELVIEW_STACK_DEPTH <I>params</I> returns one value, the number	of matrices
+			   on the modelview matrix stack.  See <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_NAME_STACK_DEPTH	   <I>params</I> returns one value, the number	of names on
+			   the selection name stack.  See <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_NORMAL_ARRAY_EXT	   <I>params</I> returns a single boolean value, indicating
+			   whether the normal array is enabled.	 See
+			   <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>.
+
+  GL_NORMAL_ARRAY_COUNT_EXT
+			   <I>params</I> returns one value, the number	of normals in
+			   the normal array, counting from the first, that
+			   are static.	See <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>.
+
+  GL_NORMAL_ARRAY_STRIDE_EXT
+			   <I>params</I> returns one value, the byte offset between
+			   consecutive normals in the normal array.  See
+			   <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>.
+
+  GL_NORMAL_ARRAY_TYPE_EXT <I>params</I> returns one value, the data type of each
+			   coordinate in the normal array.  See
+			   <A HREF="glNormalPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormalPointerEXT.html">glNormalPointerEXT</A>.
+
+  GL_NORMALIZE		   <I>params</I> returns a single Boolean value indicating
+			   whether normals are automatically scaled to unit
+			   length after	they have been transformed to eye
+			   coordinates.	 See <A HREF="glNormal.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glNormal.html">glNormal</A>.
+
+  GL_PACK_ALIGNMENT	   <I>params</I> returns one value, the byte alignment	used
+			   for writing pixel data to memory.  See
+			   <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_PACK_LSB_FIRST	   <I>params</I> returns a single Boolean value indicating
+			   whether single-bit pixels being written to memory
+			   are written first to	the least significant bit of
+			   each	unsigned byte.	See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_PACK_ROW_LENGTH	   <I>params</I> returns one value, the row length used for
+			   writing pixel data to memory.  See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_PACK_SKIP_PIXELS	   <I>params</I> returns one value, the number	of pixel
+			   locations skipped before the	first pixel is
+			   written into	memory.	 See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_PACK_SKIP_ROWS	   <I>params</I> returns one value, the number	of rows	of
+			   pixel locations skipped before the first pixel is
+			   written into	memory.	 See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_PACK_SWAP_BYTES	   <I>params</I> returns a single Boolean value indicating
+			   whether the bytes of	two-byte and four-byte pixel
+			   indices and components are swapped before being
+			   written to memory.  See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_PERSPECTIVE_CORRECTION_HINT
+			   <I>params</I> returns one value, a symbolic	constant
+			   indicating the mode of the perspective correction
+			   hint.  See <A HREF="glHint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glHint.html">glHint</A>.
+
+  GL_PIXEL_MAP_A_TO_A_SIZE <I>params</I> returns one value, the size of the alpha-
+			   to-alpha pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_B_TO_B_SIZE <I>params</I> returns one value, the size of the blue-
+			   to-blue pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_G_TO_G_SIZE <I>params</I> returns one value, the size of the green-
+			   to-green pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_I_TO_A_SIZE <I>params</I> returns one value, the size of the index-
+			   to-alpha pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_I_TO_B_SIZE <I>params</I> returns one value, the size of the index-
+			   to-blue pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_I_TO_G_SIZE <I>params</I> returns one value, the size of the index-
+			   to-green pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_I_TO_I_SIZE <I>params</I> returns one value, the size of the index-
+			   to-index pixel translation table.  See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_I_TO_R_SIZE <I>params</I> returns one value, the size of the index-
+			   to-red pixel	translation table.  See	<A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_R_TO_R_SIZE <I>params</I> returns one value, the size of the red-to-
+			   red pixel translation table.	 See <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_PIXEL_MAP_S_TO_S_SIZE <I>params</I> returns one value, the size of the
+			   stencil-to-stencil pixel translation	table.	See
+			   <A HREF="glPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelMap.html">glPixelMap</A>.
+
+  GL_POINT_SIZE		   <I>params</I> returns one value, the point size as
+			   specified by	<A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>.
+
+  GL_POINT_SIZE_GRANULARITY
+			   <I>params</I> returns one value, the size difference
+			   between adjacent supported sizes for	antialiased
+			   points.  See	<A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>.
+
+  GL_POINT_SIZE_RANGE	   <I>params</I> returns two values: the smallest and
+			   largest supported sizes for antialiased points.
+			   See <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>.
+
+  GL_POINT_SMOOTH	   <I>params</I> returns a single Boolean value indicating
+			   whether antialiasing	of points is enabled.  See
+			   <A HREF="glPointSize.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPointSize.html">glPointSize</A>.
+
+  GL_POINT_SMOOTH_HINT	   <I>params</I> returns one value, a symbolic	constant
+			   indicating the mode of the point antialiasing
+			   hint.  See <A HREF="glHint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glHint.html">glHint</A>.
+
+  GL_POLYGON_MODE	   <I>params</I> returns two values: symbolic constants
+			   indicating whether front-facing and back-facing
+			   polygons are	rasterized as points, lines, or
+			   filled polygons.  See <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>.
+
+  GL_POLYGON_SMOOTH	   <I>params</I> returns a single Boolean value indicating
+			   whether antialiasing	of polygons is enabled.	 See
+			   <A HREF="glPolygonMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonMode.html">glPolygonMode</A>.
+
+  GL_POLYGON_SMOOTH_HINT   <I>params</I> returns one value, a symbolic	constant
+			   indicating the mode of the polygon antialiasing
+			   hint.  See <A HREF="glHint.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glHint.html">glHint</A>.
+
+  GL_POLYGON_STIPPLE	   <I>params</I> returns a single Boolean value indicating
+			   whether stippling of	polygons is enabled.  See
+			   <A HREF="glPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPolygonStipple.html">glPolygonStipple</A>.
+
+  GL_PROJECTION_MATRIX	   <I>params</I> returns sixteen values: the projection
+			   matrix on the top of	the projection matrix stack.
+			   See <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_PROJECTION_STACK_DEPTH
+			   <I>params</I> returns one value, the number	of matrices
+			   on the projection matrix stack.  See	<A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_READ_BUFFER	   <I>params</I> returns one value, a symbolic	constant
+			   indicating which color buffer is selected for
+			   reading.
+			   See <A HREF="glReadPixels.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glReadPixels.html">glReadPixels</A> and	<A HREF="glAccum.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glAccum.html">glAccum</A>.
+
+  GL_RED_BIAS		   <I>params</I> returns one value, the red bias factor used
+			   during pixel	transfers.
+
+  GL_RED_BITS		   <I>params</I> returns one value, the number	of red
+			   bitplanes in	each color buffer.
+
+  GL_RED_SCALE		   <I>params</I> returns one value, the red scale factor
+			   used	during pixel transfers.	 See <A HREF="glPixelTransfer.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelTransfer.html">glPixelTransfer</A>.
+
+  GL_RENDER_MODE	   <I>params</I> returns one value, a symbolic	constant
+			   indicating whether the GL is	in render, select, or
+			   feedback mode.  See <A HREF="glRenderMode.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glRenderMode.html">glRenderMode</A>.
+
+  GL_RGBA_MODE		   <I>params</I> returns a single Boolean value indicating
+			   whether the GL is in	RGBA mode (true) or color
+			   index mode (false).	See <A HREF="glColor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glColor.html">glColor</A>.
+
+  GL_SCISSOR_BOX	   <I>params</I> returns four values: the x and y window
+			   coordinates of the scissor box, followed by its
+			   width and height.  See <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>.
+
+  GL_SCISSOR_TEST	   <I>params</I> returns a single Boolean value indicating
+			   whether scissoring is enabled.  See <A HREF="glScissor.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glScissor.html">glScissor</A>.
+
+  GL_SHADE_MODEL	   <I>params</I> returns one value, a symbolic	constant
+			   indicating whether the shading mode is flat or
+			   smooth.  See	<A HREF="glShadeModel.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glShadeModel.html">glShadeModel</A>.
+
+  GL_STENCIL_BITS	   <I>params</I> returns one value, the number	of bitplanes
+			   in the stencil buffer.
+
+  GL_STENCIL_CLEAR_VALUE   <I>params</I> returns one value, the index to which	the
+			   stencil bitplanes are cleared.  See
+			   <A HREF="glClearStencil.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glClearStencil.html">glClearStencil</A>.
+
+  GL_STENCIL_FAIL	   <I>params</I> returns one value, a symbolic	constant
+			   indicating what action is taken when	the stencil
+			   test	fails.	See <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>.
+
+  GL_STENCIL_FUNC	   <I>params</I> returns one value, a symbolic	constant
+			   indicating what function is used to compare the
+			   stencil reference value with	the stencil buffer
+			   value.  See <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A>.
+
+  GL_STENCIL_PASS_DEPTH_FAIL
+			   <I>params</I> returns one value, a symbolic	constant
+			   indicating what action is taken when	the stencil
+			   test	passes,	but the	depth test fails.  See
+			   <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>.
+
+  GL_STENCIL_PASS_DEPTH_PASS
+			   <I>params</I> returns one value, a symbolic	constant
+			   indicating what action is taken when	the stencil
+			   test	passes and the depth test passes.  See
+			   <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>.
+
+  GL_STENCIL_REF	   <I>params</I> returns one value, the reference value that
+			   is compared with the	contents of the	stencil
+			   buffer.  See	<A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A>.
+
+  GL_STENCIL_TEST	   <I>params</I> returns a single Boolean value indicating
+			   whether stencil testing of fragments	is enabled.
+			   See <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A> and <A HREF="glStencilOp.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilOp.html">glStencilOp</A>.
+
+  GL_STENCIL_VALUE_MASK	   <I>params</I> returns one value, the mask that is used to
+			   mask	both the stencil reference value and the
+			   stencil buffer value	before they are	compared.
+			   See <A HREF="glStencilFunc.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilFunc.html">glStencilFunc</A>.
+
+  GL_STENCIL_WRITEMASK	   <I>params</I> returns one value, the mask that controls
+			   writing of the stencil bitplanes.  <A HREF="glStencilMask.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glStencilMask.html">glStencilMask</A>.
+
+  GL_STEREO		   <I>params</I> returns a single Boolean value indicating
+			   whether stereo buffers (left	and right) are
+			   supported.
+
+  GL_SUBPIXEL_BITS	   <I>params</I> returns one value, an	estimate of the
+			   number of bits of subpixel resolution that are
+			   used	to position rasterized geometry	in window
+			   coordinates.
+
+  GL_TEXTURE_1D		   <I>params</I> returns a single Boolean value indicating
+			   whether 1D texture mapping is enabled.  See
+			   <A HREF="glTexImage1D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage1D.html">glTexImage1D</A>.
+
+  GL_TEXTURE_2D		   <I>params</I> returns a single Boolean value indicating
+			   whether 2D texture mapping is enabled.  See
+			   <A HREF="glTexImage2D.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexImage2D.html">glTexImage2D</A>.
+
+  GL_TEXTURE_COORD_ARRAY_EXT
+			   <I>params</I> returns a single boolean value, indicating
+			   whether the texture coordinate array	is enabled.
+			   See <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>.
+
+  GL_TEXTURE_COORD_ARRAY_COUNT_EXT
+			   <I>params</I> returns one value, the number	of elements
+			   in the texture coordinate array, counting from the
+			   first, that are static.  See	<A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>.
+
+  GL_TEXTURE_COORD_ARRAY_SIZE_EXT
+			   <I>params</I> returns one value, the number	of
+			   coordinates per element in the texture coordinate
+			   array.  See <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>.
+
+  GL_TEXTURE_COORD_ARRAY_STRIDE_EXT
+			   <I>params</I> returns one value, the byte offset between
+			   consecutive elements	in the texture coordinate
+			   array.  See <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>.
+
+  GL_TEXTURE_COORD_ARRAY_TYPE_EXT
+			   <I>params</I> returns one value, the data type of the
+			   coordinates in the texture coordinate array.	 See
+			   <A HREF="glTexCoordPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexCoordPointerEXT.html">glTexCoordPointerEXT</A>.
+
+  GL_TEXTURE_GEN_S	   <I>params</I> returns a single Boolean value indicating
+			   whether automatic generation	of the S texture
+			   coordinate is enabled.  See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+
+  GL_TEXTURE_GEN_T	   <I>params</I> returns a single Boolean value indicating
+			   whether automatic generation	of the T texture
+			   coordinate is enabled.  See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+
+  GL_TEXTURE_GEN_R	   <I>params</I> returns a single Boolean value indicating
+			   whether automatic generation	of the R texture
+			   coordinate is enabled.  See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+
+  GL_TEXTURE_GEN_Q	   <I>params</I> returns a single Boolean value indicating
+			   whether automatic generation	of the Q texture
+			   coordinate is enabled.  See <A HREF="glTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glTexGen.html">glTexGen</A>.
+
+  GL_TEXTURE_MATRIX	   <I>params</I> returns sixteen values: the texture matrix
+			   on the top of the texture matrix stack.  See
+			   <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_TEXTURE_STACK_DEPTH   <I>params</I> returns one value, the number	of matrices
+			   on the texture matrix stack.	 See <A HREF="glPushMatrix.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPushMatrix.html">glPushMatrix</A>.
+
+  GL_UNPACK_ALIGNMENT	   <I>params</I> returns one value, the byte alignment	used
+			   for reading pixel data from memory.	See
+			   <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_UNPACK_LSB_FIRST	   <I>params</I> returns a single Boolean value indicating
+			   whether single-bit pixels being read	from memory
+			   are read first from the least significant bit of
+			   each	unsigned byte.	See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_UNPACK_ROW_LENGTH	   <I>params</I> returns one value, the row length used for
+			   reading pixel data from memory.  See	<A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_UNPACK_SKIP_PIXELS	   <I>params</I> returns one value, the number	of pixel
+			   locations skipped before the	first pixel is read
+			   from	memory.	 See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_UNPACK_SKIP_ROWS	   <I>params</I> returns one value, the number	of rows	of
+			   pixel locations skipped before the first pixel is
+			   read	from memory.  See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_UNPACK_SWAP_BYTES	   <I>params</I> returns a single Boolean value indicating
+			   whether the bytes of	two-byte and four-byte pixel
+			   indices and components are swapped after being
+			   read	from memory.  See <A HREF="glPixelStore.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelStore.html">glPixelStore</A>.
+
+  GL_VERTEX_ARRAY_EXT	   <I>params</I> returns a single boolean value, indicating
+			   whether the vertex array is enabled.	 See
+			   <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>.
+
+  GL_VERTEX_ARRAY_COUNT_EXT
+			   <I>params</I> returns one value, the number	of vertexes
+			   in the vertex array,	counting from the first, that
+			   are static.	See <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>.
+
+  GL_VERTEX_ARRAY_SIZE_EXT <I>params</I> returns one value, the number	of
+			   coordinates per vertex in the vertex	array.	See
+			   <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>.
+
+  GL_VERTEX_ARRAY_STRIDE_EXT
+			   <I>params</I> returns one value, the byte offset between
+			   consecutive vertexes	in the vertex array.  See
+			   <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>.
+
+  GL_VERTEX_ARRAY_TYPE_EXT <I>params</I> returns one value, the data type of each
+			   coordinate in the vertex array.  See
+			   <A HREF="glVertexPointerEXT.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glVertexPointerEXT.html">glVertexPointerEXT</A>.
+
+  GL_VIEWPORT		   <I>params</I> returns four values: the x and y window
+			   coordinates of the viewport,	followed by its	width
+			   and height.	See <A HREF="glViewport.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glViewport.html">glViewport</A>.
+
+  GL_ZOOM_X		   <I>params</I> returns one value, the x pixel zoom factor.
+			   See <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A>.
+
+  GL_ZOOM_Y		   <I>params</I> returns one value, the y pixel zoom factor.
+			   See <A HREF="glPixelZoom.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glPixelZoom.html">glPixelZoom</A>.
+
+  Many of the Boolean parameters can also be queried more easily using
+  <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A>.
+
+</PRE><H2>Errors</H2><PRE>
+  GL_INVALID_ENUM is generated if <I>pname</I>	is not an accepted value.
+
+  GL_INVALID_OPERATION is generated if <A HREF="glGet.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGet.html">glGet</A> is	executed between the
+  execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glBegin</A> and the corresponding execution of <A HREF="glBegin.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glBegin.html">glEnd</A>.
+
+</PRE><H2>See Also</H2><PRE>
+  <A HREF="glGetClipPlane.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetClipPlane.html">glGetClipPlane</A>, <A HREF="glGetError.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetError.html">glGetError</A>, <A HREF="glGetLight.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetLight.html">glGetLight</A>, <A HREF="glGetMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMap.html">glGetMap</A>, <A HREF="glGetMaterial.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetMaterial.html">glGetMaterial</A>,
+  <A HREF="glGetPixelMap.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPixelMap.html">glGetPixelMap</A>, <A HREF="glGetPolygonStipple.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetPolygonStipple.html">glGetPolygonStipple</A>, <A HREF="glGetString.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetString.html">glGetString</A>, <A HREF="glGetTexEnv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexEnv.html">glGetTexEnv</A>,	<A HREF="glGetTexGen.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexGen.html">glGetTexGen</A>,
+  <A HREF="glGetTexImage.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexImage.html">glGetTexImage</A>, <A HREF="glGetTexLevelParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexLevelParameter.html">glGetTexLevelParameter</A>, <A HREF="glGetTexParameter.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glGetTexParameter.html">glGetTexParameter</A>, <A HREF="glIsEnabled.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/glIsEnabled.html">glIsEnabled</A>
+
+
+
+</PRE>
+<HR><P>
+<!/**** BEGIN NAVIGATION ****/>
+<A HREF="index.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/index.html">Introduction</A> | 
+<A HREF="opengl_index_alpha.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_alpha.html">Alphabetic</A> | 
+<A HREF="opengl_index_spec.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/opengl_index_spec.html">Specification</A>
+<!/**** END NAVIGATION ****/>
+<P>
+Last Edited: <EM>Mon, May 22, 1995</EM>
+<P>
+<EM><A HREF="afv.html" tppabs="http://www.eecs.tulane.edu/www/graphics/doc/OpenGL-Man-Pages/afv.html">AFV</A></EM>
+</BODY>
+</HTML>
