@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1526314982 source:d:\programmation\c++\monprogramme\main.cpp
+
+1525182226 source:d:\programmation\c++\monprogramme\func.c
+	"func.h"
+
+1525182672 d:\programmation\c++\monprogramme\func.h
+
+1525182572 source:d:\programmation\c++\monprogramme\func.cpp
+	"func.h"
+

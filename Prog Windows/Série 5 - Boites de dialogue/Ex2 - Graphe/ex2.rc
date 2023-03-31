@@ -1,0 +1,43 @@
+/****************************************************************************
+
+
+ex2.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Ex2.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&Fichier"
+ {
+  MENUITEM "&Actualiser", CM_FICHIER_RELIRE
+  MENUITEM "&Quitter", CM_FICHIER_QUITTER
+ }
+
+ POPUP "Couleur"
+ {
+  MENUITEM "Noir", CM_COULEUR_NOIR
+  MENUITEM "Rouge", CM_COULEUR_ROUGE
+  MENUITEM "Jaune", CM_COULEUR_JAUNE
+  MENUITEM "Bleu", CM_COULEUR_BLEU
+  MENUITEM "Vert", CM_COULEUR_VERT
+ }
+
+ POPUP "Epaisseur"
+ {
+  MENUITEM "1", CM_EPAIS_1
+  MENUITEM "2", CM_EPAIS_2
+  MENUITEM "3", CM_EPAIS_3
+  MENUITEM "4", CM_EPAIS_4
+ }
+
+}
+
+IDM_MENU1 ACCELERATORS 
+{
+ "A", CM_FICHIER_RELIRE, ASCII, CONTROL
+}

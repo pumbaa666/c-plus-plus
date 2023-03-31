@@ -1,0 +1,15 @@
+[Project]
+FileName=E:\C++\Jeu de la vie C++\Jeu de la vie.dev
+Name=Jeu de la vie
+Use_gpp=1
+UnitCount=1
+ResFiles=E:\C++\Jeu de la vie C++\rsrc.rc
+NoConsole=0
+IsDll=0
+Icon=C:\Program Files\Dev C++\Icon\Mainicon.ico
+CompilerOptions=
+IncludeDirs=
+ObjFile=
+[Unit1]
+FileName=E:\C++\Jeu de la vie C++\Vie.cpp
+FileTime=817798353

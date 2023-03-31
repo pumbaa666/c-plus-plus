@@ -1,0 +1,28 @@
+/****************************************************************************
+
+
+ex3.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Ex3.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&Fichier"
+ {
+  MENUITEM "&Actualiser", CM_FICHIER_ACTUALISER
+  MENUITEM "&Quitter", CM_FICHIER_QUITTER
+ }
+
+ POPUP "&Option"
+ {
+  MENUITEM "Mode &Barre", CM_OPTION_BARRE
+  MENUITEM "Mode &Camembert", CM_OPTION_PIE
+ }
+
+}
+

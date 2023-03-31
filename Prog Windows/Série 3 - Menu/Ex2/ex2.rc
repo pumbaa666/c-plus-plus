@@ -1,0 +1,41 @@
+/****************************************************************************
+
+
+ex2.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Ex2.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&Oui"
+ {
+  MENUITEM "&Rouge", CM_OUI_ROUGE
+  MENUITEM "&Vert", CM_OUI_VERT
+  MENUITEM "&Bleu", CM_OUI_BLEU
+  MENUITEM "&Jaune", CM_OUI_JAUNE
+ }
+
+ POPUP "&Non"
+ {
+  MENUITEM "&Rouge", CM_NON_ROUGE
+  MENUITEM "&Vert", CM_NON_VERT
+  MENUITEM "&Bleu", CM_NON_BLEU
+  MENUITEM "&Jaune", CM_NON_JAUNE
+ }
+
+ POPUP "&Question"
+ {
+  MENUITEM "&Paire", CM_QUESTION_PAIRE
+  MENUITEM "&Impaire", CM_QUESTION_IMPAIRE
+  MENUITEM "&Premier", CM_QUESTION_PREMIER
+  MENUITEM "&Carré parfait", CM_QUESTION_CARRE
+  MENUITEM "&Parfait", CM_QUESTION_PARFAIT
+ }
+
+}
+

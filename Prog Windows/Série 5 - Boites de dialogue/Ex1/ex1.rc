@@ -1,0 +1,38 @@
+/****************************************************************************
+
+
+ex1.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Ex1.rh"
+#include "owl\inputdia.rh"
+#include "owl\inputdia.rc"
+
+IDM_MENU1 MENU 
+{
+ POPUP "Forme"
+ {
+  MENUITEM "Line", CM_FORME_LINE
+  MENUITEM "Rectangle", CM_FORME_RECT
+  MENUITEM "Rectangle arrondi", CM_FORME_RECT_ROUND
+  MENUITEM "Ellipse", CM_FORME_ELLIPSE
+  MENUITEM "Arc", CM_FORME_ARC
+  MENUITEM "Corde", CM_FORME_CORDE
+  MENUITEM "Camembert", CM_FORME_CAMEMBERT
+  MENUITEM "Polyline", CM_FORME_POLYLINE
+  MENUITEM "Polygone", CM_FORME_POLYGONE
+ }
+
+ POPUP "Option"
+ {
+  MENUITEM "Couleur", CM_COULEUR
+  MENUITEM "Epaisseur", CM_EPAIS
+  MENUITEM "Police", CM_POLICE
+ }
+
+}
+

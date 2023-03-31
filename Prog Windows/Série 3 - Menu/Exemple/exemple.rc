@@ -1,0 +1,60 @@
+/****************************************************************************
+
+
+exemple.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Exemple.H"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&File"
+ {
+  MENUITEM "&New", CM_FILE_NEW
+  MENUITEM "&Open", CM_FILE_OPEN
+  MENUITEM "&Save", 103
+  MENUITEM "Save &As", 104
+  MENUITEM SEPARATOR
+  MENUITEM "P&rinter Setup", 105
+  MENUITEM "Page Set&up", 106
+  MENUITEM "&Print", 107
+  MENUITEM SEPARATOR
+  MENUITEM "E&xit", 108
+ }
+
+ POPUP "&Edit"
+ {
+  MENUITEM "&Undo", CM_EDIT_UNDO
+  MENUITEM "&Redo", CM_EDIT_REDO
+  MENUITEM SEPARATOR
+  MENUITEM "Cu&t", 203
+  MENUITEM "&Copy", 204
+  MENUITEM "&Paste", 205
+ }
+
+ POPUP "&Window"
+ {
+  MENUITEM "&Tile", 301
+  MENUITEM "&Cascade", 302
+  MENUITEM "&Hide", 303
+  POPUP "&View"
+  {
+   MENUITEM "&All", 401
+   MENUITEM "&Hidden Document List", 402
+  }
+
+ }
+
+ POPUP "&Help"
+ {
+  MENUITEM "&Help Topics", 901
+  MENUITEM "&What's This?", 902
+  MENUITEM SEPARATOR
+  MENUITEM "&About", 903
+ }
+
+}

@@ -1,0 +1,32 @@
+/****************************************************************************
+
+
+ex1.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "..\Ex1\Ex1.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&Couleur de fond"
+ {
+  MENUITEM "&Rouge", CM_FOND_ROUGE
+  MENUITEM "&Vert", CM_FOND_VERT
+  MENUITEM "&Bleu", CM_FOND_BLEU
+  MENUITEM "&Jaune", CM_FOND_JAUNE
+ }
+
+ POPUP "&Taille"
+ {
+  MENUITEM "&100 x 100", CM_TAILLE_100
+  MENUITEM "&200 x 200", CM_TAILLE_200
+  MENUITEM "&400 x 400", CM_TAILLE_400
+  MENUITEM "&800 x 600", CM_TAILLE_800
+ }
+
+}
+

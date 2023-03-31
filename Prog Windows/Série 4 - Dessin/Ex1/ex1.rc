@@ -1,0 +1,56 @@
+/****************************************************************************
+
+
+ex1.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Ex1.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "Forme"
+ {
+  MENUITEM "Line", CM_FORME_LINE
+  MENUITEM "Rectangle", CM_FORME_RECT
+  MENUITEM "Rectangle arrondi", CM_FORME_RECT_ROUND
+  MENUITEM "Ellipse", CM_FORME_ELLIPSE
+  MENUITEM "Arc", CM_FORME_ARC
+  MENUITEM "Corde", CM_FORME_CORDE
+  MENUITEM "Camembert", CM_FORME_CAMEMBERT
+  MENUITEM "Polyline", CM_FORME_POLYLINE
+  MENUITEM "Polygone", CM_FORME_POLYGONE
+ }
+
+ POPUP "Couleur"
+ {
+  MENUITEM "Noir", CM_COULEUR_NOIR
+  MENUITEM "Rouge", CM_COULEUR_ROUGE
+  MENUITEM "Bleu", CM_COULEUR_BLEU
+  MENUITEM "Vert", CM_COULEUR_VERT
+  MENUITEM "Jaune", CM_COULEUR_JAUNE
+ }
+
+ POPUP "Epaisseur"
+ {
+  MENUITEM "1", CM_EPAIS_1
+  MENUITEM "2", CM_EPAIS_2
+  MENUITEM "4", CM_EPAIS_4
+  MENUITEM "8", CM_EPAIS_8
+  MENUITEM "16", CM_EPAIS_16
+ }
+
+ POPUP "Type de trait"
+ {
+  MENUITEM "Plein", CM_TYPE_PLEIN
+  MENUITEM "Tirets", CM_TYPE_TIRETS
+  MENUITEM "Pointillés", CM_TYPE_POINTILLES
+  MENUITEM "Trait-point", CM_TYPE_TRAIT_POINT
+  MENUITEM "Trait-point-point", CM_TYPE_TRAIT_POINT_POINT
+ }
+
+}
+

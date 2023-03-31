@@ -1,0 +1,30 @@
+/****************************************************************************
+
+
+graphe.rc
+
+produced by Borland Resource Workshop
+
+
+*****************************************************************************/
+
+#include "Graphe.rh"
+
+IDM_MENU1 MENU 
+{
+ POPUP "&Fichier"
+ {
+  MENUITEM "&Ouvrir", CM_FICHIER_OUVRIR
+  MENUITEM "&Actualiser", CM_FICHIER_ACTUALISER
+  MENUITEM "&Quitter", CM_FICHIER_QUITTER
+ }
+
+ POPUP "&Options"
+ {
+  MENUITEM "Afficher points", CM_OPTIONS_POINTS
+  MENUITEM "&Relier points", CM_OPTIONS_RELIER
+  MENUITEM "&Couleur", CM_OPTIONS_COULEUR
+ }
+
+}
+

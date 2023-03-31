@@ -1,0 +1,6 @@
+#define IDM_MENU1	1
+#define CM_FILEITEM1	18873
+#define CM_EDIT_REDO	11845
+#define CM_EDIT_UNDO	11844
+#define CM_FILE_OPEN	11843
+#define CM_FILE_NEW	11842
